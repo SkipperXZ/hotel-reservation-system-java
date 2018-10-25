@@ -1,0 +1,24 @@
+package Hotel;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class OneDayHotel implements Serializable {
+
+    private Floor[] floors ;
+    private LocalDate date;
+
+    public OneDayHotel(LocalDate date){
+        this.date = date;
+        floors = new Floor[]{new Floor(1),new Floor(2),new Floor(3),new Floor(4),new Floor(5)};
+        System.out.println("hello");
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Floor[] getFloors() {
+        return floors;
+    }
+}

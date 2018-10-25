@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.ReservationPageController">
+
+   <children>
+      <BorderPane layoutX="21.0" layoutY="22.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
+         <top>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" prefHeight="64.0" prefWidth="220.0" style="-fx-background-color: #1473E6;" text="nameHoel" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="257.0" layoutY="12.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #F0F7FF;" text="Dashboard" textAlignment="RIGHT" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../icon/exit.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" text="13:10" textFill="#545557">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roomIDLabel_001" alignment="CENTER" layoutX="268.0" layoutY="16.0" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #f0f7ff;" text="RESERVATION" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <Button contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #fff;" text="    Dashboard" textAlignment="RIGHT" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../icon/contact-book.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #fff;" text="    Calendar" textAlignment="RIGHT" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../icon/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #fff;" text="     Reservation" textAlignment="RIGHT" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../icon/new.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #fff;" text="   Customer" textAlignment="RIGHT" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../icon/person.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #fff;" text="  Report" textAlignment="RIGHT" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../icon/layout-right.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="110.0" prefWidth="220.0" style="-fx-background-color: #fff;" text="User" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../icon/user.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+               <effect>
+                  <DropShadow color="#00000032" />
+               </effect>
+            </VBox>
+         </left>
+         <right>
+            <Pane prefHeight="1016.0" prefWidth="256.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="140.0" layoutX="31.0" layoutY="23.0" stroke="#0000002d" strokeType="INSIDE" width="182.0" />
+                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="140.0" layoutX="37.0" layoutY="498.0" stroke="#0000002d" strokeType="INSIDE" width="182.0" />
+                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="140.0" layoutX="37.0" layoutY="336.0" stroke="#0000002d" strokeType="INSIDE" width="182.0" />
+                  <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="140.0" layoutX="31.0" layoutY="176.0" stroke="#0000002d" strokeType="INSIDE" width="182.0" />
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3d8ceb" height="26.0" layoutX="85.0" layoutY="35.0" stroke="#ffffff00" strokeType="INSIDE" width="76.0" />
+                  <Text fill="WHITE" layoutX="95.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suite" wrappingWidth="64.0000060647726">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3d8ceb" height="26.0" layoutX="75.0" layoutY="510.0" stroke="#ffffff00" strokeType="INSIDE" width="120.0" />
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3d8ceb" height="26.0" layoutX="76.0" layoutY="351.0" stroke="#ffffff00" strokeType="INSIDE" width="107.0" />
+                  <Text fill="WHITE" layoutX="82.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Standard" wrappingWidth="141.00001314282417">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3d8ceb" height="26.0" layoutX="78.0" layoutY="188.0" stroke="#ffffff00" strokeType="INSIDE" width="97.0" />
+                  <Text fill="WHITE" layoutX="87.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deluxe" wrappingWidth="112.99995970726013">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="83.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Superior" wrappingWidth="97.00001719594002">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="AvaliableSuiteLabel" layoutX="50.0" layoutY="61.0" text="10">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AvaliableDeluxeLabel" layoutX="50.0" layoutY="214.0" text="10">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AvaliableSuperiorLabel" layoutX="50.0" layoutY="371.0" text="10">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AvaliableStandardLabel" layoutX="58.0" layoutY="536.0" text="10">
+                     <font>
+                        <Font name="System Bold" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="127.0" layoutY="90.0" text="/">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="136.0" layoutY="564.0" text="/">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="133.0" layoutY="399.0" text="/">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="129.0" layoutY="242.0" text="/">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AllSuiteLabel" layoutX="151.0" layoutY="102.0" text="20">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AllStandardLabel" layoutX="157.0" layoutY="578.0" text="20">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AllSuperiorLabel" layoutX="153.0" layoutY="412.0" text="20">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="AllDeluxeLabel" layoutX="147.0" layoutY="246.0" prefHeight="54.0" prefWidth="44.0" text="20">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="25.0" layoutX="58.0" layoutY="697.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6faff" height="25.0" layoutX="58.0" layoutY="663.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc7777" height="25.0" layoutX="58.0" layoutY="830.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="25.0" layoutX="58.0" layoutY="796.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="25.0" layoutX="58.0" layoutY="762.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#24ec88" height="25.0" layoutX="58.0" layoutY="730.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Circle fill="#ff2b00" layoutX="69.0" layoutY="878.0" radius="12.0" stroke="#ff000000" strokeType="INSIDE" />
+                  <Text layoutX="96.0" layoutY="681.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacant">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="97.0" layoutY="884.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Late">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="94.0" layoutY="848.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Out Of Service">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="95.0" layoutY="814.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="96.0" layoutY="780.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="96.0" layoutY="748.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In-House">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="97.0" layoutY="715.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </right>
+      </BorderPane>
+      <Button fx:id="makeF1" alignment="TOP_CENTER" layoutX="286.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F1" textFill="#9f9f9f" textOverrun="CLIP">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="makeF2" layoutX="408.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F2" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="makeF3" layoutX="530.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F3" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="makeF4" layoutX="652.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F4" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="makeF5" layoutX="774.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F5" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" layoutX="1331.0" layoutY="148.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="159.0">
+         <effect>
+            <DropShadow color="#1b1b1b" />
+         </effect>
+      </Rectangle>
+      <Button fx:id="makePreDay" layoutX="1342.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
+      <Button fx:id="makeNextDay" alignment="TOP_CENTER" layoutX="1454.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
+      <Label fx:id="currentDayLabel" alignment="CENTER" layoutX="1356.0" layoutY="162.0" prefHeight="25.0" prefWidth="110.0" text="CurrentDay">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Pane fx:id="pane_00" layoutX="287.0" layoutY="253.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_00" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_00" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_00" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_00" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_00" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_00" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_00" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_01" layoutX="495.0" layoutY="253.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_01" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_01" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_01" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_01" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_01" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_01" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_01" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_02" layoutX="703.0" layoutY="253.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_02" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_02" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_02" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_02" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_02" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_02" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_02" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_03" layoutX="907.0" layoutY="253.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_03" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_03" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_03" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_03" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_03" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_03" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_03" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_04" layoutX="1118.0" layoutY="253.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_04" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_04" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_04" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_04" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_04" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_04" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_04" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_05" layoutX="1331.0" layoutY="253.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_05" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_05" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_05" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_05" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_05" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_05" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_05" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_06" layoutX="286.0" layoutY="497.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_06" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_06" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_06" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_06" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_06" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_06" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_06" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_07" layoutX="496.0" layoutY="497.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_07" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_07" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_07" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_07" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_07" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_07" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_07" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_08" layoutX="703.0" layoutY="497.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_08" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_08" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_08" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_08" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_08" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_08" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_08" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_09" layoutX="907.0" layoutY="497.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_09" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_09" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_09" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_09" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_09" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_09" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_09" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_010" layoutX="1118.0" layoutY="497.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_010" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_010" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_010" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_010" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_010" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_010" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_010" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_011" layoutX="1331.0" layoutY="497.0" prefHeight="179.0" prefWidth="182.0" style="-fx-background-color: #f6faff;">
+         <effect>
+            <DropShadow color="#0000001a" />
+         </effect>
+         <children>
+            <Label fx:id="roomIDLabel_011" alignment="TOP_CENTER" layoutX="-11.0" layoutY="7.0" prefHeight="40.0" prefWidth="97.0" text="S101" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="vacantLabel_011" alignment="TOP_CENTER" layoutX="51.0" layoutY="143.0" prefHeight="40.0" prefWidth="97.0" text="Vacant" textFill="#3d8ceb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="doingLabel_011" alignment="TOP_CENTER" layoutY="69.0" prefHeight="25.0" prefWidth="182.0" text="Woramate s." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="subDoingLabel_011" alignment="TOP_CENTER" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" text="Time Out : 13.00" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkInLabel_011" alignment="TOP_CENTER" layoutX="-1.0" layoutY="143.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkOutLabel_011" alignment="TOP_CENTER" layoutX="-1.0" layoutY="160.0" prefHeight="18.0" prefWidth="97.0" text="13/06/2018" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel_011" alignment="TOP_CENTER" layoutX="-6.0" layoutY="126.0" prefHeight="25.0" prefWidth="97.0" text="Warrawit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+
+</AnchorPane>
