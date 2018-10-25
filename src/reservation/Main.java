@@ -23,9 +23,9 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1920, 1080));
         primaryStage.setOnCloseRequest(event -> closeFuncion());
-
+///test git hub
         primaryStage.show();
-
+//show
     }
     public void closeFuncion(){
         stopClock();
