@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CustomerPageController">
+
+    <children>
+        <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
+            <top>
+                <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="257.0" layoutY="12.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #F0F7FF;" text="Dashboard" textAlignment="RIGHT" textFill="#1473e6">
+                            <font>
+                                <Font name="Segoe UI Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../img/icon/entrance.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" text="13:10" textFill="#545557">
+                            <font>
+                                <Font size="36.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="roomIDLabel_001" alignment="CENTER" layoutX="268.0" layoutY="16.0" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #f0f7ff;" text="CUSTOMER" textFill="#3d8ceb">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </top>
+            <left>
+                <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane prefWidth="220.0">
+                            <children>
+                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icon/contact-book.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefWidth="220.0">
+                            <children>
+                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icon/calendar.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefWidth="220.0">
+                            <children>
+                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icon/new.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefWidth="220.0">
+                            <children>
+                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icon/person.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefWidth="220.0">
+                            <children>
+                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icon/layout-right.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefWidth="220.0">
+                            <children>
+                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="24.0" />
+                                    </font>
+                                </JFXButton>
+                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icon/user.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                    </children>
+                    <effect>
+                        <DropShadow color="#00000032" />
+                    </effect>
+                </VBox>
+            </left>
+            <center>
+                <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <JFXTreeTableView layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" />
+                        <JFXButton layoutX="37.0" layoutY="830.0" prefHeight="45.0" prefWidth="130.0" style="-fx-background-color: #1473E6;" text="New" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Bold" size="18.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </Pane>
+            </center>
+        </BorderPane>
+        <Pane layoutX="1684.0" layoutY="973.0" prefHeight="108.0" prefWidth="237.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="123.0" layoutX="-3.0" layoutY="-17.0" stroke="#ffffff57" strokeType="INSIDE" width="239.0" />
+                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="6.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/icon/user.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="51.0" text="username">
+                    <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+
+</AnchorPane>
