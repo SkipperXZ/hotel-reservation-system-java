@@ -58,7 +58,7 @@
                     <children>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                                <JFXButton fx:id="DashboardButtton" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -72,7 +72,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                                <JFXButton fx:id="CalendarButtton" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -86,7 +86,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                                <JFXButton fx:id="ReservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -100,7 +100,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                                <JFXButton fx:id="CustomerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -114,7 +114,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                                <JFXButton fx:id="ReportButtton" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -128,7 +128,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
+                                <JFXButton fx:id="UserButtton" layoutY="1.0" prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
