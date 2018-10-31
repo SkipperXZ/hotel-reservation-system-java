@@ -11,21 +11,21 @@ import main.Linker;
 public class CustomerPageController {
 
     @FXML
-    private JFXButton  DashboardButtton;
+    private JFXButton  dashboardButtton;
     @FXML
-    private JFXButton  CalendarButtton;
+    private JFXButton  calendarButtton;
     @FXML
-    private JFXButton  ReservationButtton;
+    private JFXButton  reservationButtton;
     @FXML
-    private JFXButton  CustomerButtton;
+    private JFXButton  customerButtton;
     @FXML
-    private JFXButton  ReportButtton;
+    private JFXButton  reportButtton;
     @FXML
-    private JFXButton  UserButtton;
+    private JFXButton  userButtton;
 
     @FXML
     public void initialize() {
-        ReservationButtton.setOnAction(new EventHandler<ActionEvent>() {
+        reservationButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Linker.primaryStage.setScene(Linker.resScene);
