@@ -3,6 +3,7 @@ package reservation.controller;
 import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
+import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -777,7 +778,7 @@ private void  initClock(){
         RoomBlockController roomBlockController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/RoomBlockPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomBlockPage.fxml"));
             System.out.println(loader);
             Parent root = loader.load();
             roomBlockController = loader.getController();
@@ -799,7 +800,7 @@ private void  initClock(){
         OutOfServiceController outOfServiceController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/OutOFServicePage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
             System.out.println(loader);
             Parent root = loader.load();
             outOfServiceController = loader.getController();
@@ -820,7 +821,7 @@ private void  initClock(){
         GuestInfoPageController guestInfoPageController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/GuestFolioPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/GuestFolioPage.fxml"));
             Parent root = loader.load();
             guestInfoPageController = loader.getController();
             guestInfoPageController.setParentController(this);
@@ -838,7 +839,7 @@ private void  initClock(){
         RoomInfoPageController roomInfoPageController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/RoomInfoPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomInfoPage.fxml"));
             Parent root = loader.load();
             roomInfoPageController = loader.getController();
             roomInfoPageController.setParentController(this);
@@ -858,7 +859,7 @@ private boolean isCheckOutScene(){
     CheckOutPageController checkOutPageController;
 
     try {
-        FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/CheckOutPage.fxml"));
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
         System.out.println(loader);
         Parent root = loader.load();
         checkOutPageController = loader.getController();
@@ -882,7 +883,7 @@ private boolean isConfirmCleaningScene(){
         CleaningPageController cleaningPageController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/CleaningPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CleaningPage.fxml"));
             // System.out.println(loader);
             Parent root = loader.load();
             cleaningPageController = loader.getController();
@@ -903,7 +904,7 @@ private boolean isConfirmCleaningScene(){
         CheckInController checkInController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/CheckInReserved.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckInReserved.fxml"));
             Parent root = loader.load();
             checkInController = loader.getController();
             checkInController.setParentController(this);
@@ -943,7 +944,7 @@ private boolean isConfirmCleaningScene(){
             ReserveRoomController reserveRoomController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/ReserveRoomPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
            // System.out.println();
             System.out.println(loader);
             Parent root = loader.load();
@@ -965,7 +966,7 @@ private boolean isConfirmCleaningScene(){
         PaymentPageController paymentPageController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(Main.class.getResource("page/PaymentPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/PaymentPage.fxml"));
             // System.out.println();
           //  System.out.println(loader);
             Parent root = loader.load();

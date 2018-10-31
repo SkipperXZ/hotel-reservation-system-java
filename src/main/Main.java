@@ -1,4 +1,4 @@
-package reservation;
+package main;
 
 import Hotel.Hotel;
 import Hotel.Customer;
@@ -10,20 +10,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import reservation.IO;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main extends Application {
-
+    //Scene resScene =
+    Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("page/res.fxml"));
+        Linker.primaryStage = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("../reservation/page/res.fxml"));
+        Linker.resScene =new Scene(root, 1920, 1080);
+        Parent root2 = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPage.fxml"));
+        Linker.customerScene = new Scene(root2,1920, 1080);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1920, 1080));
+        primaryStage.setScene(Linker.customerScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
-///test git hub
         primaryStage.show();
 //show
     }
@@ -64,7 +68,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         load();
-
         launch(args);
     }
 }
