@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CustomerPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customer.CustomerPageController">
 
     <children>
         <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
@@ -100,7 +100,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                                <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   customer" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -149,7 +149,7 @@
             <center>
                 <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <JFXTreeTableView layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" />
+                        <JFXTreeTableView fx:id="table" layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" />
                         <JFXButton layoutX="37.0" layoutY="830.0" prefHeight="45.0" prefWidth="130.0" style="-fx-background-color: #1473E6;" text="New" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Bold" size="18.0" />
