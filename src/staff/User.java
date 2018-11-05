@@ -1,106 +1,180 @@
 package staff;
 
+import javafx.beans.property.SimpleStringProperty;
+
+import java.awt.*;
 import java.io.Serializable;
+import javafx.scene.control.Button;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 public class User implements Serializable {
-    private  String employeeId;
-    private String userName;
-    private String firstName;
-    private String lastName;
-    private String idCardNumber;
-    private String country;
-    private String tel;
-    private String email;
-    private String address;
-    private String userType;
-    private String role;
+    //SimpleStringProperty
+    private SimpleStringProperty employeeId;
+    private SimpleStringProperty userName;
+    private SimpleStringProperty firstName;
+    private SimpleStringProperty lastName;
+    private SimpleStringProperty idCardNumber;
+    private SimpleStringProperty country;
+    private SimpleStringProperty tel;
+    private SimpleStringProperty email;
+    private SimpleStringProperty address;
+    private SimpleStringProperty userType;
+    private SimpleStringProperty role;
+    private Button button;
 
     public User(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
                 String userType,String role){
-        this.employeeId=employeeId;
-        this.userName=userName;
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.idCardNumber=idCardNumber;
-        this.country=country;
-        this.tel=tel;
-        this.email=email;
-        this.address=address;
-        this.userType=userType;
-        this.role=role;
+        this.employeeId=new SimpleStringProperty(employeeId);
+        this.userName=new SimpleStringProperty(userName);
+        this.firstName=new SimpleStringProperty(firstName);
+        this.lastName=new SimpleStringProperty(lastName);
+        this.idCardNumber=new SimpleStringProperty(idCardNumber);
+        this.country=new SimpleStringProperty(country);
+        this.tel=new SimpleStringProperty(tel);
+        this.email=new SimpleStringProperty(email);
+        this.address=new SimpleStringProperty(address);
+        this.userType=new SimpleStringProperty(userType);
+        this.role=new SimpleStringProperty(role);
+        this.button=new Button("Edit");
     }
 
-    public String getEmployeeId(){return employeeId;}
-    public void setEmployeeId(String employeeId){this.employeeId=employeeId;}
+    public Button getButton() {
+        return button;
+    }
 
-    public String getUserName(){return userName;}
-    public void setUserName(String userName){this.userName=userName;}
+    public void setButton(Button button) {
+        this.button = button;
+    }
 
-    public String getFirstName(){return firstName;}
-    public void setFirstName(String firstName){this.firstName=firstName;}
+    public String getEmployeeId() {
+        return employeeId.get();
+    }
+
+    public SimpleStringProperty employeeIdProperty() {
+        return employeeId;
+    }
+
+    public String getUserName() {
+        return userName.get();
+    }
+
+    public SimpleStringProperty userNameProperty() {
+        return userName;
+    }
+
+    public String getFirstName() {
+        return firstName.get();
+    }
+
+    public SimpleStringProperty firstNameProperty() {
+        return firstName;
+    }
 
     public String getLastName() {
+        return lastName.get();
+    }
+
+    public SimpleStringProperty lastNameProperty() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public String getIdCardNumber() {
+        return idCardNumber.get();
     }
 
-    public String getIdCardNumber() {
+    public SimpleStringProperty idCardNumberProperty() {
         return idCardNumber;
     }
 
-    public void setIdCardNumber(String idCardNumber) {
-        this.idCardNumber = idCardNumber;
+    public String getCountry() {
+        return country.get();
     }
 
-    public String getCountry() {
+    public SimpleStringProperty countryProperty() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getTel() {
+        return tel.get();
     }
 
-    public String getTel() {
+    public SimpleStringProperty telProperty() {
         return tel;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public String getEmail() {
+        return email.get();
     }
 
-    public String getEmail() {
+    public SimpleStringProperty emailProperty() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getAddress() {
+        return address.get();
     }
 
-    public String getAddress() {
+    public SimpleStringProperty addressProperty() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getUserType() {
+        return userType.get();
     }
 
-    public String getUserType() {
+    public SimpleStringProperty userTypeProperty() {
         return userType;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    public String getRole() {
+        return role.get();
     }
 
-    public String getRole() {
+    public SimpleStringProperty roleProperty() {
         return role;
     }
 
+    public void setEmployeeId(String employeeId) {
+        this.employeeId.set(employeeId);
+    }
+
+    public void setUserName(String userName) {
+        this.userName.set(userName);
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName.set(lastName);
+    }
+
+    public void setIdCardNumber(String idCardNumber) {
+        this.idCardNumber.set(idCardNumber);
+    }
+
+    public void setCountry(String country) {
+        this.country.set(country);
+    }
+
+    public void setTel(String tel) {
+        this.tel.set(tel);
+    }
+
+    public void setEmail(String email) {
+        this.email.set(email);
+    }
+
+    public void setAddress(String address) {
+        this.address.set(address);
+    }
+
+    public void setUserType(String userType) {
+        this.userType.set(userType);
+    }
+
     public void setRole(String role) {
-        this.role = role;
+        this.role.set(role);
     }
 }
