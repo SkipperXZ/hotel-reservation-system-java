@@ -48,37 +48,37 @@
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="76.0" text="First Name" textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="80.0" text="First Name" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="383.0" layoutY="114.0" text="Last Name" textFill="#1473e6">
+                  <Label layoutX="383.0" layoutY="121.0" text="Last Name" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="149.0" text="Pass No. / ID" textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="161.0" text="Pass No. / ID" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="187.0" text="Country" textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="202.0" text="Country" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="221.0" text="Tel." textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="243.0" text="Tel." textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="257.0" text="Email" textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="281.0" text="Email" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="292.0" text="Adderss" textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="319.0" text="Adderss" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -98,13 +98,34 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <TextField fx:id="firstName" layoutX="504.0" layoutY="75.0" prefHeight="25.0" prefWidth="277.0" />
-                  <TextField fx:id="lastName" layoutX="504.0" layoutY="113.0" prefHeight="25.0" prefWidth="277.0" />
-                  <TextField fx:id="ID" layoutX="504.0" layoutY="148.0" prefHeight="25.0" prefWidth="277.0" />
-                  <TextField fx:id="country" layoutX="504.0" layoutY="186.0" prefHeight="25.0" prefWidth="277.0" />
-                  <TextField fx:id="tel" layoutX="504.0" layoutY="220.0" prefHeight="25.0" prefWidth="277.0" />
-                  <TextField fx:id="email" layoutX="504.0" layoutY="258.0" prefHeight="25.0" prefWidth="277.0" />
-                  <TextArea fx:id="address" layoutX="504.0" layoutY="292.0" prefHeight="200.0" prefWidth="278.0" />
+                  <TextField fx:id="firstName" layoutX="505.0" layoutY="74.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="lastName" layoutX="504.0" layoutY="116.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="ID" layoutX="504.0" layoutY="157.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="country" layoutX="504.0" layoutY="198.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="tel" layoutX="504.0" layoutY="239.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="email" layoutX="504.0" layoutY="279.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextField>
+                  <TextArea fx:id="address" layoutX="504.0" layoutY="319.0" prefHeight="200.0" prefWidth="278.0">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font></TextArea>
                </children>
             </Pane>
          </center>

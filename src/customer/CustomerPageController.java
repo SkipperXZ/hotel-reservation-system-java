@@ -12,18 +12,26 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.Linker;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,7 +61,16 @@ public class CustomerPageController {
     private JFXTreeTableView<CustomerTable> table;
 
     @FXML
+    private JFXButton btnNewCustomer;
+
+
+
+    private double xOffset = 0;
+    private double yOffset = 0;
+
+    @FXML
     public void initialize() {
+
 
        Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
         reservationButtton.setOnAction(new EventHandler<ActionEvent>() {
@@ -80,6 +97,8 @@ public class CustomerPageController {
 
 
 
+
+
         for(Customer customer:customers )
         list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
                 customer.getEmail(),customer.getStatusCustomer(),customer.getTotolRes(),customer.getNightStay(),customer.getTotalRevenue(),customer.getLastVisit()));
@@ -88,6 +107,52 @@ public class CustomerPageController {
 
         table.setRoot(root);
         table.setShowRoot(false);
+        table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<CustomerTable>>() {
+            @Override
+            public void changed(ObservableValue<? extends TreeItem<CustomerTable>> observable, TreeItem<CustomerTable> oldValue, TreeItem<CustomerTable> newValue) {
+
+                TreeItem<CustomerTable> selectedItem = (TreeItem<CustomerTable>) newValue;
+                System.out.println("Selected Text : " + selectedItem.getValue());
+            }
+        });
+
+        btnNewCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    FXMLLoader fxmlLoadernew = new FXMLLoader(getClass().getResource("../reservation/page/NewCustomer.fxml"));
+                    Parent root1 =(Parent) fxmlLoadernew.load();
+                    Stage stage= new Stage();
+                    stage.setResizable(false);
+                    stage.initStyle(StageStyle.UTILITY);
+
+                    root1.setOnMousePressed(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            xOffset = event.getSceneX();
+                            yOffset = event.getSceneY();
+                        }
+                    });
+                    root1.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            stage.setX(event.getScreenX() - xOffset);
+                            stage.setY(event.getScreenY() - yOffset);
+                        }
+                    });
+
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+
+                } catch (IOException e) {
+                    System.out.println("can't load new customer page");
+                    e.printStackTrace();
+                }
+            }
+
+
+        });
+
 
     }
     class CustomerTable extends RecursiveTreeObject<CustomerTable>{
