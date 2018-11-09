@@ -7,6 +7,8 @@ import java.util.Map;
 
 public class UserDatabase {
     public static HashMap<String,User> userDatabase = new HashMap<String, User>();
+    public static ArrayList<User> userArrayList = new ArrayList<>();
+    public static int userCur;
     public static void updateUser(User user){
 
         if (userDatabase.get(user.getFirstName()+user.getLastName()) == null){
