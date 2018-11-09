@@ -25,7 +25,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -37,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import static Hotel.CustomerDatabase.customerDatabase;
 
 
 public class CustomerPageController {
@@ -70,9 +76,12 @@ public class CustomerPageController {
 
     @FXML
     public void initialize() {
-
+        Clock.clock.setClockLabel(time);
+        Clock.clock.setDateLabel(date);
 
        Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
+
+
         reservationButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -85,14 +94,21 @@ public class CustomerPageController {
         List<String> names = Arrays.asList("sadsadas", "sadsadup2", "asdcefdvadfasf","sdacxczcxc");
         DecimalFormat phoneNum3 = new DecimalFormat("000");
         DecimalFormat phoneNum4 = new DecimalFormat("0000");
-        ArrayList<Customer> customers = new ArrayList<Customer>(){{
-            for(int i= 0 ; i<30;i++)
-                add(new Customer(names.get((int)(Math.random()*names.size())),names.get((int)(Math.random()*names.size())),i,
-                        phoneNum3.format(Math.random()*1000)+"-"+phoneNum3.format(Math.random()*1000)+"-"+phoneNum4.format(Math.random()*10000),
-                        "email","21111","thailand","smutprakarn 10270","in house","5","5","2,00","12/12/12"));
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+//        {{
+//            for(int i= 0 ; i<30;i++)
+//                add(new Customer(names.get((int)(Math.random()*names.size())),names.get((int)(Math.random()*names.size())),i,
+//                        phoneNum3.format(Math.random()*1000)+"-"+phoneNum3.format(Math.random()*1000)+"-"+phoneNum4.format(Math.random()*10000),
+//                        "email","21111","thailand","smutprakarn 10270","in house","5","5","2,00","12/12/12"));
+//
+//
+//        }};
 
+        customers.clear();
 
-        }};
+        for (Customer e:customerDatabase.values() ) {
+            customers.add(e);
+        }
 
 
 
@@ -107,33 +123,33 @@ public class CustomerPageController {
 
         table.setRoot(root);
         table.setShowRoot(false);
-        table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<CustomerTable>>() {
+        table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void changed(ObservableValue<? extends TreeItem<CustomerTable>> observable, TreeItem<CustomerTable> oldValue, TreeItem<CustomerTable> newValue) {
+            public void handle(MouseEvent event) {
+                if(event.getClickCount() == 2)
+                {
+                    TreeItem<CustomerTable> item = table.getSelectionModel().getSelectedItem();
+                    System.out.println("Selected Text : " + item.getValue().customerID.get());
 
-                TreeItem<CustomerTable> selectedItem = (TreeItem<CustomerTable>) newValue;
-                System.out.println("Selected Text : " + selectedItem.getValue());
-            }
-        });
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPopup.fxml"));
 
-        btnNewCustomer.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    FXMLLoader fxmlLoadernew = new FXMLLoader(getClass().getResource("../reservation/page/NewCustomer.fxml"));
-                    Parent root1 =(Parent) fxmlLoadernew.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     Stage stage= new Stage();
                     stage.setResizable(false);
                     stage.initStyle(StageStyle.UTILITY);
 
-                    root1.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    root.setOnMousePressed(new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
                             xOffset = event.getSceneX();
                             yOffset = event.getSceneY();
                         }
                     });
-                    root1.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    root.setOnMouseDragged(new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
                             stage.setX(event.getScreenX() - xOffset);
@@ -141,17 +157,58 @@ public class CustomerPageController {
                         }
                     });
 
-                    stage.setScene(new Scene(root1));
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("CustomerPopup");
                     stage.show();
 
+
+                }
+            }
+        });
+
+
+
+        btnNewCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("../reservation/page/NewCustomer.fxml"));
                 } catch (IOException e) {
-                    System.out.println("can't load new customer page");
                     e.printStackTrace();
                 }
+                Stage stage= new Stage();
+                stage.setResizable(false);
+                 stage.initStyle(StageStyle.UTILITY);
+
+                root.setOnMousePressed(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            xOffset = event.getSceneX();
+                            yOffset = event.getSceneY();
+                        }
+                    });
+                    root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            stage.setX(event.getScreenX() - xOffset);
+                            stage.setY(event.getScreenY() - yOffset);
+                        }
+                    });
+
+                stage.setScene(new Scene(root));
+                stage.setTitle("New Customer");
+
+                stage.show();
+
+
             }
 
 
         });
+
+
 
 
     }

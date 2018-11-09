@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static Hotel.CustomerDatabase.customerDatabase;
+
 public class Customer implements Serializable {
     private int adultNum;
     private int childNum;
@@ -49,6 +51,8 @@ public class Customer implements Serializable {
         this.paymerntPrice = price;
         this.weekDayNum =weekDayNum;
         this.weekEndNum = weekEndNum;
+
+        this.customerID = customerDatabase.size()+1;  // add new ID
     }
 
 // for test customerpage

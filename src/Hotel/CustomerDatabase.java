@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CustomerDatabase {
-    public static HashMap<String,Customer> customerDatabase = new HashMap<String, Customer>();
+     public static HashMap<String,Customer> customerDatabase = new HashMap<String, Customer>();
 
 
 //

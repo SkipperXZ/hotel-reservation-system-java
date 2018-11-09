@@ -27,7 +27,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="customerID" layoutX="164.0" layoutY="88.0" text="000001">
+                  <Label fx:id="customerID" layoutX="165.0" layoutY="88.0" text="000001">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>

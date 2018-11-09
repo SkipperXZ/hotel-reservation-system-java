@@ -769,7 +769,7 @@ private void initPaneEffect(){
 
 }
 }
-private void  initClock(){
+public void  initClock(){
     Clock.clock.setClockLabel(time);
     Clock.clock.setDateLabel(date);
 }
@@ -1108,6 +1108,7 @@ private boolean isConfirmCleaningScene(){
         AvaliableSuiteLabel.setText(Integer.toString(avaSuite));
         AvaliableSuperiorLabel.setText(Integer.toString(avaSuperior));
     }
+
 
 
     public void setCustomer(Customer customer) {
