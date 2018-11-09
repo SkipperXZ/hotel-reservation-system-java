@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTreeView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.CustomerPopupController">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1080.0">
+         <top>
+            <Pane prefHeight="138.0" prefWidth="1080.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="fullname" layoutX="42.0" layoutY="29.0" prefHeight="52.0" prefWidth="709.0" text="Woramate Silapawisut">
+                     <font>
+                        <Font name="Segoe UI Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="88.0" text="EmployeeID :">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="employeeId" layoutX="164.0" layoutY="88.0" text="000001">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <JFXTabPane style="-fx-background-color: #fff;" stylesheets="@../reservation/css/TabPane.css" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab style="-fx-effect: null;" text="Customer Detail">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="210.0" fitWidth="150.0" layoutX="29.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/icon/photoUser.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="72.0" layoutY="258.0" text="Status" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="69.0" layoutY="295.0" text="In-house">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="232.0" layoutY="44.0" text="CONTACT INFORMATION">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="233.0" layoutY="136.0" text="First Name" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="232.0" layoutY="174.0" text="Last Name" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="233.0" layoutY="209.0" text="Pass No. / ID" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="233.0" layoutY="247.0" text="Country" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="500.0" layoutY="139.0" text="Tel." textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="503.0" layoutY="181.0" text="Email" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="503.0" layoutY="216.0" text="Adderss" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="firstName" layoutX="353.0" layoutY="136.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lastName" layoutX="353.0" layoutY="174.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ID" layoutX="353.0" layoutY="209.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="country" layoutX="353.0" layoutY="247.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tel" layoutX="620.0" layoutY="139.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="email" layoutX="621.0" layoutY="181.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="adderss" alignment="TOP_LEFT" layoutX="621.0" layoutY="216.0" prefHeight="188.0" prefWidth="300.0" text="144/4 M.5 Ban ThamChiang Dao Chiang Mai50170Thailand" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="cancel" cancelButton="true" layoutX="245.0" layoutY="437.0" prefHeight="34.0" prefWidth="105.0" style="-fx-background-color: #1473e6;" text="CANCEL" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label layoutX="232.0" layoutY="101.0" text="User Name" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="userName" layoutX="353.0" layoutY="101.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="233.0" layoutY="284.0" text="User Type" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="userType" layoutX="353.0" layoutY="284.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="500.0" layoutY="101.0" text="Role" textFill="#1473e6">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="role" layoutX="620.0" layoutY="101.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                                 <font>
+                                    <Font name="Segoe UI" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab style="-fx-effect: null;" text="History">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXTreeView fx:id="historyTable" layoutX="24.0" layoutY="29.0" prefHeight="424.0" prefWidth="944.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+               </tabs>
+               <padding>
+                  <Insets left="40.0" right="40.0" />
+               </padding>
+            </JFXTabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
