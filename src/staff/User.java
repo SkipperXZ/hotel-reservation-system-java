@@ -19,12 +19,13 @@ public class User implements Serializable {
     private SimpleStringProperty email;
     private SimpleStringProperty address;
     private SimpleStringProperty userType;
+    private SimpleStringProperty pass;
     private SimpleStringProperty role;
     private Button buttonE;
     private Button buttonD;
 
     public User(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
-                String userType,String role,Button buttonE,Button buttonD){
+                String userType,String role,Button buttonE,Button buttonD,String pass){
         this.employeeId=new SimpleStringProperty(employeeId);
         this.userName=new SimpleStringProperty(userName);
         this.firstName=new SimpleStringProperty(firstName);
@@ -40,6 +41,19 @@ public class User implements Serializable {
         this.buttonE.setText("Edit");
         this.buttonD=buttonD;
         this.buttonD.setText("Delete");
+        this.pass=new SimpleStringProperty(pass);
+    }
+
+    public String getPass() {
+        return pass.get();
+    }
+
+    public void setPass(String pass) {
+        this.pass.set(pass);
+    }
+
+    public SimpleStringProperty passProperty() {
+        return pass;
     }
 
     public Button getButtonD() {

@@ -3,18 +3,17 @@ package staff;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
 import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -39,6 +38,7 @@ public class mainUser implements Initializable {
     @FXML private TableColumn<User, String> btE;
     @FXML private TableColumn<User, String> btD;
     @FXML private JFXButton btnNew = new JFXButton();
+    @FXML private JFXButton btnRefresh= new JFXButton();
 
     Button [] buttonE=new Button[max];
     Button [] buttonD=new Button[max];
@@ -72,7 +72,7 @@ public class mainUser implements Initializable {
         if(event.getSource()==btnNew){
             System.out.println("N ");
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/newUserPage.fxml"));
                 Parent root = (Parent)fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Edit");
@@ -82,11 +82,33 @@ public class mainUser implements Initializable {
 
             }
         }
+        if(event.getSource()==btnRefresh){
+            setButton();
+            setToTableView();
+        }
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        table.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if(event.getClickCount() == 2){
+                    UserDatabase.userCur=table.getSelectionModel().getFocusedIndex();
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/userPopUp.fxml"));
+                        Parent root = (Parent)fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setTitle("Edit");
+                        stage.setScene(new Scene(root,1080,720));
+                        stage.show();
+                    }catch (Exception e){
+
+                    }
+                }
+            }
+        });
         for(int i=0;i<max;i++){
             buttonE[i]=new Button();
             buttonE[i].setOnAction(this::handleButtonAction);
@@ -95,6 +117,7 @@ public class mainUser implements Initializable {
 //            a[i]=-1;
         }
         btnNew.setOnAction(this::handleButtonAction);
+        btnRefresh.setOnAction(this::handleButtonAction);
 //        userHashMap.put("Luke",new User("WTF","Luke","Lukey","Keenaja",
 //                "1150","Thailand","088-888-8888","Luke@skywalker.com",
 //                "55/54/454","Admin","Manager",new Button(),new Button()));
@@ -104,13 +127,13 @@ public class mainUser implements Initializable {
 
         userArrayList.add(new User("WTF","Luke","Lukey","Keenaja",
                 "1150","Thailand","088-888-8888","Luke@skywalker.com",
-                "55/54/454","Admin","Manager",new Button(),new Button()));
+                "55/54/454","Admin","Manager",new Button(),new Button(),"55545454"));
         userArrayList.add(new User("WTF","Opai","Nom","Hum",
                 "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
-                "55/54/454","Admin","Manager",new Button(),new Button()));
+                "55/54/454","Admin","Manager",new Button(),new Button(),"55545454"));
         userArrayList.add(new User("Poppy01","Poppy","Ham","yai",
                 "5511","Thailand","084-444-4444","poppyEuEu@olo.B==>.com",
-                "55/54/454","Admin","Manager",new Button(),new Button()));
+                "55/54/454","Admin","Manager",new Button(),new Button(),"55545454"));
 
 
 //        list= FXCollections.observableArrayList(

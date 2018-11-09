@@ -11,6 +11,8 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,8 +64,10 @@ public class EditUser implements Initializable {
             userArrayList.get(userCur).setAddress(address.getText());
             userArrayList.get(userCur).setLastName(lastName.getText());
             System.out.println("Save");
-        }else{
+        }else if(event.getSource()==btnCancel){
             System.out.println("Cancel");
+            Stage stage = (Stage) btnCancel.getScene().getWindow();
+            stage.close();
         }
     }
 
