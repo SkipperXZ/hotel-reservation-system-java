@@ -2,6 +2,7 @@ package customer;
 
 
 import Hotel.Customer;
+import Hotel.CustomerDatabase;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -12,7 +13,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,11 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
@@ -40,9 +36,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
-
-import static Hotel.CustomerDatabase.customerDatabase;
 
 
 public class CustomerPageController {
@@ -73,6 +66,7 @@ public class CustomerPageController {
 
     private double xOffset = 0;
     private double yOffset = 0;
+    public static String selectName;
 
     @FXML
     public void initialize() {
@@ -103,37 +97,33 @@ public class CustomerPageController {
 //
 //
 //        }};
-
-        customers.clear();
-
-        for (Customer e:customerDatabase.values() ) {
-            customers.add(e);
-        }
-
-
-
-
+//        for (Customer e: CustomerDatabase.customerDatabase.values() ) {
+//            customers.add(e);
+//        }
+        customers.addAll(CustomerDatabase.customerDatabase.values());
 
 
         for(Customer customer:customers )
         list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
                 customer.getEmail(),customer.getStatusCustomer(),customer.getTotolRes(),customer.getNightStay(),customer.getTotalRevenue(),customer.getLastVisit()));
 
+        list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
         final TreeItem<CustomerTable> root = new RecursiveTreeItem<CustomerTable>(list,RecursiveTreeObject::getChildren);
 
         table.setRoot(root);
         table.setShowRoot(false);
+
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if(event.getClickCount() == 2)
                 {
                     TreeItem<CustomerTable> item = table.getSelectionModel().getSelectedItem();
-                    System.out.println("Selected Text : " + item.getValue().customerID.get());
+                    selectName = item.getValue().firstName.get()+item.getValue().lastName.get();
 
                     Parent root = null;
                     try {
-                        root = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPopup.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("CustomerPopup.fxml"));
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -158,7 +148,7 @@ public class CustomerPageController {
                     });
 
                     stage.setScene(new Scene(root));
-                    stage.setTitle("CustomerPopup");
+                    stage.setTitle(item.getValue().firstName.get()+" "+item.getValue().lastName.get());
                     stage.show();
 
 
@@ -174,7 +164,7 @@ public class CustomerPageController {
 
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("../reservation/page/NewCustomer.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("NewCustomer.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -19,6 +19,10 @@ public class Customer implements Serializable {
 
 
 
+    static int numcustomerID;
+
+
+
     private String address;
     private String  status;
     private String totolRes;
@@ -52,7 +56,11 @@ public class Customer implements Serializable {
         this.weekDayNum =weekDayNum;
         this.weekEndNum = weekEndNum;
 
-        this.customerID = customerDatabase.size()+1;  // add new ID
+        if(customerDatabase.size()==0)
+           numcustomerID =0;
+        numcustomerID+=1;
+        this.customerID = numcustomerID;  // add new ID
+        System.out.println(numcustomerID+1);
     }
 
 // for test customerpage
@@ -213,4 +221,8 @@ public class Customer implements Serializable {
     public String getLastVisit() { return lastVisit; }
 
     public void setLastVisit(String lastVisit) { this.lastVisit = lastVisit; }
+
+    public static int getNumcustomerID() {    return numcustomerID;   }
+
+    public static void setNumcustomerID(int numcustomerID) {  Customer.numcustomerID = numcustomerID;   }
 }

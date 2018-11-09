@@ -3,6 +3,7 @@ package reservation.controller;
 import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
+import com.jfoenix.controls.JFXButton;
 import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import main.Linker;
 import reservation.*;
 import reservation.room.*;
 
@@ -262,6 +264,9 @@ public class ReservationPageController {
     private Label AllDeluxeLabel;
 
 
+    @FXML
+    private JFXButton customerButtton;
+
 
     @FXML
     private Button makeDisplayRoomDB;
@@ -375,6 +380,14 @@ public class ReservationPageController {
 
             }
         });*/
+
+
+        customerButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(Linker.customerScene);
+            }
+        });
 
         reserveOnvacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override

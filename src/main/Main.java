@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import reservation.IO;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class Main extends Application {
@@ -23,7 +24,7 @@ public class Main extends Application {
         Linker.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../reservation/page/res.fxml"));
         Linker.resScene =new Scene(root, 1920, 1080);
-        Parent root2 = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPage.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("../customer/CustomerPage.fxml"));
         Linker.customerScene = new Scene(root2,1920, 1080);
         Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPage.fxml"));
         Linker.user = new Scene(root3,1920,1080);
@@ -63,6 +64,9 @@ public class Main extends Application {
         }
         if(customer != null){
             CustomerDatabase.customerDatabase = customer;
+            int max = customer.values().stream().max(Comparator.comparing(Customer::getCustomerID)).get().getCustomerID();
+            Customer.setNumcustomerID(max);
+
         }
 
 
