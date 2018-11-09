@@ -1,11 +1,13 @@
 package staff;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -36,6 +38,7 @@ public class mainUser implements Initializable {
     @FXML private TableColumn<User,String> userType;
     @FXML private TableColumn<User, String> btE;
     @FXML private TableColumn<User, String> btD;
+    @FXML private JFXButton btnNew = new JFXButton();
 
     Button [] buttonE=new Button[max];
     Button [] buttonD=new Button[max];
@@ -47,7 +50,7 @@ public class mainUser implements Initializable {
                 UserDatabase.userCur=i;
                 System.out.println("curr "+UserDatabase.userCur);
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPage.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
                     Parent root = (Parent)fxmlLoader.load();
                     Stage stage = new Stage();
                     stage.setTitle("Edit");
@@ -58,12 +61,24 @@ public class mainUser implements Initializable {
                 }
 //                setButton();
 //                setToTableView();
-            }
-            if(event.getSource()==buttonD[i]){
+            }else if(event.getSource()==buttonD[i]){
                 userArrayList.remove(i);
                 System.out.println("D "+i);
                 setButton();
                 setToTableView();
+
+            }
+        }
+        if(event.getSource()==btnNew){
+            System.out.println("N ");
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
+                Parent root = (Parent)fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Edit");
+                stage.setScene(new Scene(root,1080,720));
+                stage.show();
+            }catch (Exception e){
 
             }
         }
@@ -79,6 +94,7 @@ public class mainUser implements Initializable {
             buttonD[i].setOnAction(this::handleButtonAction);
 //            a[i]=-1;
         }
+        btnNew.setOnAction(this::handleButtonAction);
 //        userHashMap.put("Luke",new User("WTF","Luke","Lukey","Keenaja",
 //                "1150","Thailand","088-888-8888","Luke@skywalker.com",
 //                "55/54/454","Admin","Manager",new Button(),new Button()));

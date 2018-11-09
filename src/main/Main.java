@@ -25,10 +25,10 @@ public class Main extends Application {
         Linker.resScene =new Scene(root, 1920, 1080);
         Parent root2 = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPage.fxml"));
         Linker.customerScene = new Scene(root2,1920, 1080);
-        Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPage.fxml"));
+        Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(Linker.customerScene);
+        primaryStage.setScene(Linker.user);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
 //show

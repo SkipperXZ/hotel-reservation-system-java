@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.EditUser">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1080.0">
+         <top>
+            <Pane prefHeight="138.0" prefWidth="1080.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="42.0" layoutY="29.0" prefHeight="52.0" prefWidth="282.0" style="-fx-background-color: #1473e6;" text="Edit User" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="57.0" layoutY="88.0" text="User ID :">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="customerID" layoutX="164.0" layoutY="88.0" text="00001">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="582.0" prefWidth="85.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="210.0" fitWidth="150.0" layoutX="181.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icon/photoUser.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="384.0" layoutY="30.0" text="User Detail">
+                     <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="384.0" layoutY="76.0" text="First Name" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="116.0" text="Last Name" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="160.0" text="Country" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="204.0" text="Tel." textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="246.0" text="Email" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="383.0" layoutY="286.0" text="Adderss" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="238.0" layoutY="245.0" style="-fx-background-color: #1473e6;" text="Change Image" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnCancel" layoutX="815.0" layoutY="521.0" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #1473e6;" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnSave" layoutX="941.0" layoutY="521.0" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #1473e6;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <TextField fx:id="firstName" layoutX="504.0" layoutY="69.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="lastName" layoutX="504.0" layoutY="113.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="country" layoutX="503.0" layoutY="160.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="tel" layoutX="503.0" layoutY="204.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="email" layoutX="503.0" layoutY="247.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextArea fx:id="address" layoutX="503.0" layoutY="290.0" prefHeight="200.0" prefWidth="278.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextArea>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

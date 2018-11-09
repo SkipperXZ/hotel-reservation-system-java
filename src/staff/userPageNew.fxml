@@ -148,9 +148,9 @@
             </VBox>
          </left>
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="table" layoutX="116.0" layoutY="97.0" prefHeight="1016.0" prefWidth="1700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="table" prefHeight="1016.0" prefWidth="1700.0">
                     <columns>
                       <TableColumn fx:id="user" prefWidth="300.0" text="User" />
                       <TableColumn fx:id="email" prefWidth="300.0" text="Email" />
@@ -162,7 +162,7 @@
                     </columns>
                   </TableView>
                </children>
-            </AnchorPane>
+            </Pane>
          </center>
       </BorderPane>
       <Pane layoutX="1684.0" layoutY="973.0" prefHeight="108.0" prefWidth="237.0">
@@ -180,6 +180,11 @@
             </Label>
          </children>
       </Pane>
+      <JFXButton fx:id="btnNew" layoutX="250.0" layoutY="950.0" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #1473e6;" text="NEW" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 
 </AnchorPane>
