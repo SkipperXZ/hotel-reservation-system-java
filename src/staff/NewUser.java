@@ -60,10 +60,11 @@ public class NewUser implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         if(event.getSource()==btnSave) {
-            userArrayList.add(new User("1",userName.getText(),firstName.getText(),lastName.getText(),
+            userArrayList.add(new User(Integer.toString(UserDatabase.employeeId),userName.getText(),firstName.getText(),lastName.getText(),
                     idCard.getText(),country.getText(),tel.getText(),email.getText(),address.getText(),
                     userType.getText(),role.getText(),new Button(),new Button(),pass.getText()));
             System.out.println("New User");
+            UserDatabase.employeeId++;
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();
         }else if(event.getSource()==btnCancel){

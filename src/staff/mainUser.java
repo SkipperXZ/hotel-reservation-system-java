@@ -125,16 +125,6 @@ public class mainUser implements Initializable {
 //                "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
 //                "55/54/454","Admin","Manager",new Button(),new Button()));
 
-        userArrayList.add(new User("WTF","Luke","Lukey","Keenaja",
-                "1150","Thailand","088-888-8888","Luke@skywalker.com",
-                "55/54/454","Admin","Manager",new Button(),new Button(),"55545454"));
-        userArrayList.add(new User("WTF","Opai","Nom","Hum",
-                "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
-                "55/54/454","Admin","Manager",new Button(),new Button(),"55545454"));
-        userArrayList.add(new User("Poppy01","Poppy","Ham","yai",
-                "5511","Thailand","084-444-4444","poppyEuEu@olo.B==>.com",
-                "55/54/454","Admin","Manager",new Button(),new Button(),"55545454"));
-
 
 //        list= FXCollections.observableArrayList(
 //                new User("WTF","Luke","Lukey","Keenaja",
