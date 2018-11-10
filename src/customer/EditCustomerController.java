@@ -3,6 +3,8 @@ package customer;
 import Hotel.Customer;
 import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -55,6 +57,25 @@ public class EditCustomerController {
         String NameHash = CustomerPageController.selectName;
         Customer customer = customerDatabase.get(NameHash);
 
+        ID.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    ID.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+        tel.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    tel.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
         customerID.setText(String.valueOf(customer.getCustomerID()));
         firstName.setText(customer.getFirstName());
         lastName.setText(customer.getLastName());
@@ -101,7 +122,11 @@ public class EditCustomerController {
        customer.setTel(telInput);
        customer.setEmail(emailInput);
        customer.setAddress(addressInput);
-       //CustomerDatabase.customerDatabase.re
+       CustomerDatabase.customerDatabase.remove(NameHash);
+       CustomerDatabase.updateCustomer(customer);
+       CustomerPageController.selectName =firstNameInput+lastNameInput;
+       CustomerPageController update = new CustomerPageController();
+       update.update();
 
        Parent root = null;
        try {
