@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public abstract class Room implements Serializable {
     private String roomID;
-    private String status;
+    private String status = "Vacant";
     private Customer customer;
     private int cleaningTimeMinute = 30;
     private LocalDateTime checkInTime;

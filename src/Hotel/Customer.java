@@ -42,9 +42,11 @@ public class Customer implements Serializable {
     private String country;
     private String idNum;
     private LocalDateTime checkInTime;
+    private String memo;
 
     public Customer(int adultNum, int childNum, String title, String firstName, String lastName
-            , String tel, LocalDate checkInDate, LocalDate checkOutDate, int extraBedNum, String email, int price, int weekDayNum, int weekEndNum) {
+            , String tel, LocalDate checkInDate, LocalDate checkOutDate, int extraBedNum, String email, int price, int weekDayNum, int weekEndNum,String memo) {
+        this.memo = memo;
         this.adultNum = adultNum;
         this.childNum = childNum;
         this.title = title;
@@ -249,6 +251,10 @@ public class Customer implements Serializable {
     public void setLastVisit(LocalDateTime lastVisit) { this.lastVisit = lastVisit; }
 
     public static int getNumcustomerID() {    return numcustomerID;   }
+
+    public String getMemo() {
+        return memo;
+    }
 
     public static void setNumcustomerID(int numcustomerID) {  Customer.numcustomerID = numcustomerID;   }
 }
