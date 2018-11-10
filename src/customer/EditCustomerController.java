@@ -1,6 +1,7 @@
 package customer;
 
 import Hotel.Customer;
+import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -92,7 +93,32 @@ public class EditCustomerController {
                 emailInput = email.getText();
                 addressInput = address.getText();
 
-                System.out.println(firstNameInput+lastNameInput+ IDInput+countryInput+telInput+emailInput+addressInput);
+   if(!firstNameInput.trim().equals("") && !lastNameInput.trim().equals("") && !telInput.trim().equals("") ) {
+       customer.setFirstName(firstNameInput);
+       customer.setLastName(lastNameInput);
+       customer.setIdNum(IDInput);
+       customer.setCountry(countryInput);
+       customer.setTel(telInput);
+       customer.setEmail(emailInput);
+       customer.setAddress(addressInput);
+       //CustomerDatabase.customerDatabase.re
+
+       Parent root = null;
+       try {
+           root = FXMLLoader.load(getClass().getResource("CustomerPopup.fxml"));
+
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+       Stage stage = (Stage) btnCancel.getScene().getWindow();
+       stage.setScene(new Scene(root));
+       stage.setTitle(customer.getFirstName() + " " + customer.getLastName());
+       stage.show();
+   }
+
+
+
+
             }
         });
 

@@ -29,6 +29,9 @@ public class Customer implements Serializable {
     private LocalDateTime lastVisit;
 
     private String status;
+
+
+
     private String address;
     private int extraBedNum;
     private LocalDate checkInDate;
@@ -187,6 +190,21 @@ public class Customer implements Serializable {
     }
 
     public int getCustomerID() { return customerID; }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void setCustomerID(int customerID) { this.customerID = customerID; }
 
