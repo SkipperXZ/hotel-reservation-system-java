@@ -2,6 +2,7 @@ package customer;
 
 
 import Hotel.Customer;
+import Hotel.CustomerDatabase;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableColumn;

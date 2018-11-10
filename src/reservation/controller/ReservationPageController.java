@@ -3,6 +3,7 @@ package reservation.controller;
 import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
+import com.jfoenix.controls.JFXButton;
 import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import main.Linker;
 import reservation.*;
 import reservation.room.*;
 
@@ -261,6 +263,8 @@ public class ReservationPageController {
     @FXML
     private Label AllDeluxeLabel;
 
+    @FXML
+    private JFXButton  reportButtton;
 
 
     @FXML
@@ -376,6 +380,13 @@ public class ReservationPageController {
             }
         });*/
 
+        reportButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(Linker.report);
+            }
+        });
+
         reserveOnvacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -485,7 +496,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane= (Pane)cancelOnReserved.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancelBooking(room);
+                ReservationHandler.cancelBooking(customer,roomIndex,currentFloorNum,currentDay);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
@@ -505,7 +516,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkOutOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isCheckOutScene()){
-                    ReservationHandler.checkOut(room);
+                    ReservationHandler.checkOut(room,customer);
                     if (isConfirmCleaningScene()) {
                         ReservationHandler.cleaning(room, cleaningTimeMinute);
                     }
@@ -588,7 +599,6 @@ public class ReservationPageController {
                 roomInfoScene();
             }
         });
-
 
 
         makeF1.setOnAction(new EventHandler<ActionEvent>() {
