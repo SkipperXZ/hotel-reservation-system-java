@@ -532,11 +532,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkOutOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isCheckOutScene()){
-<<<<<<< HEAD
                     ReservationHandler.checkOut(roomIndex,currentFloorNum,currentDay);
-=======
-                    ReservationHandler.checkOut(room,customer);
->>>>>>> 22984bb6078fabd8afd70c6ca2ce01fd20d83206
                     if (isConfirmCleaningScene()) {
                         ReservationHandler.cleaning(room, cleaningTimeMinute);
                     }
