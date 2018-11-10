@@ -80,7 +80,7 @@ public class CustomerPopupController {
         String NameHash = CustomerPageController.selectName;
          Customer customer =  customerDatabase.get(NameHash);
 
-         fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
+           fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
          customerID.setText(String.valueOf(customer.getCustomerID()));
         firstName.setText(customer.getFirstName());
         lastName.setText(customer.getLastName());
@@ -89,6 +89,11 @@ public class CustomerPopupController {
         tel.setText(customer.getTel());
         email.setText(customer.getEmail());
         adderss.setText(customer.getAddress());
+
+        totalRes.setText(String.valueOf(customer.getTotalReserve()));
+        night.setText(String.valueOf(customer.getTotalNightStay()));
+        totolRevenue.setText(String.valueOf(customer.getTotalRevenue()));
+        lastVisit.setText(customer.getLastVisitDayToString());
 
         btnEdit.setOnAction(new EventHandler<ActionEvent>() {
             @Override

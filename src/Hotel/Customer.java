@@ -1,8 +1,10 @@
 package Hotel;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static Hotel.CustomerDatabase.customerDatabase;
 
@@ -27,6 +29,9 @@ public class Customer implements Serializable {
     private LocalDateTime lastVisit;
 
     private String status;
+
+
+
     private String address;
     private int extraBedNum;
     private LocalDate checkInDate;
@@ -57,7 +62,7 @@ public class Customer implements Serializable {
         this.weekEndNum = weekEndNum;
 
         if(customerDatabase.size()==0)
-           numcustomerID =0;
+            numcustomerID =0;
         numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
         //System.out.println(numcustomerID+1);
@@ -75,29 +80,23 @@ public class Customer implements Serializable {
 
     public Customer         (String firstName,
                              String lastName ,
-                             int customerID,
                              String tel,
                              String email,
                              String idNum,
                              String country,
-                             String address,
-                             int totalReserve,
-                             int nightStay,
-                             int totalRevenue,
-                             LocalDateTime lastVisit){
+                             String address){
 
             this.firstName = firstName;
             this.lastName = lastName;
-            this.customerID = customerID;
             this.tel = tel;
             this.email = email;
             this.idNum=idNum;
             this.country= country;
             this.address = address;
-            this.totalReserve = totalReserve;
-            this.totalNightStay = nightStay;
-            this.totalRevenue = totalRevenue;
-            this.lastVisit = lastVisit;
+        if(customerDatabase.size()==0)
+            numcustomerID =0;
+        numcustomerID+=1;
+        this.customerID = numcustomerID;  // add new ID
     }
 
 
@@ -193,6 +192,21 @@ public class Customer implements Serializable {
     }
 
     public int getCustomerID() { return customerID; }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void setCustomerID(int customerID) { this.customerID = customerID; }
 
@@ -217,6 +231,22 @@ public class Customer implements Serializable {
     public void setTotalRevenue(int totalRevenue) { this.totalRevenue = totalRevenue; }
 
     public LocalDateTime getLastVisit() { return lastVisit; }
+    public String getLastVisitToString()
+    {
+
+        if (lastVisit!=null)
+           return lastVisit.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
+        else
+           return "-";
+    }
+    public String getLastVisitDayToString()
+    {
+
+        if (lastVisit!=null)
+            return lastVisit.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        else
+            return "-";
+    }
 
     public void setLastVisit(LocalDateTime lastVisit) { this.lastVisit = lastVisit; }
 

@@ -21,11 +21,12 @@ import java.util.ResourceBundle;
 public class EditUser implements Initializable {
 
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     int userCur = UserDatabase.userCur;
 
 
     @FXML
-    private Label customerID;
+    private Label customerID = new Label();
 
     @FXML
     private JFXButton btnCancel=new JFXButton();
@@ -51,7 +52,8 @@ public class EditUser implements Initializable {
     @FXML
     private TextArea address;//
 
-
+    @FXML
+    private TextField passWord;
 
     private Button button = new Button();
     @FXML
@@ -63,6 +65,16 @@ public class EditUser implements Initializable {
             userArrayList.get(userCur).setCountry(country.getText());
             userArrayList.get(userCur).setAddress(address.getText());
             userArrayList.get(userCur).setLastName(lastName.getText());
+            userArrayList.get(userCur).setPassWord(passWord.getText());
+
+            userNoButtons.get(userCur).setFirstName(firstName.getText());
+            userNoButtons.get(userCur).setEmail(email.getText());
+            userNoButtons.get(userCur).setTel(tel.getText());
+            userNoButtons.get(userCur).setCountry(country.getText());
+            userNoButtons.get(userCur).setAddress(address.getText());
+            userNoButtons.get(userCur).setLastName(lastName.getText());
+            userNoButtons.get(userCur).setPassWord(passWord.getText());
+
             System.out.println("Save");
         }else if(event.getSource()==btnCancel){
             System.out.println("Cancel");
@@ -81,5 +93,7 @@ public class EditUser implements Initializable {
         lastName.setText(userArrayList.get(userCur).getLastName());
         btnSave.setOnAction(this::handleButtonAction);
         btnCancel.setOnAction(this::handleButtonAction);
+        customerID.setText(userArrayList.get(userCur).getEmployeeId());
+        passWord.setText(userArrayList.get(userCur).getPassWord());
     }
 }

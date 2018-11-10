@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="report.reportController">
+
+   <children>
+      <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
+         <top>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="257.0" layoutY="12.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #F0F7FF;" text="Dashboard" textAlignment="RIGHT" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icon/entrance.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" text="13:10" textFill="#545557">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roomIDLabel_001" alignment="CENTER" layoutX="268.0" layoutY="16.0" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #f0f7ff;" text="REPORT" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="dashboardButtton" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/contact-book.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="calendarButtton" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="reservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/new.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/person.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="reportButtton" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/layout-right.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="userButtton" prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+               <effect>
+                  <DropShadow color="#00000032" />
+               </effect>
+            </VBox>
+         </left>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../reservation/css/TabPane.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="47.0" layoutX="37.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="159.0" />
+                  <Label layoutX="37.0" layoutY="28.0" text="Daily">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" layoutX="138.0" layoutY="20.0" stroke="WHITE" strokeType="INSIDE" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="159.0">
+                     <effect>
+                        <DropShadow color="#1b1b1b" />
+                     </effect>
+                  </Rectangle>
+                  <Label fx:id="currentDayLabel" alignment="CENTER" layoutX="163.0" layoutY="31.0" prefHeight="25.0" prefWidth="110.0" text="Today">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="makePreDay" layoutX="148.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
+                  <Button fx:id="makeNextDay" alignment="TOP_CENTER" layoutX="258.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
+                  <JFXTreeTableView fx:id="summaryTable" layoutX="35.0" layoutY="90.0" prefHeight="368.0" prefWidth="1631.0" stylesheets="@../reservation/css/TabPane.css">
+                     <columns>
+                        <TreeTableColumn prefWidth="816.0" text="Reservation Summary" />
+                        <TreeTableColumn prefWidth="815.0" text="Total" />
+                     </columns></JFXTreeTableView>
+                  <JFXTabPane layoutX="35.0" layoutY="485.0" prefHeight="438.0" prefWidth="1631.0" rotateGraphic="true">
+                     <tabs>
+                        <Tab style="-fx-background-color: #1473e6;" text="Check In">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="345.0" prefWidth="1631.0">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <children>
+                                    <JFXTreeTableView fx:id="checkInTable" prefHeight="401.0" prefWidth="1631.0">
+                                       <columns>
+                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
+                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
+                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
+                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
+                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
+                                       </columns></JFXTreeTableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab style="-fx-background-color: #1473e6;" text="Check out">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXTreeTableView fx:id="checkoutTable" prefHeight="401.0" prefWidth="1631.0">
+                                       <columns>
+                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
+                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
+                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
+                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
+                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
+                                       </columns></JFXTreeTableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab style="-fx-background-color: #1473e6;" text="Cancellation">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <children>
+                                    <JFXTreeTableView fx:id="cancelTable" prefHeight="401.0" prefWidth="1631.0">
+                                       <columns>
+                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
+                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
+                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
+                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
+                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
+                                       </columns></JFXTreeTableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab style="-fx-background-color: #1473e6;" text="Booking">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXTreeTableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0">
+                                       <columns>
+                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
+                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
+                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
+                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
+                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
+                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
+                                       </columns></JFXTreeTableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </JFXTabPane>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+
+</AnchorPane>

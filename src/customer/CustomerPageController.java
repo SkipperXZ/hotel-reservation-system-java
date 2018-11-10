@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -103,10 +104,13 @@ public class CustomerPageController {
         customers.addAll(CustomerDatabase.customerDatabase.values());
 
 
-      /*  for(Customer customer:customers )
+        for(Customer customer:customers )
         list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
-                customer.getEmail(),customer.getStatus(),String.valueOf(customer.getTotalReserve()),String.valueOf(customer.getTotalNightStay()),String.valueOf(customer.getTotalRevenue()),customer.getLastVisit().toString()));
-*/
+                customer.getEmail(),String.valueOf(customer.getTotalReserve()),
+                String.valueOf(customer.getTotalNightStay()),
+                String.valueOf(customer.getTotalRevenue()),
+               customer.getLastVisitToString()));
+
         list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
         final TreeItem<CustomerTable> root = new RecursiveTreeItem<CustomerTable>(list,RecursiveTreeObject::getChildren);
 
@@ -208,7 +212,7 @@ public class CustomerPageController {
         IntegerProperty customerID;
         StringProperty tel;
         StringProperty email;
-        StringProperty status;
+       // StringProperty status;
         StringProperty totolRes;
         StringProperty nightStay;
         StringProperty totalRevenue;
@@ -219,7 +223,7 @@ public class CustomerPageController {
                              int customerID,
                              String tel,
                              String email,
-                             String status,
+                            // String status,
                              String totolRes,
                              String nightStay,
                              String totalRevenue,
@@ -230,7 +234,7 @@ public class CustomerPageController {
             this.customerID = new SimpleIntegerProperty(customerID);
             this.tel = new SimpleStringProperty(tel);
             this.email = new SimpleStringProperty(email);
-            this.status = new SimpleStringProperty(status);
+            //this.status = new SimpleStringProperty(status);
             this.totolRes = new SimpleStringProperty(totolRes);
             this.nightStay = new SimpleStringProperty(nightStay);
             this.totalRevenue = new SimpleStringProperty(totalRevenue);
@@ -286,14 +290,14 @@ public class CustomerPageController {
                 return param.getValue().getValue().email ;
             }
         });
-        JFXTreeTableColumn<CustomerTable,String> status  = new JFXTreeTableColumn("Status");
-        status.setPrefWidth(162);
-        status.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<CustomerTable, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<CustomerTable, String> param) {
-                return param.getValue().getValue().status ;
-            }
-        });
+//        JFXTreeTableColumn<CustomerTable,String> status  = new JFXTreeTableColumn("Status");
+//        status.setPrefWidth(162);
+//        status.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<CustomerTable, String>, ObservableValue<String>>() {
+//            @Override
+//            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<CustomerTable, String> param) {
+//                return param.getValue().getValue().status ;
+//            }
+//        });
         JFXTreeTableColumn<CustomerTable,String> totolRes = new JFXTreeTableColumn("Total Reservation");
         totolRes.setPrefWidth(162);
         totolRes.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<CustomerTable, String>, ObservableValue<String>>() {
@@ -319,7 +323,7 @@ public class CustomerPageController {
             }
         });
         JFXTreeTableColumn<CustomerTable,String> lastVisit = new JFXTreeTableColumn("Last Visited");
-        lastVisit.setPrefWidth(162);
+        lastVisit.setPrefWidth(162*2);
         lastVisit.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<CustomerTable, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<CustomerTable, String> param) {
@@ -327,7 +331,7 @@ public class CustomerPageController {
             }
         });
 
-        table.getColumns().setAll(firstname,lastname,customerID,tel ,email ,status ,totolRes ,nightStay ,totalRevenue ,lastVisit);
+        table.getColumns().setAll(firstname,lastname,customerID,tel ,email ,totolRes ,nightStay ,totalRevenue ,lastVisit);
     }
 
 

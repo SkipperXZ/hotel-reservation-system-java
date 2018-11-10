@@ -67,7 +67,7 @@ public class CustomerPopupController implements Initializable {
         employeeId.setText(userArrayList.get(userCur).getEmployeeId());
         firstName.setText(userArrayList.get(userCur).getFirstName());
         lastName.setText(userArrayList.get(userCur).getLastName());
-        ID.setText(userArrayList.get(userCur).getPass());
+        ID.setText(userArrayList.get(userCur).getPassId());
         country.setText(userArrayList.get(userCur).getCountry());
         tel.setText(userArrayList.get(userCur).getTel());
         email.setText(userArrayList.get(userCur).getEmail());

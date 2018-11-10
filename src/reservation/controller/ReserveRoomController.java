@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import report.Booking;
 import reservation.room.Room;
 import java.time.LocalDate;
 

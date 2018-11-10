@@ -3,6 +3,9 @@ import Hotel.Hotel;
 import Hotel.OneDayHotel;
 import Hotel.CustomerDatabase;
 import Hotel.Customer;
+import staff.UserNoButton;
+import report.AllBooking;
+import report.Booking;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +14,39 @@ import java.util.Map;
 
 
 public class IO{
+    public static void saveUser(ArrayList<UserNoButton>user) {
+        File file = new File("User.dat");
+        try {
+            ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(file));
+            writer.writeObject(user);
+            writer.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public static ArrayList<UserNoButton> loadUser(){
+        ArrayList<UserNoButton> user;
+        try
+        {
+            FileInputStream fis = new FileInputStream("User.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            user = (ArrayList) ois.readObject();
+            ois.close();
+            fis.close();
+        }catch(IOException ioe){
+          //  System.out.println("File Not Found . Create a New Flie");
+            ioe.printStackTrace();
+            return null;
+        }catch(ClassNotFoundException c){
+         //   System.out.println("Class not found");
+
+            c.printStackTrace();
+            return null;
+        }
+        return user;
+    }
+
     public static void saveHotel(ArrayList<OneDayHotel> hotel) {
 
         File file = new File("hotel.dat");
@@ -40,6 +76,38 @@ public class IO{
         }
         return hotel;
     }
+
+    public static void saveAllBooking(ArrayList<Booking> allbooking) {
+
+        File file = new File("AllBooking.dat");
+        try {
+            ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(file));
+            writer.writeObject(allbooking);
+            writer.close();
+        }catch (Exception e){}
+
+    }
+    public static ArrayList<Booking> loadAllBooking(){
+        ArrayList<Booking> allbooking;
+        try
+        {
+            FileInputStream fis = new FileInputStream("AllBooking.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            allbooking = (ArrayList) ois.readObject();
+            ois.close();
+            fis.close();
+        }catch(IOException ioe){
+            System.out.println("File Not Found . Create a New Flie");
+            return null;
+        }catch(ClassNotFoundException c){
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return null;
+        }
+        System.out.println("Done!!!");
+        return allbooking;
+    }
+
     public static void saveCustomer(HashMap<String, Customer> customer) {
 
         File file = new File("customer.dat");
