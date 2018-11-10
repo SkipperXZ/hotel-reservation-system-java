@@ -62,8 +62,8 @@ public class NewCustomerController{
                             addressInput = address.getText();
 
                            if(!firstNameInput.trim().equals("") && !lastNameInput.trim().equals("") && !telInput.trim().equals("")  ) {
-                                   Customer customer = new Customer(firstNameInput, lastNameInput, IDInput, countryInput,
-                                           telInput, emailInput,addressInput);
+                                   Customer customer = new Customer(firstNameInput, lastNameInput,telInput, emailInput, IDInput, countryInput,
+                                           addressInput);
                                    CustomerDatabase.updateCustomer(customer);
                                    Stage stage = (Stage) btnCreate.getScene().getWindow();
                                    stage.close();

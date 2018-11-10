@@ -80,7 +80,7 @@ public class CustomerPopupController {
         String NameHash = CustomerPageController.selectName;
          Customer customer =  customerDatabase.get(NameHash);
 
-         fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
+           fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
          customerID.setText(String.valueOf(customer.getCustomerID()));
         firstName.setText(customer.getFirstName());
         lastName.setText(customer.getLastName());

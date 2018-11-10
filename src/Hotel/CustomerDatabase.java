@@ -18,6 +18,7 @@ public class CustomerDatabase {
             if(customer.getIdNum() != null && customer.getCountry()!=null){
                 customerDatabase.get(customer.getFirstName()+customer.getLastName()).setCountry(customer.getCountry());
                 customerDatabase.get(customer.getFirstName()+customer.getLastName()).setIdNum(customer.getIdNum());
+                customerDatabase.get(customer.getFirstName()+customer.getLastName()).setAddress(customer.getAddress());
             }
         }
     }

@@ -91,6 +91,7 @@ public class ReserveRoomController {
     private String tel;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+    private String memo;
     private ReservationPageController parentController;
     private int extraBedNum;
     private int nightNum;
@@ -142,6 +143,7 @@ public class ReserveRoomController {
                     if(checkOutDate.getDayOfYear()-checkInDate.getDayOfYear() > 29){
                         return;
                     }
+                    memo = memoText.getText();
                 }catch (Exception e){
                     return;
                 }
@@ -149,7 +151,7 @@ public class ReserveRoomController {
                 if(!checkAvaliableDay(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()),parentController.getCurrentDay(),parentController.getCurrentFloorNum())){
                     return;
                 }
-                Customer customer = new Customer(adultNum, childNum, title, firstName, lastName, tel, checkInDate, checkOutDate,extraBedNum,email,price,weekDayNum,weekEndNum);
+                Customer customer = new Customer(adultNum, childNum, title, firstName, lastName, tel, checkInDate, checkOutDate,extraBedNum,email,price,weekDayNum,weekEndNum,memo);
                 customer.setPayment(false);
                 CustomerDatabase.updateCustomer(customer);
                 parentController.setRoomIndex(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()));
