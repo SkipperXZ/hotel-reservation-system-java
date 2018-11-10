@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import reservation.room.Room;
 
-public class GuestInfoPageController {
+public class CustomerInfoPageController {
     @FXML
     private Label firstNameLabel;
     @FXML

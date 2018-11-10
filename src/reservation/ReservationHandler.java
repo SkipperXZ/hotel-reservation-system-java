@@ -89,14 +89,37 @@ public class ReservationHandler {
 
 
     }
-    public static void outOfService(Room room){
-        room.setStatus("Out Of Service");
+    public static void outOfService(int roomIndex, int currentFloorNum, int currentDay,LocalDate startDate,LocalDate finishDate){
+        int index=0;
+        for (OneDayHotel e:Hotel.hotel
+        ) {
+            if (e.getDate().equals(startDate)){
+                String memo = e.getFloors()[currentFloorNum-1].getRooms()[roomIndex].getMemo();
+                for (int i = 0; i < finishDate.getDayOfYear()-startDate.getDayOfYear()+1; i++) {
+                    Hotel.hotel.get(index+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex].setStatus("Out Of Service");
+                    Hotel.hotel.get(index+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex].setMemo(memo);
+                }
+            }
+            index++;
+        }
     }
-    public static void cancleOutOfService(Room room){
+    public static void cancel(Room room){
         room.setStatus("Vacant");
     }
-    public static void roomBlock(Room room){
-        room.setStatus("Room Block");
+    public static void roomBlock(int roomIndex, int currentFloorNum, int currentDay,LocalDate startDate,LocalDate finishDate){
+        int index=0;
+        for (OneDayHotel e:Hotel.hotel
+             ) {
+            if (e.getDate().equals(startDate)){
+                String memo = e.getFloors()[currentFloorNum-1].getRooms()[roomIndex].getMemo();
+                for (int i = 0; i < finishDate.getDayOfYear()-startDate.getDayOfYear()+1; i++) {
+                    Hotel.hotel.get(index+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex].setStatus("Room Block");
+                    Hotel.hotel.get(index+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex].setMemo(memo);
+                }
+            }
+            index++;
+        }
+
     }
     public static void payment(Room room){
         Customer customer = room.getCustomer();
