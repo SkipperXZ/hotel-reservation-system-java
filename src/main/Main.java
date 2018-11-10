@@ -10,13 +10,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import report.AllBooking;
+import report.Booking;
 import reservation.IO;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
 public class Main extends Application {
+
     //Scene resScene =
     Stage primaryStage;
     @Override
@@ -28,8 +32,11 @@ public class Main extends Application {
         Linker.customerScene = new Scene(root2,1920, 1080);
         Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
+        Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
+        Linker.report = new Scene(root4,1920,1080);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(Linker.resScene);
+        primaryStage.setScene(Linker.report);
+        //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
 //show
@@ -38,6 +45,8 @@ public class Main extends Application {
         stopClock();
         IO.saveHotel(Hotel.hotel);
         IO.saveCustomer(CustomerDatabase.customerDatabase);
+        IO.saveAllBooking(AllBooking.allBooking);
+        System.out.println("Save done");
     }
     public void stopClock(){
         for (OneDayHotel e:Hotel.hotel
@@ -55,6 +64,7 @@ public class Main extends Application {
     public static void load(){
         ArrayList<OneDayHotel> hotel = IO.loadHotel();
         HashMap<String, Customer> customer = IO.loadCustomer();
+        ArrayList<Booking> allbooking = IO.loadAllBooking();
 
         if(hotel==null){
             new Hotel();
@@ -68,7 +78,15 @@ public class Main extends Application {
             Customer.setNumcustomerID(max);
 
         }
-
+        if(allbooking != null){
+            AllBooking.allBooking = allbooking;
+            System.out.println("Load Done");
+        }
+        else{
+            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null);
+            AllBooking.addBooking(booking);
+            System.out.println("Initial done");
+        }
 
     }
 

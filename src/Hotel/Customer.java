@@ -57,7 +57,7 @@ public class Customer implements Serializable {
         this.weekEndNum = weekEndNum;
 
         if(customerDatabase.size()==0)
-           numcustomerID =0;
+            numcustomerID =0;
         numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
         //System.out.println(numcustomerID+1);

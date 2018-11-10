@@ -5,6 +5,8 @@ import Hotel.Hotel;
 import Hotel.CustomerDatabase;
 import Hotel.OneDayHotel;
 import reservation.room.Room;
+import report.AllBooking;
+import report.Booking;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +17,11 @@ public class ReservationHandler {
             Room room = Hotel.hotel.get(currentDay-1+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex];
             room.setCustomer(customer);
             room.setStatus("Reserved");
+
+            Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),4, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate());
+            System.out.println("booking done");
+            AllBooking.addBooking(booking);
+            System.out.println("Add done");
 
         }
         databaseCustomer.setTotalNightStay(databaseCustomer.getTotalNightStay()+customer.getNightNum());
@@ -32,12 +39,12 @@ public class ReservationHandler {
         for (OneDayHotel e:Hotel.hotel) {
 
             if(e.getDate().equals(customer.getCheckInDate())){
-             for (int i = 0; i < customer.getNightNum()+1; i++) {
-                Room room = Hotel.hotel.get(index + i).getFloors()[currentFloorNum - 1].getRooms()[roomIndex];
-                room.setCustomer(customer);
-                room.setCustomer(null);
-                room.setStatus("Vacant");
-              }
+                for (int i = 0; i < customer.getNightNum()+1; i++) {
+                    Room room = Hotel.hotel.get(index + i).getFloors()[currentFloorNum - 1].getRooms()[roomIndex];
+                    room.setCustomer(customer);
+                    room.setCustomer(null);
+                    room.setStatus("Vacant");
+                }
                 break;
             }
             index++;
@@ -59,14 +66,17 @@ public class ReservationHandler {
         room.setStatus(room.getPreStatus());
         room.getCountDownClock().skipCleaning();
     }
-    public static void checkOut(Room room){
+    public static void checkOut(Room room, Customer customer){
         CustomerDatabase.customerDatabase.get(room.getCustomer().getFirstName()+room.getCustomer().getLastName()).setLastVisit(LocalDateTime.now());
         room.setCustomer(null);
-      //  room.setPreStatus("Vacant");
+        //  room.setPreStatus("Vacant");
         room.setStatus("Vacant");
         room.setCountDownClock(new CountDownClock(room));
 
-
+        Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),2, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate());
+        System.out.println("booking done");
+        AllBooking.addBooking(booking);
+        System.out.println("Add done");
     }
     public static void outOfService(Room room){
         room.setStatus("Out Of Service");
@@ -90,6 +100,12 @@ public class ReservationHandler {
             room.setStatus("In House");
             if(Hotel.hotel.get(currentDay-1+i).getDate().equals(customer.getCheckOutDate()))
                 break;
+            if(i==0){
+                Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),1, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate());
+                System.out.println("Check-in done");
+                AllBooking.addBooking(booking);
+                System.out.println("Add done");
+            }
         }
 
     }
