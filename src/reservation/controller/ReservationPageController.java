@@ -363,11 +363,13 @@ public class ReservationPageController {
             currentDayLabel.setText("TODAY");
             cleanOnVacant.setDisable(false);
             checkInOnReserved.setDisable(false);
+            checkOutOnInHouse.setDisable(false);
         }
         else{
             currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
             cleanOnVacant.setDisable(true);
             checkInOnReserved.setDisable(true);
+            checkOutOnInHouse.setDisable(true);
         }
 
        /* walkInOnVacant.setOnAction(new EventHandler<ActionEvent>() {
@@ -520,7 +522,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkOutOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isCheckOutScene()){
-                    ReservationHandler.checkOut(room);
+                    ReservationHandler.checkOut(roomIndex,currentFloorNum,currentDay);
                     if (isConfirmCleaningScene()) {
                         ReservationHandler.cleaning(room, cleaningTimeMinute);
                     }
@@ -668,21 +670,21 @@ public class ReservationPageController {
         makeNextDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
+                    currentDayLabel.setText("TODAY");
+                    cleanOnVacant.setDisable(false);
+                    checkInOnReserved.setDisable(false);
+                    checkOutOnInHouse.setDisable(false);
+                }
+                else{
+                    currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                    cleanOnVacant.setDisable(true);
+                    checkInOnReserved.setDisable(true);
+                    checkOutOnInHouse.setDisable(true);
+                }
                 if(currentDay < 30){
                     currentDay++;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
-                        currentDayLabel.setText("TODAY");
-                        cleanOnVacant.setDisable(false);
-                        checkInOnReserved.setDisable(false);
-                    }
-                    else{
-                        currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
-                        cleanOnVacant.setDisable(true);
-                        checkInOnReserved.setDisable(true);
-                    }
-
                 }
                 updateRoomAvailaible();;
 
@@ -693,20 +695,22 @@ public class ReservationPageController {
         makePreDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
+                    currentDayLabel.setText("TODAY");
+                    cleanOnVacant.setDisable(false);
+                    checkInOnReserved.setDisable(false);
+                    checkOutOnInHouse.setDisable(false);
+                }
+                else{
+                    currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                    cleanOnVacant.setDisable(true);
+                    checkInOnReserved.setDisable(true);
+                    checkOutOnInHouse.setDisable(true);
+                }
                 if(currentDay > 1){
                     currentDay--;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
-                        currentDayLabel.setText("TODAY");
-                        cleanOnVacant.setDisable(false);
-                        checkInOnReserved.setDisable(false);
-                    }
-                    else{
-                        currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
-                        cleanOnVacant.setDisable(true);
-                        checkInOnReserved.setDisable(true);
-                    }
+
 
                 }
                 updateRoomAvailaible();
@@ -940,7 +944,7 @@ private boolean isConfirmCleaningScene(){
             checkInController.getInfoFromGuest();
             checkInStage = new Stage();
             checkInStage.setTitle("Check In");
-            checkInStage.setScene(new Scene(root, 800, 782));
+            checkInStage.setScene(new Scene(root, 1000, 770));
             checkInStage.showAndWait();
             isConfirm = checkInController.getConfirm();
         }catch (Exception e){
@@ -988,7 +992,7 @@ private boolean isConfirmCleaningScene(){
 
             return isConfirm;
     }
-    private boolean isConfirmPaymentScene() {
+    public boolean isConfirmPaymentScene() {
         boolean isPay = false;
         PaymentPageController paymentPageController;
 

@@ -9,124 +9,121 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.ReserveRoomController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="834.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.ReserveRoomController">
    <children>
-      <ImageView fitHeight="613.0" fitWidth="700.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/bg/reserve-room-bg.png" />
-         </image>
-      </ImageView>
-      <Text fill="#ffd12d" layoutX="42.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="47.99999296665192">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="52.0" layoutX="45.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="201.0" />
+      <Text fill="#ffd12d" layoutX="70.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="47.99999296665192">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="168.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+      <Text fill="#ffd12d" layoutX="196.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="167.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+      <Text fill="#ffd12d" layoutX="195.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="168.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel">
+      <Text fill="#ffd12d" layoutX="196.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="38.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adult" wrappingWidth="55.44140625">
+      <Text fill="#ffd12d" layoutX="103.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adult" wrappingWidth="55.44140625">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="37.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Children" wrappingWidth="85.6142520904541">
+      <Text fill="#ffd12d" layoutX="102.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Children" wrappingWidth="85.6142520904541">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="37.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check in Date" wrappingWidth="201.44140625">
+      <Text fill="#ffd12d" layoutX="102.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check in Date" wrappingWidth="201.44140625">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffd12d" layoutX="37.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check out Date" wrappingWidth="141.0000006556511">
+      <Text fill="#ffd12d" layoutX="102.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check out Date" wrappingWidth="141.0000006556511">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="firstNameText" layoutX="275.0" layoutY="168.0" prefHeight="25.0" prefWidth="129.0" />
-      <TextField fx:id="lastNameText" layoutX="275.0" layoutY="202.0" prefHeight="25.0" prefWidth="129.0" />
-      <TextField fx:id="telNumText" layoutX="275.0" layoutY="237.0" prefHeight="25.0" prefWidth="129.0" />
-      <JFXDatePicker fx:id="checkInDatePicker" layoutX="170.0" layoutY="380.0" prefHeight="25.0" prefWidth="115.0" />
-      <JFXDatePicker fx:id="checkOutDatePicker" layoutX="170.0" layoutY="413.0" prefHeight="28.0" prefWidth="115.0" />
+      <TextField fx:id="firstNameText" layoutX="303.0" layoutY="236.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextField fx:id="lastNameText" layoutX="303.0" layoutY="270.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextField fx:id="telNumText" layoutX="303.0" layoutY="305.0" prefHeight="25.0" prefWidth="129.0" />
+      <JFXDatePicker fx:id="checkInDatePicker" layoutX="235.0" layoutY="485.0" prefHeight="25.0" prefWidth="115.0" />
+      <JFXDatePicker fx:id="checkOutDatePicker" layoutX="235.0" layoutY="518.0" prefHeight="28.0" prefWidth="115.0" />
       <Button fx:id="makeConfirm" layoutX="559.0" layoutY="524.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="97.0" style="-fx-background-color: #00000000;" />
-      <Button fx:id="makeCancel" layoutX="435.0" layoutY="524.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="97.0" style="-fx-background-color: #00000000;" />
-      <ChoiceBox fx:id="titleChoice" layoutX="94.0" layoutY="168.0" prefHeight="25.0" prefWidth="48.0" />
-      <Text fill="#ffd12d" layoutX="170.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Button fx:id="makeCancel" layoutX="420.0" layoutY="522.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="97.0" style="-fx-background-color: #00000000;" />
+      <ChoiceBox fx:id="titleChoice" layoutX="122.0" layoutY="236.0" prefHeight="25.0" prefWidth="48.0" />
+      <Text fill="#ffd12d" layoutX="198.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="emailText" layoutX="275.0" layoutY="273.0" prefHeight="25.0" prefWidth="129.0" />
-      <ChoiceBox fx:id="adultNumChoice" layoutX="128.0" layoutY="309.0" prefHeight="25.0" prefWidth="42.0" />
-      <ChoiceBox fx:id="childNumChoice" layoutX="128.0" layoutY="343.0" prefHeight="25.0" prefWidth="42.0" />
-      <Text fill="#ffd12d" layoutX="186.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra bed" wrappingWidth="85.61426550149918">
+      <TextField fx:id="emailText" layoutX="303.0" layoutY="341.0" prefHeight="25.0" prefWidth="129.0" />
+      <ChoiceBox fx:id="adultNumChoice" layoutX="193.0" layoutY="414.0" prefHeight="25.0" prefWidth="42.0" />
+      <ChoiceBox fx:id="childNumChoice" layoutX="193.0" layoutY="448.0" prefHeight="25.0" prefWidth="42.0" />
+      <Text fill="#ffd12d" layoutX="251.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra bed" wrappingWidth="85.61426550149918">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="extraBedChoice" layoutX="275.0" layoutY="343.0" prefHeight="25.0" prefWidth="48.0" />
-      <Label fx:id="dayLabel_0" layoutX="39.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label layoutX="37.0" layoutY="57.0" prefHeight="38.0" prefWidth="162.0" text="Room  104">
+      <ChoiceBox fx:id="extraBedChoice" layoutX="340.0" layoutY="448.0" prefHeight="25.0" prefWidth="48.0" />
+      <Label fx:id="dayLabel_0" layoutX="50.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label layoutX="154.0" layoutY="118.0" prefHeight="38.0" prefWidth="162.0" text="0000" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="dayLabel_1" layoutX="126.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_2" layoutX="213.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_3" layoutX="301.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_4" layoutX="388.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_5" layoutX="475.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_6" layoutX="562.0" layoutY="471.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Text fill="#ffcf21" layoutX="285.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
+      <Label fx:id="dayLabel_1" layoutX="137.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label fx:id="dayLabel_2" layoutX="224.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label fx:id="dayLabel_3" layoutX="312.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label fx:id="dayLabel_4" layoutX="399.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label fx:id="dayLabel_5" layoutX="486.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label fx:id="dayLabel_6" layoutX="573.0" layoutY="578.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Text fill="#ffcf21" layoutX="350.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ffcf21" layoutX="350.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="memoText" layoutX="497.0" layoutY="422.0" prefHeight="127.0" prefWidth="231.0" />
+      <Text layoutX="500.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo" wrappingWidth="55.44140625">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffcf21" layoutX="285.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <TextArea fx:id="memoText" layoutX="432.0" layoutY="317.0" prefHeight="127.0" prefWidth="231.0" />
-      <Text layoutX="435.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo" wrappingWidth="55.44140625">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <Label fx:id="priceLabel" alignment="CENTER" layoutX="340.0" layoutY="418.0" prefHeight="27.0" prefWidth="55.0" text="0" textFill="RED">
+      <Label fx:id="priceLabel" alignment="CENTER" layoutX="405.0" layoutY="523.0" prefHeight="27.0" prefWidth="55.0" text="0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="nightNumLabel" alignment="CENTER" layoutX="340.0" layoutY="386.0" prefHeight="27.0" prefWidth="75.0" text="0">
+      <Label fx:id="nightNumLabel" alignment="CENTER" layoutX="405.0" layoutY="491.0" prefHeight="27.0" prefWidth="75.0" text="0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Text layoutX="396.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" wrappingWidth="16.44140625">
+      <Text layoutX="452.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" wrappingWidth="16.44140625">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="searchBar" layoutX="483.0" layoutY="166.0" prefHeight="25.0" prefWidth="129.0" />
-      <Button fx:id="makeSearch" layoutX="617.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: white;">
+      <TextField fx:id="searchBar" layoutX="484.0" layoutY="270.0" prefHeight="25.0" prefWidth="129.0" />
+      <Button fx:id="makeSearch" layoutX="617.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" style="-fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -139,6 +136,34 @@
       <Text fill="WHITE" layoutX="492.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old User">
          <font>
             <Font size="35.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="171.0" layoutY="-84.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="840.0" />
+      <Text fill="WHITE" layoutX="30.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserve Room">
+         <font>
+            <Font name="Segoe UI Bold" size="32.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="60.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room">
+         <font>
+            <Font name="Segoe UI Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text fill="#f6d03a" layoutX="70.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </Text>
+      <Line endX="269.0" layoutX="173.0" layoutY="218.0" startX="-100.0" stroke="#f6d03a" strokeWidth="5.0" />
+      <Text fill="#f6d03a" layoutX="475.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Customer">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </Text>
+      <Line endX="138.5" layoutX="578.0" layoutY="218.0" startX="-100.0" stroke="#f6d03a" strokeWidth="5.0" />
+      <Text fill="#f6d03a" layoutX="482.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+         <font>
+            <Font name="Segoe UI" size="21.0" />
          </font>
       </Text>
    </children>

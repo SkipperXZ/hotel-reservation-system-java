@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import Hotel.Customer;
+import reservation.ReservationHandler;
 import reservation.room.Room;
 
 import java.time.LocalDateTime;
@@ -78,8 +79,9 @@ public class CheckOutPageController {
         makePayment.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                isCheckOut =false;
-                parentController.getCheckOutStage().close();
+                if (parentController.isConfirmPaymentScene()){
+                    ReservationHandler.payment(room);
+                }
             }
         });
     }

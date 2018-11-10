@@ -4,153 +4,192 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="782.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CheckInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CheckInController">
    <children>
-      <ImageView fitHeight="782.0" fitWidth="800.0" layoutX="-12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/bg/check-in-bg.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="roomIDLabel" layoutX="161.0" layoutY="107.0" text="0000">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39e184" height="53.0" layoutX="44.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="220.0" />
+      <Label fx:id="roomIDLabel" layoutX="170.0" layoutY="103.0" text="0000" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="firstNameText" layoutX="266.0" layoutY="235.0" prefHeight="25.0" prefWidth="193.0" />
-      <TextField fx:id="lastNameText" layoutX="266.0" layoutY="270.0" prefHeight="25.0" prefWidth="193.0" />
-      <TextField fx:id="idNumText" layoutX="266.0" layoutY="307.0" prefHeight="25.0" prefWidth="193.0" />
-      <TextField fx:id="countryText" layoutX="266.0" layoutY="348.0" prefHeight="25.0" prefWidth="122.0" />
-      <TextField fx:id="telNumText" layoutX="266.0" layoutY="383.0" prefHeight="25.0" prefWidth="122.0" />
-      <TextField fx:id="emailText" layoutX="266.0" layoutY="421.0" prefHeight="25.0" prefWidth="193.0" />
-      <Text layoutX="154.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+      <TextField fx:id="firstNameText" layoutX="375.0" layoutY="255.0" prefHeight="25.0" prefWidth="193.0" />
+      <TextField fx:id="lastNameText" layoutX="375.0" layoutY="290.0" prefHeight="25.0" prefWidth="193.0" />
+      <TextField fx:id="idNumText" layoutX="752.0" layoutY="249.0" prefHeight="25.0" prefWidth="193.0" />
+      <TextField fx:id="countryText" layoutX="752.0" layoutY="286.0" prefHeight="25.0" prefWidth="122.0" />
+      <TextField fx:id="telNumText" layoutX="376.0" layoutY="328.0" prefHeight="25.0" prefWidth="122.0" />
+      <TextField fx:id="emailText" layoutX="376.0" layoutY="367.0" prefHeight="25.0" prefWidth="193.0" />
+      <Text fill="#39e184" layoutX="263.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="154.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+      <Text fill="#39e184" layoutX="263.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="155.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
+      <Text fill="#39e184" layoutX="641.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="155.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel">
+      <Text fill="#39e184" layoutX="265.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="154.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
+      <Text fill="#39e184" layoutX="641.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="156.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text fill="#39e184" layoutX="266.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="adultNumChoice" layoutX="138.0" layoutY="475.0" prefHeight="25.0" prefWidth="64.0" />
-      <ChoiceBox fx:id="childNumChoice" layoutX="139.0" layoutY="507.0" prefHeight="25.0" prefWidth="64.0" />
-      <ChoiceBox fx:id="extraBedChoice" layoutX="324.0" layoutY="507.0" prefHeight="25.0" prefWidth="64.0" />
-      <JFXDatePicker fx:id="checkInDatePicker" layoutX="200.0" layoutY="540.0" prefHeight="28.0" prefWidth="202.0" />
-      <JFXDatePicker fx:id="checkOutDatePicker" layoutX="200.0" layoutY="577.0" prefHeight="28.0" prefWidth="202.0" />
-      <Label fx:id="priceLabel" layoutX="261.0" layoutY="616.0" prefHeight="31.0" prefWidth="71.0" text="0">
+      <ChoiceBox fx:id="adultNumChoice" layoutX="378.0" layoutY="401.0" prefHeight="25.0" prefWidth="64.0" />
+      <ChoiceBox fx:id="childNumChoice" layoutX="378.0" layoutY="434.0" prefHeight="25.0" prefWidth="64.0" />
+      <ChoiceBox fx:id="extraBedChoice" layoutX="568.0" layoutY="435.0" prefHeight="25.0" prefWidth="64.0" />
+      <JFXDatePicker fx:id="checkInDatePicker" layoutX="420.0" layoutY="464.0" prefHeight="28.0" prefWidth="202.0" />
+      <JFXDatePicker fx:id="checkOutDatePicker" layoutX="420.0" layoutY="501.0" prefHeight="28.0" prefWidth="202.0" />
+      <Label fx:id="dayLabel_0" alignment="CENTER" layoutX="211.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="dayLabel_1" alignment="CENTER" layoutX="312.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="147.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="dayLabel_2" alignment="CENTER" layoutX="413.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="247.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="dayLabel_3" alignment="CENTER" layoutX="514.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="347.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="dayLabel_4" alignment="CENTER" layoutX="616.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="447.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="dayLabel_5" alignment="CENTER" layoutX="718.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="547.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="dayLabel_6" alignment="CENTER" layoutX="819.0" layoutY="630.0" prefHeight="41.0" prefWidth="100.0" style="-fx-border-color: black;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="647.0" layoutY="672.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: black;" text="Label">
+      <Label fx:id="priceLabel" layoutX="481.0" layoutY="540.0" prefHeight="31.0" prefWidth="71.0" text="0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Text layoutX="49.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adult">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Text layoutX="47.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Children">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Text layoutX="219.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra bed">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Text layoutX="46.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check in date">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Text layoutX="46.0" layoutY="602.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check out date">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Text layoutX="47.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Text layoutX="190.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <Label fx:id="nightNumLabel" layoutX="126.0" layoutY="616.0" prefHeight="31.0" prefWidth="71.0" text="0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="makePayment" layoutX="479.0" layoutY="727.0" prefHeight="41.0" prefWidth="122.0" textFill="TRANSPARENT" />
-      <JFXButton fx:id="makeCheckIn" layoutX="641.0" layoutY="730.0" prefHeight="41.0" prefWidth="122.0" textFill="TRANSPARENT" />
-      <Text layoutX="46.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+      <Text fill="#39e184" layoutX="269.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adult">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="titleChoice" layoutX="91.0" layoutY="235.0" prefHeight="25.0" prefWidth="55.0" />
+      <Text fill="#39e184" layoutX="267.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Children">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fill="#39e184" layoutX="463.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra bed">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fill="#39e184" layoutX="266.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check in date">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fill="#39e184" layoutX="266.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check out date">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fill="#39e184" layoutX="267.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fill="#39e184" layoutX="410.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Label fx:id="nightNumLabel" layoutX="346.0" layoutY="540.0" prefHeight="31.0" prefWidth="71.0" text="0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="makePayment" layoutX="624.0" layoutY="690.0" prefHeight="60.0" prefWidth="142.0" style="-fx-border-color: #39e184; -fx-border-radius: 10; -fx-border-width: 2;" text="Payment" textFill="#39e184">
+         <font>
+            <Font name="Segoe UI Bold" size="25.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="makeCheckIn" layoutX="799.0" layoutY="690.0" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #39e184; -fx-border-radius: 10;" text="Check In" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="26.0" />
+         </font></JFXButton>
+      <Text fill="#39e184" layoutX="261.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <ChoiceBox fx:id="titleChoice" layoutX="375.0" layoutY="219.0" prefHeight="25.0" prefWidth="55.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#39e184" height="86.0" layoutX="-5.0" layoutY="-2.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1010.0" />
+      <Text fill="WHITE" layoutX="46.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-In">
+         <font>
+            <Font name="Segoe UI Bold" size="40.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="58.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROOM">
+         <font>
+            <Font name="Segoe UI Bold" size="32.0" />
+         </font>
+      </Text>
+      <Text fill="#39e184" layoutX="261.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" wrappingWidth="141.515625">
+         <font>
+            <Font name="Segoe UI" size="27.0" />
+         </font>
+      </Text>
+      <Line endX="298.0" layoutX="367.0" layoutY="203.0" startX="-100.0" stroke="#39e184" strokeWidth="5.0" />
+      <Text fill="#39e184" layoutX="644.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="addressText" layoutX="752.0" layoutY="335.0" prefHeight="121.0" prefWidth="202.0" />
+      <Text fill="#39e184" layoutX="651.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="memoText" layoutX="752.0" layoutY="480.0" prefHeight="121.0" prefWidth="202.0" />
+      <ImageView fitHeight="291.0" fitWidth="183.0" layoutX="46.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/icon/photoUser.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -8,8 +8,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import Hotel.Customer;
+import reservation.ReservationHandler;
 import reservation.room.Room;
 
 import java.time.LocalDate;
@@ -65,6 +67,32 @@ public class CheckInController {
     @FXML
     private JFXButton makePayment;
 
+    @FXML
+    private TextArea memoText;
+
+    @FXML
+    private TextArea addressText;
+
+    @FXML
+    private Label dayLabel_0;
+
+    @FXML
+    private Label dayLabel_1;
+
+    @FXML
+    private Label dayLabel_2;
+
+    @FXML
+    private Label dayLabel_3;
+
+    @FXML
+    private Label dayLabel_4;
+
+    @FXML
+    private Label dayLabel_5;
+
+    @FXML
+    private Label dayLabel_6;
 
     private Boolean isConfirm = false;
     private int adultNum;
@@ -85,6 +113,7 @@ public class CheckInController {
     private String idNum;
     private Customer customer;
     private Room room;
+    private Label[] dayLabelArr;
     @FXML
     public void initialize() {
 
@@ -112,6 +141,7 @@ public class CheckInController {
                 customer.setPayment(isPaymeny);
                 customer.setCountry(country);
                 customer.setIdNum(idNum);
+                customer.setAddress(addressText.getText());
                 customer.setCheckInTime(LocalDateTime.now());
                 CustomerDatabase.updateCustomer(customer);
                 parentController.setCustomer(customer);
@@ -146,10 +176,31 @@ public class CheckInController {
         makePayment.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if (parentController.isConfirmPaymentScene()){
+                    ReservationHandler.payment(room);
+                }
             }
 
         });
 
+    }
+    private void initDayLabel(){
+        dayLabelArr = new Label[]{dayLabel_0,dayLabel_1,dayLabel_2,dayLabel_3,dayLabel_4,dayLabel_5,dayLabel_6};
+        checkInDatePicker.setValue(Hotel.hotel.get(parentController.getCurrentDay()-1).getDate());
+        room = parentController.searchRoomFromPane(parentController.getSelectedPane());
+
+        int roomIndex = getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum());
+        for (int i = 0; i  < dayLabelArr.length; i++) {
+            Customer customer = Hotel.hotel.get(parentController.getCurrentDay()+i-1).getFloors()[parentController.getCurrentFloorNum()-1].getRooms()[roomIndex].getCustomer();
+
+            if(customer == null){
+                dayLabelArr[i].setStyle("-fx-background-color: #24ec88");
+            }
+            else {
+                dayLabelArr[i].setStyle("-fx-background-color: red");
+            }
+
+        }
     }
 
     public void getInfoFromGuest(){
@@ -166,6 +217,7 @@ public class CheckInController {
         checkOutDatePicker.setValue(customer.getCheckOutDate());
         priceLabel.setText(String.valueOf(customer.getPaymerntPrice()));
         nightNumLabel.setText(String.valueOf(customer.getNightNum()));
+        memoText.setText(customer.getMemo());
         adultNumChoice.setDisable(true);
         childNumChoice.setDisable(true);
         titleChoice.setDisable(true);
@@ -178,14 +230,17 @@ public class CheckInController {
         checkOutDatePicker.setEditable(false);
         checkInDatePicker.setDisable(true);
         checkOutDatePicker.setDisable(true);
+        memoText.setDisable(true);
         roomIDLabel.setText(room.getRoomID());
         if (CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName()) != null){
             Customer dbCustomer = CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
-            if( dbCustomer.getIdNum() != null && dbCustomer.getCountry()!=null){
+            if( dbCustomer.getIdNum() != null && dbCustomer.getCountry()!=null && dbCustomer.getAddress() != null){
                 idNumText.setText(dbCustomer.getIdNum());
                 countryText.setText(dbCustomer.getCountry());
+                addressText.setText(dbCustomer.getAddress());
                 idNumText.setEditable(false);
                 countryText.setEditable(false);
+                addressText.setEditable(false);
             }
         }
     }
@@ -245,6 +300,7 @@ public class CheckInController {
 
     public void setParentController(ReservationPageController parentController) {
         this.parentController = parentController;
+        initDayLabel();
     }
     private int getRoomIdex(Room room ,int currentDay,int floorNum ){
         int index=0;
