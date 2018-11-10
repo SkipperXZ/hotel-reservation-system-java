@@ -68,6 +68,7 @@ public class CustomerPageController {
     private double xOffset = 0;
     private double yOffset = 0;
     public static String selectName;
+    static  ObservableList<CustomerTable> list = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
@@ -85,9 +86,23 @@ public class CustomerPageController {
                 Linker.primaryStage.setScene(linker.newResScene());
             }
         });
+        reportButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Linker.primaryStage.setScene(linker.newReportScene());
+            }
+        });
+        userButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Linker.primaryStage.setScene(linker.newUserScene());
+            }
+        });
 
         setupHead();
-        ObservableList<CustomerTable> list = FXCollections.observableArrayList();
+        // ObservableList<CustomerTable> list = FXCollections.observableArrayList();
         List<String> names = Arrays.asList("sadsadas", "sadsadup2", "asdcefdvadfasf","sdacxczcxc");
         DecimalFormat phoneNum3 = new DecimalFormat("000");
         DecimalFormat phoneNum4 = new DecimalFormat("0000");
@@ -104,8 +119,7 @@ public class CustomerPageController {
 //            customers.add(e);
 //        }
         customers.addAll(CustomerDatabase.customerDatabase.values());
-
-
+        list.clear();
         for(Customer customer:customers )
         list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
                 customer.getEmail(),String.valueOf(customer.getTotalReserve()),
@@ -118,6 +132,7 @@ public class CustomerPageController {
 
         table.setRoot(root);
         table.setShowRoot(false);
+
 
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -163,7 +178,6 @@ public class CustomerPageController {
         });
 
 
-
         btnNewCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -205,16 +219,33 @@ public class CustomerPageController {
         });
 
 
-
-
     }
+
+    public void update() {
+
+        list.clear();
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        customers.addAll(CustomerDatabase.customerDatabase.values());
+
+        for(Customer customer:customers )
+            list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
+                    customer.getEmail(),String.valueOf(customer.getTotalReserve()),
+                    String.valueOf(customer.getTotalNightStay()),
+                    String.valueOf(customer.getTotalRevenue()),
+                    customer.getLastVisitToString()));
+
+        list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
+//        TreeItem<CustomerTable> root = new RecursiveTreeItem<CustomerTable>(list,RecursiveTreeObject::getChildren);
+//        table.setRoot(root);
+//        table.setShowRoot(false);
+    }
+
     class CustomerTable extends RecursiveTreeObject<CustomerTable>{
         StringProperty firstName;
         StringProperty lastName;
         IntegerProperty customerID;
         StringProperty tel;
         StringProperty email;
-       // StringProperty status;
         StringProperty totolRes;
         StringProperty nightStay;
         StringProperty totalRevenue;
@@ -225,7 +256,6 @@ public class CustomerPageController {
                              int customerID,
                              String tel,
                              String email,
-                            // String status,
                              String totolRes,
                              String nightStay,
                              String totalRevenue,
@@ -236,7 +266,6 @@ public class CustomerPageController {
             this.customerID = new SimpleIntegerProperty(customerID);
             this.tel = new SimpleStringProperty(tel);
             this.email = new SimpleStringProperty(email);
-            //this.status = new SimpleStringProperty(status);
             this.totolRes = new SimpleStringProperty(totolRes);
             this.nightStay = new SimpleStringProperty(nightStay);
             this.totalRevenue = new SimpleStringProperty(totalRevenue);
