@@ -2,79 +2,106 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CustomerInfoPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CustomerInfoPageController">
    <children>
-      <Text fill="#ff55f9" layoutX="240.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b067df" height="140.0" layoutX="-39.0" layoutY="-60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="783.0" />
+      <Text fill="#b067df" layoutX="241.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff55f9" layoutX="242.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+      <Text fill="#b067df" layoutX="242.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff55f9" layoutX="243.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
+      <Text fill="#b067df" layoutX="243.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff55f9" layoutX="245.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
+      <Text fill="#b067df" layoutX="245.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff55f9" layoutX="243.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel.">
+      <Text fill="#b067df" layoutX="243.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel.">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff55f9" layoutX="247.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text fill="#b067df" layoutX="247.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff55f9" layoutX="193.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest Folio">
+      <Text fill="WHITE" layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Folio">
          <font>
-            <Font size="43.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Label fx:id="firstNameLabel" layoutX="379.0" layoutY="126.0" text="-">
+      <Label fx:id="firstNameLabel" layoutX="379.0" layoutY="115.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lastNameLabel" layoutX="380.0" layoutY="168.0" text="-">
+      <Label fx:id="lastNameLabel" layoutX="379.0" layoutY="146.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="idNumLabel" layoutX="381.0" layoutY="206.0" text="-">
+      <Label fx:id="idNumLabel" layoutX="382.0" layoutY="182.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="countryLabel" layoutX="382.0" layoutY="246.0" text="-">
+      <Label fx:id="countryLabel" layoutX="382.0" layoutY="220.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="telNumLabel" layoutX="384.0" layoutY="289.0" text="-">
+      <Label fx:id="telNumLabel" layoutX="382.0" layoutY="257.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="emailLabel" layoutX="385.0" layoutY="328.0" text="-">
+      <Label fx:id="emailLabel" layoutX="380.0" layoutY="293.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="makeOK" layoutX="446.0" layoutY="435.0" prefHeight="55.0" prefWidth="134.0" style="-fx-background-color: #ff55f9;" text="OK" textFill="WHITE" />
-      <Pane layoutX="54.0" layoutY="130.0" prefHeight="131.0" prefWidth="146.0" style="-fx-background-color: #ff55f9;" />
+      <JFXButton fx:id="makeOK" layoutX="446.0" layoutY="435.0" prefHeight="55.0" prefWidth="134.0" style="-fx-background-color: #b067df;" text="OK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font></JFXButton>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="57.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/icon/photoUser.png" />
+         </image>
+      </ImageView>
+      <Text fill="#b067df" layoutX="246.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="addressTextField" editable="false" focusTraversable="false" layoutX="380.0" layoutY="338.0" prefHeight="65.0" prefWidth="200.0" />
+      <Text fill="#b067df" layoutX="93.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="81.0" layoutY="319.0" text="In-House">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

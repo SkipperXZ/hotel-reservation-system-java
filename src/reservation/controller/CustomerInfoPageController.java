@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import reservation.room.Room;
 
 public class CustomerInfoPageController {
@@ -23,6 +24,11 @@ public class CustomerInfoPageController {
     private Label emailLabel;
     @FXML
     private JFXButton makeOK;
+    @FXML
+    private TextArea addressTextField;
+
+    @FXML
+    private Label statusLabel;
 
 
     private Room room;
@@ -47,10 +53,14 @@ public class CustomerInfoPageController {
                 idNumLabel.setText(customer.getIdNum());
             if (customer.getCountry() != null)
                 countryLabel.setText(customer.getCountry());
+            if (customer.getAddress()!=null)
+                addressTextField.setText(customer.getAddress());
             firstNameLabel.setText(customer.getFirstName());
             lastNameLabel.setText(customer.getLastName());
             telNumLabel.setText(customer.getTel());
             emailLabel.setText(customer.getEmail());
+            statusLabel.setText(customer.getStatus());
+
         }
 
     }

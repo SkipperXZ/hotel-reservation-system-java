@@ -921,7 +921,7 @@ public class ReservationPageController {
             roomInfoPageController.setInfo();
             roomInfoStage = new Stage();
             roomInfoStage.setTitle("Cleaning");
-            roomInfoStage.setScene(new Scene(root, 600, 500));
+            roomInfoStage.setScene(new Scene(root, 647, 565));
             roomInfoStage.showAndWait();
         }catch (Exception e){
             System.out.println(e);
