@@ -1,8 +1,10 @@
 package Hotel;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static Hotel.CustomerDatabase.customerDatabase;
 
@@ -19,13 +21,15 @@ public class Customer implements Serializable {
 
 
 
-    private String address;
-    private String  status;
-    private String totolRes;
-    private String nightStay;
-    private String totalRevenue;
-    private String lastVisit;
+    static int numcustomerID;
 
+    private int totalReserve=0;
+    private int totalNightStay=0;
+    private int totalRevenue=0;
+    private LocalDateTime lastVisit;
+
+    private String status;
+    private String address;
     private int extraBedNum;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
@@ -52,7 +56,11 @@ public class Customer implements Serializable {
         this.weekDayNum =weekDayNum;
         this.weekEndNum = weekEndNum;
 
-        this.customerID = customerDatabase.size()+1;  // add new ID
+        if(customerDatabase.size()==0)
+            numcustomerID =0;
+        numcustomerID+=1;
+        this.customerID = numcustomerID;  // add new ID
+        //System.out.println(numcustomerID+1);
     }
 
 // for test customerpage
@@ -67,31 +75,23 @@ public class Customer implements Serializable {
 
     public Customer         (String firstName,
                              String lastName ,
-                             int customerID,
                              String tel,
                              String email,
                              String idNum,
                              String country,
-                             String address,
-                             String status,
-                             String totolRes,
-                             String nightStay,
-                             String totalRevenue,
-                             String lastVisit){
+                             String address){
 
             this.firstName = firstName;
             this.lastName = lastName;
-            this.customerID = customerID;
             this.tel = tel;
             this.email = email;
             this.idNum=idNum;
             this.country= country;
             this.address = address;
-            this.status =  status;
-            this.totolRes = totolRes;
-            this.nightStay = nightStay;
-            this.totalRevenue = totalRevenue;
-            this.lastVisit = lastVisit;
+        if(customerDatabase.size()==0)
+            numcustomerID =0;
+        numcustomerID+=1;
+        this.customerID = numcustomerID;  // add new ID
     }
 
 
@@ -194,23 +194,43 @@ public class Customer implements Serializable {
 
     public void setAddress(String address) { this.address = address; }
 
-    public String getStatusCustomer() { return status; }
+    public String getStatus() {
+        return status;
+    }
 
-    public void setStatusCustomer(String status) { this.status = status; }
+    public int getTotalReserve() { return totalReserve; }
 
-    public String getTotolRes() { return totolRes; }
+    public void setTotalReserve(int totalReserve) { this.totalReserve = totalReserve; }
 
-    public void setTotolRes(String totolRes) { this.totolRes = totolRes; }
+    public int getTotalNightStay() { return totalNightStay; }
 
-    public String getNightStay() { return nightStay; }
+    public void setTotalNightStay(int nightStay) { this.totalNightStay = nightStay; }
 
-    public void setNightStay(String nightStay) { this.nightStay = nightStay; }
+    public int getTotalRevenue() { return totalRevenue; }
 
-    public String getTotalRevenue() { return totalRevenue; }
+    public void setTotalRevenue(int totalRevenue) { this.totalRevenue = totalRevenue; }
 
-    public void setTotalRevenue(String totalRevenue) { this.totalRevenue = totalRevenue; }
+    public LocalDateTime getLastVisit() { return lastVisit; }
+    public String getLastVisitToString()
+    {
 
-    public String getLastVisit() { return lastVisit; }
+        if (lastVisit!=null)
+           return lastVisit.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
+        else
+           return "-";
+    }
+    public String getLastVisitDayToString()
+    {
 
-    public void setLastVisit(String lastVisit) { this.lastVisit = lastVisit; }
+        if (lastVisit!=null)
+            return lastVisit.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        else
+            return "-";
+    }
+
+    public void setLastVisit(LocalDateTime lastVisit) { this.lastVisit = lastVisit; }
+
+    public static int getNumcustomerID() {    return numcustomerID;   }
+
+    public static void setNumcustomerID(int numcustomerID) {  Customer.numcustomerID = numcustomerID;   }
 }

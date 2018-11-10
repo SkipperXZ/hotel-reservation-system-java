@@ -11,15 +11,20 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import report.AllBooking;
+import report.Booking;
 import reservation.IO;
 import staff.User;
 import staff.UserDatabase;
 import staff.UserNoButton;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class Main extends Application {
+
     //Scene resScene =
     Stage primaryStage;
     @Override
@@ -27,7 +32,7 @@ public class Main extends Application {
         Linker.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../reservation/page/res.fxml"));
         Linker.resScene =new Scene(root, 1920, 1080);
-        Parent root2 = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPage.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("../customer/CustomerPage.fxml"));
         Linker.customerScene = new Scene(root2,1920, 1080);
         Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
@@ -35,6 +40,11 @@ public class Main extends Application {
         Linker.login = new Scene(loginPa,1920,1080);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(Linker.login);
+        Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
+        Linker.report = new Scene(root4,1920,1080);
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(Linker.report);
+        //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
 //show
@@ -45,6 +55,8 @@ public class Main extends Application {
         IO.saveCustomer(CustomerDatabase.customerDatabase);
         IO.saveUser(UserDatabase.userNoButtons);
 
+        IO.saveAllBooking(AllBooking.allBooking);
+        System.out.println("Save done");
     }
     public void stopClock(){
         for (OneDayHotel e:Hotel.hotel
@@ -63,6 +75,8 @@ public class Main extends Application {
         ArrayList<OneDayHotel> hotel = IO.loadHotel();
         HashMap<String, Customer> customer = IO.loadCustomer();
         ArrayList<UserNoButton>user = IO.loadUser();
+=======
+        ArrayList<Booking> allbooking = IO.loadAllBooking();
 
         if(hotel==null){
             new Hotel();
@@ -85,7 +99,19 @@ public class Main extends Application {
                 UserDatabase.employeeId = Integer.parseInt(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
             }
         }
+            int max = customer.values().stream().max(Comparator.comparing(Customer::getCustomerID)).get().getCustomerID();
+            Customer.setNumcustomerID(max);
 
+        }
+        if(allbooking != null){
+            AllBooking.allBooking = allbooking;
+            System.out.println("Load Done");
+        }
+        else{
+            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null);
+            AllBooking.addBooking(booking);
+            System.out.println("Initial done");
+        }
 
     }
 

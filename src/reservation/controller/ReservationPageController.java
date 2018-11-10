@@ -3,7 +3,7 @@ package reservation.controller;
 import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
-import com.sun.tools.javac.Main;
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +16,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import main.Linker;
 import reservation.*;
 import reservation.room.*;
 
@@ -261,7 +262,11 @@ public class ReservationPageController {
     @FXML
     private Label AllDeluxeLabel;
 
+    @FXML
+    private JFXButton customerButtton;
 
+    @FXML
+    private JFXButton  reportButtton;
 
     @FXML
     private Button makeDisplayRoomDB;
@@ -357,10 +362,16 @@ public class ReservationPageController {
         inHouseMenu.getItems().addAll(checkOutOnInHouse,paymentOnInHouse,guestInfoOnInHouse,tranferOnInHouse,roomInfoOnInHouse);
         cleaningMenu.getItems().addAll(doneOnCleaning,roomInfoOnCleaning);
         outOfServiceMenu.getItems().addAll(cancelOnOutofService,roomInfoOnOutofService);
-        if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()))
+        if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
             currentDayLabel.setText("TODAY");
-        else
-            currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd LLLL yyyy")));
+            cleanOnVacant.setDisable(false);
+            checkInOnReserved.setDisable(false);
+        }
+        else{
+            currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+            cleanOnVacant.setDisable(true);
+            checkInOnReserved.setDisable(true);
+        }
 
        /* walkInOnVacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -375,6 +386,20 @@ public class ReservationPageController {
 
             }
         });*/
+
+        reportButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(Linker.report);
+            }
+        });
+
+        customerButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(Linker.customerScene);
+            }
+        });
 
         reserveOnvacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -485,7 +510,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane= (Pane)cancelOnReserved.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancelBooking(room);
+                ReservationHandler.cancelBooking(roomIndex,currentFloorNum,currentDay);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
@@ -505,7 +530,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkOutOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isCheckOutScene()){
-                    ReservationHandler.checkOut(room);
+                    ReservationHandler.checkOut(room,customer);
                     if (isConfirmCleaningScene()) {
                         ReservationHandler.cleaning(room, cleaningTimeMinute);
                     }
@@ -559,7 +584,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane = (Pane)doneOnCleaning.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-               // System.out.println(selectedPane+"cureent");
+                // System.out.println(selectedPane+"cureent");
                 ReservationHandler.doneCleaning(room);
                 updatePaneStatus(selectedPane);
             }
@@ -653,13 +678,20 @@ public class ReservationPageController {
         makeNextDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 if(currentDay < 30){
                     currentDay++;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()))
+                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
                         currentDayLabel.setText("TODAY");
-                    else
-                         currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                        cleanOnVacant.setDisable(false);
+                        checkInOnReserved.setDisable(false);
+                    }
+                    else{
+                        currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                        cleanOnVacant.setDisable(true);
+                        checkInOnReserved.setDisable(true);
+                    }
 
                 }
                 updateRoomAvailaible();;
@@ -671,13 +703,20 @@ public class ReservationPageController {
         makePreDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 if(currentDay > 1){
                     currentDay--;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) )
+                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
                         currentDayLabel.setText("TODAY");
-                    else
+                        cleanOnVacant.setDisable(false);
+                        checkInOnReserved.setDisable(false);
+                    }
+                    else{
                         currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                        cleanOnVacant.setDisable(true);
+                        checkInOnReserved.setDisable(true);
+                    }
 
                 }
                 updateRoomAvailaible();
@@ -686,100 +725,102 @@ public class ReservationPageController {
         updateAll();
 
     }
-public Room searchRoomFromPane(Pane selectedPane){
-    Room room = null;
-    for (int i = 0; i < paneArr.length  ; i++) {
-        if (selectedPane ==paneArr[i]) {
-            room = hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[i];
+    public Room searchRoomFromPane(Pane selectedPane){
+        Room room = null;
+        for (int i = 0; i < paneArr.length  ; i++) {
+            if (selectedPane ==paneArr[i]) {
+                room = hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[i];
+                roomIndex = i;
+            }
+
+        }
+
+        return room;
+    }
+    private void initLabel(){
+        roomIDLabelArr = new Label[]{roomIDLabel_00,roomIDLabel_01,roomIDLabel_02,roomIDLabel_03,roomIDLabel_04,roomIDLabel_05,roomIDLabel_06,roomIDLabel_07
+                ,roomIDLabel_08,roomIDLabel_09,roomIDLabel_010,roomIDLabel_011};
+        doingLabelArr = new Label[]{doingLabel_00,doingLabel_01,doingLabel_02,doingLabel_03,doingLabel_04,doingLabel_05,doingLabel_06
+                ,doingLabel_07,doingLabel_08,doingLabel_09,doingLabel_010,doingLabel_011};
+        subDoingLabelArr = new Label[]{subDoingLabel_00,subDoingLabel_01,subDoingLabel_02,subDoingLabel_03,subDoingLabel_04,subDoingLabel_05,subDoingLabel_06
+                ,subDoingLabel_07,subDoingLabel_08,subDoingLabel_09,subDoingLabel_010,subDoingLabel_011};
+        vacantLabelArr = new Label[]{vacantLabel_00,vacantLabel_01,vacantLabel_02,vacantLabel_03,vacantLabel_04,vacantLabel_05,vacantLabel_06
+                ,vacantLabel_07,vacantLabel_08,vacantLabel_09,vacantLabel_010,vacantLabel_011};
+        nameLabelArr = new Label[]{nameLabel_00,nameLabel_01,nameLabel_02,nameLabel_03,nameLabel_04,nameLabel_05,nameLabel_06
+                ,nameLabel_07,nameLabel_08,nameLabel_09,nameLabel_010,nameLabel_011};
+        checkInLabelArr = new Label[]{checkInLabel_00,checkInLabel_01,checkInLabel_02,checkInLabel_03,checkInLabel_04,checkInLabel_05,checkInLabel_06
+                ,checkInLabel_07,checkInLabel_08,checkInLabel_09,checkInLabel_010,checkInLabel_011};
+        checkOutLabelArr = new Label[]{checkOutLabel_00,checkOutLabel_01,checkOutLabel_02,checkOutLabel_03,checkOutLabel_04,checkOutLabel_05,checkOutLabel_06
+                ,checkOutLabel_07,checkOutLabel_08,checkOutLabel_09,checkOutLabel_010,checkOutLabel_011};
+        floorButtonArr = new Button[]{makeF1,makeF2,makeF3,makeF4,makeF5};
+
+
+    }
+    private void initRoomID(){
+
+        for (int i = 0; i < roomIDLabelArr.length; i++) {
+            // System.out.println(hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[4].getRoomID());
+            roomIDLabelArr[i].setText(hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[i].getRoomID());
+        }
+
+    }
+    private void initMenu(){
+
+        paneArr = new Pane[]{pane_00,pane_01,pane_02,pane_03,pane_04,pane_05,pane_06,pane_07,pane_08,pane_09,pane_010,pane_011};
+
+        for (Pane pane:paneArr) {
+            pane.setOnContextMenuRequested(event -> vacantMenu.show(pane,event.getScreenX(),event.getScreenY()));
+        }
+
+    }
+    private void initPaneEffect(){
+        for (int i = 0; i < paneArr.length  ; i++) {
+            int index = i;
+            paneArr[i].setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    paneArr[index].setEffect(new DropShadow());
+                }
+            });
+            paneArr[i].setOnMouseExited(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if(selectedPane !=  paneArr[index])
+                        paneArr[index].setEffect(null);
+                }
+
+            });
+            paneArr[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if(event.getButton() == MouseButton.SECONDARY) {
+                        for (Pane pane : paneArr) {
+                            pane.setEffect(null);
+                        }
+                        paneArr[index].setEffect(new DropShadow());
+                        selectedPane = paneArr[index];
+                    }else {
+                        for (Pane pane : paneArr) {
+                            pane.setEffect(null);
+                        }
+                        selectedPane = null;
+                    }
+                }
+            });
+
+
         }
     }
-        return room;
-}
-private void initLabel(){
-    roomIDLabelArr = new Label[]{roomIDLabel_00,roomIDLabel_01,roomIDLabel_02,roomIDLabel_03,roomIDLabel_04,roomIDLabel_05,roomIDLabel_06,roomIDLabel_07
-            ,roomIDLabel_08,roomIDLabel_09,roomIDLabel_010,roomIDLabel_011};
-    doingLabelArr = new Label[]{doingLabel_00,doingLabel_01,doingLabel_02,doingLabel_03,doingLabel_04,doingLabel_05,doingLabel_06
-            ,doingLabel_07,doingLabel_08,doingLabel_09,doingLabel_010,doingLabel_011};
-    subDoingLabelArr = new Label[]{subDoingLabel_00,subDoingLabel_01,subDoingLabel_02,subDoingLabel_03,subDoingLabel_04,subDoingLabel_05,subDoingLabel_06
-            ,subDoingLabel_07,subDoingLabel_08,subDoingLabel_09,subDoingLabel_010,subDoingLabel_011};
-    vacantLabelArr = new Label[]{vacantLabel_00,vacantLabel_01,vacantLabel_02,vacantLabel_03,vacantLabel_04,vacantLabel_05,vacantLabel_06
-            ,vacantLabel_07,vacantLabel_08,vacantLabel_09,vacantLabel_010,vacantLabel_011};
-    nameLabelArr = new Label[]{nameLabel_00,nameLabel_01,nameLabel_02,nameLabel_03,nameLabel_04,nameLabel_05,nameLabel_06
-            ,nameLabel_07,nameLabel_08,nameLabel_09,nameLabel_010,nameLabel_011};
-    checkInLabelArr = new Label[]{checkInLabel_00,checkInLabel_01,checkInLabel_02,checkInLabel_03,checkInLabel_04,checkInLabel_05,checkInLabel_06
-            ,checkInLabel_07,checkInLabel_08,checkInLabel_09,checkInLabel_010,checkInLabel_011};
-    checkOutLabelArr = new Label[]{checkOutLabel_00,checkOutLabel_01,checkOutLabel_02,checkOutLabel_03,checkOutLabel_04,checkOutLabel_05,checkOutLabel_06
-            ,checkOutLabel_07,checkOutLabel_08,checkOutLabel_09,checkOutLabel_010,checkOutLabel_011};
-    floorButtonArr = new Button[]{makeF1,makeF2,makeF3,makeF4,makeF5};
-
-
-}
-private void initRoomID(){
-
-    for (int i = 0; i < roomIDLabelArr.length; i++) {
-       // System.out.println(hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[4].getRoomID());
-       roomIDLabelArr[i].setText(hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[i].getRoomID());
+    private void  initClock(){
+        Clock.clock.setClockLabel(time);
+        Clock.clock.setDateLabel(date);
     }
-
-    }
-private void initMenu(){
-
-    paneArr = new Pane[]{pane_00,pane_01,pane_02,pane_03,pane_04,pane_05,pane_06,pane_07,pane_08,pane_09,pane_010,pane_011};
-
-    for (Pane pane:paneArr) {
-        pane.setOnContextMenuRequested(event -> vacantMenu.show(pane,event.getScreenX(),event.getScreenY()));
-    }
-
-}
-private void initPaneEffect(){
-    for (int i = 0; i < paneArr.length  ; i++) {
-        int index = i;
-        paneArr[i].setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                    paneArr[index].setEffect(new DropShadow());
-            }
-        });
-        paneArr[i].setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                    if(selectedPane !=  paneArr[index])
-                    paneArr[index].setEffect(null);
-            }
-
-        });
-        paneArr[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if(event.getButton() == MouseButton.SECONDARY) {
-                    for (Pane pane : paneArr) {
-                        pane.setEffect(null);
-                    }
-                    paneArr[index].setEffect(new DropShadow());
-                    selectedPane = paneArr[index];
-                }else {
-                    for (Pane pane : paneArr) {
-                        pane.setEffect(null);
-                    }
-                    selectedPane = null;
-                }
-            }
-        });
-
-
-}
-}
-public void  initClock(){
-    Clock.clock.setClockLabel(time);
-    Clock.clock.setDateLabel(date);
-}
     private boolean isRoomBlockScene(){
         boolean isConfirm = false;
         RoomBlockController roomBlockController;
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomBlockPage.fxml"));
-            System.out.println(loader);
             Parent root = loader.load();
             roomBlockController = loader.getController();
             roomBlockController.setParentController(this);
@@ -801,7 +842,6 @@ public void  initClock(){
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
-            System.out.println(loader);
             Parent root = loader.load();
             outOfServiceController = loader.getController();
             outOfServiceController.setParentController(this);
@@ -854,37 +894,35 @@ public void  initClock(){
         }
     }
 
-private boolean isCheckOutScene(){
-    boolean isCheckOut = false;
-    CheckOutPageController checkOutPageController;
+    private boolean isCheckOutScene(){
+        boolean isCheckOut = false;
+        CheckOutPageController checkOutPageController;
 
-    try {
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
-        System.out.println(loader);
-        Parent root = loader.load();
-        checkOutPageController = loader.getController();
-        checkOutPageController.setParentController(this);
-        checkOutPageController.setRoom(searchRoomFromPane(selectedPane));
-        checkOutPageController.setInfo();
-        checkOutStage = new Stage();
-        checkOutStage.setTitle("Cleaning");
-        checkOutStage.setScene(new Scene(root, 600, 500));
-        checkOutStage.showAndWait();
-        isCheckOut = checkOutPageController.isCheckOut();
-    }catch (Exception e){
-       System.out.println(e);
+        try {
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
+            Parent root = loader.load();
+            checkOutPageController = loader.getController();
+            checkOutPageController.setParentController(this);
+            checkOutPageController.setRoom(searchRoomFromPane(selectedPane));
+            checkOutPageController.setInfo();
+            checkOutStage = new Stage();
+            checkOutStage.setTitle("Cleaning");
+            checkOutStage.setScene(new Scene(root, 600, 500));
+            checkOutStage.showAndWait();
+            isCheckOut = checkOutPageController.isCheckOut();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return isCheckOut;
     }
-    return isCheckOut;
-}
 
 
-private boolean isConfirmCleaningScene(){
+    private boolean isConfirmCleaningScene(){
         boolean isConfirm = false;
         CleaningPageController cleaningPageController;
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CleaningPage.fxml"));
-            // System.out.println(loader);
             Parent root = loader.load();
             cleaningPageController = loader.getController();
             cleaningPageController.setReservationPageController(this);
@@ -895,7 +933,7 @@ private boolean isConfirmCleaningScene(){
             cleaningStage.showAndWait();
             isConfirm = cleaningPageController.getConfirm();
         }catch (Exception e){
-         //   System.out.println(e);
+            //   System.out.println(e);
         }
         return isConfirm;
     }
@@ -921,32 +959,31 @@ private boolean isConfirmCleaningScene(){
 
         return isConfirm;
     }
-   /* private boolean isConfirmWalkInScene(){
-        boolean isConfirm = false;
-        WalkInController walkInController;
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckInWalkIn.fxml"));
-            Parent root = loader.load();
-            walkInController = loader.getController();
-            walkInController.setParentController(this);
-            walkInStage = new Stage();
-            walkInStage.setTitle("Walk In");
-            walkInStage.setScene(new Scene(root, 800, 782));
-            walkInStage.showAndWait();
-            isConfirm = walkInController.getConfirm();
-        }catch (Exception e){
-            System.out.println(e);
-        };
-        return isConfirm;
-    }*/
+    /* private boolean isConfirmWalkInScene(){
+         boolean isConfirm = false;
+         WalkInController walkInController;
+         try {
+             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckInWalkIn.fxml"));
+             Parent root = loader.load();
+             walkInController = loader.getController();
+             walkInController.setParentController(this);
+             walkInStage = new Stage();
+             walkInStage.setTitle("Walk In");
+             walkInStage.setScene(new Scene(root, 800, 782));
+             walkInStage.showAndWait();
+             isConfirm = walkInController.getConfirm();
+         }catch (Exception e){
+             System.out.println(e);
+         };
+         return isConfirm;
+     }*/
     private boolean isConfirmReservationScene() {
-            boolean isConfirm = false;
-            ReserveRoomController reserveRoomController;
+        boolean isConfirm = false;
+        ReserveRoomController reserveRoomController;
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
-           // System.out.println();
-            System.out.println(loader);
+            // System.out.println();
             Parent root = loader.load();
             reserveRoomController = loader.getController();
             reserveRoomController.setParentController(this);
@@ -956,10 +993,10 @@ private boolean isConfirmCleaningScene(){
             reserveStage.showAndWait();
             isConfirm = reserveRoomController.getConfirm();
         }catch (Exception e){
-           e.printStackTrace();
+            e.printStackTrace();
         }
 
-            return isConfirm;
+        return isConfirm;
     }
     private boolean isConfirmPaymentScene() {
         boolean isPay = false;
@@ -968,7 +1005,7 @@ private boolean isConfirmCleaningScene(){
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/PaymentPage.fxml"));
             // System.out.println();
-          //  System.out.println(loader);
+            //  System.out.println(loader);
             Parent root = loader.load();
             paymentPageController = loader.getController();
             paymentPageController.setParentController(this);
@@ -1061,16 +1098,16 @@ private boolean isConfirmCleaningScene(){
         for (int i = 0; i < hotel.get(currentDay-1).getFloors().length; i++) {
             for (int j = 0; j < hotel.get(currentDay-1).getFloors()[i].getRooms().length; j++) {
                 Room room =hotel.get(currentDay-1).getFloors()[i].getRooms()[j];
-                    if(room instanceof StandardRoom ){
-                        allStandard++;
-                    }else if(room instanceof SuiteRoom ){
-                        allSuite++;
-                    }else if(room instanceof DeluxeRoom  ){
-                        allDeluxe++;
-                    }else if(room instanceof SuperiorRoom ){
-                        allSuperior++;
+                if(room instanceof StandardRoom ){
+                    allStandard++;
+                }else if(room instanceof SuiteRoom ){
+                    allSuite++;
+                }else if(room instanceof DeluxeRoom  ){
+                    allDeluxe++;
+                }else if(room instanceof SuperiorRoom ){
+                    allSuperior++;
 
-                    }
+                }
             }
         }
         AllSuiteLabel.setText(Integer.toString(allSuite));
@@ -1090,15 +1127,15 @@ private boolean isConfirmCleaningScene(){
                 Room room =hotel.get(currentDay-1).getFloors()[i].getRooms()[j];
 
                 if(room.getStatus().equals("Vacant")){
-                     if(room instanceof StandardRoom ){
-                            this.avaStandard++;
-                     }else if(room instanceof SuiteRoom ){
-                            this.avaSuite++;
-                     }else if(room instanceof DeluxeRoom  ){
-                             this.avaDeluxe++;
-                     }else if(room instanceof SuperiorRoom ){
-                             this.avaSuperior++;
-                     }
+                    if(room instanceof StandardRoom ){
+                        this.avaStandard++;
+                    }else if(room instanceof SuiteRoom ){
+                        this.avaSuite++;
+                    }else if(room instanceof DeluxeRoom  ){
+                        this.avaDeluxe++;
+                    }else if(room instanceof SuperiorRoom ){
+                        this.avaSuperior++;
+                    }
                 }
 
             }
@@ -1108,7 +1145,6 @@ private boolean isConfirmCleaningScene(){
         AvaliableSuiteLabel.setText(Integer.toString(avaSuite));
         AvaliableSuperiorLabel.setText(Integer.toString(avaSuperior));
     }
-
 
 
     public void setCustomer(Customer customer) {

@@ -1,5 +1,7 @@
 package customer;
 
+import Hotel.Customer;
+import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 
 import javafx.application.Platform;
@@ -46,6 +48,28 @@ public class NewCustomerController{
 
     @FXML
     public void initialize() {
+
+            btnCreate.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                            String firstNameInput, lastNameInput, IDInput, countryInput, telInput, emailInput,addressInput  ;
+                            firstNameInput = firstName.getText();
+                            lastNameInput =  lastName.getText();
+                            IDInput = ID.getText();
+                            countryInput = country.getText();
+                            telInput = tel.getText();
+                            emailInput = email.getText();
+                            addressInput = address.getText();
+
+                           if(!firstNameInput.trim().equals("") && !lastNameInput.trim().equals("") && !telInput.trim().equals("")  ) {
+                                   Customer customer = new Customer(firstNameInput, lastNameInput, IDInput, countryInput,
+                                           telInput, emailInput,addressInput);
+                                   CustomerDatabase.updateCustomer(customer);
+                                   Stage stage = (Stage) btnCreate.getScene().getWindow();
+                                   stage.close();
+                           }
+                    }
+            });
 
 
             btnCancel.setOnAction(new EventHandler<ActionEvent>() {
