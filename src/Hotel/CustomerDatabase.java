@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CustomerDatabase {
-    public static HashMap<String,Customer> customerDatabase = new HashMap<String, Customer>();
+     public static HashMap<String,Customer> customerDatabase = new HashMap<String, Customer>();
 
 
 //
@@ -16,11 +16,10 @@ public class CustomerDatabase {
             customerDatabase.put(customer.getFirstName()+customer.getLastName(),customer);
         }else {
             if(customer.getIdNum() != null && customer.getCountry()!=null){
-                customerDatabase.put(customer.getFirstName()+customer.getLastName(),customer).setCountry(customer.getCountry());
-                customerDatabase.put(customer.getFirstName()+customer.getLastName(),customer).setIdNum(customer.getIdNum());
+                customerDatabase.get(customer.getFirstName()+customer.getLastName()).setCountry(customer.getCountry());
+                customerDatabase.get(customer.getFirstName()+customer.getLastName()).setIdNum(customer.getIdNum());
             }
         }
-        System.out.println(customerDatabase);
     }
 
 }

@@ -16,6 +16,7 @@ import reservation.IO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class Main extends Application {
@@ -27,14 +28,18 @@ public class Main extends Application {
         Linker.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../reservation/page/res.fxml"));
         Linker.resScene =new Scene(root, 1920, 1080);
-        Parent root2 = FXMLLoader.load(getClass().getResource("../reservation/page/CustomerPage.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("../customer/CustomerPage.fxml"));
         Linker.customerScene = new Scene(root2,1920, 1080);
-        Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPage.fxml"));
+        Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
         Linker.report = new Scene(root4,1920,1080);
         primaryStage.setTitle("Hello World");
+<<<<<<< HEAD
         primaryStage.setScene(Linker.report);
+=======
+        primaryStage.setScene(Linker.resScene);
+>>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
 //show
@@ -72,6 +77,9 @@ public class Main extends Application {
         }
         if(customer != null){
             CustomerDatabase.customerDatabase = customer;
+            int max = customer.values().stream().max(Comparator.comparing(Customer::getCustomerID)).get().getCustomerID();
+            Customer.setNumcustomerID(max);
+
         }
         if(allbooking != null){
             AllBooking.allBooking = allbooking;

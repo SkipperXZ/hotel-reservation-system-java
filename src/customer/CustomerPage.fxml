@@ -32,7 +32,7 @@
                         </Label>
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../img/icon/entrance.png" />
+                                <Image url="@../img/icon/entrance.png" />
                             </image>
                         </ImageView>
                         <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
@@ -65,7 +65,7 @@
                                 </JFXButton>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../img/icon/contact-book.png" />
+                                        <Image url="@../img/icon/contact-book.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -79,7 +79,7 @@
                                 </JFXButton>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../img/icon/calendar.png" />
+                                        <Image url="@../img/icon/calendar.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -93,21 +93,21 @@
                                 </JFXButton>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../img/icon/new.png" />
+                                        <Image url="@../img/icon/new.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   customer" textFill="#1473e6">
+                                <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
                                 </JFXButton>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../img/icon/person.png" />
+                                        <Image url="@../img/icon/person.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -121,7 +121,7 @@
                                 </JFXButton>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../img/icon/layout-right.png" />
+                                        <Image url="@../img/icon/layout-right.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -135,7 +135,7 @@
                                 </JFXButton>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../img/icon/user.png" />
+                                        <Image url="@../img/icon/user.png" />
                                     </image>
                                 </ImageView>
                             </children>
@@ -164,7 +164,7 @@
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="123.0" layoutX="-3.0" layoutY="-17.0" stroke="#ffffff57" strokeType="INSIDE" width="239.0" />
                 <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="6.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../img/icon/user.png" />
+                        <Image url="@../img/icon/user.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="51.0" text="username">

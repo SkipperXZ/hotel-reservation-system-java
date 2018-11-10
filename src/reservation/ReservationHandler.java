@@ -2,31 +2,50 @@ package reservation;
 
 import Hotel.Customer;
 import Hotel.Hotel;
+<<<<<<< HEAD
 import Hotel.OneDayHotel;
 import report.AllBooking;
 import report.Booking;
+=======
+import Hotel.CustomerDatabase;
+import Hotel.OneDayHotel;
+>>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
 import reservation.room.Room;
 import java.time.format.DateTimeFormatter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import java.time.LocalDateTime;
+
 public class ReservationHandler {
     public static void booking(Customer customer, int roomIndex, int currentFloorNum, int currentDay) {
-
+        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         for (int i = 0; i < customer.getNightNum()+1; i++) {
             Room room = Hotel.hotel.get(currentDay-1+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex];
             room.setCustomer(customer);
             room.setStatus("Reserved");
+<<<<<<< HEAD
 
             Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),4, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate());
             System.out.println("booking done");
             AllBooking.addBooking(booking);
             System.out.println("Add done");
         }
+=======
+>>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
 
+        }
+        databaseCustomer.setTotalNightStay(databaseCustomer.getTotalNightStay()+customer.getNightNum());
+        databaseCustomer.setTotalReserve(databaseCustomer.getTotalReserve()+1);
+        System.out.println(databaseCustomer.getTotalReserve());
+        System.out.println(databaseCustomer.getTotalRevenue());
+        System.out.println(databaseCustomer.getTotalNightStay());
+        System.out.println(databaseCustomer.getLastVisit());
+        System.out.println("------------------------------");
     }
 
+<<<<<<< HEAD
     public static void cancelBooking(Customer customer, int roomIndex, int currentFloorNum, int currentDay) {
         customer = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum-1].getRooms()[roomIndex].getCustomer();
         int index = 0;
@@ -45,6 +64,26 @@ public class ReservationHandler {
 
         }
 
+=======
+    public static void cancelBooking(int roomIndex, int currentFloorNum, int currentDay) {
+        Customer customer = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum-1].getRooms()[roomIndex].getCustomer();
+        int index =0;
+        for (OneDayHotel e:Hotel.hotel) {
+
+            if(e.getDate().equals(customer.getCheckInDate())){
+             for (int i = 0; i < customer.getNightNum()+1; i++) {
+                Room room = Hotel.hotel.get(index + i).getFloors()[currentFloorNum - 1].getRooms()[roomIndex];
+                room.setCustomer(customer);
+                room.setCustomer(null);
+                room.setStatus("Vacant");
+              }
+                break;
+            }
+            index++;
+        }
+
+    }
+>>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
 
     }
 
@@ -58,16 +97,25 @@ public class ReservationHandler {
         room.setStatus(room.getPreStatus());
         room.getCountDownClock().skipCleaning();
     }
+<<<<<<< HEAD
     public static void checkOut(Room room, Customer customer){
+=======
+    public static void checkOut(Room room){
+        CustomerDatabase.customerDatabase.get(room.getCustomer().getFirstName()+room.getCustomer().getLastName()).setLastVisit(LocalDateTime.now());
+>>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
         room.setCustomer(null);
       //  room.setPreStatus("Vacant");
         room.setStatus("Vacant");
         room.setCountDownClock(new CountDownClock(room));
 
+<<<<<<< HEAD
         Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),2, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate());
         System.out.println("booking done");
         AllBooking.addBooking(booking);
         System.out.println("Add done");
+=======
+
+>>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
     }
     public static void outOfService(Room room){
         room.setStatus("Out Of Service");
@@ -79,7 +127,10 @@ public class ReservationHandler {
         room.setStatus("Room Block");
     }
     public static void payment(Room room){
-        room.getCustomer().setPayment(true);
+        Customer customer = room.getCustomer();
+        customer.setPayment(true);
+        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+customer.getPaymerntPrice());
     }
 
     public static void checkIn(Customer customer, int roomIndex, int currentFloorNum, int currentDay){
@@ -95,6 +146,7 @@ public class ReservationHandler {
                 System.out.println("Add done");
             }
         }
+
     }
 
     public static void setOutOfService (Room room){

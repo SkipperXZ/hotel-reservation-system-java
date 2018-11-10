@@ -19,11 +19,13 @@ public class User implements Serializable {
     private SimpleStringProperty email;
     private SimpleStringProperty address;
     private SimpleStringProperty userType;
+    private SimpleStringProperty pass;
     private SimpleStringProperty role;
-    private Button button;
+    private Button buttonE;
+    private Button buttonD;
 
     public User(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
-                String userType,String role){
+                String userType,String role,Button buttonE,Button buttonD,String pass){
         this.employeeId=new SimpleStringProperty(employeeId);
         this.userName=new SimpleStringProperty(userName);
         this.firstName=new SimpleStringProperty(firstName);
@@ -35,15 +37,41 @@ public class User implements Serializable {
         this.address=new SimpleStringProperty(address);
         this.userType=new SimpleStringProperty(userType);
         this.role=new SimpleStringProperty(role);
-        this.button=new Button("Edit");
+        this.buttonE=buttonE;
+        this.buttonE.setText("Edit");
+        this.buttonD=buttonD;
+        this.buttonD.setText("Delete");
+        this.pass=new SimpleStringProperty(pass);
     }
 
-    public Button getButton() {
-        return button;
+    public String getPass() {
+        return pass.get();
     }
 
-    public void setButton(Button button) {
-        this.button = button;
+    public void setPass(String pass) {
+        this.pass.set(pass);
+    }
+
+    public SimpleStringProperty passProperty() {
+        return pass;
+    }
+
+    public Button getButtonD() {
+        return buttonD;
+    }
+
+    public void setButtonD(Button buttonD) {
+        this.buttonD = buttonD;
+        this.buttonD.setText("Delete");
+    }
+
+    public Button getButtonE() {
+        return buttonE;
+    }
+
+    public void setButtonE(Button button) {
+        this.buttonE = button;
+        this.buttonE.setText("Edit");
     }
 
     public String getEmployeeId() {
