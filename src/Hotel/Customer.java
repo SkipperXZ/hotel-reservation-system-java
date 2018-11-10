@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import static Hotel.CustomerDatabase.customerDatabase;
-
 public class Customer implements Serializable {
     private int adultNum;
     private int childNum;
@@ -19,24 +17,13 @@ public class Customer implements Serializable {
 
 
 
-<<<<<<< HEAD
     private String address;
     private String status;
     private String totolRes;
     private String nightStay;
     private String totalRevenue;
     private String lastVisit;
-=======
-    static int numcustomerID;
->>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
 
-    private int totalReserve=0;
-    private int totalNightStay=0;
-    private int totalRevenue=0;
-    private LocalDateTime lastVisit;
-
-    private String status;
-    private String address;
     private int extraBedNum;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
