@@ -1,5 +1,6 @@
 package staff;
 
+import Account.Account;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -45,7 +46,9 @@ public class Login implements Initializable {
                 if(UserDatabase.userArrayList.get(i).getUserName().equals(username.getText())){
                     ch1=false;
                     if(UserDatabase.userArrayList.get(i).getPassWord().equals(password.getText())){
-
+                        Account.currentUser=UserDatabase.userArrayList.get(i).getUserName();
+                        Account.currentPassword=UserDatabase.userArrayList.get(i).getPassWord();
+                        Linker.primaryStage.setScene(Linker.user);
                     }else{
                         chPas.setText("Wrong Password");
                         break;
