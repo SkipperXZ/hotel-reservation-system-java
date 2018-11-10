@@ -81,6 +81,7 @@ public class ReservationHandler {
         Room room = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum - 1].getRooms()[roomIndex];
         room.setCountDownClock(new CountDownClock(room));
 
+        Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),2, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate());
         System.out.println("booking done");
         AllBooking.addBooking(booking);
         System.out.println("Add done");
