@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static Hotel.CustomerDatabase.customerDatabase;
+
 public class Customer implements Serializable {
     private int adultNum;
     private int childNum;
@@ -17,13 +19,15 @@ public class Customer implements Serializable {
 
 
 
-    private String address;
-    private String status;
-    private String totolRes;
-    private String nightStay;
-    private String totalRevenue;
-    private String lastVisit;
+    static int numcustomerID;
 
+    private int totalReserve=0;
+    private int totalNightStay=0;
+    private int totalRevenue=0;
+    private LocalDateTime lastVisit;
+
+    private String status;
+    private String address;
     private int extraBedNum;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
@@ -51,7 +55,7 @@ public class Customer implements Serializable {
         this.weekEndNum = weekEndNum;
 
         if(customerDatabase.size()==0)
-           numcustomerID =0;
+            numcustomerID =0;
         numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
         //System.out.println(numcustomerID+1);
@@ -80,18 +84,18 @@ public class Customer implements Serializable {
                              int totalRevenue,
                              LocalDateTime lastVisit){
 
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.customerID = customerID;
-            this.tel = tel;
-            this.email = email;
-            this.idNum=idNum;
-            this.country= country;
-            this.address = address;
-            this.totalReserve = totalReserve;
-            this.totalNightStay = nightStay;
-            this.totalRevenue = totalRevenue;
-            this.lastVisit = lastVisit;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.customerID = customerID;
+        this.tel = tel;
+        this.email = email;
+        this.idNum=idNum;
+        this.country= country;
+        this.address = address;
+        this.totalReserve = totalReserve;
+        this.totalNightStay = nightStay;
+        this.totalRevenue = totalRevenue;
+        this.lastVisit = lastVisit;
     }
 
 

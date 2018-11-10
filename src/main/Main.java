@@ -35,11 +35,8 @@ public class Main extends Application {
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
         Linker.report = new Scene(root4,1920,1080);
         primaryStage.setTitle("Hello World");
-<<<<<<< HEAD
         primaryStage.setScene(Linker.report);
-=======
-        primaryStage.setScene(Linker.resScene);
->>>>>>> 242e0e22eee15b5cb5ba8cde16ef5be204ecd3e6
+        //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
 //show
