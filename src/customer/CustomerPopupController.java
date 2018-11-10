@@ -90,6 +90,11 @@ public class CustomerPopupController {
         email.setText(customer.getEmail());
         adderss.setText(customer.getAddress());
 
+        totalRes.setText(String.valueOf(customer.getTotalReserve()));
+        night.setText(String.valueOf(customer.getTotalNightStay()));
+        totolRevenue.setText(String.valueOf(customer.getTotalRevenue()));
+        lastVisit.setText(customer.getLastVisitDayToString());
+
         btnEdit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

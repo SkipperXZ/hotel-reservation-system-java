@@ -1,8 +1,10 @@
 package Hotel;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static Hotel.CustomerDatabase.customerDatabase;
 
@@ -73,29 +75,23 @@ public class Customer implements Serializable {
 
     public Customer         (String firstName,
                              String lastName ,
-                             int customerID,
                              String tel,
                              String email,
                              String idNum,
                              String country,
-                             String address,
-                             int totalReserve,
-                             int nightStay,
-                             int totalRevenue,
-                             LocalDateTime lastVisit){
+                             String address){
 
             this.firstName = firstName;
             this.lastName = lastName;
-            this.customerID = customerID;
             this.tel = tel;
             this.email = email;
             this.idNum=idNum;
             this.country= country;
             this.address = address;
-            this.totalReserve = totalReserve;
-            this.totalNightStay = nightStay;
-            this.totalRevenue = totalRevenue;
-            this.lastVisit = lastVisit;
+        if(customerDatabase.size()==0)
+            numcustomerID =0;
+        numcustomerID+=1;
+        this.customerID = numcustomerID;  // add new ID
     }
 
 
@@ -215,6 +211,22 @@ public class Customer implements Serializable {
     public void setTotalRevenue(int totalRevenue) { this.totalRevenue = totalRevenue; }
 
     public LocalDateTime getLastVisit() { return lastVisit; }
+    public String getLastVisitToString()
+    {
+
+        if (lastVisit!=null)
+           return lastVisit.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
+        else
+           return "-";
+    }
+    public String getLastVisitDayToString()
+    {
+
+        if (lastVisit!=null)
+            return lastVisit.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        else
+            return "-";
+    }
 
     public void setLastVisit(LocalDateTime lastVisit) { this.lastVisit = lastVisit; }
 

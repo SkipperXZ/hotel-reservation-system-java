@@ -48,12 +48,12 @@
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="80.0" text="First Name" textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="80.0" text="First Name*" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="383.0" layoutY="121.0" text="Last Name" textFill="#1473e6">
+                  <Label layoutX="383.0" layoutY="121.0" text="Last Name*" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -68,7 +68,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="243.0" text="Tel." textFill="#1473e6">
+                  <Label layoutX="384.0" layoutY="243.0" text="Tel.*" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
