@@ -43,7 +43,7 @@ public class Main extends Application {
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
         Linker.report = new Scene(root4,1920,1080);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(Linker.report);
+        primaryStage.setScene(Linker.login);
         //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
@@ -75,7 +75,7 @@ public class Main extends Application {
         ArrayList<OneDayHotel> hotel = IO.loadHotel();
         HashMap<String, Customer> customer = IO.loadCustomer();
         ArrayList<UserNoButton>user = IO.loadUser();
-=======
+
         ArrayList<Booking> allbooking = IO.loadAllBooking();
 
         if(hotel==null){
@@ -99,21 +99,18 @@ public class Main extends Application {
                 UserDatabase.employeeId = Integer.parseInt(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
             }
         }
-            int max = customer.values().stream().max(Comparator.comparing(Customer::getCustomerID)).get().getCustomerID();
-            Customer.setNumcustomerID(max);
-
-        }
         if(allbooking != null){
             AllBooking.allBooking = allbooking;
             System.out.println("Load Done");
-        }
-        else{
+        }else{
             Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null);
             AllBooking.addBooking(booking);
             System.out.println("Initial done");
         }
-
     }
+
+
+
 
     public static void main(String[] args) {
         load();
