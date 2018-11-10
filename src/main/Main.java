@@ -46,7 +46,7 @@ public class Main extends Application {
 
 
         Linker linker = new Linker();
-        Linker.primaryStage.setScene(linker.newCustomerScene());
+        Linker.primaryStage.setScene(linker.newLoginScene());
 
 
         primaryStage.setTitle("Hotel");

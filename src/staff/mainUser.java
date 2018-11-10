@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 
 import javafx.scene.Scene;
+import main.Linker;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,9 +28,9 @@ public class mainUser implements Initializable {
     int max=100;
 //    int []a = new int[max];
     ObservableList<User>list;
-    HashMap<String,User> userHashMap = UserDatabase.userDatabase;
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
+    Linker linker = new Linker();
     @FXML private TableView<User>table;
     @FXML private TableColumn<User,String> user;
     @FXML private TableColumn<User,String> email;
@@ -39,6 +41,12 @@ public class mainUser implements Initializable {
     @FXML private TableColumn<User, String> btD;
     @FXML private JFXButton btnNew = new JFXButton();
     @FXML private JFXButton btnRefresh= new JFXButton();
+    @FXML private JFXButton dashboardButtton = new JFXButton();
+    @FXML private JFXButton calendarButtton = new JFXButton();
+    @FXML private JFXButton reservationButtton = new JFXButton();
+    @FXML private JFXButton customerButtton = new JFXButton();
+    @FXML private JFXButton reportButtton = new JFXButton();
+    @FXML private JFXButton userButtton = new JFXButton();
 
     Button [] buttonE=new Button[max];
     Button [] buttonD=new Button[max];
@@ -82,10 +90,19 @@ public class mainUser implements Initializable {
             }catch (Exception e){
 
             }
-        }
-        if(event.getSource()==btnRefresh){
+        }else if(event.getSource()==btnRefresh){
             setButton();
             setToTableView();
+        }else if(event.getSource()==dashboardButtton){
+
+        }else if(event.getSource()==calendarButtton){
+            Linker.primaryStage.setScene(linker.newCustomerScene());
+        }else if(event.getSource()==reservationButtton){
+            Linker.primaryStage.setScene(linker.newResScene());
+        }else if(event.getSource()==reportButtton){
+            Linker.primaryStage.setScene(linker.newReportScene());
+        }else if(event.getSource()==userButtton){
+            Linker.primaryStage.setScene(linker.newUserScene());
         }
     }
 
@@ -119,6 +136,13 @@ public class mainUser implements Initializable {
         }
         btnNew.setOnAction(this::handleButtonAction);
         btnRefresh.setOnAction(this::handleButtonAction);
+
+        dashboardButtton.setOnAction(this::handleButtonAction);
+        calendarButtton.setOnAction(this::handleButtonAction);
+        reservationButtton.setOnAction(this::handleButtonAction);
+        reportButtton.setOnAction(this::handleButtonAction);
+        customerButtton.setOnAction(this::handleButtonAction);
+        userButtton.setOnAction(this::handleButtonAction);
         setButton();
         setToTableView();
 
