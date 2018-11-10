@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,6 +28,7 @@ public class mainUser implements Initializable {
     ObservableList<User>list;
     HashMap<String,User> userHashMap = UserDatabase.userDatabase;
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     @FXML private TableView<User>table;
     @FXML private TableColumn<User,String> user;
     @FXML private TableColumn<User,String> email;
@@ -63,6 +63,7 @@ public class mainUser implements Initializable {
 //                setToTableView();
             }else if(event.getSource()==buttonD[i]){
                 userArrayList.remove(i);
+                userNoButtons.remove(i);
                 System.out.println("D "+i);
                 setButton();
                 setToTableView();
@@ -118,39 +119,12 @@ public class mainUser implements Initializable {
         }
         btnNew.setOnAction(this::handleButtonAction);
         btnRefresh.setOnAction(this::handleButtonAction);
-//        userHashMap.put("Luke",new User("WTF","Luke","Lukey","Keenaja",
-//                "1150","Thailand","088-888-8888","Luke@skywalker.com",
-//                "55/54/454","Admin","Manager",new Button(),new Button()));
-//        userHashMap.put("Olo",new User("WTF","Opai","Nom","Hum",
-//                "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
-//                "55/54/454","Admin","Manager",new Button(),new Button()));
-
-
-//        list= FXCollections.observableArrayList(
-//                new User("WTF","Luke","Lukey","Keenaja",
-//                        "1150","Thailand","088-888-8888","Luke@skywalker.com",
-//                        "55/54/454","Admin","Manager",buttonE[0],buttonD[0]),
-//                new User("WTF","Opai","Nom","Hum",
-//                        "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
-//                        "55/54/454","Admin","Manager",buttonE[1],buttonD[1])
-//        );
         setButton();
         setToTableView();
-//        TableColumn user = new TableColumn("User");
-//        TableColumn email = new TableColumn("Email");
-//        TableColumn role = new TableColumn("Role");
-//        TableColumn phone = new TableColumn("Phone");
-//        TableColumn userType = new TableColumn("User Type");
-//        TableColumn bt = new TableColumn("Action");
-//        table.getColumns().addAll(user,email,phone,userType,role,bt);
-//
-//        user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
-//
-//        bt.setCellValueFactory(new PropertyValueFactory<User,String>("button"));
-//        table.setItems(list);
+
     }
     public void setToTableView(){
-        list= FXCollections.observableArrayList(
+        list = FXCollections.observableArrayList(
                 userArrayList
         );
         user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
@@ -158,14 +132,17 @@ public class mainUser implements Initializable {
         role.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
         phone.setCellValueFactory(new PropertyValueFactory<User,String>("tel"));
         userType.setCellValueFactory(new PropertyValueFactory<User,String>("userType"));
+
         btE.setCellValueFactory(new PropertyValueFactory<User,String>("buttonE"));
         btD.setCellValueFactory(new PropertyValueFactory<User,String>("buttonD"));
         table.setItems(list);
     }
+
     public void setButton(){
         for(int i=0;i<userArrayList.size();i++){
             userArrayList.get(i).setButtonD(buttonD[i]);
             userArrayList.get(i).setButtonE(buttonE[i]);
         }
     }
+
 }

@@ -8,5 +8,6 @@ public class Linker {
     public static Scene resScene ;
     public static Scene customerScene;
     public static Scene user;
+    public static Scene login;
     public static Scene report;
 }
