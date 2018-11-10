@@ -349,6 +349,7 @@ public class ReservationPageController {
     private int currentFloorNum = 1;
     @FXML
     public void initialize() {
+        Linker linker = new Linker();
         initClock();
         initLabel();
         initMenu();
@@ -397,7 +398,7 @@ public class ReservationPageController {
         customerButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Linker.primaryStage.setScene(Linker.customerScene);
+                Linker.primaryStage.setScene(linker.newCustomerScene());
             }
         });
 

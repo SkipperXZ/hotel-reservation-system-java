@@ -38,12 +38,18 @@ public class Main extends Application {
         Linker.user = new Scene(root3,1920,1080);
         Parent loginPa = FXMLLoader.load(getClass().getResource("../staff/loginPage.fxml"));
         Linker.login = new Scene(loginPa,1920,1080);
-        primaryStage.setTitle("Hello World");
+
         primaryStage.setScene(Linker.login);
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
-        Linker.report = new Scene(root4,1920,1080);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(Linker.login);
+        Linker.report = new Scene(root4);
+        //primaryStage.setScene(Linker.customerScene);
+
+
+        Linker linker = new Linker();
+        Linker.primaryStage.setScene(linker.newCustomerScene());
+
+
+        primaryStage.setTitle("Hotel");
         //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
@@ -86,6 +92,12 @@ public class Main extends Application {
         }
         if(customer != null){
             CustomerDatabase.customerDatabase = customer;
+            int max = 0 ;
+            for(Customer cus :customer.values()){
+                if (max<cus.getCustomerID())
+                max = cus.getCustomerID();
+            }
+            Customer.setNumcustomerID(max);
         }
         if(user != null){
             System.out.println("Loadddd");

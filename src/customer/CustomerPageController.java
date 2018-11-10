@@ -73,6 +73,7 @@ public class CustomerPageController {
     public void initialize() {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
+        Linker linker = new Linker();
 
        Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
 
@@ -80,7 +81,8 @@ public class CustomerPageController {
         reservationButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Linker.primaryStage.setScene(Linker.resScene);
+
+                Linker.primaryStage.setScene(linker.newResScene());
             }
         });
 
