@@ -500,7 +500,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane= (Pane)cancelOnReserved.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancelBooking(room);
+                ReservationHandler.cancelBooking(roomIndex,currentFloorNum,currentDay);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
