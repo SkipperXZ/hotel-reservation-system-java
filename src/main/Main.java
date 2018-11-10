@@ -29,7 +29,7 @@ public class Main extends Application {
         Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(Linker.user);
+        primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
 //show

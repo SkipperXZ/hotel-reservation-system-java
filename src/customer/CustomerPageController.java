@@ -103,10 +103,10 @@ public class CustomerPageController {
         customers.addAll(CustomerDatabase.customerDatabase.values());
 
 
-        for(Customer customer:customers )
+      /*  for(Customer customer:customers )
         list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
-                customer.getEmail(),customer.getStatusCustomer(),customer.getTotolRes(),customer.getNightStay(),customer.getTotalRevenue(),customer.getLastVisit()));
-
+                customer.getEmail(),customer.getStatus(),String.valueOf(customer.getTotalReserve()),String.valueOf(customer.getTotalNightStay()),String.valueOf(customer.getTotalRevenue()),customer.getLastVisit().toString()));
+*/
         list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
         final TreeItem<CustomerTable> root = new RecursiveTreeItem<CustomerTable>(list,RecursiveTreeObject::getChildren);
 

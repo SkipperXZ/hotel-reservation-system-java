@@ -4,7 +4,6 @@ import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
-import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -262,8 +261,6 @@ public class ReservationPageController {
 
     @FXML
     private Label AllDeluxeLabel;
-
-
     @FXML
     private JFXButton customerButtton;
 
@@ -362,10 +359,16 @@ public class ReservationPageController {
         inHouseMenu.getItems().addAll(checkOutOnInHouse,paymentOnInHouse,guestInfoOnInHouse,tranferOnInHouse,roomInfoOnInHouse);
         cleaningMenu.getItems().addAll(doneOnCleaning,roomInfoOnCleaning);
         outOfServiceMenu.getItems().addAll(cancelOnOutofService,roomInfoOnOutofService);
-        if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()))
+        if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
             currentDayLabel.setText("TODAY");
-        else
-            currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd LLLL yyyy")));
+            cleanOnVacant.setDisable(false);
+            checkInOnReserved.setDisable(false);
+        }
+        else{
+            currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+            cleanOnVacant.setDisable(true);
+            checkInOnReserved.setDisable(true);
+        }
 
        /* walkInOnVacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -380,7 +383,6 @@ public class ReservationPageController {
 
             }
         });*/
-
 
         customerButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -666,13 +668,20 @@ public class ReservationPageController {
         makeNextDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 if(currentDay < 30){
                     currentDay++;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()))
+                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
                         currentDayLabel.setText("TODAY");
-                    else
-                         currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                        cleanOnVacant.setDisable(false);
+                        checkInOnReserved.setDisable(false);
+                    }
+                    else{
+                        currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                        cleanOnVacant.setDisable(true);
+                        checkInOnReserved.setDisable(true);
+                    }
 
                 }
                 updateRoomAvailaible();;
@@ -684,13 +693,20 @@ public class ReservationPageController {
         makePreDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 if(currentDay > 1){
                     currentDay--;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) )
+                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
                         currentDayLabel.setText("TODAY");
-                    else
+                        cleanOnVacant.setDisable(false);
+                        checkInOnReserved.setDisable(false);
+                    }
+                    else{
                         currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                        cleanOnVacant.setDisable(true);
+                        checkInOnReserved.setDisable(true);
+                    }
 
                 }
                 updateRoomAvailaible();
@@ -704,8 +720,11 @@ public Room searchRoomFromPane(Pane selectedPane){
     for (int i = 0; i < paneArr.length  ; i++) {
         if (selectedPane ==paneArr[i]) {
             room = hotel.get(currentDay-1).getFloors()[currentFloorNum -1].getRooms()[i];
+            roomIndex = i;
         }
+
     }
+
         return room;
 }
 private void initLabel(){
@@ -782,7 +801,7 @@ private void initPaneEffect(){
 
 }
 }
-public void  initClock(){
+private void  initClock(){
     Clock.clock.setClockLabel(time);
     Clock.clock.setDateLabel(date);
 }
@@ -792,7 +811,6 @@ public void  initClock(){
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomBlockPage.fxml"));
-            System.out.println(loader);
             Parent root = loader.load();
             roomBlockController = loader.getController();
             roomBlockController.setParentController(this);
@@ -814,7 +832,6 @@ public void  initClock(){
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
-            System.out.println(loader);
             Parent root = loader.load();
             outOfServiceController = loader.getController();
             outOfServiceController.setParentController(this);
@@ -873,7 +890,6 @@ private boolean isCheckOutScene(){
 
     try {
         FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
-        System.out.println(loader);
         Parent root = loader.load();
         checkOutPageController = loader.getController();
         checkOutPageController.setParentController(this);
@@ -897,7 +913,6 @@ private boolean isConfirmCleaningScene(){
 
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CleaningPage.fxml"));
-            // System.out.println(loader);
             Parent root = loader.load();
             cleaningPageController = loader.getController();
             cleaningPageController.setReservationPageController(this);
@@ -959,7 +974,6 @@ private boolean isConfirmCleaningScene(){
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
            // System.out.println();
-            System.out.println(loader);
             Parent root = loader.load();
             reserveRoomController = loader.getController();
             reserveRoomController.setParentController(this);
@@ -1121,7 +1135,6 @@ private boolean isConfirmCleaningScene(){
         AvaliableSuiteLabel.setText(Integer.toString(avaSuite));
         AvaliableSuperiorLabel.setText(Integer.toString(avaSuperior));
     }
-
 
 
     public void setCustomer(Customer customer) {
