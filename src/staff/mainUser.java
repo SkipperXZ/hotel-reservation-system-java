@@ -1,5 +1,6 @@
 package staff;
 
+import Account.Account;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,33 +53,35 @@ public class mainUser implements Initializable {
     Button [] buttonD=new Button[max];
     @FXML
     private void handleButtonAction(ActionEvent event){
-        for(int i=0;i<userArrayList.size();i++){
-            if(event.getSource()==buttonE[i]){
-                System.out.println("E "+i);
-                UserDatabase.userCur=i;
-                System.out.println("curr "+UserDatabase.userCur);
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
-                    Parent root = (Parent)fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.setTitle("Edit");
-                    stage.setScene(new Scene(root,1080,720));
-                    stage.show();
-                }catch (Exception e){
+        if((Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister"))) {
+            for (int i = 0; i < userArrayList.size(); i++) {
+                if (event.getSource() == buttonE[i]) {
+                    System.out.println("E " + i);
+                    UserDatabase.userCur = i;
+                    System.out.println("curr " + UserDatabase.userCur);
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
+                        Parent root = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setTitle("Edit");
+                        stage.setScene(new Scene(root, 1080, 720));
+                        stage.show();
+                    } catch (Exception e) {
 
-                }
+                    }
 //                setButton();
 //                setToTableView();
-            }else if(event.getSource()==buttonD[i]){
-                userArrayList.remove(i);
-                userNoButtons.remove(i);
-                System.out.println("D "+i);
-                setButton();
-                setToTableView();
+                } else if (event.getSource() == buttonD[i]) {
+                    userArrayList.remove(i);
+                    userNoButtons.remove(i);
+                    System.out.println("D " + i);
+                    setButton();
+                    setToTableView();
 
+                }
             }
         }
-        if(event.getSource()==btnNew){
+        if(event.getSource()==btnNew && (Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister"))) {
             System.out.println("N ");
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/newUserPage.fxml"));
