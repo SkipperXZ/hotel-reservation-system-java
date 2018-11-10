@@ -3,6 +3,7 @@ import Hotel.Hotel;
 import Hotel.OneDayHotel;
 import Hotel.CustomerDatabase;
 import Hotel.Customer;
+import staff.UserNoButton;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +12,39 @@ import java.util.Map;
 
 
 public class IO{
+    public static void saveUser(ArrayList<UserNoButton>user) {
+        File file = new File("User.dat");
+        try {
+            ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(file));
+            writer.writeObject(user);
+            writer.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public static ArrayList<UserNoButton> loadUser(){
+        ArrayList<UserNoButton> user;
+        try
+        {
+            FileInputStream fis = new FileInputStream("User.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            user = (ArrayList) ois.readObject();
+            ois.close();
+            fis.close();
+        }catch(IOException ioe){
+          //  System.out.println("File Not Found . Create a New Flie");
+            ioe.printStackTrace();
+            return null;
+        }catch(ClassNotFoundException c){
+         //   System.out.println("Class not found");
+
+            c.printStackTrace();
+            return null;
+        }
+        return user;
+    }
+
     public static void saveHotel(ArrayList<OneDayHotel> hotel) {
 
         File file = new File("hotel.dat");

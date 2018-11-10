@@ -24,7 +24,7 @@
                         <Font name="Segoe UI Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="42.0" layoutY="88.0" text="EmployeeID :">
+                  <Label layoutX="42.0" layoutY="88.0" text="User ID  :">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
