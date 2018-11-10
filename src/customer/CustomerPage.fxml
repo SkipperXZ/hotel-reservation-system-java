@@ -149,7 +149,7 @@
             <center>
                 <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <JFXTreeTableView fx:id="table" layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" />
+                        <JFXTreeTableView fx:id="table" layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" style="-fx-font-size: 1.3em;" />
                         <JFXButton fx:id="btnNewCustomer" layoutX="37.0" layoutY="830.0" prefHeight="45.0" prefWidth="130.0" style="-fx-background-color: #1473E6;" text="New" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Bold" size="18.0" />

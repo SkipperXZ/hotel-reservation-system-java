@@ -2,6 +2,7 @@ package customer;
 
 
 import Hotel.Customer;
+import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -74,14 +76,14 @@ public class CustomerPopupController {
     @FXML
     private StackPane stackpane;
 
-
+    private String NameHash;
+    private Customer customer;
     @FXML
     public void initialize() {
-        String NameHash = CustomerPageController.selectName;
-         Customer customer =  customerDatabase.get(NameHash);
-
-           fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
-         customerID.setText(String.valueOf(customer.getCustomerID()));
+        NameHash = CustomerPageController.selectName;
+        customer =  customerDatabase.get(NameHash);
+        fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
+        customerID.setText(String.valueOf(customer.getCustomerID()));
         firstName.setText(customer.getFirstName());
         lastName.setText(customer.getLastName());
         ID.setText(customer.getIdNum());
@@ -123,10 +125,15 @@ public class CustomerPopupController {
 
 
     }
+
+
+
     private void showJDialog() {
 
         JFXDialogLayout dialogContent = new JFXDialogLayout();
-        dialogContent.setHeading(new Text("Are you sure you want to delete this customer?"));
+        Text text =   new Text("Are you sure you want to delete this customer?");
+        text.setFont(new Font(20));
+        dialogContent.setHeading(text);
         JFXButton yes = new JFXButton("Yes");
         JFXButton close = new JFXButton("No");
         dialogContent.setActions(yes,close);
@@ -138,6 +145,19 @@ public class CustomerPopupController {
                 dialog.close();
             }
         });
+        yes.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (customer.getCustomerID()==Customer.getNumcustomerID())
+                     Customer.setNumcustomerID(Customer.getNumcustomerID()-1);
+                CustomerDatabase.customerDatabase.remove(NameHash);
+                CustomerPageController update = new CustomerPageController();
+                update.update();
+                Stage stage = (Stage) btnDelete.getScene().getWindow();
+                stage.close();
+            }
+        });
+
         dialog.show();
 
     }

@@ -44,8 +44,8 @@ public class Login implements Initializable {
                     if(UserDatabase.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
                         Account.currentUser=UserDatabase.userArrayList.get(i).getUserName();
                         Account.currentPassword=UserDatabase.userArrayList.get(i).getPassWord();
+                        Account.currentUserType=UserDatabase.userArrayList.get(i).getUserType();
                         Linker.primaryStage.setScene(Linker.user);
-                        System.out.println(passWordNa.getText());
                     }else{
                         chPas.setText("Wrong Password");
                         break;
