@@ -70,6 +70,7 @@ public class CustomerPageController {
 
     @FXML
     private JFXButton btnNewCustomer;
+    @FXML private ImageView logOut = new ImageView();
 
 
 
@@ -229,6 +230,12 @@ public class CustomerPageController {
             }
 
 
+        });
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.setScene(linker.newLoginScene());
+            }
         });
 
 
