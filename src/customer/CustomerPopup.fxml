@@ -2,7 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTreeView?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -203,7 +203,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXTreeView fx:id="historyTable" layoutX="24.0" layoutY="29.0" prefHeight="424.0" prefWidth="944.0" />
+                                    <JFXTreeTableView fx:id="historyTable" layoutY="38.0" prefHeight="400.0" prefWidth="1000.0" style="-fx-font-size: 1.3em;" stylesheets="@../reservation/css/table.css" />
                                  </children>
                               </AnchorPane>
                           </content>
