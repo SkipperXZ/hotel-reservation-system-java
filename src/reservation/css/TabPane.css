@@ -4,6 +4,7 @@
     -fx-border-color:  #DBDBDB;
     -fx-border-width: 0 0 0 2;
 
+
 }
 .jfx-tab-pane .tab{
     -fx-effect: null;
@@ -24,8 +25,8 @@
 .jfx-tab-pane
 {
     -fx-effect: null;
-    -fx-background-color: #1473e6;
       -fx-font-weight: normal;
+
 
 }
 

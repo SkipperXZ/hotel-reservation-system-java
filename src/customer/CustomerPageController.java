@@ -1,6 +1,7 @@
 package customer;
 
 
+import Account.Account;
 import Hotel.Customer;
 import Hotel.CustomerDatabase;
 import clock.Clock;
@@ -25,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -44,6 +46,12 @@ public class CustomerPageController {
     private Label time;
     @FXML
     private Label date;
+
+    @FXML
+    private ImageView userPic;
+
+    @FXML
+    private Label userLabel;
     @FXML
     private JFXButton  dashboardButtton;
     @FXML
@@ -74,6 +82,8 @@ public class CustomerPageController {
     public void initialize() {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
+
+        userLabel.setText(Account.currentUser);
         Linker linker = new Linker();
 
        Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
@@ -235,9 +245,8 @@ public class CustomerPageController {
                     customer.getLastVisitToString()));
 
         list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
-//        TreeItem<CustomerTable> root = new RecursiveTreeItem<CustomerTable>(list,RecursiveTreeObject::getChildren);
-//        table.setRoot(root);
-//        table.setShowRoot(false);
+
+
     }
 
     class CustomerTable extends RecursiveTreeObject<CustomerTable>{
