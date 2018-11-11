@@ -1,6 +1,7 @@
 package staff;
 
 import Account.Account;
+import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,6 +50,9 @@ public class mainUser implements Initializable {
     @FXML private JFXButton reportButtton = new JFXButton();
     @FXML private JFXButton userButtton = new JFXButton();
     @FXML private ImageView logOut = new ImageView();
+    @FXML private Label date;
+
+    @FXML private Label time;
 
     public static Button [] buttonE=new Button[max];
     public static Button [] buttonD=new Button[max];
@@ -111,6 +115,8 @@ public class mainUser implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Clock.clock.setClockLabel(time);
+        Clock.clock.setDateLabel(date);
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

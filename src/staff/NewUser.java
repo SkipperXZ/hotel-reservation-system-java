@@ -76,12 +76,19 @@ public class NewUser implements Initializable {
         chUser.setText("");
         chEmail.setText("");
         if(event.getSource()==btnSave) {
-            boolean ch1=true,ch2=true;
+            boolean ch1=true,ch2=true,ch3=true,ch4=true,ch5=true,ch6=true,ch7=true,ch8=true;
+
             for(int i=0;i<userArrayList.size();i++){
                 if(userArrayList.get(i).getUserName().equals(userName.getText()))ch1=false;
                 if(userArrayList.get(i).getEmail().equals(email.getText()))ch2=false;
             }
-            if((ch1&&ch2)||(userArrayList.size()==0)) {
+            if (userName.getText().equals(""))ch3=false;
+            if (email.getText().equals(""))ch4=false;
+            if (firstName.getText().equals(""))ch5=false;
+            if(lastName.getText().equals(""))ch6=false;
+            if(userType.getText().equals(""))ch7=false;
+            if(passWord.getText().equals(""))ch8=false;
+            if((ch1&&ch2&&ch3&&ch4&&ch5&&ch6&&ch7&&ch8)||(userArrayList.size()==0)) {
                 userArrayList.add(new User(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
                         userType.getText(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText()));
@@ -95,8 +102,13 @@ public class NewUser implements Initializable {
                 mainUser mu = new mainUser();
                 mu.update();
             }
-            if(ch1==false)chUser.setText("This username already taken.");
-            if(ch2==false)chEmail.setText("This email already taken.");
+            if(ch3==false||ch4==false||ch5==false||ch6==false||ch7==false||ch8==false){
+                chUser.setText("Please enter : Username,Password,UserType,Fristname,Lastname and Email ");
+            }else {
+                if (ch1 == false) chUser.setText("This username already taken.");
+                if (ch2 == false) chEmail.setText("This email already taken.");
+            }
+
         }else if(event.getSource()==btnCancel){
             System.out.println("Cancel");
             Stage stage = (Stage) btnCancel.getScene().getWindow();
