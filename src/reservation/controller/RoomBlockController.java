@@ -1,5 +1,7 @@
 package reservation.controller;
+import Hotel.Hotel;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,10 +22,16 @@ public class RoomBlockController {
 
     @FXML
     private JFXButton makeCancel;
+    @FXML
+    private JFXDatePicker startDatePicker;
+    @FXML
+    private JFXDatePicker finishDatePicker;
+
     private Room room;
     private ReservationPageController parentController;
     private boolean isConfirm=false;
     public void initialize() {
+
 
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -32,9 +40,11 @@ public class RoomBlockController {
                     room.setMemo(memoText.getText());
                     isConfirm = true;
                     parentController.getRoomBlockStage().close();
-
                 }
+                parentController.setStartDate(startDatePicker.getValue());
+                parentController.setFinishDate(finishDatePicker.getValue());
             }
+
 
         });
         makeCancel.setOnAction(new EventHandler<ActionEvent>() {
@@ -47,12 +57,15 @@ public class RoomBlockController {
 
     public void setParentController(ReservationPageController parentController) {
         this.parentController = parentController;
+
     }
     public void setInfo(){
-
+        startDatePicker.setValue(Hotel.hotel.get(parentController.getCurrentDay()-1).getDate());
+        startDatePicker.setDisable(true);
     }
     public void setRoom(Room room) {
         this.room = room;
+        roomIDLabel.setText(room.getRoomID());
     }
 
     public boolean isConfirm() {

@@ -1,5 +1,7 @@
 package reservation.controller;
+import Hotel.Hotel;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,6 +21,10 @@ public class OutOfServiceController {
     private JFXButton makeConfirm;
     @FXML
     private JFXButton makeCancel;
+    @FXML
+    private JFXDatePicker startDatePicker;
+    @FXML
+    private JFXDatePicker finishDatePicker;
 
     private Room room;
     private ReservationPageController parentController;
@@ -32,8 +38,9 @@ public class OutOfServiceController {
                     room.setMemo(memoText.getText());
                     isConfirm = true;
                     parentController.getOutOfServiceStage().close();
-
                 }
+                parentController.setStartDate(startDatePicker.getValue());
+                parentController.setFinishDate(finishDatePicker.getValue());
             }
         });
         makeCancel.setOnAction(new EventHandler<ActionEvent>() {
@@ -49,10 +56,12 @@ public class OutOfServiceController {
         this.parentController = parentController;
     }
     public void setInfo(){
-
+        startDatePicker.setValue(Hotel.hotel.get(parentController.getCurrentDay()-1).getDate());
+        startDatePicker.setDisable(true);
     }
     public void setRoom(Room room) {
         this.room = room;
+        roomIDLabel.setText(room.getRoomID());
     }
 
     public boolean isConfirm() {
