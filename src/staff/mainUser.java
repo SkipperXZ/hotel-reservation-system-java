@@ -42,7 +42,6 @@ public class mainUser implements Initializable {
     @FXML private TableColumn<User, String> btE;
     @FXML private TableColumn<User, String> btD;
     @FXML private JFXButton btnNew = new JFXButton();
-    @FXML private JFXButton btnRefresh= new JFXButton();
     @FXML private JFXButton dashboardButtton = new JFXButton();
     @FXML private JFXButton calendarButtton = new JFXButton();
     @FXML private JFXButton reservationButtton = new JFXButton();
@@ -94,8 +93,6 @@ public class mainUser implements Initializable {
             }catch (Exception e){
 
             }
-        }else if(event.getSource()==btnRefresh){
-            update();
         }else if(event.getSource()==dashboardButtton){
 
         }else if(event.getSource()==calendarButtton){
@@ -106,6 +103,8 @@ public class mainUser implements Initializable {
             Linker.primaryStage.setScene(linker.newReportScene());
         }else if(event.getSource()==userButtton){
             Linker.primaryStage.setScene(linker.newUserScene());
+        }else if(event.getSource()==customerButtton){
+            Linker.primaryStage.setScene(linker.newCustomerScene());
         }
     }
 
@@ -137,7 +136,6 @@ public class mainUser implements Initializable {
             buttonD[i].setOnAction(this::handleButtonAction);
 //            a[i]=-1;
         }
-        btnRefresh.setOnAction(this::handleButtonAction);
 
         dashboardButtton.setOnAction(this::handleButtonAction);
         calendarButtton.setOnAction(this::handleButtonAction);
@@ -156,6 +154,7 @@ public class mainUser implements Initializable {
         list = FXCollections.observableArrayList(
                 userArrayList
         );
+        btnNew.setVisible(false);
         user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
         email.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
         role.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
@@ -164,6 +163,7 @@ public class mainUser implements Initializable {
         if(Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister")){
             btE.setCellValueFactory(new PropertyValueFactory<User, String>("buttonE"));
             btD.setCellValueFactory(new PropertyValueFactory<User, String>("buttonD"));
+            btnNew.setOnAction(this::handleButtonAction);
             btnNew.setVisible(true);
         }
         table.setItems(list);
