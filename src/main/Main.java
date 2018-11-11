@@ -114,8 +114,9 @@ public class Main extends Application {
         if(allbooking != null){
             AllBooking.allBooking = allbooking;
             System.out.println("Load Done");
-        }else{
-            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null);
+        }
+        else{
+            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null, false);
             AllBooking.addBooking(booking);
             System.out.println("Initial done");
         }

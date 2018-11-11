@@ -53,6 +53,8 @@ public class mainUser implements Initializable {
     @FXML private Label date;
 
     @FXML private Label time;
+    @FXML private ImageView userPic;
+    @FXML private Label userLabel;
 
     public static Button [] buttonE=new Button[max];
     public static Button [] buttonD=new Button[max];
@@ -117,6 +119,7 @@ public class mainUser implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
+        userLabel.setText(Account.currentUser);
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
