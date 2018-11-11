@@ -24,11 +24,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.scene.image.ImageView;
 
 public class mainUser implements Initializable {
-    int max=100;
+    public static int max=100;
 //    int []a = new int[max];
-    ObservableList<User>list;
+    public static ObservableList<User>list;
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     Linker linker = new Linker();
@@ -48,9 +49,10 @@ public class mainUser implements Initializable {
     @FXML private JFXButton customerButtton = new JFXButton();
     @FXML private JFXButton reportButtton = new JFXButton();
     @FXML private JFXButton userButtton = new JFXButton();
+    @FXML private ImageView logOut = new ImageView();
 
-    Button [] buttonE=new Button[max];
-    Button [] buttonD=new Button[max];
+    public static Button [] buttonE=new Button[max];
+    public static Button [] buttonD=new Button[max];
     @FXML
     private void handleButtonAction(ActionEvent event){
         if((Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister"))) {
@@ -75,8 +77,7 @@ public class mainUser implements Initializable {
                     userArrayList.remove(i);
                     userNoButtons.remove(i);
                     System.out.println("D " + i);
-                    setButton();
-                    setToTableView();
+                    update();
 
                 }
             }
@@ -94,8 +95,7 @@ public class mainUser implements Initializable {
 
             }
         }else if(event.getSource()==btnRefresh){
-            setButton();
-            setToTableView();
+            update();
         }else if(event.getSource()==dashboardButtton){
 
         }else if(event.getSource()==calendarButtton){
@@ -137,7 +137,6 @@ public class mainUser implements Initializable {
             buttonD[i].setOnAction(this::handleButtonAction);
 //            a[i]=-1;
         }
-        btnNew.setOnAction(this::handleButtonAction);
         btnRefresh.setOnAction(this::handleButtonAction);
 
         dashboardButtton.setOnAction(this::handleButtonAction);
@@ -146,11 +145,14 @@ public class mainUser implements Initializable {
         reportButtton.setOnAction(this::handleButtonAction);
         customerButtton.setOnAction(this::handleButtonAction);
         userButtton.setOnAction(this::handleButtonAction);
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.setScene(linker.newLoginScene());
+            }
+        });
         setButton();
-        setToTableView();
-
-    }
-    public void setToTableView(){
+        ///Set Table init
         list = FXCollections.observableArrayList(
                 userArrayList
         );
@@ -159,9 +161,11 @@ public class mainUser implements Initializable {
         role.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
         phone.setCellValueFactory(new PropertyValueFactory<User,String>("tel"));
         userType.setCellValueFactory(new PropertyValueFactory<User,String>("userType"));
-
-        btE.setCellValueFactory(new PropertyValueFactory<User,String>("buttonE"));
-        btD.setCellValueFactory(new PropertyValueFactory<User,String>("buttonD"));
+        if(Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister")){
+            btE.setCellValueFactory(new PropertyValueFactory<User, String>("buttonE"));
+            btD.setCellValueFactory(new PropertyValueFactory<User, String>("buttonD"));
+            btnNew.setVisible(true);
+        }
         table.setItems(list);
     }
 
@@ -169,6 +173,13 @@ public class mainUser implements Initializable {
         for(int i=0;i<userArrayList.size();i++){
             userArrayList.get(i).setButtonD(buttonD[i]);
             userArrayList.get(i).setButtonE(buttonE[i]);
+        }
+    }
+    public void update(){
+        list.clear();
+        setButton();
+        for(int i=0;i<userArrayList.size();i++) {
+            list.add(userArrayList.get(i));
         }
     }
 

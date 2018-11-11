@@ -26,6 +26,7 @@ public class Login implements Initializable {
     private JFXButton cancel =new JFXButton();
     @FXML
     private PasswordField passWordNa = new PasswordField();
+    Linker linker = new Linker();
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -45,7 +46,7 @@ public class Login implements Initializable {
                         Account.currentUser=UserDatabase.userArrayList.get(i).getUserName();
                         Account.currentPassword=UserDatabase.userArrayList.get(i).getPassWord();
                         Account.currentUserType=UserDatabase.userArrayList.get(i).getUserType();
-                        Linker.primaryStage.setScene(Linker.user);
+                        Linker.primaryStage.setScene(linker.newUserScene());
                     }else{
                         chPas.setText("Wrong Password");
                         break;

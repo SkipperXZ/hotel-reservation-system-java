@@ -92,6 +92,8 @@ public class NewUser implements Initializable {
                 UserDatabase.employeeId++;
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
                 stage.close();
+                mainUser mu = new mainUser();
+                mu.update();
             }
             if(ch1==false)chUser.setText("This username already taken.");
             if(ch2==false)chEmail.setText("This email already taken.");
