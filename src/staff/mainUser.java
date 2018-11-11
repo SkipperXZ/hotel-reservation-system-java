@@ -98,7 +98,7 @@ public class mainUser implements Initializable {
 
             }
         }else if(event.getSource()==dashboardButtton){
-
+            Linker.primaryStage.setScene(linker.newDashboardScene());
         }else if(event.getSource()==calendarButtton){
             Linker.primaryStage.setScene(linker.newCustomerScene());
         }else if(event.getSource()==reservationButtton){
