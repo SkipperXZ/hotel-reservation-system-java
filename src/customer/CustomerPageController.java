@@ -88,6 +88,12 @@ public class CustomerPageController {
 
        Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
 
+       dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newDashboardScene());
+           }
+       });
 
         reservationButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -113,9 +119,6 @@ public class CustomerPageController {
 
         setupHead();
         // ObservableList<CustomerTable> list = FXCollections.observableArrayList();
-        List<String> names = Arrays.asList("sadsadas", "sadsadup2", "asdcefdvadfasf","sdacxczcxc");
-        DecimalFormat phoneNum3 = new DecimalFormat("000");
-        DecimalFormat phoneNum4 = new DecimalFormat("0000");
         ArrayList<Customer> customers = new ArrayList<Customer>();
 //        {{
 //            for(int i= 0 ; i<30;i++)

@@ -9,13 +9,16 @@ import java.io.IOException;
 
 public class Linker {
     public static Stage primaryStage;
+    public static Scene DashboardScene ;
     public static Scene resScene ;
     public static Scene customerScene;
     public static Scene user;
     public static Scene login;
     public static Scene report;
 
-
+    public Scene newDashboardScene (){
+        return this.buildScene("../dashboard/Dashboard.fxml") ;
+    }
     public Scene newResScene (){
         return this.buildScene("../reservation/page/res.fxml") ;
     }
