@@ -83,7 +83,7 @@ public class Main extends Application {
             System.out.println("Load Done");
         }
         else{
-            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null);
+            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null, false);
             AllBooking.addBooking(booking);
             System.out.println("Initial done");
         }
