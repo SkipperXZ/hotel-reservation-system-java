@@ -8,6 +8,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -187,16 +189,17 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                                  <children>
-                                    <JFXTreeTableView fx:id="checkInTable" prefHeight="401.0" prefWidth="1631.0">
-                                       <columns>
-                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
-                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
-                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
-                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
-                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
-                                       </columns></JFXTreeTableView>
+                                    <TableView fx:id="checkinTable" prefHeight="401.0" prefWidth="1631.0">
+                                      <columns>
+                                        <TableColumn fx:id="guest1" prefWidth="310.0" text="GUEST" />
+                                        <TableColumn fx:id="regNo1" prefWidth="156.0" text="REG NO." />
+                                          <TableColumn fx:id="phone1" prefWidth="233.0" text="PHONE" />
+                                          <TableColumn fx:id="room1" prefWidth="233.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType1" prefWidth="233.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price1" prefWidth="233.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime1" prefWidth="233.0" text="CHECK-IN TIME" />
+                                      </columns>
+                                    </TableView>
                                  </children>
                               </AnchorPane>
                           </content>
@@ -205,16 +208,17 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXTreeTableView fx:id="checkoutTable" prefHeight="401.0" prefWidth="1631.0">
+                                    <TableView fx:id="checkoutTable" prefHeight="401.0" prefWidth="1631.0">
                                        <columns>
-                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
-                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
-                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
-                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
-                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
-                                       </columns></JFXTreeTableView>
+                                          <TableColumn fx:id="guest2" prefWidth="310.0" text="GUEST" />
+                                          <TableColumn fx:id="regNo2" prefWidth="156.0" text="REG NO." />
+                                          <TableColumn fx:id="phone2" prefWidth="233.0" text="PHONE" />
+                                          <TableColumn fx:id="room2" prefWidth="233.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType2" prefWidth="233.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price2" prefWidth="233.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime2" prefWidth="233.0" text="CHECK-IN TIME" />
+                                       </columns>
+                                    </TableView>
                                  </children>
                               </AnchorPane>
                           </content>
@@ -226,16 +230,17 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                                  <children>
-                                    <JFXTreeTableView fx:id="cancelTable" prefHeight="401.0" prefWidth="1631.0">
-                                       <columns>
-                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
-                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
-                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
-                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
-                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
-                                       </columns></JFXTreeTableView>
+                                    <TableView fx:id="cancelTable" prefHeight="401.0" prefWidth="1631.0">
+                                      <columns>
+                                          <TableColumn fx:id="guest3" prefWidth="310.0" text="GUEST" />
+                                          <TableColumn fx:id="regNo3" prefWidth="156.0" text="REG NO." />
+                                          <TableColumn fx:id="phone3" prefWidth="233.0" text="PHONE" />
+                                          <TableColumn fx:id="room3" prefWidth="233.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType3" prefWidth="233.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price3" prefWidth="233.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime3" prefWidth="233.0" text="CHECK-IN TIME" />
+                                      </columns>
+                                    </TableView>
                                  </children>
                               </AnchorPane>
                            </content>
@@ -244,16 +249,17 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXTreeTableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0">
-                                       <columns>
-                                          <TreeTableColumn prefWidth="301.0" text="GUEST" />
-                                          <TreeTableColumn prefWidth="165.0" text="Reg No." />
-                                          <TreeTableColumn prefWidth="233.0" text="PHONE" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM" />
-                                          <TreeTableColumn prefWidth="233.0" text="ROOM TYPE" />
-                                          <TreeTableColumn prefWidth="233.0" text="PRICE" />
-                                          <TreeTableColumn prefWidth="232.0" text="Check-In Time" />
-                                       </columns></JFXTreeTableView>
+                                    <TableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0">
+                                      <columns>
+                                          <TableColumn fx:id="guest4" prefWidth="310.0" text="GUEST" />
+                                          <TableColumn fx:id="regNo4" prefWidth="156.0" text="REG NO." />
+                                          <TableColumn fx:id="phone4" prefWidth="233.0" text="PHONE" />
+                                          <TableColumn fx:id="room4" prefWidth="233.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType4" prefWidth="233.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price4" prefWidth="233.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime4" prefWidth="233.0" text="CHECK-IN TIME" />
+                                      </columns>
+                                    </TableView>
                                  </children>
                               </AnchorPane>
                            </content>
