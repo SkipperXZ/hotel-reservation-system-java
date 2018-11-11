@@ -154,6 +154,7 @@ public class mainUser implements Initializable {
         list = FXCollections.observableArrayList(
                 userArrayList
         );
+        btnNew.setVisible(false);
         user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
         email.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
         role.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
@@ -162,6 +163,7 @@ public class mainUser implements Initializable {
         if(Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister")){
             btE.setCellValueFactory(new PropertyValueFactory<User, String>("buttonE"));
             btD.setCellValueFactory(new PropertyValueFactory<User, String>("buttonD"));
+            btnNew.setOnAction(this::handleButtonAction);
             btnNew.setVisible(true);
         }
         table.setItems(list);
