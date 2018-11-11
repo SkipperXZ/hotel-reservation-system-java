@@ -59,9 +59,11 @@ public class Clock {
 
     public void setClockLabel(Label clockLabel) {
         this.clockLabel = clockLabel;
+        clockLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
     }
 
     public void setDateLabel(Label dateLabel) {
         this.dateLabel = dateLabel;
+        dateLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd LLLL yyyy")).toUpperCase());
     }
 }

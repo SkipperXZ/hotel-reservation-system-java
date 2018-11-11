@@ -1,5 +1,7 @@
 package staff;
 
+import Account.Account;
+import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,17 +19,21 @@ import javafx.stage.Stage;
 
 
 import javafx.scene.Scene;
+import main.Linker;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.scene.image.ImageView;
 
 public class mainUser implements Initializable {
-    int max=100;
+    public static int max=100;
 //    int []a = new int[max];
-    ObservableList<User>list;
-    HashMap<String,User> userHashMap = UserDatabase.userDatabase;
+    public static ObservableList<User>list;
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
+    Linker linker = new Linker();
     @FXML private TableView<User>table;
     @FXML private TableColumn<User,String> user;
     @FXML private TableColumn<User,String> email;
@@ -38,38 +43,49 @@ public class mainUser implements Initializable {
     @FXML private TableColumn<User, String> btE;
     @FXML private TableColumn<User, String> btD;
     @FXML private JFXButton btnNew = new JFXButton();
-    @FXML private JFXButton btnRefresh= new JFXButton();
+    @FXML private JFXButton dashboardButtton = new JFXButton();
+    @FXML private JFXButton calendarButtton = new JFXButton();
+    @FXML private JFXButton reservationButtton = new JFXButton();
+    @FXML private JFXButton customerButtton = new JFXButton();
+    @FXML private JFXButton reportButtton = new JFXButton();
+    @FXML private JFXButton userButtton = new JFXButton();
+    @FXML private ImageView logOut = new ImageView();
+    @FXML private Label date;
 
-    Button [] buttonE=new Button[max];
-    Button [] buttonD=new Button[max];
+    @FXML private Label time;
+
+    public static Button [] buttonE=new Button[max];
+    public static Button [] buttonD=new Button[max];
     @FXML
     private void handleButtonAction(ActionEvent event){
-        for(int i=0;i<userArrayList.size();i++){
-            if(event.getSource()==buttonE[i]){
-                System.out.println("E "+i);
-                UserDatabase.userCur=i;
-                System.out.println("curr "+UserDatabase.userCur);
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
-                    Parent root = (Parent)fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.setTitle("Edit");
-                    stage.setScene(new Scene(root,1080,720));
-                    stage.show();
-                }catch (Exception e){
+        if((Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister"))) {
+            for (int i = 0; i < userArrayList.size(); i++) {
+                if (event.getSource() == buttonE[i]) {
+                    System.out.println("E " + i);
+                    UserDatabase.userCur = i;
+                    System.out.println("curr " + UserDatabase.userCur);
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
+                        Parent root = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setTitle("Edit");
+                        stage.setScene(new Scene(root, 1080, 720));
+                        stage.show();
+                    } catch (Exception e) {
 
-                }
+                    }
 //                setButton();
 //                setToTableView();
-            }else if(event.getSource()==buttonD[i]){
-                userArrayList.remove(i);
-                System.out.println("D "+i);
-                setButton();
-                setToTableView();
+                } else if (event.getSource() == buttonD[i]) {
+                    userArrayList.remove(i);
+                    userNoButtons.remove(i);
+                    System.out.println("D " + i);
+                    update();
 
+                }
             }
         }
-        if(event.getSource()==btnNew){
+        if(event.getSource()==btnNew && (Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister"))) {
             System.out.println("N ");
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/newUserPage.fxml"));
@@ -81,16 +97,26 @@ public class mainUser implements Initializable {
             }catch (Exception e){
 
             }
-        }
-        if(event.getSource()==btnRefresh){
-            setButton();
-            setToTableView();
+        }else if(event.getSource()==dashboardButtton){
+            Linker.primaryStage.setScene(linker.newDashboardScene());
+        }else if(event.getSource()==calendarButtton){
+            Linker.primaryStage.setScene(linker.newCustomerScene());
+        }else if(event.getSource()==reservationButtton){
+            Linker.primaryStage.setScene(linker.newResScene());
+        }else if(event.getSource()==reportButtton){
+            Linker.primaryStage.setScene(linker.newReportScene());
+        }else if(event.getSource()==userButtton){
+            Linker.primaryStage.setScene(linker.newUserScene());
+        }else if(event.getSource()==customerButtton){
+            Linker.primaryStage.setScene(linker.newCustomerScene());
         }
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Clock.clock.setClockLabel(time);
+        Clock.clock.setDateLabel(date);
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -116,56 +142,51 @@ public class mainUser implements Initializable {
             buttonD[i].setOnAction(this::handleButtonAction);
 //            a[i]=-1;
         }
-        btnNew.setOnAction(this::handleButtonAction);
-        btnRefresh.setOnAction(this::handleButtonAction);
-//        userHashMap.put("Luke",new User("WTF","Luke","Lukey","Keenaja",
-//                "1150","Thailand","088-888-8888","Luke@skywalker.com",
-//                "55/54/454","Admin","Manager",new Button(),new Button()));
-//        userHashMap.put("Olo",new User("WTF","Opai","Nom","Hum",
-//                "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
-//                "55/54/454","Admin","Manager",new Button(),new Button()));
 
-
-//        list= FXCollections.observableArrayList(
-//                new User("WTF","Luke","Lukey","Keenaja",
-//                        "1150","Thailand","088-888-8888","Luke@skywalker.com",
-//                        "55/54/454","Admin","Manager",buttonE[0],buttonD[0]),
-//                new User("WTF","Opai","Nom","Hum",
-//                        "5511","Thailand","084-444-4444","Opai@olo.B==>.com",
-//                        "55/54/454","Admin","Manager",buttonE[1],buttonD[1])
-//        );
+        dashboardButtton.setOnAction(this::handleButtonAction);
+        calendarButtton.setOnAction(this::handleButtonAction);
+        reservationButtton.setOnAction(this::handleButtonAction);
+        reportButtton.setOnAction(this::handleButtonAction);
+        customerButtton.setOnAction(this::handleButtonAction);
+        userButtton.setOnAction(this::handleButtonAction);
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.setScene(linker.newLoginScene());
+            }
+        });
         setButton();
-        setToTableView();
-//        TableColumn user = new TableColumn("User");
-//        TableColumn email = new TableColumn("Email");
-//        TableColumn role = new TableColumn("Role");
-//        TableColumn phone = new TableColumn("Phone");
-//        TableColumn userType = new TableColumn("User Type");
-//        TableColumn bt = new TableColumn("Action");
-//        table.getColumns().addAll(user,email,phone,userType,role,bt);
-//
-//        user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
-//
-//        bt.setCellValueFactory(new PropertyValueFactory<User,String>("button"));
-//        table.setItems(list);
-    }
-    public void setToTableView(){
-        list= FXCollections.observableArrayList(
+        ///Set Table init
+        list = FXCollections.observableArrayList(
                 userArrayList
         );
+        btnNew.setVisible(false);
         user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
         email.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
         role.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
         phone.setCellValueFactory(new PropertyValueFactory<User,String>("tel"));
         userType.setCellValueFactory(new PropertyValueFactory<User,String>("userType"));
-        btE.setCellValueFactory(new PropertyValueFactory<User,String>("buttonE"));
-        btD.setCellValueFactory(new PropertyValueFactory<User,String>("buttonD"));
+        if(Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister")){
+            btE.setCellValueFactory(new PropertyValueFactory<User, String>("buttonE"));
+            btD.setCellValueFactory(new PropertyValueFactory<User, String>("buttonD"));
+            btnNew.setOnAction(this::handleButtonAction);
+            btnNew.setVisible(true);
+        }
         table.setItems(list);
     }
+
     public void setButton(){
         for(int i=0;i<userArrayList.size();i++){
             userArrayList.get(i).setButtonD(buttonD[i]);
             userArrayList.get(i).setButtonE(buttonE[i]);
         }
     }
+    public void update(){
+        list.clear();
+        setButton();
+        for(int i=0;i<userArrayList.size();i++) {
+            list.add(userArrayList.get(i));
+        }
+    }
+
 }

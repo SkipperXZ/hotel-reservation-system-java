@@ -35,12 +35,12 @@
                                 <Image url="@../img/icon/entrance.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
+                        <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" textFill="#3d8ceb">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" text="13:10" textFill="#545557">
+                        <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" textFill="#545557">
                             <font>
                                 <Font size="36.0" />
                             </font>
@@ -50,6 +50,21 @@
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
+                  <Pane layoutX="814.0" prefHeight="55.0" prefWidth="347.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="55.0" layoutY="1.0" stroke="#ffffff57" strokeType="INSIDE" width="346.0" />
+                        <ImageView fx:id="userPic" fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="userLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="15.0" prefHeight="29.0" prefWidth="259.0" text="username">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                     </children>
                 </Pane>
             </top>
@@ -149,7 +164,7 @@
             <center>
                 <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <JFXTreeTableView fx:id="table" layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" />
+                        <JFXTreeTableView fx:id="table" layoutX="35.0" layoutY="116.0" prefHeight="694.0" prefWidth="1620.0" style="-fx-font-size: 1.3em;" />
                         <JFXButton fx:id="btnNewCustomer" layoutX="37.0" layoutY="830.0" prefHeight="45.0" prefWidth="130.0" style="-fx-background-color: #1473E6;" text="New" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Bold" size="18.0" />
@@ -159,21 +174,6 @@
                 </Pane>
             </center>
         </BorderPane>
-        <Pane layoutX="1684.0" layoutY="973.0" prefHeight="108.0" prefWidth="237.0">
-            <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="123.0" layoutX="-3.0" layoutY="-17.0" stroke="#ffffff57" strokeType="INSIDE" width="239.0" />
-                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="6.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/icon/user.png" />
-                    </image>
-                </ImageView>
-                <Label layoutX="51.0" text="username">
-                    <font>
-                        <Font name="Segoe UI Bold" size="24.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
     </children>
 
 </AnchorPane>

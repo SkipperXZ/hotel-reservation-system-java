@@ -6,23 +6,64 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/reservation/IO.java" line="27" />
+    <bookmark url="file://$PROJECT_DIR$/src/reservation/IO.java" line="61" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer.dat" beforeDir="false" afterPath="$PROJECT_DIR$/customer.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel.dat" beforeDir="false" afterPath="$PROJECT_DIR$/hotel.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dashboard/Dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dashboard/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/icon/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reservation/page/CustomerFolioPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/staff/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/staff/UserNoButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/staff/loginPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/staff/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hotel/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hotel/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hotel/CustomerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hotel/CustomerDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clock/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clock/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/CustomerPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customer/CustomerPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/CustomerPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customer/CustomerPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/CustomerPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customer/EditCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/EditCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/NewCustomer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/NewCustomer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/NewCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/NewCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Linker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Linker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/ReservationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/ReservationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/CheckInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/CheckInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/CheckOutPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/CheckOutPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/CustomerPageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/GuestInfoPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/CustomerInfoPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/OutOfServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/OutOfServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reservation/controller/ReservationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/ReservationPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reservation/page/CustomerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/CustomerPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reservation/page/CustomerPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/CustomerPopup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reservation/page/EditCustomer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/EditCustomer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reservation/page/NewCustomer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer/NewCustomer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/ReserveRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/ReserveRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/RoomBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/RoomBlockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/controller/RoomInfoPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/controller/RoomInfoPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/css/TabPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/css/TabPane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/CheckInReserved.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/CheckInReserved.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/CheckInWalkIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/CheckInWalkIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/CheckOutPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/CheckOutPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/CleaningPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/CleaningPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/GuestFolioPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/OutOFServicePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/OutOFServicePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/ReserveRoomPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/ReserveRoomPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/RoomBlockPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/RoomBlockPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/RoomInfoPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/RoomInfoPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/page/template.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/page/template.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reservation/room/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reservation/room/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/CustomerPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/CustomerPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/EditUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/EditUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/NewUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/UserDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/editPageNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/editPageNew.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/mainUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/mainUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/newUserPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/newUserPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/userPageNew.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/userPageNew.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/staff/userPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/staff/userPopUp.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -242,6 +283,34 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="412782530">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="4" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
@@ -251,26 +320,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reservation/controller/CheckInController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="114" column="61" lean-forward="true" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reservation/controller/CustomerPageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reservation/controller/GuestInfoPageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="2295">
+              <caret line="144" column="61" selection-start-line="144" selection-start-column="61" selection-end-line="144" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -278,8 +329,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reservation/controller/ReservationPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="1050" column="60" selection-start-line="1050" selection-start-column="60" selection-end-line="1050" selection-end-column="60" />
+            <state relative-caret-position="18037">
+              <caret line="1084" selection-start-line="1084" selection-end-line="1084" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -290,8 +341,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reservation/controller/RoomBlockController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="187">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -299,8 +350,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hotel/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+            <state relative-caret-position="1122">
+              <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -308,17 +359,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reservation/controller/RoomInfoPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+            <state relative-caret-position="85">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hotel/CustomerDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="391">
+              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -327,12 +378,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reservation/ReservationHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-718">
-              <caret line="21" selection-start-line="21" selection-end-line="24" selection-end-column="60" />
+            <state relative-caret-position="588">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/reservation/ReservationHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+              <folding>
+                <element signature="e#5881#5882#0" expanded="true" />
+                <element signature="e#5921#5922#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -341,7 +405,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reservation/controller/CleaningPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
+            <state relative-caret-position="68">
               <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
@@ -432,13 +496,13 @@
         <option value="$PROJECT_DIR$/src/customer/NewCustomer.fxml" />
         <option value="$PROJECT_DIR$/src/customer/CustomerPopupController.java" />
         <option value="$PROJECT_DIR$/src/customer/EditCustomerController.java" />
-        <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/customer/CustomerPageController.java" />
         <option value="$PROJECT_DIR$/src/reservation/controller/ReservationPageController.java" />
         <option value="$PROJECT_DIR$/src/Hotel/OneDayHotel.java" />
-        <option value="$PROJECT_DIR$/src/reservation/ReservationHandler.java" />
         <option value="$PROJECT_DIR$/src/Hotel/Customer.java" />
         <option value="$PROJECT_DIR$/src/Hotel/CustomerDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/reservation/ReservationHandler.java" />
       </list>
     </option>
   </component>
@@ -470,9 +534,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -537,6 +598,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -676,9 +739,10 @@
     <option name="totallyTimeSpent" value="74761000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30277187" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30597016" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -687,7 +751,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3253796" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3253796" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -698,7 +762,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -905,16 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-409">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Hotel/Hotel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -964,9 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="53" column="83" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -995,10 +1046,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reservation/controller/GuestInfoPageController.java">
+    <entry file="file://$PROJECT_DIR$/src/reservation/controller/CheckInController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="2295">
+          <caret line="144" column="61" selection-start-line="144" selection-start-column="61" selection-end-line="144" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1009,41 +1060,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reservation/ReservationHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/reservation/controller/GuestInfoPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-718">
-          <caret line="21" selection-start-line="21" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reservation/controller/CleaningPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
+        <state relative-caret-position="68">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hotel/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reservation/controller/CheckInController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="114" column="61" lean-forward="true" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reservation/controller/ReservationPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="1050" column="60" selection-start-line="1050" selection-start-column="60" selection-end-line="1050" selection-end-column="60" />
+        <state relative-caret-position="18037">
+          <caret line="1084" selection-start-line="1084" selection-end-line="1084" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1052,24 +1079,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reservation/controller/RoomBlockController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hotel/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reservation/controller/RoomInfoPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+        <state relative-caret-position="85">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reservation/controller/CleaningPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Hotel/CustomerDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="391">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reservation/ReservationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+          <folding>
+            <element signature="e#5881#5882#0" expanded="true" />
+            <element signature="e#5921#5922#0" expanded="true" />
           </folding>
         </state>
       </provider>

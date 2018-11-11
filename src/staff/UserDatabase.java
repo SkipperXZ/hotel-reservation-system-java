@@ -1,13 +1,16 @@
 package staff;
 import Hotel.Customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserDatabase {
+public class UserDatabase implements Serializable {
     public static HashMap<String,User> userDatabase = new HashMap<String, User>();
-    public static ArrayList<User> userArrayList = new ArrayList<>();
+    public static ArrayList<User> userArrayList = new ArrayList<User>();
+    public static ArrayList<UserNoButton>userNoButtons =new ArrayList<UserNoButton>();
+
     public static int userCur;
     public static int employeeId=1;
     public static void updateUser(User user){

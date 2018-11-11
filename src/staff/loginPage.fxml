@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.Login">
+   <children>
+      <TextField fx:id="username" layoutX="880.0" layoutY="552.0" prefHeight="56.0" prefWidth="295.0" />
+      <Label layoutX="730.0" layoutY="563.0" text="Username">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="734.0" layoutY="669.0" text="Password">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="chUser" layoutX="944.0" layoutY="513.0" />
+      <Label fx:id="chPas" layoutX="941.0" layoutY="625.0" />
+      <JFXButton fx:id="cancel" cancelButton="true" layoutX="908.0" layoutY="806.0" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #1473e6;" text="Log in" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="378.0" fitWidth="324.0" layoutX="872.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icon/login.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="passWordNa" layoutX="880.0" layoutY="659.0" prefHeight="56.0" prefWidth="295.0" />
+   </children>
+</AnchorPane>

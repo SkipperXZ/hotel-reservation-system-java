@@ -304,11 +304,16 @@ public class ReservationPageController {
     private MenuItem cancelOnOutofService = new MenuItem("Cancel");
     private MenuItem roomInfoOnOutofService = new MenuItem("Room info");
 
+    private MenuItem cancelOnRoomBlock = new MenuItem("Cancel");
+    private MenuItem roomInfoRoomBlock = new MenuItem("Room info");
+    private MenuItem reserveOnRoomBlock = new MenuItem("Reserve");
+
     private ContextMenu vacantMenu = new ContextMenu();
     private ContextMenu reservedMenu = new ContextMenu();
     private ContextMenu inHouseMenu = new ContextMenu();
     private ContextMenu cleaningMenu = new ContextMenu();
     private ContextMenu outOfServiceMenu = new ContextMenu();
+    private ContextMenu roomBlockMenu = new ContextMenu();
 
     //public static ArrayList<Pane> paneArrayList = new ArrayList<Pane>();
 
@@ -345,10 +350,13 @@ public class ReservationPageController {
 
     private Customer customer;
     private int cleaningTimeMinute = 0;
+    private LocalDate startDate;
+    private LocalDate finishDate;
 
     private int currentFloorNum = 1;
     @FXML
     public void initialize() {
+        Linker linker = new Linker();
         initClock();
         initLabel();
         initMenu();
@@ -358,19 +366,23 @@ public class ReservationPageController {
         updateRoomAvailaible();
 
         vacantMenu.getItems().addAll(reserveOnvacant,cleanOnVacant,blockOnVacant,outOfServiceOnVacant,infoOnVacant);
-        reservedMenu.getItems().addAll(checkInOnReserved,paymentOnReserved,guestInfoOnReserved,tranferOnReserved,cancelOnReserved,roomInfoOnReserved);
-        inHouseMenu.getItems().addAll(checkOutOnInHouse,paymentOnInHouse,guestInfoOnInHouse,tranferOnInHouse,roomInfoOnInHouse);
+        reservedMenu.getItems().addAll(checkInOnReserved,paymentOnReserved,guestInfoOnReserved,cancelOnReserved,roomInfoOnReserved);
+        inHouseMenu.getItems().addAll(checkOutOnInHouse,paymentOnInHouse,guestInfoOnInHouse,roomInfoOnInHouse);
         cleaningMenu.getItems().addAll(doneOnCleaning,roomInfoOnCleaning);
         outOfServiceMenu.getItems().addAll(cancelOnOutofService,roomInfoOnOutofService);
+        roomBlockMenu.getItems().addAll(reserveOnRoomBlock,cancelOnRoomBlock,roomInfoRoomBlock);
+
         if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
             currentDayLabel.setText("TODAY");
             cleanOnVacant.setDisable(false);
             checkInOnReserved.setDisable(false);
+            checkOutOnInHouse.setDisable(false);
         }
         else{
             currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
             cleanOnVacant.setDisable(true);
             checkInOnReserved.setDisable(true);
+            checkOutOnInHouse.setDisable(true);
         }
 
        /* walkInOnVacant.setOnAction(new EventHandler<ActionEvent>() {
@@ -397,7 +409,7 @@ public class ReservationPageController {
         customerButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Linker.primaryStage.setScene(Linker.customerScene);
+                Linker.primaryStage.setScene(linker.newCustomerScene());
             }
         });
 
@@ -435,7 +447,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)blockOnVacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isRoomBlockScene()) {
-                    ReservationHandler.roomBlock(room);
+                    ReservationHandler.roomBlock(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -447,7 +459,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)cleanOnVacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isOutOfServiceScene()){
-                    ReservationHandler.outOfService(room);
+                    ReservationHandler.outOfService(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -496,15 +508,6 @@ public class ReservationPageController {
             }
         });
 
-        tranferOnReserved.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                selectedPane= (Pane)tranferOnReserved.getParentPopup().getOwnerNode();
-
-
-            }
-        });
-
         cancelOnReserved.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -530,7 +533,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkOutOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isCheckOutScene()){
-                    ReservationHandler.checkOut(room,customer);
+                    ReservationHandler.checkOut(roomIndex,currentFloorNum,currentDay);
                     if (isConfirmCleaningScene()) {
                         ReservationHandler.cleaning(room, cleaningTimeMinute);
                     }
@@ -578,7 +581,6 @@ public class ReservationPageController {
                 roomInfoScene();
             }
         });
-
         doneOnCleaning.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -600,7 +602,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane = (Pane)cancelOnOutofService.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancleOutOfService(room);
+                ReservationHandler.cancel(room);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
@@ -611,6 +613,36 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane= (Pane)roomInfoOnOutofService.getParentPopup().getOwnerNode();
                 roomInfoScene();
+            }
+        });
+
+        roomInfoRoomBlock.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectedPane= (Pane)roomInfoRoomBlock.getParentPopup().getOwnerNode();
+                roomInfoScene();
+            }
+        });
+        cancelOnRoomBlock.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectedPane = (Pane)cancelOnRoomBlock.getParentPopup().getOwnerNode();
+                Room room = searchRoomFromPane(selectedPane);
+                ReservationHandler.cancel(room);
+                updatePaneStatus(selectedPane);
+                updateRoomAvailaible();
+            }
+        });
+        reserveOnRoomBlock.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectedPane = (Pane)reserveOnRoomBlock.getParentPopup().getOwnerNode();
+                Room room = searchRoomFromPane(selectedPane);
+                if (isConfirmReservationScene()) {
+                    ReservationHandler.booking(customer,roomIndex,currentFloorNum,currentDay);
+                    updatePaneStatus(selectedPane);
+                    updateRoomAvailaible();
+                }
             }
         });
 
@@ -682,17 +714,18 @@ public class ReservationPageController {
                 if(currentDay < 30){
                     currentDay++;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
-                        currentDayLabel.setText("TODAY");
-                        cleanOnVacant.setDisable(false);
-                        checkInOnReserved.setDisable(false);
-                    }
-                    else{
-                        currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
-                        cleanOnVacant.setDisable(true);
-                        checkInOnReserved.setDisable(true);
-                    }
-
+                }
+                if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
+                    currentDayLabel.setText("TODAY");
+                    cleanOnVacant.setDisable(false);
+                    checkInOnReserved.setDisable(false);
+                    checkOutOnInHouse.setDisable(false);
+                }
+                else{
+                    currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                    cleanOnVacant.setDisable(true);
+                    checkInOnReserved.setDisable(true);
+                    checkOutOnInHouse.setDisable(true);
                 }
                 updateRoomAvailaible();;
 
@@ -707,17 +740,18 @@ public class ReservationPageController {
                 if(currentDay > 1){
                     currentDay--;
                     updateAll();
-                    if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
-                        currentDayLabel.setText("TODAY");
-                        cleanOnVacant.setDisable(false);
-                        checkInOnReserved.setDisable(false);
-                    }
-                    else{
-                        currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
-                        cleanOnVacant.setDisable(true);
-                        checkInOnReserved.setDisable(true);
-                    }
-
+                }
+                if(hotel.get(currentDay-1).getDate().equals(LocalDate.now()) ) {
+                    currentDayLabel.setText("TODAY");
+                    cleanOnVacant.setDisable(false);
+                    checkInOnReserved.setDisable(false);
+                    checkOutOnInHouse.setDisable(false);
+                }
+                else{
+                    currentDayLabel.setText(hotel.get(currentDay-1).getDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).toUpperCase());
+                    cleanOnVacant.setDisable(true);
+                    checkInOnReserved.setDisable(true);
+                    checkOutOnInHouse.setDisable(true);
                 }
                 updateRoomAvailaible();
             }
@@ -827,12 +861,12 @@ public class ReservationPageController {
             roomBlockController.setRoom(searchRoomFromPane(selectedPane));
             roomBlockController.setInfo();
             roomBlockStage = new Stage();
-            roomBlockStage.setTitle("Cleaning");
-            roomBlockStage.setScene(new Scene(root, 600, 400));
+            roomBlockStage.setTitle("Room Block");
+            roomBlockStage.setScene(new Scene(root, 612, 410));
             roomBlockStage.showAndWait();
             isConfirm = roomBlockController.isConfirm();
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return isConfirm;
     }
@@ -853,20 +887,20 @@ public class ReservationPageController {
             outOfServiceStage.showAndWait();
             isConfirm = outOfServiceController.isConfirm();
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return isConfirm;
     }
     private void guestFolioScene(){
-        GuestInfoPageController guestInfoPageController;
+        CustomerInfoPageController customerInfoPageController;
 
         try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/GuestFolioPage.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CustomerFolioPage.fxml"));
             Parent root = loader.load();
-            guestInfoPageController = loader.getController();
-            guestInfoPageController.setParentController(this);
-            guestInfoPageController.setRoom(searchRoomFromPane(selectedPane));
-            guestInfoPageController.setInfo();
+            customerInfoPageController = loader.getController();
+            customerInfoPageController.setParentController(this);
+            customerInfoPageController.setRoom(searchRoomFromPane(selectedPane));
+            customerInfoPageController.setInfo();
             guestFolioStage = new Stage();
             guestFolioStage.setTitle("Cleaning");
             guestFolioStage.setScene(new Scene(root, 600, 500));
@@ -887,7 +921,7 @@ public class ReservationPageController {
             roomInfoPageController.setInfo();
             roomInfoStage = new Stage();
             roomInfoStage.setTitle("Cleaning");
-            roomInfoStage.setScene(new Scene(root, 600, 500));
+            roomInfoStage.setScene(new Scene(root, 647, 565));
             roomInfoStage.showAndWait();
         }catch (Exception e){
             System.out.println(e);
@@ -907,7 +941,7 @@ public class ReservationPageController {
             checkOutPageController.setInfo();
             checkOutStage = new Stage();
             checkOutStage.setTitle("Cleaning");
-            checkOutStage.setScene(new Scene(root, 600, 500));
+            checkOutStage.setScene(new Scene(root, 664, 710));
             checkOutStage.showAndWait();
             isCheckOut = checkOutPageController.isCheckOut();
         }catch (Exception e){
@@ -933,7 +967,7 @@ public class ReservationPageController {
             cleaningStage.showAndWait();
             isConfirm = cleaningPageController.getConfirm();
         }catch (Exception e){
-            //   System.out.println(e);
+               e.printStackTrace();
         }
         return isConfirm;
     }
@@ -950,7 +984,7 @@ public class ReservationPageController {
             checkInController.getInfoFromGuest();
             checkInStage = new Stage();
             checkInStage.setTitle("Check In");
-            checkInStage.setScene(new Scene(root, 800, 782));
+            checkInStage.setScene(new Scene(root, 1000, 770));
             checkInStage.showAndWait();
             isConfirm = checkInController.getConfirm();
         }catch (Exception e){
@@ -989,7 +1023,7 @@ public class ReservationPageController {
             reserveRoomController.setParentController(this);
             reserveStage = new Stage();
             reserveStage.setTitle("ReservationHandler");
-            reserveStage.setScene(new Scene(root, 700, 600));
+            reserveStage.setScene(new Scene(root, 834, 698));
             reserveStage.showAndWait();
             isConfirm = reserveRoomController.getConfirm();
         }catch (Exception e){
@@ -998,7 +1032,7 @@ public class ReservationPageController {
 
         return isConfirm;
     }
-    private boolean isConfirmPaymentScene() {
+    public boolean isConfirmPaymentScene() {
         boolean isPay = false;
         PaymentPageController paymentPageController;
 
@@ -1069,7 +1103,7 @@ public class ReservationPageController {
                     roomIDLabelArr[i].setStyle("-fx-text-fill: #ffffff");
                 }else if(status.equals("Room Block")){
                     selected.setStyle(roomBlockColor);
-                    selected.setOnContextMenuRequested(event1 -> reservedMenu.show(selected,event1.getScreenX(),event1.getScreenY()));
+                    selected.setOnContextMenuRequested(event1 ->  roomBlockMenu.show(selected,event1.getScreenX(),event1.getScreenY()));
                     doingLabelArr[i].setText(room.getMemo());
                     roomIDLabelArr[i].setStyle("-fx-text-fill: #ffffff");
                 }
@@ -1204,6 +1238,15 @@ public class ReservationPageController {
 
     public Stage getRoomBlockStage() {
         return roomBlockStage;
+    }
+
+    public void setFinishDate(LocalDate finishDate) {
+        this.finishDate = finishDate;
+    }
+
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
     public int getCurrentDay() {

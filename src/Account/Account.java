@@ -1,6 +1,7 @@
 package Account;
 
 public class Account {
-    public static String currentUser ="jopark123";
-    public static String currentPassword ="12345";
+    public static String currentUser ="";
+    public static String currentPassword ="";
+    public static String currentUserType ="";
 }

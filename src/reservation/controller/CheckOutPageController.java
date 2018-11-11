@@ -7,11 +7,18 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import Hotel.Customer;
+import reservation.ReservationHandler;
 import reservation.room.Room;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CheckOutPageController {
+    @FXML
+    private Label adultNumLabel;
+
+    @FXML
+    private Label childNumLabel;
 
     @FXML
     private Label firstNameLabel;
@@ -78,8 +85,9 @@ public class CheckOutPageController {
         makePayment.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                isCheckOut =false;
-                parentController.getCheckOutStage().close();
+                if (parentController.isConfirmPaymentScene()){
+                    ReservationHandler.payment(room);
+                }
             }
         });
     }
@@ -104,11 +112,12 @@ public class CheckOutPageController {
         countryLabel.setText(customer.getCountry());
         telNumLabel.setText(customer.getTel());
         emailLabel.setText(customer.getEmail());
-        checkInTimeLabel.setText(customer.getCheckInTime().toLocalTime().toString());
+        adultNumLabel.setText(String.valueOf(customer.getAdultNum()));
+        childNumLabel.setText(String.valueOf(customer.getChildNum()));
+        checkInTimeLabel.setText(customer.getCheckInTime().format(DateTimeFormatter.ofPattern("dd MMM yyyy     HH:mm")));
         nightNumLabel.setText(String.valueOf(customer.getNightNum()));
-        checkOutTImeLabel.setText(LocalDateTime.now().toLocalTime().toString());
-        //System.out.println(room);
-        //latePriceLabel.setText("0");
+        checkOutTImeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy     HH:mm")));
+        statusLabel.setText(room.getStatus());
         roomIDLabel.setText(room.getRoomID());
     }
 

@@ -9,10 +9,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import report.AllBooking;
 import report.Booking;
 import reservation.IO;
+import staff.User;
+import staff.UserDatabase;
+import staff.UserNoButton;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,10 +36,20 @@ public class Main extends Application {
         Linker.customerScene = new Scene(root2,1920, 1080);
         Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
+        Parent loginPa = FXMLLoader.load(getClass().getResource("../staff/loginPage.fxml"));
+        Linker.login = new Scene(loginPa,1920,1080);
+
+        primaryStage.setScene(Linker.login);
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
-        Linker.report = new Scene(root4,1920,1080);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(Linker.report);
+        Linker.report = new Scene(root4);
+        //primaryStage.setScene(Linker.customerScene);
+
+
+        Linker linker = new Linker();
+        Linker.primaryStage.setScene(linker.newLoginScene());
+
+
+        primaryStage.setTitle("Hotel");
         //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
@@ -45,6 +59,8 @@ public class Main extends Application {
         stopClock();
         IO.saveHotel(Hotel.hotel);
         IO.saveCustomer(CustomerDatabase.customerDatabase);
+        IO.saveUser(UserDatabase.userNoButtons);
+
         IO.saveAllBooking(AllBooking.allBooking);
         System.out.println("Save done");
     }
@@ -64,6 +80,8 @@ public class Main extends Application {
     public static void load(){
         ArrayList<OneDayHotel> hotel = IO.loadHotel();
         HashMap<String, Customer> customer = IO.loadCustomer();
+        ArrayList<UserNoButton>user = IO.loadUser();
+
         ArrayList<Booking> allbooking = IO.loadAllBooking();
 
         if(hotel==null){
@@ -74,9 +92,24 @@ public class Main extends Application {
         }
         if(customer != null){
             CustomerDatabase.customerDatabase = customer;
-            int max = customer.values().stream().max(Comparator.comparing(Customer::getCustomerID)).get().getCustomerID();
+            int max = 0 ;
+            for(Customer cus :customer.values()){
+                if (max<cus.getCustomerID())
+                max = cus.getCustomerID();
+            }
             Customer.setNumcustomerID(max);
-
+        }
+        if(user != null){
+            System.out.println("Loadddd");
+            UserDatabase.userNoButtons=user;
+            for(int i=0;i<user.size();i++){
+                UserDatabase.userArrayList.add(new User(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
+                        user.get(i).getIdCardNumber(),user.get(i).getCountry(),user.get(i).getTel(),user.get(i).getEmail(),user.get(i).getAddress(),
+                        user.get(i).getUserType(),user.get(i).getRole(),new Button(),new Button(),user.get(i).getPassId(),user.get(i).getPassWord()));
+            }
+            if(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size()-1).getEmployeeId()!=null) {
+                UserDatabase.employeeId = Integer.parseInt(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
+            }
         }
         if(allbooking != null){
             AllBooking.allBooking = allbooking;
@@ -87,8 +120,10 @@ public class Main extends Application {
             AllBooking.addBooking(booking);
             System.out.println("Initial done");
         }
-
     }
+
+
+
 
     public static void main(String[] args) {
         load();
