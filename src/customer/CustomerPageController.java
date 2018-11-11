@@ -32,6 +32,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.Linker;
+import report.AllBooking;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -87,9 +88,20 @@ public class CustomerPageController {
         userLabel.setText(Account.currentUser);
         Linker linker = new Linker();
 
-       Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
 
-       dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
+
+       //Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
+
+
+        calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(linker.newCalendarScene());
+            }
+        });
+
+
+        dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
            @Override
            public void handle(ActionEvent event) {
                Linker.primaryStage.setScene(linker.newDashboardScene());
