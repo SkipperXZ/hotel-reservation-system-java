@@ -36,6 +36,7 @@ public class Linker {
     public Scene newReportScene (){
         return this.buildScene("../report/ReportPage.fxml") ;
     }
+    public Scene newCalendarScene (){return this.buildScene("../calendar/calendar2Table.fxml");}
 
     public Scene buildScene (String path){
         Parent root = null;

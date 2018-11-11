@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+
+   <children>
+      <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
+         <top>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="257.0" layoutY="12.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #F0F7FF;" text="Dashboard" textAlignment="RIGHT" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icon/entrance.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" text="13:10" textFill="#545557">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roomIDLabel_001" alignment="CENTER" layoutX="268.0" layoutY="16.0" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #f0f7ff;" text="CALENDAR" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="dashboardButtton" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/contact-book.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="calendarButtton" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="reservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/new.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/person.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="reportButtton" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/layout-right.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="userButtton" prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+               <effect>
+                  <DropShadow color="#00000032" />
+               </effect>
+            </VBox>
+         </left>
+         <right>
+            <Pane prefHeight="1016.0" prefWidth="256.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="19.0" layoutY="907.0" prefHeight="108.0" prefWidth="237.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="123.0" layoutY="-12.0" stroke="#ffffff57" strokeType="INSIDE" width="239.0" />
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="9.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="54.0" layoutY="5.0" text="username">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </right>
+         <center>
+            <Pane prefHeight="1016.0" prefWidth="1615.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="25.0" layoutX="117.0" layoutY="942.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc7777" height="25.0" layoutX="627.0" layoutY="942.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="25.0" layoutX="441.0" layoutY="942.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#24ec88" height="25.0" layoutX="272.0" layoutY="941.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Text layoutX="663.0" layoutY="960.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Out Of Service">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="478.0" layoutY="960.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="310.0" layoutY="959.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In-House">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="156.0" layoutY="960.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <ScrollPane layoutX="67.0" layoutY="183.0" prefHeight="713.0" prefWidth="1371.0">
+                     <content>
+                        <JFXTreeTableView fx:id="table" prefHeight="694.0" prefWidth="3000.0">
+                           <columns>
+                              <TreeTableColumn fx:id="allRoom" editable="false" prefWidth="286.4999694824219" sortable="false" text="All Room Type" />
+                              <TreeTableColumn fx:id="day1" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day1" />
+                              <TreeTableColumn fx:id="day2" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day2" />
+                              <TreeTableColumn fx:id="day3" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day3" />
+                              <TreeTableColumn fx:id="day4" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day4" />
+                              <TreeTableColumn fx:id="day5" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day5" />
+                              <TreeTableColumn fx:id="day6" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day6" />
+                              <TreeTableColumn fx:id="day7" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day7" />
+                              <TreeTableColumn fx:id="day8" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day8" />
+                              <TreeTableColumn fx:id="day9" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day9" />
+                              <TreeTableColumn fx:id="day10" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day10" />
+                              <TreeTableColumn fx:id="day11" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day11" />
+                              <TreeTableColumn fx:id="day12" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day12" />
+                              <TreeTableColumn fx:id="day13" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day13" />
+                              <TreeTableColumn fx:id="day14" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day14" />
+                              <TreeTableColumn fx:id="day15" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day15" />
+                              <TreeTableColumn fx:id="day16" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day16" />
+                              <TreeTableColumn fx:id="day17" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day17" />
+                              <TreeTableColumn fx:id="day18" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day18" />
+                              <TreeTableColumn fx:id="day19" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day19" />
+                              <TreeTableColumn fx:id="day20" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day20" />
+                              <TreeTableColumn fx:id="day21" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day21" />
+                              <TreeTableColumn fx:id="day22" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day22" />
+                              <TreeTableColumn fx:id="day23" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day23" />
+                              <TreeTableColumn fx:id="day24" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day24" />
+                              <TreeTableColumn fx:id="day25" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day25" />
+                              <TreeTableColumn fx:id="day26" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day26" />
+                              <TreeTableColumn fx:id="day27" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day27" />
+                              <TreeTableColumn fx:id="day28" editable="false" minWidth="100.0" prefWidth="0.0" sortable="false" text="day28" />
+                           </columns>
+                        </JFXTreeTableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+      <Button fx:id="makeF1" alignment="TOP_CENTER" layoutX="286.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F1" textFill="#9f9f9f" textOverrun="CLIP">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="makeF2" layoutX="408.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F2" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="makeF3" layoutX="530.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F3" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="makeF4" layoutX="652.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F4" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="makeF5" layoutX="774.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f0f5f2;" text="F5" textFill="#9f9f9f">
+         <effect>
+            <DropShadow color="#00000063" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+   </children>
+
+</AnchorPane>

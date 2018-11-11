@@ -1,0 +1,6 @@
+.tree-table-row-cell:child-of-selected {
+    -fx-background: green ;
+}
+.tree-table-row-cell:parent-of-selected {
+    -fx-background: salmon ;
+}
