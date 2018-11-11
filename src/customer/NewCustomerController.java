@@ -110,7 +110,7 @@ public class NewCustomerController{
 
                            }
                            else
-                                   showJDialog("please enter first name ,last and tel.");
+                                   showJDialog("Please enter First name ,Last name and telephone");
                     }
             });
 
