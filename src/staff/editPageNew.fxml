@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -53,7 +54,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="277.0" layoutY="211.0" text="Last Name" textFill="#1473e6">
+                  <Label layoutX="277.0" layoutY="163.0" text="Last Name" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -63,7 +64,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="277.0" layoutY="299.0" text="Tel." textFill="#1473e6">
+                  <Label layoutX="692.0" layoutY="163.0" text="Tel." textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -73,7 +74,7 @@
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="692.0" layoutY="156.0" text="Adderss" textFill="#1473e6">
+                  <Label layoutX="694.0" layoutY="206.0" text="Adderss" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -97,7 +98,7 @@
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField fx:id="lastName" layoutX="398.0" layoutY="208.0" prefHeight="25.0" prefWidth="277.0">
+                  <TextField fx:id="lastName" layoutX="398.0" layoutY="160.0" prefHeight="25.0" prefWidth="277.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
@@ -105,7 +106,7 @@
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextField fx:id="tel" layoutX="397.0" layoutY="299.0" prefHeight="25.0" prefWidth="277.0">
+                  <TextField fx:id="tel" layoutX="772.0" layoutY="155.0" prefHeight="25.0" prefWidth="277.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
@@ -113,21 +114,37 @@
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <TextArea fx:id="address" layoutX="769.0" layoutY="156.0" prefHeight="200.0" prefWidth="278.0">
+                  <TextArea fx:id="address" layoutX="771.0" layoutY="206.0" prefHeight="200.0" prefWidth="278.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextArea>
-                  <Label layoutX="277.0" layoutY="160.0" text="PassWord" textFill="#1473e6">
+                  <Label layoutX="277.0" layoutY="206.0" text="Password" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="passWord" layoutX="397.0" layoutY="160.0" prefHeight="25.0" prefWidth="277.0">
+                  <TextField fx:id="passWord" layoutX="397.0" layoutY="206.0" prefHeight="25.0" prefWidth="277.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
                   <Label fx:id="chEmail" layoutX="798.0" layoutY="82.0" />
+                  <Label layoutX="280.0" layoutY="360.0" text="User Type" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="277.0" layoutY="306.0" text="Role" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="role" layoutX="397.0" layoutY="306.0" prefHeight="25.0" prefWidth="277.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <ChoiceBox fx:id="userType" layoutX="397.0" layoutY="360.0" prefWidth="150.0" />
                </children>
             </Pane>
          </center>
