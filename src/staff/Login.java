@@ -1,21 +1,28 @@
 package staff;
 
 import Account.Account;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import main.Linker;
-import javafx.scene.control.PasswordField;
 
 public class Login implements Initializable {
     @FXML
-    private TextField username = new TextField();
+    private JFXTextField username = new JFXTextField ();
 
     @FXML
     private Label chUser = new Label();
@@ -23,9 +30,13 @@ public class Login implements Initializable {
     @FXML
     private Label chPas = new Label();
     @FXML
-    private JFXButton cancel =new JFXButton();
+    private JFXButton login =new JFXButton();
     @FXML
-    private PasswordField passWordNa = new PasswordField();
+    private JFXPasswordField passWordNa = new JFXPasswordField ();
+    @FXML
+    private ImageView exit;
+
+
     Linker linker = new Linker();
     int chppp=0;
     @FXML
@@ -59,6 +70,8 @@ public class Login implements Initializable {
                                 Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
                                 Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
                                 Linker.primaryStage.setScene(linker.newDashboardScene());
+                                Linker.primaryStage.setX(0);
+                                Linker.primaryStage.setY(0);
                             }else{
                                 break;
                             }
@@ -68,6 +81,8 @@ public class Login implements Initializable {
                             Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
                             Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
                             Linker.primaryStage.setScene(linker.newDashboardScene());
+                            Linker.primaryStage.setX(0);
+                            Linker.primaryStage.setY(0);
                         }
                     }else{
                         if(chppp<=5) {
@@ -84,7 +99,38 @@ public class Login implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cancel.setOnAction(this::handleButtonAction);
+        chUser.setText("");
+        chPas.setText("");
+        exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Stage stage = (Stage) exit.getScene().getWindow();
+                stage.close();
+            }
+        });
+//
+//        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                xOffset = event.getSceneX();
+//                yOffset = event.getSceneY();
+//            }
+//        });
+//        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                stage.setX(event.getScreeX() - xOfnfset);
+//                stage.setY(event.getScreenY() - yOffset);
+//            }
+//        });
+//
+//        stage.setScene(new Scene(root));
+//        stage.setTitle(item.getValue().firstName.get()+" "+item.getValue().lastName.get());
+//        stage.show();
+
+
+
+        login.setOnAction(this::handleButtonAction);
         chppp=0;
     }
 }
