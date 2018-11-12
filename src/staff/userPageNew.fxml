@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.mainUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.mainUser">
 
    <children>
       <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
@@ -165,15 +165,15 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="table" prefHeight="1016.0" prefWidth="1700.0">
+                  <TableView fx:id="table" prefHeight="1016.0" prefWidth="1700.0" style="-fx-font-size: 20px;" stylesheets="@../reservation/css/tableView.css">
                     <columns>
-                      <TableColumn fx:id="user" prefWidth="300.0" text="User" />
-                      <TableColumn fx:id="email" prefWidth="300.0" text="Email" />
-                        <TableColumn fx:id="phone" prefWidth="300.0" text="Phone" />
-                        <TableColumn fx:id="userType" prefWidth="300.0" text="User Type" />
-                        <TableColumn fx:id="role" prefWidth="300.0" text="Role" />
-                        <TableColumn fx:id="btE" prefWidth="100.0" />
-                        <TableColumn fx:id="btD" prefWidth="100.0" />
+                      <TableColumn fx:id="user" prefWidth="247.0" text="User" />
+                      <TableColumn fx:id="email" prefWidth="402.0" text="Email" />
+                        <TableColumn fx:id="phone" prefWidth="251.0" text="Phone" />
+                        <TableColumn fx:id="userType" prefWidth="209.0" text="User Type" />
+                        <TableColumn fx:id="role" prefWidth="256.0" text="Role" />
+                        <TableColumn fx:id="btE" prefWidth="175.0" />
+                        <TableColumn fx:id="btD" prefWidth="160.0" />
                     </columns>
                   </TableView>
                </children>

@@ -101,6 +101,7 @@ public class PaymentPageController {
     public void initialize(){
         makePay.setButtonType(JFXButton.ButtonType.RAISED);
         makeCancel.setButtonType(JFXButton.ButtonType.RAISED);
+
         makePay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -115,6 +116,7 @@ public class PaymentPageController {
             public void handle(ActionEvent event) {
                 isPay =false;
                 parentController.getPaymentStage().close();
+                customer.setLate(false);
             }
         });
     }
@@ -154,6 +156,10 @@ public class PaymentPageController {
         totalRoomPriceLabel.setText(String.valueOf(customer.getWeekEndNum()*room.getWeekEndRoomPrice()+ customer.getWeekDayNum()*room.getWeekDayRoomPrice()));
         roomIDText.setText(room.getRoomID());
         roomTypeLabel.setText(room.getClass().getName());
+        if(customer.isLate()){
+            latePriceLabel.setText("200");
+            totalPriceLabel.setText(String.valueOf(customer.getPaymerntPrice()+vatPrice+servicePrice+200));
+        }
     }
 
     public boolean isPasswordCorrect(){
@@ -201,7 +207,7 @@ public class PaymentPageController {
         jfxDialog.setOverlayClose(false);
         JFXButton jfxButton= new JFXButton("Okay");;
         jfxDialogLayout.setHeading(new Text(text));
-        jfxDialogLayout.setBody(new Text("dawsfdgdfgfd"));
+        jfxDialogLayout.setBody(new Text("ขอบคุณที่ใช้บริการ"));
         jfxButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
