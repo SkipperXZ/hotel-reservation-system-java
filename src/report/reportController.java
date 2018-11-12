@@ -34,10 +34,10 @@ import static Hotel.Hotel.hotel;
 
 public class reportController implements Initializable {
 
-    ObservableList<Booking>list1;
-    ObservableList<Booking>list2;
-    ObservableList<Booking>list3;
-    ObservableList<Booking>list4;
+    static ObservableList<Booking>list1;
+    static ObservableList<Booking>list2;
+    static ObservableList<Booking>list3;
+    static ObservableList<Booking>list4;
     ArrayList<Booking> allBooking = AllBooking.allBooking;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
@@ -62,7 +62,7 @@ public class reportController implements Initializable {
     private Button makePreDay;
     @FXML
     private Button makeNextDay;
-    private int click=0;
+    static int click=0;
     @FXML private TableView<Booking> checkinTable;
     @FXML private TableColumn<Booking, String> guest1;
     @FXML private TableColumn<Booking, String> regNo1;
@@ -106,13 +106,11 @@ public class reportController implements Initializable {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
         currentDay = LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
-
-        if(currentDay.equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"))) && click==0) {
+        /*if(currentDay.equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"))) && click==0) {
             currentDayLabel.setText("TODAY");
-        }
-        else{
-            currentDayLabel.setText(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
-        }
+            updateReport();
+            System.out.println(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy"))+"      1--2");
+        }*/
 
         for (Booking e : allBooking) {
 
@@ -183,36 +181,30 @@ public class reportController implements Initializable {
         makePreDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-                if(click<30){
+                if(click<30) {
                     click++;
-                }
-                if(currentDay.equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"))) && click==0) {
-                    currentDayLabel.setText("TODAY");
-                }
-                else{
-                    currentDayLabel.setText(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
+                    if (currentDay.equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"))) && click == 0) {
+                        currentDayLabel.setText("TODAY");
+                    } else {
+                        currentDayLabel.setText(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
+                    }
                     updateReport();
                 }
-                updateReport();
             }
         });
 
         makeNextDay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-                if(click>0){
+                if(click>0) {
                     click--;
-                }
-                if(currentDay.equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"))) && click==0) {
-                    currentDayLabel.setText("TODAY");
-                }
-                else{
-                    currentDayLabel.setText(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
+                    if (currentDay.equals(LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"))) && click == 0) {
+                        currentDayLabel.setText("TODAY");
+                    } else {
+                        currentDayLabel.setText(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
+                    }
                     updateReport();
                 }
-                updateReport();
             }
         });
 
@@ -247,18 +239,23 @@ public class reportController implements Initializable {
 
     public void updateReport(){
 
+        checkinData.clear();
+        checkoutData.clear();
+        cancelData.clear();
+        bookingData.clear();
+
         for (Booking e : allBooking) {
 
-            if(e.getOperation()==1 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            if(e.getOperation()==1 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 checkinData.add(e);
             }
-            else if(e.getOperation()==2 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            else if(e.getOperation()==2 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 checkoutData.add(e);
             }
-            else if(e.getOperation()==3 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            else if(e.getOperation()==3 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 cancelData.add(e);
             }
-            else if(e.getOperation()==4 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            else if(e.getOperation()==4 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 bookingData.add(e);
             }
         }
