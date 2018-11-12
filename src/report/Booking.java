@@ -3,6 +3,7 @@ package report;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Booking implements Serializable {
     private String firstname;
@@ -14,12 +15,18 @@ public class Booking implements Serializable {
     private int price;
     private LocalDateTime recordTime;
     private LocalDate recordDate;
+    private LocalDateTime arrivalDate;
+    private LocalDateTime departureDate;
     private int operation;
-    private boolean isCheckout;
     private String fullname;
     private int nightNum;
+    private String summaryTopic;
+    private int total;
+    private String timeFormet;
+    private String arrivalTimeFormet;
+    private String departureTimeFormet;
 
-    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, boolean isCheckout, int nightNum){ /// Check-IN
+    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, int nightNum){ /// Check-IN
         this.firstname = firstname;
         this.lastname = lastname;
         this.regNum = regNum;
@@ -30,9 +37,33 @@ public class Booking implements Serializable {
         this.recordTime = recordTime;
         this.recordDate = recordDate;
         this.operation = operation;
-        this.isCheckout = isCheckout;
         this.nightNum = nightNum;
         fullname = firstname+" "+lastname;
+        timeFormet = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
+    }
+
+    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price,LocalDateTime recordTime,LocalDate recordDate, LocalDateTime arrivalDate, LocalDateTime departureDate, int nightNum){ /// Check-IN
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.regNum = regNum;
+        this.tel = tel;
+        this.roomNum = roomNum;
+        this.roomType = roomType;
+        this.price = price;
+        this.recordTime = recordTime;
+        this.recordDate = recordDate;
+        this.arrivalDate = arrivalDate;
+        this.departureDate = departureDate;
+        this.operation = operation;
+        this.nightNum = nightNum;
+        fullname = firstname+" "+lastname;
+        arrivalTimeFormet = arrivalDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+        departureTimeFormet = departureDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+    }
+
+    public Booking(String summaryTopic, int total) {
+        this.summaryTopic = summaryTopic;
+        this.total= total;
     }
 
     public String getFirstname() {
@@ -99,28 +130,12 @@ public class Booking implements Serializable {
         this.recordTime = recordTime;
     }
 
-    public LocalDate getRecordDate() {
-        return recordDate;
-    }
-
-    public void setRecordDate(LocalDate recordDate) {
-        this.recordDate = recordDate;
-    }
-
     public int getOperation() {
         return operation;
     }
 
     public void setOperation(int operation) {
         this.operation = operation;
-    }
-
-    public boolean isCheckout() {
-        return isCheckout;
-    }
-
-    public void setCheckout(boolean checkout) {
-        isCheckout = checkout;
     }
 
     public String getFullname() {
@@ -139,6 +154,69 @@ public class Booking implements Serializable {
         this.nightNum = nightNum;
     }
 
+    public String getSummaryTopic() {
+        return summaryTopic;
+    }
+
+    public void setSummaryTopic(String summaryTopic) {
+        this.summaryTopic = summaryTopic;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public String getTimeFormet() {
+        return timeFormet;
+    }
+
+    public void setTimeFormet(String timeFormet) {
+        this.timeFormet = timeFormet;
+    }
+
+    public LocalDateTime getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(LocalDateTime arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public LocalDateTime getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDateTime departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public LocalDate getRecordDate() {
+        return recordDate;
+    }
+
+    public void setRecordDate(LocalDate recordDate) {
+        this.recordDate = recordDate;
+    }
+
+    public String getArrivalTimeFormet() {
+        return arrivalTimeFormet;
+    }
+
+    public void setArrivalTimeFormet(String arrivalTimeFormet) {
+        this.arrivalTimeFormet = arrivalTimeFormet;
+    }
+
+    public String getDepartureTimeFormet() {
+        return departureTimeFormet;
+    }
+
+    public void setDepartureTimeFormet(String departureTimeFormet) {
+        this.departureTimeFormet = departureTimeFormet;
+    }
 }
 
 
