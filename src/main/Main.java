@@ -116,7 +116,7 @@ public class Main extends Application {
             System.out.println("Load Done");
         }
         else{
-            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null, false);
+            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null, false, 0);
             AllBooking.addBooking(booking);
             System.out.println("Initial done");
         }

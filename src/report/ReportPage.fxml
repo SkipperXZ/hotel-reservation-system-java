@@ -234,11 +234,12 @@
                                       <columns>
                                           <TableColumn fx:id="guest3" prefWidth="310.0" text="GUEST" />
                                           <TableColumn fx:id="regNo3" prefWidth="156.0" text="REG NO." />
-                                          <TableColumn fx:id="phone3" prefWidth="233.0" text="PHONE" />
-                                          <TableColumn fx:id="room3" prefWidth="233.0" text="ROOM" />
-                                          <TableColumn fx:id="roomType3" prefWidth="233.0" text="ROOM TYPE" />
-                                          <TableColumn fx:id="price3" prefWidth="233.0" text="PRICE" />
-                                          <TableColumn fx:id="checkinTime3" prefWidth="233.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="phone3" prefWidth="194.0" text="PHONE" />
+                                          <TableColumn fx:id="room3" prefWidth="194.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType3" prefWidth="194.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price3" prefWidth="194.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime3" prefWidth="194.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="nightNum3" prefWidth="194.0" text="Night" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -253,11 +254,12 @@
                                       <columns>
                                           <TableColumn fx:id="guest4" prefWidth="310.0" text="GUEST" />
                                           <TableColumn fx:id="regNo4" prefWidth="156.0" text="REG NO." />
-                                          <TableColumn fx:id="phone4" prefWidth="233.0" text="PHONE" />
-                                          <TableColumn fx:id="room4" prefWidth="233.0" text="ROOM" />
-                                          <TableColumn fx:id="roomType4" prefWidth="233.0" text="ROOM TYPE" />
-                                          <TableColumn fx:id="price4" prefWidth="233.0" text="PRICE" />
-                                          <TableColumn fx:id="checkinTime4" prefWidth="233.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="phone4" prefWidth="194.0" text="PHONE" />
+                                          <TableColumn fx:id="room4" prefWidth="194.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType4" prefWidth="194.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price4" prefWidth="194.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime4" prefWidth="194.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="nightNum4" prefWidth="194.0" text="Night" />
                                       </columns>
                                     </TableView>
                                  </children>

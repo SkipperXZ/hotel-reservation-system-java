@@ -17,8 +17,9 @@ public class Booking implements Serializable {
     private int operation;
     private boolean isCheckout;
     private String fullname;
+    private int nightNum;
 
-    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, boolean isCheckout){ /// Check-IN
+    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, boolean isCheckout, int nightNum){ /// Check-IN
         this.firstname = firstname;
         this.lastname = lastname;
         this.regNum = regNum;
@@ -30,6 +31,7 @@ public class Booking implements Serializable {
         this.recordDate = recordDate;
         this.operation = operation;
         this.isCheckout = isCheckout;
+        this.nightNum = nightNum;
         fullname = firstname+" "+lastname;
     }
 
@@ -127,6 +129,14 @@ public class Booking implements Serializable {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public int getNightNum() {
+        return nightNum;
+    }
+
+    public void setNightNum(int nightNum) {
+        this.nightNum = nightNum;
     }
 
 }
