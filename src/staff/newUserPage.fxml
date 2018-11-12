@@ -174,8 +174,8 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="chUser" layoutX="399.0" layoutY="39.0" />
-                  <Label fx:id="chEmail" layoutX="780.0" layoutY="39.0" />
+                  <Label fx:id="chUser" layoutX="399.0" layoutY="39.0" textFill="#f51d1d" />
+                  <Label fx:id="chEmail" layoutX="780.0" layoutY="39.0" textFill="#f81a1a" />
                   <ChoiceBox fx:id="userType" layoutX="352.0" layoutY="397.0" prefWidth="150.0" />
                </children>
             </Pane>

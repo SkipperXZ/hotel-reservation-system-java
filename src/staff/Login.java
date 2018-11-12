@@ -27,39 +27,64 @@ public class Login implements Initializable {
     @FXML
     private PasswordField passWordNa = new PasswordField();
     Linker linker = new Linker();
-
+    int chppp=0;
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        boolean ch1=true,ch3=true;
+        chppp++;
+        boolean ch1=true,ch2=true,ch3=true;
         chUser.setText("");
         chPas.setText("");
-        if(username.getText()==null){
-            ch3=false;
-            chUser.setText("This field is required.");
-            System.out.println("5555555555");
+        System.out.println(chppp);
+        if(chppp<=5) {
+            if (username.getText().equals("")) {
+                ch3 = false;
+                chUser.setText("*This field is required.");
+            }
+            if (passWordNa.getText().equals("")) {
+                ch2 = false;
+                chPas.setText("*This field is required.");
+            }
+        }else{
+            chUser.setText("**Pls login Acc Admin");
+            chPas.setText("**Pls login Acc Admin");
         }
-        if(UserDatabase.userArrayList.size()>0 && ch3){
+        if(UserDatabase.userArrayList.size()>0 && ch3 && ch2){
             for(int i=0;i<UserDatabase.userArrayList.size();i++){
                 if(UserDatabase.userArrayList.get(i).getUserName().equals(username.getText())){
                     ch1=false;
                     if(UserDatabase.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
-                        Account.currentUser=UserDatabase.userArrayList.get(i).getUserName();
-                        Account.currentPassword=UserDatabase.userArrayList.get(i).getPassWord();
-                        Account.currentUserType=UserDatabase.userArrayList.get(i).getUserType();
-                        Linker.primaryStage.setScene(linker.newDashboardScene());
+                        if(chppp>5){
+                            if(UserDatabase.userArrayList.get(i).getUserType().equals("Admin")){
+                                Account.currentUser = UserDatabase.userArrayList.get(i).getUserName();
+                                Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
+                                Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
+                                Linker.primaryStage.setScene(linker.newDashboardScene());
+                            }else{
+                                break;
+                            }
+
+                        }else {
+                            Account.currentUser = UserDatabase.userArrayList.get(i).getUserName();
+                            Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
+                            Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
+                            Linker.primaryStage.setScene(linker.newDashboardScene());
+                        }
                     }else{
-                        chPas.setText("Wrong Password");
+                        if(chppp<=5) {
+                            chPas.setText("*Wrong Password");
+                        }
                         break;
                     }
                 }//if user
             }//for i
-            if(ch1){
-                chUser.setText("Wrong Username");
+            if(ch1 && chppp <=5){
+                chUser.setText("*Wrong Username");
             }
         }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cancel.setOnAction(this::handleButtonAction);
+        chppp=0;
     }
 }

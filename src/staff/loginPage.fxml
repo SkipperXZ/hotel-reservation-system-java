@@ -22,8 +22,8 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="chUser" layoutX="944.0" layoutY="513.0" />
-      <Label fx:id="chPas" layoutX="941.0" layoutY="625.0" />
+      <Label fx:id="chUser" layoutX="944.0" layoutY="513.0" textFill="#eb3333" />
+      <Label fx:id="chPas" layoutX="941.0" layoutY="625.0" textFill="#eb240e" />
       <JFXButton fx:id="cancel" cancelButton="true" layoutX="908.0" layoutY="806.0" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #1473e6;" text="Log in" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="18.0" />
