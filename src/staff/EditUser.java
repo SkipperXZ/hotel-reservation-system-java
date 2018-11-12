@@ -55,25 +55,38 @@ public class EditUser implements Initializable {
     @FXML
     private TextField passWord;
 
+    @FXML private Label chEmail = new Label();
+
     private Button button = new Button();
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        boolean ch1=true;
+        chEmail.setText("");
         if(event.getSource()==btnSave) {
-            userArrayList.get(userCur).setFirstName(firstName.getText());
-            userArrayList.get(userCur).setEmail(email.getText());
-            userArrayList.get(userCur).setTel(tel.getText());
-            userArrayList.get(userCur).setCountry(country.getText());
-            userArrayList.get(userCur).setAddress(address.getText());
-            userArrayList.get(userCur).setLastName(lastName.getText());
-            userArrayList.get(userCur).setPassWord(passWord.getText());
+            for(int i=0;i<userArrayList.size();i++){
+                if(userArrayList.get(i).getEmail().equals(email.getText())){
+                    ch1=false;
+                    chEmail.setText("This email already taken.");
+                    break;
+                }
+            }
+            if(ch1) {
+                userArrayList.get(userCur).setFirstName(firstName.getText());
+                userArrayList.get(userCur).setEmail(email.getText());
+                userArrayList.get(userCur).setTel(tel.getText());
+                userArrayList.get(userCur).setCountry(country.getText());
+                userArrayList.get(userCur).setAddress(address.getText());
+                userArrayList.get(userCur).setLastName(lastName.getText());
+                userArrayList.get(userCur).setPassWord(passWord.getText());
 
-            userNoButtons.get(userCur).setFirstName(firstName.getText());
-            userNoButtons.get(userCur).setEmail(email.getText());
-            userNoButtons.get(userCur).setTel(tel.getText());
-            userNoButtons.get(userCur).setCountry(country.getText());
-            userNoButtons.get(userCur).setAddress(address.getText());
-            userNoButtons.get(userCur).setLastName(lastName.getText());
-            userNoButtons.get(userCur).setPassWord(passWord.getText());
+                userNoButtons.get(userCur).setFirstName(firstName.getText());
+                userNoButtons.get(userCur).setEmail(email.getText());
+                userNoButtons.get(userCur).setTel(tel.getText());
+                userNoButtons.get(userCur).setCountry(country.getText());
+                userNoButtons.get(userCur).setAddress(address.getText());
+                userNoButtons.get(userCur).setLastName(lastName.getText());
+                userNoButtons.get(userCur).setPassWord(passWord.getText());
+            }
 
             System.out.println("Save");
         }else if(event.getSource()==btnCancel){
