@@ -352,14 +352,7 @@ public class CustomerPageController {
                 return param.getValue().getValue().email ;
             }
         });
-//        JFXTreeTableColumn<CustomerTable,String> status  = new JFXTreeTableColumn("Status");
-//        status.setPrefWidth(162);
-//        status.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<CustomerTable, String>, ObservableValue<String>>() {
-//            @Override
-//            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<CustomerTable, String> param) {
-//                return param.getValue().getValue().status ;
-//            }
-//        });
+
         JFXTreeTableColumn<CustomerTable,String> totolRes = new JFXTreeTableColumn("Total Reservation");
         totolRes.setPrefWidth(162);
         totolRes.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<CustomerTable, String>, ObservableValue<String>>() {
