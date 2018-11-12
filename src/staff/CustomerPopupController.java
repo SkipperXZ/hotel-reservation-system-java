@@ -1,5 +1,6 @@
 package staff;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -11,6 +12,9 @@ import com.jfoenix.controls.JFXTreeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.text.Text;
 
 public class CustomerPopupController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
@@ -54,8 +58,19 @@ public class CustomerPopupController implements Initializable {
 
     @FXML
     private Label role = new Label();
+
+    @FXML private Text status = new Text();
+
+    public static ObservableList<User> list;
+    @FXML private TableView<?> table;
+    @FXML private TableColumn<?, ?> reg;
+    @FXML private TableColumn<?, ?> date;
+    @FXML private TableColumn<?, ?> time;
+    @FXML private TableColumn<?, ?> guest;
+    @FXML private TableColumn<?, ?> activity;
+
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("Cancel");
+        System.out.println("Cancel 5555+");
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
     }
@@ -75,6 +90,8 @@ public class CustomerPopupController implements Initializable {
         userName.setText(userArrayList.get(userCur).getUserName());
         userType.setText(userArrayList.get(userCur).getUserType());
         role.setText(userArrayList.get(userCur).getRole());
+        status.setText(userArrayList.get(userCur).getUserType());
         cancel.setOnAction(this::handleButtonAction);
+//        table.setItems(list);
     }
 }
