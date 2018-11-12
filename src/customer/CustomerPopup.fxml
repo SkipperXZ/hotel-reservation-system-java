@@ -52,16 +52,6 @@
                                           <Image url="@../img/icon/photoUser.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="72.0" layoutY="258.0" text="Status" textFill="#1473e6">
-                                       <font>
-                                          <Font name="Segoe UI" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="69.0" layoutY="295.0" text="In-house">
-                                       <font>
-                                          <Font name="Segoe UI" size="18.0" />
-                                       </font>
-                                    </Label>
                                     <Label layoutX="232.0" layoutY="44.0" text="CONTACT INFORMATION">
                                        <font>
                                           <Font name="Segoe UI Bold" size="20.0" />
