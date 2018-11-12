@@ -165,7 +165,7 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="table" prefHeight="1016.0" prefWidth="1700.0" style="-fx-font-size: 20px;" stylesheets="@../reservation/css/table.css">
+                  <TableView fx:id="table" prefHeight="1016.0" prefWidth="1700.0" style="-fx-font-size: 20px;" stylesheets="@../reservation/css/tableView.css">
                     <columns>
                       <TableColumn fx:id="user" prefWidth="247.0" text="User" />
                       <TableColumn fx:id="email" prefWidth="402.0" text="Email" />
