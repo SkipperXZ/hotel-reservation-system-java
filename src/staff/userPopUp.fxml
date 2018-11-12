@@ -6,12 +6,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.CustomerPopupController">
    <children>
@@ -40,7 +43,7 @@
          <center>
             <JFXTabPane style="-fx-background-color: #fff;" stylesheets="@../reservation/css/TabPane.css" BorderPane.alignment="CENTER">
                <tabs>
-                  <Tab style="-fx-effect: null;" text="Customer Detail">
+                  <Tab style="-fx-effect: null;" text="Detail">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -49,12 +52,7 @@
                                     <Image url="@../img/icon/photoUser.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="72.0" layoutY="258.0" text="Status" textFill="#1473e6">
-                                 <font>
-                                    <Font name="Segoe UI" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="69.0" layoutY="295.0" text="In-house">
+                              <Label layoutX="69.0" layoutY="295.0" text="Reception">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
@@ -169,6 +167,11 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
+                              <Text fx:id="status" fill="#1a92fc" layoutX="69.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="83.744140625">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                     </content>
@@ -178,6 +181,15 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <JFXTreeView fx:id="historyTable" layoutX="24.0" layoutY="29.0" prefHeight="424.0" prefWidth="944.0" />
+                              <TableView fx:id="table" layoutX="24.0" layoutY="30.0" prefHeight="425.0" prefWidth="943.0">
+                                <columns>
+                                  <TableColumn fx:id="reg" prefWidth="170.0" text="Reg No." />
+                                  <TableColumn fx:id="date" prefWidth="200.0" text="Date" />
+                                    <TableColumn fx:id="time" prefWidth="200.0" text="Time" />
+                                    <TableColumn fx:id="guest" prefWidth="150.0" text="Guest" />
+                                    <TableColumn fx:id="activity" prefWidth="220.0" text="Activity" />
+                                </columns>
+                              </TableView>
                            </children>
                         </AnchorPane>
                     </content>

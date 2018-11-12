@@ -34,6 +34,7 @@ public class mainUser implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     Linker linker = new Linker();
+
     @FXML private TableView<User>table;
     @FXML private TableColumn<User,String> user;
     @FXML private TableColumn<User,String> email;
@@ -42,6 +43,7 @@ public class mainUser implements Initializable {
     @FXML private TableColumn<User,String> userType;
     @FXML private TableColumn<User, String> btE;
     @FXML private TableColumn<User, String> btD;
+
     @FXML private JFXButton btnNew = new JFXButton();
     @FXML private JFXButton dashboardButtton = new JFXButton();
     @FXML private JFXButton calendarButtton = new JFXButton();
