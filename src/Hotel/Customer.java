@@ -43,6 +43,7 @@ public class Customer implements Serializable {
     private String idNum;
     private LocalDateTime checkInTime;
     private String memo;
+    private boolean isLate =false;
 
     public Customer(int adultNum, int childNum, String title, String firstName, String lastName
             , String tel, LocalDate checkInDate, LocalDate checkOutDate, int extraBedNum, String email, int price, int weekDayNum, int weekEndNum,String memo) {
@@ -231,6 +232,15 @@ public class Customer implements Serializable {
     public void setTotalRevenue(int totalRevenue) { this.totalRevenue = totalRevenue; }
 
     public LocalDateTime getLastVisit() { return lastVisit; }
+
+    public boolean isLate() {
+        return isLate;
+    }
+
+    public void setLate(boolean late) {
+        isLate = late;
+    }
+
     public String getLastVisitToString()
     {
 

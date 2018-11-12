@@ -64,6 +64,9 @@ public class CheckOutPageController {
     @FXML
     private JFXButton makeCheckOut;
 
+    @FXML
+    private JFXCheckBox lateCheck;
+
     private Room room;
     private Customer customer;
     private boolean isCheckOut=false;
@@ -75,19 +78,27 @@ public class CheckOutPageController {
         makeCheckOut.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(customer.isPayment() && returnCardCheck.isSelected()){
+
+                if(customer.isPayment() && returnCardCheck.isSelected() && !lateCheck.isSelected()){
                     isCheckOut = true;
                     parentController.getCheckOutStage().close();
                 }
+
 
             }
         });
         makePayment.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(lateCheck.isSelected()){
+                    customer.setLate(true);
+                }
                 if (parentController.isConfirmPaymentScene()){
                     ReservationHandler.payment(room);
+                    lateCheck.setSelected(false);
+                    lateCheck.setDisable(true);
                 }
+
             }
         });
     }
