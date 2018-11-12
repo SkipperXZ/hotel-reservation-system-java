@@ -1047,7 +1047,7 @@ public class ReservationPageController {
             paymentPageController.setInfo();
             paymentStage = new Stage();
             paymentStage.setTitle("Payment");
-            paymentStage.setScene(new Scene(root, 700, 500));
+            paymentStage.setScene(new Scene(root, 880, 500));
             paymentStage.showAndWait();
             isPay= paymentPageController.isPay();
         }catch (Exception e){

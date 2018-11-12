@@ -185,5 +185,11 @@
             <Image url="@../../img/icon/photoUser.png" />
          </image>
       </ImageView>
+      <Text fill="#ff8282" layoutX="338.0" layoutY="607.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Late">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXCheckBox fx:id="lateCheck" layoutX="490.0" layoutY="592.0" prefHeight="18.0" prefWidth="70.0" textFill="TRANSPARENT" />
    </children>
 </AnchorPane>

@@ -13,62 +13,24 @@ import main.Linker;
 
 public class DashboardController {
 
-    @FXML
-    private Label date;
+    @FXML private Label date;
+    @FXML private Label time;
+    @FXML private ImageView userPic;
+    @FXML private Label userLabel;
+    @FXML private JFXButton dashboardButtton;
+    @FXML private JFXButton calendarButtton;
+    @FXML private JFXButton reservationButtton;
+    @FXML private JFXButton customerButtton;
+    @FXML private JFXButton reportButtton;
+    @FXML private JFXButton userButtton;
 
-    @FXML
-    private Label time;
+    @FXML private Label Guest;
+    @FXML private Label Occupied;
+    @FXML private Label Occupiedpercent;
+    @FXML private Label Departures;
+    @FXML private Label Arrivals;
 
-    @FXML
-    private Label roomIDLabel_001;
 
-    @FXML
-    private ImageView userPic;
-
-    @FXML
-    private Label userLabel;
-
-    @FXML
-    private JFXButton dashboardButtton;
-
-    @FXML
-    private JFXButton calendarButtton;
-
-    @FXML
-    private JFXButton reservationButtton;
-
-    @FXML
-    private JFXButton customerButtton;
-
-    @FXML
-    private JFXButton reportButtton;
-
-    @FXML
-    private JFXButton userButtton;
-
-    @FXML
-    private JFXTreeTableView<?> tableArrivals;
-
-    @FXML
-    private JFXTreeTableView<?> tableDeparture;
-
-    @FXML
-    private JFXTreeTableView<?> tableInHouse;
-
-    @FXML
-    private Label Guest;
-
-    @FXML
-    private Label Occupied;
-
-    @FXML
-    private Label Occupiedpercent;
-
-    @FXML
-    private Label Departures;
-
-    @FXML
-    private Label Arrivals;
     @FXML
     public void initialize() {
         Clock.clock.setClockLabel(time);
