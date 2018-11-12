@@ -127,6 +127,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <Label fx:id="chEmail" layoutX="798.0" layoutY="82.0" />
                </children>
             </Pane>
          </center>

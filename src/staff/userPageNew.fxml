@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.mainUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.mainUser">
 
    <children>
       <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
@@ -51,6 +51,21 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
+                  <Pane layoutX="814.0" prefHeight="55.0" prefWidth="347.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="55.0" layoutY="1.0" stroke="#ffffff57" strokeType="INSIDE" width="346.0" />
+                        <ImageView fx:id="userPic" fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="userLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="15.0" prefHeight="29.0" prefWidth="259.0" text="username">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </top>
@@ -165,21 +180,7 @@
             </Pane>
          </center>
       </BorderPane>
-      <Pane layoutX="1684.0" layoutY="973.0" prefHeight="108.0" prefWidth="237.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="123.0" layoutX="-3.0" layoutY="-17.0" stroke="#ffffff57" strokeType="INSIDE" width="239.0" />
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="6.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/icon/user.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="51.0" text="username">
-               <font>
-                  <Font name="Segoe UI Bold" size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+      <Pane layoutX="1684.0" layoutY="973.0" prefHeight="108.0" prefWidth="237.0" />
       <JFXButton fx:id="btnNew" layoutX="250.0" layoutY="950.0" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #1473e6;" text="NEW" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />

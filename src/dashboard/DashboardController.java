@@ -76,6 +76,13 @@ public class DashboardController {
         userLabel.setText(Account.currentUser);
         Linker linker = new Linker();
 
+        calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(linker.newCalendarScene());
+            }
+        });
+
 
 
         reservationButtton.setOnAction(new EventHandler<ActionEvent>() {

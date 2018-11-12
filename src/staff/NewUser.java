@@ -1,9 +1,12 @@
 package staff;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import java.io.Serializable;
+import javafx.collections.ObservableList;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -16,10 +19,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.ChoiceBox;
 
 public class NewUser implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
+    ObservableList<String> cursors = FXCollections.observableArrayList("User","Admin");
     @FXML
     private Label userID;
 
@@ -54,7 +59,8 @@ public class NewUser implements Initializable {
     private TextField idCard = new TextField();
 
     @FXML
-    private TextField userType = new TextField();
+    private ChoiceBox<String> userType = new ChoiceBox<String>();
+
     @FXML
     private TextField pass= new TextField();
 
@@ -86,15 +92,14 @@ public class NewUser implements Initializable {
             if (email.getText().equals(""))ch4=false;
             if (firstName.getText().equals(""))ch5=false;
             if(lastName.getText().equals(""))ch6=false;
-            if(userType.getText().equals(""))ch7=false;
             if(passWord.getText().equals(""))ch8=false;
             if((ch1&&ch2&&ch3&&ch4&&ch5&&ch6&&ch7&&ch8)||(userArrayList.size()==0)) {
                 userArrayList.add(new User(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
-                        userType.getText(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText()));
+                        userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText()));
                 userNoButtons.add(new UserNoButton(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
-                        userType.getText(), role.getText(), pass.getText(), passWord.getText()));
+                        userType.getValue(), role.getText(), pass.getText(), passWord.getText()));
                 System.out.println("New User");
                 UserDatabase.employeeId++;
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -103,7 +108,7 @@ public class NewUser implements Initializable {
                 mu.update();
             }
             if(ch3==false||ch4==false||ch5==false||ch6==false||ch7==false||ch8==false){
-                chUser.setText("Please enter : Username,Password,UserType,Fristname,Lastname and Email ");
+                chUser.setText("Please enter : Username,Password,Fristname,Lastname and Email ");
             }else {
                 if (ch1 == false) chUser.setText("This username already taken.");
                 if (ch2 == false) chEmail.setText("This email already taken.");
@@ -125,5 +130,7 @@ public class NewUser implements Initializable {
         btnCancel.setOnAction(this::handleButtonAction);
         btnImage.setOnAction(this::handleButtonAction);
         userID.setText(Integer.toString(UserDatabase.employeeId));
+        userType.getItems().addAll("User","Admin");
+        userType.setValue("User");
     }
 }
