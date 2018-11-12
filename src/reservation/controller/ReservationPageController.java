@@ -352,7 +352,7 @@ public class ReservationPageController {
     private int cleaningTimeMinute = 0;
     private LocalDate startDate;
     private LocalDate finishDate;
-
+    Linker linker;
     private int currentFloorNum = 1;
     @FXML
     public void initialize() {
@@ -402,7 +402,7 @@ public class ReservationPageController {
         reportButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Linker.primaryStage.setScene(Linker.report);
+                Linker.primaryStage.setScene(linker.newReportScene());
             }
         });
 
@@ -1047,7 +1047,7 @@ public class ReservationPageController {
             paymentPageController.setInfo();
             paymentStage = new Stage();
             paymentStage.setTitle("Payment");
-            paymentStage.setScene(new Scene(root, 700, 500));
+            paymentStage.setScene(new Scene(root, 880, 500));
             paymentStage.showAndWait();
             isPay= paymentPageController.isPay();
         }catch (Exception e){

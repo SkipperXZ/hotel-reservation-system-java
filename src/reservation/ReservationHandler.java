@@ -19,11 +19,14 @@ public class ReservationHandler {
             room.setCustomer(customer);
             room.setStatus("Reserved");
 
-            Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),4, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate(), false);
-            System.out.println("booking done");
-            AllBooking.addBooking(booking);
-            System.out.println("Add done");
-
+            if(i==0) {
+                Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size() - 1).getRegNum() + 1), 4, customer.getFirstName(),
+                        customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(),
+                        LocalDate.now(),LocalDateTime.now().minusDays(currentDay-1+i), LocalDateTime.now().minusDays(currentDay-1+i-customer.getNightNum()), customer.getNightNum());
+                System.out.println("booking done");
+                AllBooking.addBooking(booking);
+                System.out.println("Add done");
+            }
         }
         databaseCustomer.setTotalNightStay(databaseCustomer.getTotalNightStay()+customer.getNightNum());
         databaseCustomer.setTotalReserve(databaseCustomer.getTotalReserve()+1);
@@ -46,7 +49,9 @@ public class ReservationHandler {
                     room.setStatus("Vacant");
 
                     if(i==0){
-                        Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),3, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate(), false);
+                        Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),3, customer.getFirstName(),
+                                customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(),
+                                LocalDate.now(), LocalDateTime.now().minusDays(currentDay-1+i), LocalDateTime.now().minusDays(currentDay-1+i-customer.getNightNum()), customer.getNightNum());
                         System.out.println("cancle done");
                         AllBooking.addBooking(booking);
                         System.out.println("Add done");
@@ -88,7 +93,11 @@ public class ReservationHandler {
         Room room = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum - 1].getRooms()[roomIndex];
         room.setCountDownClock(new CountDownClock(room));
 
-        Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),2, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate(), true);
+        int servicePrice =(customer.getPaymerntPrice()-(customer.getExtraBedNum()*316* customer.getNightNum()))/10;
+        int vatPrice =(((customer.getPaymerntPrice()+servicePrice)*7)/100);
+
+        Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),2, customer.getFirstName(),
+                customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice()+vatPrice+servicePrice, LocalDateTime.now(), LocalDate.now(),0);
         System.out.println("Check-out done");
         AllBooking.addBooking(booking);
         System.out.println("Add done");
@@ -131,8 +140,10 @@ public class ReservationHandler {
     public static void payment(Room room){
         Customer customer = room.getCustomer();
         customer.setPayment(true);
+        int servicePrice =(customer.getPaymerntPrice()-(customer.getExtraBedNum()*316* customer.getNightNum()))/10;
+        int vatPrice =(((customer.getPaymerntPrice()+servicePrice)*7)/100);
         Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
-        databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+customer.getPaymerntPrice());
+        databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+customer.getPaymerntPrice()+vatPrice+servicePrice);
     }
 
     public static void checkIn(Customer customer, int roomIndex, int currentFloorNum, int currentDay){
@@ -142,7 +153,8 @@ public class ReservationHandler {
             if(Hotel.hotel.get(currentDay-1+i).getDate().equals(customer.getCheckOutDate()))
                 break;
             if(i==0){
-                Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),1, customer.getFirstName(), customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), customer.getCheckInDate(), false);
+                Booking booking = new Booking((AllBooking.allBooking.get(AllBooking.allBooking.size()-1).getRegNum()+1),1, customer.getFirstName(),
+                        customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), LocalDate.now(), 0);
                 System.out.println("Check-in done");
                 AllBooking.addBooking(booking);
                 System.out.println("Add done");

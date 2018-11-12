@@ -70,7 +70,7 @@ public class mainUser implements Initializable {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
                         Parent root = (Parent) fxmlLoader.load();
                         Stage stage = new Stage();
-                        stage.setTitle("Edit");
+                        stage.setTitle("Edit : "+userArrayList.get(i).getFirstName()+" "+userArrayList.get(i).getLastName());
                         stage.setScene(new Scene(root, 1080, 720));
                         stage.show();
                     } catch (Exception e) {
@@ -79,11 +79,18 @@ public class mainUser implements Initializable {
 //                setButton();
 //                setToTableView();
                 } else if (event.getSource() == buttonD[i]) {
-                    userArrayList.remove(i);
-                    userNoButtons.remove(i);
-                    System.out.println("D " + i);
-                    update();
+                    UserDatabase.userCur = i;
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/popUpDelete.fxml"));
+                        Parent root = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setTitle("Delete : "+userArrayList.get(i).getFirstName()+" "+userArrayList.get(i).getLastName());
+                        stage.setScene(new Scene(root, 300, 200));
+                        stage.show();
+                    } catch (Exception e) {
 
+                    }
+                    System.out.println("D " + i);
                 }
             }
         }

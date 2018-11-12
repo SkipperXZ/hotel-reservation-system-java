@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -10,7 +9,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -168,19 +166,14 @@
                         <DropShadow color="#1b1b1b" />
                      </effect>
                   </Rectangle>
-                  <Label fx:id="currentDayLabel" alignment="CENTER" layoutX="163.0" layoutY="31.0" prefHeight="25.0" prefWidth="110.0" text="Today">
+                  <Label fx:id="currentDayLabel" alignment="CENTER" layoutX="163.0" layoutY="31.0" prefHeight="25.0" prefWidth="110.0" text="TODAY">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <Button fx:id="makePreDay" layoutX="148.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
                   <Button fx:id="makeNextDay" alignment="TOP_CENTER" layoutX="258.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
-                  <JFXTreeTableView fx:id="summaryTable" layoutX="35.0" layoutY="90.0" prefHeight="368.0" prefWidth="1631.0" stylesheets="@../reservation/css/TabPane.css">
-                     <columns>
-                        <TreeTableColumn prefWidth="816.0" text="Reservation Summary" />
-                        <TreeTableColumn prefWidth="815.0" text="Total" />
-                     </columns></JFXTreeTableView>
-                  <JFXTabPane layoutX="35.0" layoutY="485.0" prefHeight="438.0" prefWidth="1631.0" rotateGraphic="true">
+                  <JFXTabPane layoutX="35.0" layoutY="485.0" prefHeight="438.0" prefWidth="1631.0" rotateGraphic="true" style="-fx-font-size: 18px;">
                      <tabs>
                         <Tab style="-fx-background-color: #1473e6;" text="Check In">
                           <content>
@@ -189,7 +182,7 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                                  <children>
-                                    <TableView fx:id="checkinTable" prefHeight="401.0" prefWidth="1631.0">
+                                    <TableView fx:id="checkinTable" prefHeight="401.0" prefWidth="1631.0" stylesheets="@../reservation/css/tableView.css">
                                       <columns>
                                         <TableColumn fx:id="guest1" prefWidth="310.0" text="GUEST" />
                                         <TableColumn fx:id="regNo1" prefWidth="156.0" text="REG NO." />
@@ -208,7 +201,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView fx:id="checkoutTable" prefHeight="401.0" prefWidth="1631.0">
+                                    <TableView fx:id="checkoutTable" prefHeight="401.0" prefWidth="1631.0" stylesheets="@../reservation/css/tableView.css">
                                        <columns>
                                           <TableColumn fx:id="guest2" prefWidth="310.0" text="GUEST" />
                                           <TableColumn fx:id="regNo2" prefWidth="156.0" text="REG NO." />
@@ -216,7 +209,7 @@
                                           <TableColumn fx:id="room2" prefWidth="233.0" text="ROOM" />
                                           <TableColumn fx:id="roomType2" prefWidth="233.0" text="ROOM TYPE" />
                                           <TableColumn fx:id="price2" prefWidth="233.0" text="PRICE" />
-                                          <TableColumn fx:id="checkinTime2" prefWidth="233.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="checkoutTime2" prefWidth="233.0" text="CHECK-OUT TIME" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -230,15 +223,17 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                                  <children>
-                                    <TableView fx:id="cancelTable" prefHeight="401.0" prefWidth="1631.0">
+                                    <TableView fx:id="cancelTable" prefHeight="401.0" prefWidth="1631.0" stylesheets="@../reservation/css/tableView.css">
                                       <columns>
                                           <TableColumn fx:id="guest3" prefWidth="310.0" text="GUEST" />
                                           <TableColumn fx:id="regNo3" prefWidth="156.0" text="REG NO." />
-                                          <TableColumn fx:id="phone3" prefWidth="233.0" text="PHONE" />
-                                          <TableColumn fx:id="room3" prefWidth="233.0" text="ROOM" />
-                                          <TableColumn fx:id="roomType3" prefWidth="233.0" text="ROOM TYPE" />
-                                          <TableColumn fx:id="price3" prefWidth="233.0" text="PRICE" />
-                                          <TableColumn fx:id="checkinTime3" prefWidth="233.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="phone3" prefWidth="166.0" text="PHONE" />
+                                          <TableColumn fx:id="room3" prefWidth="166.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType3" prefWidth="166.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price3" prefWidth="166.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime3" prefWidth="202.0" text="CHECK-IN DATE" />
+                                          <TableColumn fx:id="checkoutTime3" prefWidth="202.0" text="CHECK-OUT DATE" />
+                                          <TableColumn fx:id="nightNum3" prefWidth="96.0" text="Night" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -249,15 +244,17 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0">
+                                    <TableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0" stylesheets="@../reservation/css/tableView.css">
                                       <columns>
                                           <TableColumn fx:id="guest4" prefWidth="310.0" text="GUEST" />
                                           <TableColumn fx:id="regNo4" prefWidth="156.0" text="REG NO." />
-                                          <TableColumn fx:id="phone4" prefWidth="233.0" text="PHONE" />
-                                          <TableColumn fx:id="room4" prefWidth="233.0" text="ROOM" />
-                                          <TableColumn fx:id="roomType4" prefWidth="233.0" text="ROOM TYPE" />
-                                          <TableColumn fx:id="price4" prefWidth="233.0" text="PRICE" />
-                                          <TableColumn fx:id="checkinTime4" prefWidth="233.0" text="CHECK-IN TIME" />
+                                          <TableColumn fx:id="phone4" prefWidth="166.0" text="PHONE" />
+                                          <TableColumn fx:id="room4" prefWidth="166.0" text="ROOM" />
+                                          <TableColumn fx:id="roomType4" prefWidth="166.0" text="ROOM TYPE" />
+                                          <TableColumn fx:id="price4" prefWidth="166.0" text="PRICE" />
+                                          <TableColumn fx:id="checkinTime4" prefWidth="202.0" text="CHECK-IN DATE" />
+                                          <TableColumn fx:id="checkoutTime4" prefWidth="202.0" text="CHECK-OUT DATE" />
+                                          <TableColumn fx:id="nightNum4" prefWidth="96.0" text="Night" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -269,6 +266,12 @@
                         <Insets />
                      </opaqueInsets>
                   </JFXTabPane>
+                  <TableView fx:id="summaryTable" layoutX="35.0" layoutY="91.0" prefHeight="350.0" prefWidth="1631.0" style="-fx-font-size: 30px;" stylesheets="@../reservation/css/tableView.css">
+                    <columns>
+                      <TableColumn fx:id="summary" minWidth="814.0" prefWidth="75.0" text="RESERVATION SUMMARY" />
+                      <TableColumn fx:id="total" minWidth="814.0" prefWidth="75.0" text="TOTAL" />
+                    </columns>
+                  </TableView>
                </children>
             </Pane>
          </center>

@@ -2,9 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -179,27 +180,54 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <JFXTreeTableView fx:id="tableArrivals" layoutX="19.0" layoutY="18.0" prefHeight="445.0" prefWidth="1537.0" style="-fx-font-size: 1.3em;" />
+                                          <JFXTabPane layoutX="13.0" layoutY="34.0" prefHeight="465.0" prefWidth="1540.0" stylesheets="@../reservation/css/TabPane2.css">
+                                             <tabs>
+                                                <Tab text="Today">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TableView prefHeight="428.0" prefWidth="1540.0">
+                                                              <columns>
+                                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                                <TableColumn prefWidth="75.0" text="C2" />
+                                                                  <TableColumn prefWidth="75.0" text="C1" />
+                                                                  <TableColumn prefWidth="75.0" text="C2" />
+                                                                  <TableColumn prefWidth="75.0" text="C1" />
+                                                                  <TableColumn prefWidth="75.0" text="C2" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </Tab>
+                                                <Tab text="Tomorrow">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TableView prefHeight="430.0" prefWidth="1540.0">
+                                                              <columns>
+                                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                                <TableColumn prefWidth="75.0" text="C2" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                </Tab>
+                                             </tabs>
+                                          </JFXTabPane>
                                        </children>
                                     </AnchorPane>
                                 </content>
                               </Tab>
                               <Tab text="Departures">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <JFXTreeTableView fx:id="tableDeparture" layoutX="14.0" layoutY="13.0" prefHeight="445.0" prefWidth="1537.0" style="-fx-font-size: 1.3em;" />
-                                       </children>
-                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
                               </Tab>
                               <Tab text="In-House">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;">
-                                       <children>
-                                          <JFXTreeTableView fx:id="tableInHouse" layoutX="13.0" layoutY="16.0" prefHeight="445.0" prefWidth="1537.0" style="-fx-font-size: 1.3em;" />
-                                       </children>
-                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
                                 </content>
                               </Tab>
                            </tabs>

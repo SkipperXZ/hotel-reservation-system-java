@@ -3,13 +3,10 @@ package staff;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -55,25 +52,48 @@ public class EditUser implements Initializable {
     @FXML
     private TextField passWord;
 
+    @FXML private Label chEmail = new Label();
+
+    @FXML
+    private TextField role = new TextField();
+
+    @FXML
+    private ChoiceBox<String> userType = new ChoiceBox<String>();
+
     private Button button = new Button();
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        boolean ch1=true;
+        chEmail.setText("");
         if(event.getSource()==btnSave) {
-            userArrayList.get(userCur).setFirstName(firstName.getText());
-            userArrayList.get(userCur).setEmail(email.getText());
-            userArrayList.get(userCur).setTel(tel.getText());
-            userArrayList.get(userCur).setCountry(country.getText());
-            userArrayList.get(userCur).setAddress(address.getText());
-            userArrayList.get(userCur).setLastName(lastName.getText());
-            userArrayList.get(userCur).setPassWord(passWord.getText());
+            for(int i=0;i<userArrayList.size();i++){
+                if(userArrayList.get(i).getEmail().equals(email.getText())&& i!=userCur){
+                    ch1=false;
+                    chEmail.setText("This email already taken.");
+                    break;
+                }
+            }
+            if(ch1) {
+                userArrayList.get(userCur).setFirstName(firstName.getText());
+                userArrayList.get(userCur).setEmail(email.getText());
+                userArrayList.get(userCur).setTel(tel.getText());
+                userArrayList.get(userCur).setCountry(country.getText());
+                userArrayList.get(userCur).setAddress(address.getText());
+                userArrayList.get(userCur).setLastName(lastName.getText());
+                userArrayList.get(userCur).setPassWord(passWord.getText());
+                userArrayList.get(userCur).setRole(role.getText());
+                userArrayList.get(userCur).setUserType(userType.getValue());
 
-            userNoButtons.get(userCur).setFirstName(firstName.getText());
-            userNoButtons.get(userCur).setEmail(email.getText());
-            userNoButtons.get(userCur).setTel(tel.getText());
-            userNoButtons.get(userCur).setCountry(country.getText());
-            userNoButtons.get(userCur).setAddress(address.getText());
-            userNoButtons.get(userCur).setLastName(lastName.getText());
-            userNoButtons.get(userCur).setPassWord(passWord.getText());
+                userNoButtons.get(userCur).setFirstName(firstName.getText());
+                userNoButtons.get(userCur).setEmail(email.getText());
+                userNoButtons.get(userCur).setTel(tel.getText());
+                userNoButtons.get(userCur).setCountry(country.getText());
+                userNoButtons.get(userCur).setAddress(address.getText());
+                userNoButtons.get(userCur).setLastName(lastName.getText());
+                userNoButtons.get(userCur).setPassWord(passWord.getText());
+                userNoButtons.get(userCur).setRole(role.getText());
+                userNoButtons.get(userCur).setUserType(userType.getValue());
+            }
 
             System.out.println("Save");
         }else if(event.getSource()==btnCancel){
@@ -95,5 +115,8 @@ public class EditUser implements Initializable {
         btnCancel.setOnAction(this::handleButtonAction);
         customerID.setText(userArrayList.get(userCur).getEmployeeId());
         passWord.setText(userArrayList.get(userCur).getPassWord());
+        role.setText(userArrayList.get(userCur).getRole());
+        userType.getItems().addAll("User","Admin");
+        userType.setValue(userArrayList.get(userCur).getUserType());
     }
 }

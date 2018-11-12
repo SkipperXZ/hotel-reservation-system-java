@@ -164,7 +164,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="646.0" layoutY="370.0" text="PassWord" textFill="#1473e6">
+                  <Label layoutX="646.0" layoutY="370.0" text="Password" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -174,8 +174,8 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="chUser" layoutX="399.0" layoutY="39.0" />
-                  <Label fx:id="chEmail" layoutX="780.0" layoutY="39.0" />
+                  <Label fx:id="chUser" layoutX="399.0" layoutY="39.0" textFill="#f51d1d" />
+                  <Label fx:id="chEmail" layoutX="780.0" layoutY="39.0" textFill="#f81a1a" />
                   <ChoiceBox fx:id="userType" layoutX="352.0" layoutY="397.0" prefWidth="150.0" />
                </children>
             </Pane>

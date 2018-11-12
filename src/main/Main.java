@@ -18,6 +18,7 @@ import staff.User;
 import staff.UserDatabase;
 import staff.UserNoButton;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -116,7 +117,7 @@ public class Main extends Application {
             System.out.println("Load Done");
         }
         else{
-            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, null, null, false);
+            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
             AllBooking.addBooking(booking);
             System.out.println("Initial done");
         }
