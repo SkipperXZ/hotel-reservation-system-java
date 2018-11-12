@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -10,7 +9,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -175,11 +173,6 @@
                   </Label>
                   <Button fx:id="makePreDay" layoutX="148.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
                   <Button fx:id="makeNextDay" alignment="TOP_CENTER" layoutX="258.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
-                  <JFXTreeTableView fx:id="summaryTable" layoutX="35.0" layoutY="90.0" prefHeight="368.0" prefWidth="1631.0" stylesheets="@../reservation/css/TabPane.css">
-                     <columns>
-                        <TreeTableColumn prefWidth="816.0" text="Reservation Summary" />
-                        <TreeTableColumn prefWidth="815.0" text="Total" />
-                     </columns></JFXTreeTableView>
                   <JFXTabPane layoutX="35.0" layoutY="485.0" prefHeight="438.0" prefWidth="1631.0" rotateGraphic="true">
                      <tabs>
                         <Tab style="-fx-background-color: #1473e6;" text="Check In">
@@ -250,7 +243,7 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0">
+                                    <TableView fx:id="bookingTable" prefHeight="401.0" prefWidth="1631.0" stylesheets="@../reservation/css/tableView.css">
                                       <columns>
                                           <TableColumn fx:id="guest4" prefWidth="310.0" text="GUEST" />
                                           <TableColumn fx:id="regNo4" prefWidth="156.0" text="REG NO." />
@@ -271,6 +264,12 @@
                         <Insets />
                      </opaqueInsets>
                   </JFXTabPane>
+                  <TableView layoutX="35.0" layoutY="91.0" prefHeight="350.0" prefWidth="1631.0" stylesheets="@../reservation/css/table.css">
+                    <columns>
+                      <TableColumn minWidth="815.0" prefWidth="75.0" text="Reservation Summary" />
+                      <TableColumn minWidth="816.0" prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
                </children>
             </Pane>
          </center>

@@ -246,16 +246,16 @@ public class reportController implements Initializable {
 
         for (Booking e : allBooking) {
 
-            if(e.getOperation()==1 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            if(e.getOperation()==1 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 checkinData.add(e);
             }
-            else if(e.getOperation()==2 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            else if(e.getOperation()==2 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 checkoutData.add(e);
             }
-            else if(e.getOperation()==3 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            else if(e.getOperation()==3 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 cancelData.add(e);
             }
-            else if(e.getOperation()==4 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click+1).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+            else if(e.getOperation()==4 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
                 bookingData.add(e);
             }
         }
