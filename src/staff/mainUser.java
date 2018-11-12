@@ -164,10 +164,7 @@ public class mainUser implements Initializable {
         logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Linker.primaryStage.close();
-                Stage stage= new Stage();
-                stage.setScene(linker.newLoginScene());
-                stage.show();
+                Linker.primaryStage.setScene(linker.newLoginScene());
             }
         });
         setButton();

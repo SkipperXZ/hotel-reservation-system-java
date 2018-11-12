@@ -1,10 +1,8 @@
 package main;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,8 +15,6 @@ public class Linker {
     public static Scene user;
     public static Scene login;
     public static Scene report;
-    private double xOffset = 0;
-    private double yOffset = 0;
 
     public Scene newDashboardScene (){
         return this.buildScene("../dashboard/Dashboard.fxml") ;
@@ -49,22 +45,6 @@ public class Linker {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        root.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
-        });
-        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Linker.primaryStage.setX(event.getScreenX() - xOffset);
-                Linker.primaryStage.setY(event.getScreenY() - yOffset);
-            }
-        });
-
         return  new Scene(root);
     }
 
