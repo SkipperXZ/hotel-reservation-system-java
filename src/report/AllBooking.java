@@ -8,10 +8,6 @@ public class AllBooking implements Serializable {
 
     public static void addBooking(Booking booking){
         allBooking.add(booking);
-
-        for (Booking number : allBooking) {
-            System.out.println("Reg Number = " + number.getRegNum()+"       Num Operation"+ number.getOperation());
-        }
     }
 }
 

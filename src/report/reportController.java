@@ -242,21 +242,21 @@ public class reportController implements Initializable {
 
         for (Booking e : allBooking) {
 
-            if(e.getOperation()==1 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
-                checkinData.add(e);
-                checkinNum++;
-            }
-            else if(e.getOperation()==2 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
-                checkoutData.add(e);
-                checkoutNum++;
-            }
-            else if(e.getOperation()==3 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
-                cancelData.add(e);
-                cancelNum++;
-            }
-            else if(e.getOperation()==4 && e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
-                bookingData.add(e);
-                bookingNum++;
+            if(e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+
+                if (e.getOperation() == 1) {
+                    checkinData.add(e);
+                    checkinNum++;
+                } else if (e.getOperation() == 2) {
+                    checkoutData.add(e);
+                    checkoutNum++;
+                } else if (e.getOperation() == 3) {
+                    cancelData.add(e);
+                    cancelNum++;
+                } else if (e.getOperation() == 4) {
+                    bookingData.add(e);
+                    bookingNum++;
+                }
             }
         }
         list1= FXCollections.observableArrayList(
