@@ -22,6 +22,8 @@ import javafx.scene.image.Image;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import main.Main;
+import report.AllBooking;
+import report.Booking;
 
 import java.io.FileInputStream;
 
@@ -73,13 +75,18 @@ public class CustomerPopupController implements Initializable {
 
     @FXML private Text status = new Text();
 
-    public static ObservableList<User> list;
+    
+
+    static ObservableList<Booking> list;
+    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> checkinData = new ArrayList<Booking>();
     @FXML private TableView<?> table;
     @FXML private TableColumn<?, ?> reg;
     @FXML private TableColumn<?, ?> date;
     @FXML private TableColumn<?, ?> time;
     @FXML private TableColumn<?, ?> guest;
     @FXML private TableColumn<?, ?> activity;
+
 
     private void handleButtonAction(ActionEvent event) {
         System.out.println("Cancel 5555+");
