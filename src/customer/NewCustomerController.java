@@ -15,10 +15,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 
 
 public class NewCustomerController{
@@ -56,10 +66,21 @@ public class NewCustomerController{
         @FXML
         private TextArea address;
 
+        @FXML
+        private ImageView customerPic;
 
-    @FXML
+        @FXML
+        private JFXButton addImg;
+
+        private  File file;
+        File des;
+        private  Boolean isAddImg = false;
+        private  Image image;
+
+        @FXML
     public void initialize() {
-            customerID.setText(String.valueOf(Customer.getNumcustomerID()+1));
+                String newNumber = String.valueOf(Customer.getNumcustomerID()+1);
+            customerID.setText(newNumber);
             ID.textProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -99,8 +120,25 @@ public class NewCustomerController{
                                            showJDialog(firstNameInput+" "+lastNameInput+" already exists");
                                            return;
                                    }
-                                   Customer customer = new Customer(firstNameInput, lastNameInput,telInput, emailInput, IDInput, countryInput,
-                                           addressInput);
+                                   if(isAddImg)
+                                   {
+                                           try{
+                                                   des = new File("src\\img\\customer\\user"+newNumber+".jpg");  //output file path
+                                                   Files.copy(file.toPath(),des.toPath());
+                                                 //  System.out.println("Writing complete.");
+                                           }catch(IOException e){
+                                                   System.out.println("Error: "+e);
+                                           }
+                                   }
+                                   Customer  customer  = new Customer(firstNameInput, lastNameInput,telInput,
+                                           emailInput, IDInput, countryInput,addressInput);
+                                   if(isAddImg) {
+                                           customer.setImgfile(des.getPath());
+                                           System.out.println(des.getPath());
+                                   }
+
+
+
                                    CustomerDatabase.updateCustomer(customer);
 
                                    CustomerPageController update = new CustomerPageController();
@@ -120,6 +158,28 @@ public class NewCustomerController{
                     public void handle(ActionEvent event) {
                             Stage stage = (Stage) btnCancel.getScene().getWindow();
                             stage.close();
+                    }
+            });
+
+            addImg.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                            Stage stage = (Stage) addImg.getScene().getWindow();
+                            FileChooser fileChooser = new FileChooser();
+                            fileChooser.setTitle("Select Image");
+                            fileChooser.getExtensionFilters().addAll(
+                                    new FileChooser.ExtensionFilter("All Images", "*.*"),
+                                    new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                                    new FileChooser.ExtensionFilter("PNG", "*.png")
+                            );
+                            file = fileChooser.showOpenDialog(stage);
+                            if (file!=null) {
+                                    // System.out.println(file.toURI().toString());
+                                    String a = file.toURI().toString();
+                                    image = new Image(a);
+                                    customerPic.setImage(image);
+                                    isAddImg = true;
+                            }
                     }
             });
 

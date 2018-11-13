@@ -14,9 +14,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 import static Hotel.CustomerDatabase.customerDatabase;
 
@@ -51,6 +56,15 @@ public class EditCustomerController {
 
     @FXML
     private TextArea address;
+    @FXML
+    private ImageView customerPic;
+    @FXML
+    private JFXButton addImg;
+
+    private  File fileInput;
+    File des;
+    private  Boolean isAddImg = false;
+    private  Image image;
 
     @FXML
     public void initialize() {
@@ -84,6 +98,10 @@ public class EditCustomerController {
         tel.setText(customer.getTel());
         email.setText(customer.getEmail());
         address.setText(customer.getAddress());
+        File file = new File(customer.getImgfile()) ;
+        customerPic.setImage(new Image(file.toURI().toString()));
+        if(!file.exists())
+            customerPic.setImage(new Image(new File("src\\img\\icon\\photoUser.png").toURI().toString()));
 
         btnCancel.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -122,6 +140,23 @@ public class EditCustomerController {
        customer.setTel(telInput);
        customer.setEmail(emailInput);
        customer.setAddress(addressInput);
+
+       if(isAddImg)
+       {
+           try{
+               des = new File("src\\img\\customer\\user"+customer.getCustomerID()+".jpg");  //output file path
+               Files.copy(fileInput.toPath(),des.toPath());
+               //  System.out.println("Writing complete.");
+           }catch(IOException e){
+               System.out.println("Error: "+e);
+           }
+       }
+       if(isAddImg){
+           customer.setImgfile(des.getPath());
+           System.out.println(des.getPath());
+       }
+
+
        CustomerDatabase.customerDatabase.remove(NameHash);
        CustomerDatabase.updateCustomer(customer);
        CustomerPageController.selectName =firstNameInput+lastNameInput;
@@ -144,6 +179,29 @@ public class EditCustomerController {
 
 
 
+            }
+        });
+
+
+        addImg.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Stage stage = (Stage) addImg.getScene().getWindow();
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Select Image");
+                fileChooser.getExtensionFilters().addAll(
+                        new FileChooser.ExtensionFilter("All Images", "*.*"),
+                        new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                        new FileChooser.ExtensionFilter("PNG", "*.png")
+                );
+                fileInput = fileChooser.showOpenDialog(stage);
+                if (fileInput != null) {
+//                System.out.println(fileInput.toURI().toString());
+                    String a = fileInput.toURI().toString();
+                    image = new Image(a);
+                    customerPic.setImage(image);
+                    isAddImg = true;
+                }
             }
         });
 
