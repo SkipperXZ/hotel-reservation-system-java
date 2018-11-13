@@ -38,7 +38,7 @@ public class Main extends Application {
         Parent root3 = FXMLLoader.load(getClass().getResource("../staff/userPageNew.fxml"));
         Linker.user = new Scene(root3,1920,1080);
         Parent loginPa = FXMLLoader.load(getClass().getResource("../staff/loginPage.fxml"));
-        Linker.login = new Scene(loginPa,1920,1080);
+        Linker.login = new Scene(loginPa);
 
         primaryStage.setScene(Linker.login);
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));

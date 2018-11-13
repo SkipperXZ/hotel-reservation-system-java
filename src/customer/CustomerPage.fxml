@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -170,6 +171,16 @@
                                 <Font name="Segoe UI Bold" size="18.0" />
                             </font>
                         </JFXButton>
+                  <JFXTextField fx:id="searchBar" focusColor="#1473e6" layoutX="55.0" layoutY="60.0" promptText="Find customer">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                  </JFXTextField>
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="334.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icon/search.png" />
+                     </image>
+                  </ImageView>
                     </children>
                 </Pane>
             </center>

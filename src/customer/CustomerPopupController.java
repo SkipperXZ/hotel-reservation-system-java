@@ -43,58 +43,28 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class CustomerPopupController {
 
-    @FXML
-    private Label fullname;
+    @FXML private Label fullname;
+    @FXML private Label customerID;
+    @FXML private Label firstName;
+    @FXML private Label lastName;
+    @FXML private Label ID;
+    @FXML private Label country;
+    @FXML private Label tel;
+    @FXML private Label email;
+    @FXML private Label adderss;
+    @FXML private Label totalRes;
+    @FXML private Label night;
+    @FXML private Label totolRevenue;
+    @FXML private Label lastVisit;
+    @FXML private JFXTreeTableView<CustomerHistory> historyTable;
+    @FXML private JFXButton btnEdit;
+    @FXML private JFXButton btnDelete;
+    @FXML private StackPane stackpane;
 
-    @FXML
-    private Label customerID;
-
-    @FXML
-    private Label firstName;
-
-    @FXML
-    private Label lastName;
-
-    @FXML
-    private Label ID;
-
-    @FXML
-    private Label country;
-
-    @FXML
-    private Label tel;
-
-    @FXML
-    private Label email;
-
-    @FXML
-    private Label adderss;
-
-    @FXML
-    private Label totalRes;
-
-    @FXML
-    private Label night;
-
-    @FXML
-    private Label totolRevenue;
-
-    @FXML
-    private Label lastVisit;
-
-    @FXML
-    private JFXTreeTableView<CustomerHistory> historyTable;
-
-    @FXML
-    private JFXButton btnEdit;
-
-    @FXML
-    private JFXButton btnDelete;
-    @FXML
-    private StackPane stackpane;
 
     private String NameHash;
     private Customer customer;
+
 
     static ObservableList<CustomerHistory> list = FXCollections.observableArrayList();
 
@@ -169,7 +139,7 @@ public class CustomerPopupController {
 
                         list.add(new CustomerHistory(String.valueOf(tmpRegCheckIn.get(i)),tmpCheckIn.get(i).toString(),
                                 String.valueOf(Booking.getRegNum()), Booking.getRecordDate().toString(),
-                                Booking.getRoomNum(), String.valueOf(DAYS.between(tmpCheckIn.get(i), Booking.getRecordDate())), String.valueOf(customer.getTotalRevenue())));
+                                Booking.getRoomNum(), String.valueOf(DAYS.between(tmpCheckIn.get(i), Booking.getRecordDate())), String.valueOf(Booking.getPrice())));
                         tmpRegCheckIn.remove(i);
                         tmpCheckIn.remove(i);
                         tmproomtmp.remove(i);
@@ -201,6 +171,8 @@ public class CustomerPopupController {
 
         historyTable.setRoot(root);
         historyTable.setShowRoot(false);
+
+
 
 
 

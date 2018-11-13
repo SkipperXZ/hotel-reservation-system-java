@@ -5,10 +5,7 @@ import Account.Account;
 import Hotel.Customer;
 import Hotel.CustomerDatabase;
 import clock.Clock;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeTableColumn;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -27,6 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -71,6 +70,7 @@ public class CustomerPageController {
 
     @FXML
     private JFXButton btnNewCustomer;
+    @FXML private JFXTextField searchBar;
     @FXML private ImageView logOut = new ImageView();
 
 
@@ -240,13 +240,43 @@ public class CustomerPageController {
 
 
             }
-
-
         });
+
+        searchBar.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(!searchBar.getText().equals(""))
+                {
+                    list.clear();
+                    String fullName;
+                    for(Customer customer:customers ) {
+                        fullName = customer.getFirstName()+" "+customer.getLastName();
+                        if (fullName.contains(searchBar.getText()))
+                            list.add(new CustomerTable(customer.getFirstName(), customer.getLastName(), customer.getCustomerID(), customer.getTel(),
+                                    customer.getEmail(), String.valueOf(customer.getTotalReserve()),
+                                    String.valueOf(customer.getTotalNightStay()),
+                                    String.valueOf(customer.getTotalRevenue()),
+                                    customer.getLastVisitToString()));
+                    }
+                    list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
+
+                }
+                else
+                    update();
+            }
+        });
+
+
+
+
+
         logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Linker.primaryStage.setScene(linker.newLoginScene());
+                Linker.primaryStage.close();
+                Stage stage= new Stage();
+                stage.setScene(linker.newLoginScene());
+                stage.show();
             }
         });
 

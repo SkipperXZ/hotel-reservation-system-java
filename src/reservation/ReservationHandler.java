@@ -102,6 +102,12 @@ public class ReservationHandler {
         AllBooking.addBooking(booking);
         System.out.println("Add done");
 
+        int total = customer.getPaymerntPrice()+vatPrice+servicePrice;
+        if(customer.isLate())
+            total+=200;
+        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+total);
+
 
 
     }
@@ -140,10 +146,6 @@ public class ReservationHandler {
     public static void payment(Room room){
         Customer customer = room.getCustomer();
         customer.setPayment(true);
-        int servicePrice =(customer.getPaymerntPrice()-(customer.getExtraBedNum()*316* customer.getNightNum()))/10;
-        int vatPrice =(((customer.getPaymerntPrice()+servicePrice)*7)/100);
-        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
-        databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+customer.getPaymerntPrice()+vatPrice+servicePrice);
     }
 
     public static void checkIn(Customer customer, int roomIndex, int currentFloorNum, int currentDay){
