@@ -2,138 +2,150 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="647.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.RoomInfoPageController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="668.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.RoomInfoPageController">
    <children>
-      <Pane layoutX="-12.0" layoutY="-31.0" prefHeight="104.0" prefWidth="671.0" style="-fx-background-color: #f74a00;">
+      <Pane fx:id="shadowPane" layoutX="6.0" layoutY="5.0" prefHeight="570.0" prefWidth="654.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Pane layoutX="6.0" layoutY="4.0" prefHeight="73.0" prefWidth="654.0" style="-fx-background-color: #f74a00;">
          <children>
-            <Text fill="WHITE" layoutX="22.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Info">
+            <Text fill="WHITE" layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Info">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
             </Text>
+            <Label layoutX="628.0" layoutY="16.0" onMouseClicked="#close" prefHeight="24.0" prefWidth="15.0" text="X" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="25.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Text fill="#ff6868" layoutX="64.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+      <Text fill="#ff6868" layoutX="68.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="65.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+      <Text fill="#ff6868" layoutX="69.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="65.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
+      <Text fill="#ff6868" layoutX="69.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="65.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
+      <Text fill="#ff6868" layoutX="69.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="66.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel.">
+      <Text fill="#ff6868" layoutX="70.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel.">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="69.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text fill="#ff6868" layoutX="73.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="69.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+      <Text fill="#ff6868" layoutX="73.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="341.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-In">
+      <Text fill="#ff6868" layoutX="345.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-In">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="342.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-Out">
+      <Text fill="#ff6868" layoutX="346.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-Out">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="firstNameLabel" layoutX="179.0" layoutY="323.0" text="-">
+      <Label fx:id="firstNameLabel" layoutX="183.0" layoutY="327.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lastNameLabel" layoutX="179.0" layoutY="349.0" text="-">
+      <Label fx:id="lastNameLabel" layoutX="183.0" layoutY="353.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="idNumLabel" layoutX="179.0" layoutY="377.0" text="-">
+      <Label fx:id="idNumLabel" layoutX="183.0" layoutY="381.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="countryLabel" layoutX="179.0" layoutY="403.0" text="-">
+      <Label fx:id="countryLabel" layoutX="183.0" layoutY="407.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="telNumLabel" layoutX="179.0" layoutY="431.0" text="-">
+      <Label fx:id="telNumLabel" layoutX="183.0" layoutY="435.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="emailLabel" layoutX="179.0" layoutY="458.0" text="-">
+      <Label fx:id="emailLabel" layoutX="183.0" layoutY="462.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="statusLabel" layoutX="178.0" layoutY="486.0" text="OK">
+      <Label fx:id="statusLabel" layoutX="182.0" layoutY="490.0" text="OK">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="roomTypeLabel" layoutX="501.0" layoutY="93.0" text="Label">
+      <Label fx:id="roomTypeLabel" layoutX="505.0" layoutY="97.0" text="Label">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="checkInLabel" layoutX="494.0" layoutY="321.0" text="-">
+      <Label fx:id="checkInLabel" layoutX="498.0" layoutY="325.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="checkOutLabel" layoutX="494.0" layoutY="349.0" text="-">
+      <Label fx:id="checkOutLabel" layoutX="498.0" layoutY="353.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="nightNumLabel" layoutX="494.0" layoutY="374.0" text="-">
+      <Label fx:id="nightNumLabel" layoutX="498.0" layoutY="378.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="makeOK" layoutX="482.0" layoutY="498.0" prefHeight="55.0" prefWidth="134.0" style="-fx-background-color: #f74a00;" text="OK" textFill="WHITE">
+      <JFXButton fx:id="makeOK" layoutX="486.0" layoutY="502.0" prefHeight="55.0" prefWidth="134.0" style="-fx-background-color: #f74a00;" text="OK" textFill="WHITE">
          <font>
             <Font name="System Bold" size="27.0" />
-         </font></JFXButton>
-      <Pane fx:id="pane" layoutX="55.0" layoutY="90.0" prefHeight="176.0" prefWidth="188.0" style="-fx-background-color: #ff6868;">
+         </font>
+      </JFXButton>
+      <Pane fx:id="pane" layoutX="59.0" layoutY="94.0" prefHeight="176.0" prefWidth="188.0" style="-fx-background-color: #ff6868;">
          <children>
             <Label fx:id="roomNumLabel_1" layoutX="21.0" layoutY="15.0" text="0000" textFill="WHITE">
                <font>
@@ -145,53 +157,54 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-         </children></Pane>
-      <Text fill="#ff6868" layoutX="62.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer">
+         </children>
+      </Pane>
+      <Text fill="#ff6868" layoutX="66.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adult">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adult">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Child">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Child">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Bed">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Bed">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="extraBedNumLabel" layoutX="494.0" layoutY="458.0" text="-">
+      <Label fx:id="extraBedNumLabel" layoutX="498.0" layoutY="462.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="childNumLabel" layoutX="494.0" layoutY="431.0" text="-">
+      <Label fx:id="childNumLabel" layoutX="498.0" layoutY="435.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="adultNumLabel" layoutX="494.0" layoutY="401.0" prefHeight="8.0" prefWidth="42.0" text="-">
+      <Label fx:id="adultNumLabel" layoutX="498.0" layoutY="405.0" prefHeight="8.0" prefWidth="42.0" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Text fill="#ff6868" layoutX="345.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+      <Text fill="#ff6868" layoutX="349.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Label fx:id="roomNumLabel" layoutX="501.0" layoutY="138.0" text="Label">
+      <Label fx:id="roomNumLabel" layoutX="505.0" layoutY="142.0" text="Label">
          <font>
             <Font size="22.0" />
          </font>

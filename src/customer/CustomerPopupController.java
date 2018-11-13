@@ -21,6 +21,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
@@ -30,6 +32,7 @@ import javafx.util.Callback;
 import report.AllBooking;
 import report.Booking;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -60,6 +63,8 @@ public class CustomerPopupController {
     @FXML private JFXButton btnEdit;
     @FXML private JFXButton btnDelete;
     @FXML private StackPane stackpane;
+    @FXML
+    private ImageView customerPic;
 
 
     private String NameHash;
@@ -81,6 +86,12 @@ public class CustomerPopupController {
         tel.setText(customer.getTel());
         email.setText(customer.getEmail());
         adderss.setText(customer.getAddress());
+        File file = new File(customer.getImgfile()) ;
+        customerPic.setImage(new Image(file.toURI().toString()));
+        if(!file.exists())
+            customerPic.setImage(new Image(new File("src\\img\\icon\\photoUser.png").toURI().toString()));
+
+
 
         totalRes.setText(String.valueOf(customer.getTotalReserve()));
         night.setText(String.valueOf(customer.getTotalNightStay()));

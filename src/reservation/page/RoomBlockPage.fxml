@@ -4,55 +4,67 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="612.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.RoomBlockController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="624.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.RoomBlockController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="178.0" layoutX="39.0" layoutY="140.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="188.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="87.0" layoutY="-5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="620.0" />
-      <Text fill="WHITE" layoutX="13.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block">
+      <Pane layoutX="6.0" layoutY="6.0" prefHeight="420.0" prefWidth="612.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="178.0" layoutX="45.0" layoutY="146.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="188.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="82.0" layoutX="6.0" layoutY="6.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="612.0" />
+      <Text fill="WHITE" layoutX="19.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="80.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room">
+      <Text fill="WHITE" layoutX="86.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room">
          <font>
             <Font name="System Bold" size="38.0" />
          </font>
       </Text>
-      <Label fx:id="roomIDLabel" layoutX="86.0" layoutY="238.0" text="Label" textFill="WHITE">
+      <Label fx:id="roomIDLabel" layoutX="92.0" layoutY="244.0" text="Label" textFill="WHITE">
          <font>
             <Font name="System Bold" size="38.0" />
          </font>
       </Label>
-      <TextArea fx:id="memoText" layoutX="300.0" layoutY="154.0" prefHeight="93.0" prefWidth="260.0" />
-      <Text layoutX="301.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo">
+      <TextArea fx:id="memoText" layoutX="306.0" layoutY="160.0" prefHeight="93.0" prefWidth="260.0" />
+      <Text layoutX="307.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo">
          <font>
             <Font size="28.0" />
          </font>
       </Text>
-      <JFXButton fx:id="makeConfirm" layoutX="462.0" layoutY="341.0" prefHeight="54.0" prefWidth="117.0" style="-fx-background-color: #f754dc;" text="Confirm" textFill="WHITE">
+      <JFXButton fx:id="makeConfirm" layoutX="468.0" layoutY="347.0" prefHeight="54.0" prefWidth="117.0" style="-fx-background-color: #f754dc;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></JFXButton>
-      <JFXButton fx:id="makeCancel" layoutX="329.0" layoutY="341.0" prefHeight="28.0" prefWidth="117.0" style="-fx-border-color: #f754dc; -fx-border-width: 5;" text="Cancel" textFill="#f754dc">
+      <JFXButton fx:id="makeCancel" layoutX="335.0" layoutY="347.0" prefHeight="28.0" prefWidth="117.0" style="-fx-border-color: #f754dc; -fx-border-width: 5;" text="Cancel" textFill="#f754dc">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></JFXButton>
-      <Text layoutX="301.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date">
+      <Text layoutX="307.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="456.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finish Date">
+      <Text layoutX="462.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finish Date">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <JFXDatePicker fx:id="startDatePicker" layoutX="302.0" layoutY="283.0" prefHeight="28.0" prefWidth="128.0" />
-      <JFXDatePicker fx:id="finishDatePicker" layoutX="457.0" layoutY="281.0" prefHeight="28.0" prefWidth="128.0" />
+      <JFXDatePicker fx:id="startDatePicker" layoutX="308.0" layoutY="289.0" prefHeight="28.0" prefWidth="128.0" />
+      <JFXDatePicker fx:id="finishDatePicker" layoutX="463.0" layoutY="287.0" prefHeight="28.0" prefWidth="128.0" />
+      <Label layoutX="591.0" layoutY="14.0" onMouseClicked="#close" prefHeight="24.0" prefWidth="15.0" text="X" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

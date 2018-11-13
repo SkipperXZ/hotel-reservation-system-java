@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.Linker;
+import main.Main;
 import report.AllBooking;
 
 import java.io.IOException;
@@ -275,8 +276,12 @@ public class CustomerPageController {
             public void handle(MouseEvent event) {
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
-                stage.setScene(linker.newLoginScene());
-                stage.show();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

@@ -1,5 +1,6 @@
 package reservation.controller;
 
+import Account.Account;
 import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
@@ -8,14 +9,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import main.Linker;
 import reservation.*;
 import reservation.room.*;
@@ -207,6 +211,9 @@ public class ReservationPageController {
     @FXML
     private Label nameLabel_010;
     @FXML
+    private Label userLabel;
+
+    @FXML
     private Pane pane_011;
     @FXML
     private Label roomIDLabel_011;
@@ -262,14 +269,21 @@ public class ReservationPageController {
     @FXML
     private Label AllDeluxeLabel;
 
+
     @FXML
     private JFXButton customerButtton;
 
     @FXML
     private JFXButton  reportButtton;
+    @FXML
+    private JFXButton userButtton;
 
     @FXML
-    private Button makeDisplayRoomDB;
+    private JFXButton dashboardButtton;
+
+    @FXML
+    private JFXButton calendarButtton;
+
 
     private int roomIndex;
     private int currentDay = 1;
@@ -354,6 +368,7 @@ public class ReservationPageController {
     private LocalDate finishDate;
     Linker linker;
     private int currentFloorNum = 1;
+    private Stage currentStage;
     @FXML
     public void initialize() {
         Linker linker = new Linker();
@@ -364,6 +379,8 @@ public class ReservationPageController {
         initPaneEffect();
         countRoom();
         updateRoomAvailaible();
+
+        userLabel.setText(Account.currentUser);
 
         vacantMenu.getItems().addAll(reserveOnvacant,cleanOnVacant,blockOnVacant,outOfServiceOnVacant,infoOnVacant);
         reservedMenu.getItems().addAll(checkInOnReserved,paymentOnReserved,guestInfoOnReserved,cancelOnReserved,roomInfoOnReserved);
@@ -398,6 +415,25 @@ public class ReservationPageController {
 
             }
         });*/
+
+       userButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newUserScene());
+           }
+       });
+       dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newDashboardScene());
+           }
+       });
+       calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newCalendarScene());
+           }
+       });
 
         reportButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -853,6 +889,7 @@ public class ReservationPageController {
         boolean isConfirm = false;
         RoomBlockController roomBlockController;
 
+        if(currentStage == null){
         try {
             FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomBlockPage.fxml"));
             Parent root = loader.load();
@@ -861,91 +898,127 @@ public class ReservationPageController {
             roomBlockController.setRoom(searchRoomFromPane(selectedPane));
             roomBlockController.setInfo();
             roomBlockStage = new Stage();
+            roomBlockStage.initStyle(StageStyle.TRANSPARENT);
             roomBlockStage.setTitle("Room Block");
-            roomBlockStage.setScene(new Scene(root, 612, 410));
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            roomBlockStage.setScene(scene);
+            currentStage = roomBlockStage;
             roomBlockStage.showAndWait();
+            currentStage = null;
             isConfirm = roomBlockController.isConfirm();
+
         }catch (Exception e){
             e.printStackTrace();
+        }
         }
         return isConfirm;
     }
     private boolean isOutOfServiceScene(){
         boolean isConfirm = false;
         OutOfServiceController outOfServiceController;
+        if(currentStage == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
+                Parent root = loader.load();
+                outOfServiceController = loader.getController();
+                outOfServiceController.setParentController(this);
+                outOfServiceController.setRoom(searchRoomFromPane(selectedPane));
+                outOfServiceController.setInfo();
+                outOfServiceStage = new Stage();
+                outOfServiceStage.initStyle(StageStyle.TRANSPARENT);
+                outOfServiceStage.setTitle("Cleaning");
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                outOfServiceStage.setScene(scene);
+                currentStage = outOfServiceStage;
+                outOfServiceStage.showAndWait();
+                isConfirm = outOfServiceController.isConfirm();
+                currentStage = null;
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
-            Parent root = loader.load();
-            outOfServiceController = loader.getController();
-            outOfServiceController.setParentController(this);
-            outOfServiceController.setRoom(searchRoomFromPane(selectedPane));
-            outOfServiceController.setInfo();
-            outOfServiceStage = new Stage();
-            outOfServiceStage.setTitle("Cleaning");
-            outOfServiceStage.setScene(new Scene(root, 600, 400));
-            outOfServiceStage.showAndWait();
-            isConfirm = outOfServiceController.isConfirm();
-        }catch (Exception e){
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return isConfirm;
     }
     private void guestFolioScene(){
         CustomerInfoPageController customerInfoPageController;
+        if(currentStage == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CustomerFolioPage.fxml"));
+                Parent root = loader.load();
+                customerInfoPageController = loader.getController();
+                customerInfoPageController.setParentController(this);
+                customerInfoPageController.setRoom(searchRoomFromPane(selectedPane));
+                customerInfoPageController.setInfo();
+                guestFolioStage = new Stage();
+                guestFolioStage.setTitle("");
+                guestFolioStage.initStyle(StageStyle.TRANSPARENT);
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                guestFolioStage.setScene(scene);
+                currentStage = guestFolioStage;
+                guestFolioStage.showAndWait();
+                currentStage = null;
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CustomerFolioPage.fxml"));
-            Parent root = loader.load();
-            customerInfoPageController = loader.getController();
-            customerInfoPageController.setParentController(this);
-            customerInfoPageController.setRoom(searchRoomFromPane(selectedPane));
-            customerInfoPageController.setInfo();
-            guestFolioStage = new Stage();
-            guestFolioStage.setTitle("Cleaning");
-            guestFolioStage.setScene(new Scene(root, 600, 500));
-            guestFolioStage.showAndWait();
-        }catch (Exception e){
-            System.out.println(e);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
     private void roomInfoScene(){
         RoomInfoPageController roomInfoPageController;
+        if(currentStage == null) {
+            try {
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomInfoPage.fxml"));
-            Parent root = loader.load();
-            roomInfoPageController = loader.getController();
-            roomInfoPageController.setParentController(this);
-            roomInfoPageController.setRoom(searchRoomFromPane(selectedPane));
-            roomInfoPageController.setInfo();
-            roomInfoStage = new Stage();
-            roomInfoStage.setTitle("Cleaning");
-            roomInfoStage.setScene(new Scene(root, 647, 565));
-            roomInfoStage.showAndWait();
-        }catch (Exception e){
-            System.out.println(e);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/RoomInfoPage.fxml"));
+                Parent root = loader.load();
+                roomInfoPageController = loader.getController();
+                roomInfoPageController.setParentController(this);
+                roomInfoPageController.setRoom(searchRoomFromPane(selectedPane));
+                roomInfoPageController.setInfo();
+                roomInfoStage = new Stage();
+                roomInfoStage.initStyle(StageStyle.TRANSPARENT);
+                roomInfoStage.setTitle("Cleaning");
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                roomInfoStage.setScene(scene);
+                currentStage = roomInfoStage;
+                roomInfoStage.showAndWait();
+                currentStage = null;
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
 
     private boolean isCheckOutScene(){
         boolean isCheckOut = false;
         CheckOutPageController checkOutPageController;
+        if(currentStage == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
+                Parent root = loader.load();
+                checkOutPageController = loader.getController();
+                checkOutPageController.setParentController(this);
+                checkOutPageController.setRoom(searchRoomFromPane(selectedPane));
+                checkOutPageController.setInfo();
+                checkOutStage = new Stage();
+                checkOutStage.initStyle(StageStyle.TRANSPARENT);
+                checkOutStage.setTitle("Cleaning");
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                checkOutStage.setScene(scene);
+                currentStage =checkOutStage;
+                checkOutStage.showAndWait();
+                isCheckOut = checkOutPageController.isCheckOut();
+                currentStage = null;
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
-            Parent root = loader.load();
-            checkOutPageController = loader.getController();
-            checkOutPageController.setParentController(this);
-            checkOutPageController.setRoom(searchRoomFromPane(selectedPane));
-            checkOutPageController.setInfo();
-            checkOutStage = new Stage();
-            checkOutStage.setTitle("Cleaning");
-            checkOutStage.setScene(new Scene(root, 664, 710));
-            checkOutStage.showAndWait();
-            isCheckOut = checkOutPageController.isCheckOut();
-        }catch (Exception e){
-            System.out.println(e);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
         return isCheckOut;
     }
@@ -954,42 +1027,58 @@ public class ReservationPageController {
     private boolean isConfirmCleaningScene(){
         boolean isConfirm = false;
         CleaningPageController cleaningPageController;
+        if(currentStage == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CleaningPage.fxml"));
+                Parent root = loader.load();
+                cleaningPageController = loader.getController();
+                cleaningPageController.setReservationPageController(this);
+                cleaningPageController.initRoom();
+                cleaningStage = new Stage();
+                currentStage = cleaningStage;
+                cleaningStage.initStyle(StageStyle.TRANSPARENT);
+                cleaningStage.setTitle("Cleaning");
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                cleaningStage.setScene(scene);
+                currentStage = cleaningStage;
+                cleaningStage.showAndWait();
+                isConfirm = cleaningPageController.getConfirm();
+                currentStage = null;
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CleaningPage.fxml"));
-            Parent root = loader.load();
-            cleaningPageController = loader.getController();
-            cleaningPageController.setReservationPageController(this);
-            cleaningPageController.initRoom();
-            cleaningStage = new Stage();
-            cleaningStage.setTitle("Cleaning");
-            cleaningStage.setScene(new Scene(root, 600, 400));
-            cleaningStage.showAndWait();
-            isConfirm = cleaningPageController.getConfirm();
-        }catch (Exception e){
-               e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return isConfirm;
     }
     private boolean isConfirmCheckInScene(){
         boolean isConfirm = false;
         CheckInController checkInController;
+        if(currentStage == null) {
+            try {
+                if (currentStage != null)
+                    currentStage.close();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CheckInReserved.fxml"));
+                Parent root = loader.load();
+                checkInController = loader.getController();
+                checkInController.setParentController(this);
+                checkInController.setRoom(searchRoomFromPane(selectedPane));
+                checkInController.getInfoFromGuest();
+                checkInStage = new Stage();
+                checkInStage.initStyle(StageStyle.TRANSPARENT);
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                checkInStage.setScene(scene);
+                currentStage = checkInStage;
+                checkInStage.showAndWait();
+                isConfirm = checkInController.getConfirm();
+                currentStage = null;
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/CheckInReserved.fxml"));
-            Parent root = loader.load();
-            checkInController = loader.getController();
-            checkInController.setParentController(this);
-            checkInController.setRoom(searchRoomFromPane(selectedPane));
-            checkInController.getInfoFromGuest();
-            checkInStage = new Stage();
-            checkInStage.setTitle("Check In");
-            checkInStage.setScene(new Scene(root, 1000, 770));
-            checkInStage.showAndWait();
-            isConfirm = checkInController.getConfirm();
-        }catch (Exception e){
-            System.out.println(e);
-        };
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
 
         return isConfirm;
     }
@@ -1014,20 +1103,29 @@ public class ReservationPageController {
     private boolean isConfirmReservationScene() {
         boolean isConfirm = false;
         ReserveRoomController reserveRoomController;
+        if(currentStage == null) {
+            try {
+                if (currentStage != null)
+                    currentStage.close();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
+                // System.out.println();
+                Parent root = loader.load();
+                reserveRoomController = loader.getController();
+                reserveRoomController.setParentController(this);
+                reserveStage = new Stage();
+                reserveStage.initStyle(StageStyle.TRANSPARENT);
+                reserveStage.setTitle("ReservationHandler");
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                reserveStage.setScene(scene);
+                currentStage =reserveStage;
+                reserveStage.showAndWait();
+                isConfirm = reserveRoomController.getConfirm();
+                currentStage = null;
 
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
-            // System.out.println();
-            Parent root = loader.load();
-            reserveRoomController = loader.getController();
-            reserveRoomController.setParentController(this);
-            reserveStage = new Stage();
-            reserveStage.setTitle("ReservationHandler");
-            reserveStage.setScene(new Scene(root, 834, 698));
-            reserveStage.showAndWait();
-            isConfirm = reserveRoomController.getConfirm();
-        }catch (Exception e){
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         return isConfirm;
@@ -1035,23 +1133,29 @@ public class ReservationPageController {
     public boolean isConfirmPaymentScene() {
         boolean isPay = false;
         PaymentPageController paymentPageController;
-
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/PaymentPage.fxml"));
-            // System.out.println();
-            //  System.out.println(loader);
-            Parent root = loader.load();
-            paymentPageController = loader.getController();
-            paymentPageController.setParentController(this);
-            paymentPageController.setRoom(searchRoomFromPane(selectedPane));
-            paymentPageController.setInfo();
-            paymentStage = new Stage();
-            paymentStage.setTitle("Payment");
-            paymentStage.setScene(new Scene(root, 880, 500));
-            paymentStage.showAndWait();
-            isPay= paymentPageController.isPay();
-        }catch (Exception e){
-            System.out.println(e.getCause());
+        if(currentStage == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/PaymentPage.fxml"));
+                // System.out.println();
+                //  System.out.println(loader);
+                Parent root = loader.load();
+                paymentPageController = loader.getController();
+                paymentPageController.setParentController(this);
+                paymentPageController.setRoom(searchRoomFromPane(selectedPane));
+                paymentPageController.setInfo();
+                paymentStage = new Stage();
+                paymentStage.initStyle(StageStyle.TRANSPARENT);
+                paymentStage.setTitle("Payment");
+                currentStage = paymentStage;
+                Scene scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+                paymentStage.setScene(scene);
+                paymentStage.showAndWait();
+                isPay = paymentPageController.isPay();
+                currentStage = null;
+            } catch (Exception e) {
+                System.out.println(e.getCause());
+            }
         }
 
         return isPay;
@@ -1179,7 +1283,6 @@ public class ReservationPageController {
         AvaliableSuiteLabel.setText(Integer.toString(avaSuite));
         AvaliableSuperiorLabel.setText(Integer.toString(avaSuperior));
     }
-
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
