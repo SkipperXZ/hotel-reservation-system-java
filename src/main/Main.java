@@ -1,5 +1,6 @@
 package main;
 
+import Account.Account;
 import Hotel.Hotel;
 import Hotel.Customer;
 import Hotel.CustomerDatabase;
@@ -116,7 +117,7 @@ public class Main extends Application {
             AllBooking.allBooking = allbooking;
         }
         else{
-            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
+            Booking booking = new Booking(Account.currentUser, 0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
             AllBooking.addBooking(booking);
         }
     }

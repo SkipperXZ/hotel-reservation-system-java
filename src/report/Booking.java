@@ -25,8 +25,10 @@ public class Booking implements Serializable {
     private String timeFormet;
     private String arrivalTimeFormet;
     private String departureTimeFormet;
+    private String userRecord;
 
-    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, int nightNum){ /// Check-IN
+    public  Booking(String userRecord, int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, int nightNum){ /// Check-IN
+        this.userRecord = userRecord;
         this.firstname = firstname;
         this.lastname = lastname;
         this.regNum = regNum;
@@ -42,7 +44,8 @@ public class Booking implements Serializable {
         timeFormet = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
     }
 
-    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price,LocalDateTime recordTime,LocalDate recordDate, LocalDateTime arrivalDate, LocalDateTime departureDate, int nightNum){ /// Check-IN
+    public  Booking(String userRecord, int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price,LocalDateTime recordTime,LocalDate recordDate, LocalDateTime arrivalDate, LocalDateTime departureDate, int nightNum){ /// Check-IN
+        this.userRecord = userRecord;
         this.firstname = firstname;
         this.lastname = lastname;
         this.regNum = regNum;
@@ -214,8 +217,14 @@ public class Booking implements Serializable {
         return departureTimeFormet;
     }
 
-    public void setDepartureTimeFormet(String departureTimeFormet) {
-        this.departureTimeFormet = departureTimeFormet;
+    public void setDepartureTimeFormet(String departureTimeFormet) { this.departureTimeFormet = departureTimeFormet; }
+
+    public String getUserRecord() {
+        return userRecord;
+    }
+
+    public void setUserRecord(String userRecord) {
+        this.userRecord = userRecord;
     }
 }
 
