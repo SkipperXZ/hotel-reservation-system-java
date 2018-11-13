@@ -119,9 +119,9 @@ public class CheckOutPageController {
     public void setInfo(){
         customer = room.getCustomer();
         if(customer.isPayment())
-            paymentStatusLabel.setText("จ่ายแล้ว");
+            paymentStatusLabel.setText("Paid");
         else
-            paymentStatusLabel.setText("ยังไม่จ่าย");
+            paymentStatusLabel.setText("Not Pay Yet");
         if(customer.getIdNum() != null)
             idNumLabel.setText(customer.getIdNum());
         firstNameLabel.setText(customer.getFirstName());
