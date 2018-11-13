@@ -79,7 +79,7 @@
       </Text>
       <ChoiceBox fx:id="extraBedChoice" layoutX="340.0" layoutY="448.0" prefHeight="25.0" prefWidth="48.0" />
       <Label fx:id="dayLabel_0" layoutX="116.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label layoutX="176.0" layoutY="120.0" prefHeight="38.0" prefWidth="162.0" text="0000" textFill="WHITE">
+      <Label fx:id="roomIDLabel" layoutX="176.0" layoutY="120.0" prefHeight="38.0" prefWidth="162.0" text="0000" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
