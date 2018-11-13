@@ -89,6 +89,11 @@ public class Main extends Application {
             new Hotel();
          }
         else{
+            while(!hotel.get(0).getDate().equals(LocalDate.now())){
+                hotel.add(new OneDayHotel(hotel.get(hotel.size()-1).getDate().plusDays(1)));
+                hotel.remove(hotel.get(0));
+            }
+            System.out.println(hotel.size());
             Hotel.hotel =hotel;
         }
         if(customer != null){
