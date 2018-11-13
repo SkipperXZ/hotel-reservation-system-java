@@ -4,6 +4,8 @@ import Hotel.CustomerDatabase;
 import Hotel.Hotel;
 import Hotel.Customer;
 import com.jfoenix.controls.JFXDatePicker;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -107,6 +109,15 @@ public class ReserveRoomController {
     @FXML
     public void initialize() {
 
+        telNumText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    telNumText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
         adultNumChoice.getItems().addAll(0,1,2,3,4);
         childNumChoice.getItems().addAll(0,1,2);
         extraBedChoice.getItems().addAll(0,1,2);

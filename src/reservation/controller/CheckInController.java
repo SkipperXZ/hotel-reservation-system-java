@@ -3,6 +3,8 @@ import Hotel.Hotel;
 import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -121,7 +123,15 @@ public class CheckInController {
         childNumChoice.getItems().addAll(0,1,2,3,4);
         extraBedChoice.getItems().addAll(0,1,2);
         titleChoice.getItems().addAll("Mr.","Mrs.");
-
+        idNumText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    idNumText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
         makeCheckIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
