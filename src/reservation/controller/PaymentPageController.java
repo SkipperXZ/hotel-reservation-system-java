@@ -186,13 +186,14 @@ public class PaymentPageController {
             public void handle(ActionEvent event) {
                 if(passwordField.getText().equals(Account.currentPassword)){
                     isCorrect = true;
-                    dialog("ชำระเงินเสร็จสิน");
+                    dialog("Payment Success");
                     comfirmPasswordStage.close();
+
                     System.out.println();
                 }
                 else
                 { isCorrect = false;
-                    dialog("รหัสผ่านไม่ถูกต้อง");
+                    dialog("Incorrect password");
                     comfirmPasswordStage.close();}
             }
         });
@@ -207,7 +208,10 @@ public class PaymentPageController {
         jfxDialog.setOverlayClose(false);
         JFXButton jfxButton= new JFXButton("Okay");;
         jfxDialogLayout.setHeading(new Text(text));
-        jfxDialogLayout.setBody(new Text("ขอบคุณที่ใช้บริการ"));
+        if(text.equals("Payment Success"))
+            jfxDialogLayout.setBody(new Text("Thank You For Choosing Us"));
+        else
+            jfxDialogLayout.setBody(new Text("Please Try Again"));
         jfxButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
