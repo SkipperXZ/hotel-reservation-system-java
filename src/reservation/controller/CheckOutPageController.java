@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import Hotel.Customer;
+import javafx.scene.input.MouseEvent;
 import reservation.ReservationHandler;
 import reservation.room.Room;
 
@@ -71,6 +72,10 @@ public class CheckOutPageController {
     private Customer customer;
     private boolean isCheckOut=false;
     private ReservationPageController parentController;
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
 
     @FXML
     public void initialize(){

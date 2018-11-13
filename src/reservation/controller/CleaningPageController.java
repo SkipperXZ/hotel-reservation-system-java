@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import reservation.room.Room;
 
 public class CleaningPageController {
@@ -22,6 +23,11 @@ public class CleaningPageController {
     private String roomNum;
     private Boolean isConfirm =false;
     private ReservationPageController reservationPageController;
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
+
     @FXML
     public void initialize() {
 

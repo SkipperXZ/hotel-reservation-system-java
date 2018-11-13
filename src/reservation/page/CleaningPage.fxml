@@ -3,54 +3,66 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CleaningPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="612.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.CleaningPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="71.0" layoutX="-12.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="638.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="199.0" layoutX="26.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="205.0" />
-      <Text fill="WHITE" layoutX="26.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning" wrappingWidth="162.271484375">
+      <Pane layoutX="6.0" layoutY="8.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="71.0" layoutX="6.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="199.0" layoutX="32.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="205.0" />
+      <Text fill="WHITE" layoutX="32.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning" wrappingWidth="162.271484375">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Label fx:id="roomNumLabel" alignment="CENTER" layoutX="59.0" layoutY="224.0" prefHeight="54.0" prefWidth="138.0" text="a011" textFill="WHITE">
+      <Label fx:id="roomNumLabel" alignment="CENTER" layoutX="65.0" layoutY="231.0" prefHeight="54.0" prefWidth="138.0" text="a011" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="43.0" />
          </font>
       </Label>
-      <Text fill="WHITE" layoutX="74.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room" wrappingWidth="108.271484375">
+      <Text fill="WHITE" layoutX="80.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room" wrappingWidth="108.271484375">
          <font>
             <Font name="Segoe UI Bold" size="36.0" />
          </font>
       </Text>
-      <Text layoutX="298.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning time">
+      <Text layoutX="304.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning time">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <TextField fx:id="cleaningTimeText" layoutX="324.0" layoutY="203.0" prefHeight="39.0" prefWidth="57.0" text="30">
+      <TextField fx:id="cleaningTimeText" layoutX="330.0" layoutY="210.0" prefHeight="39.0" prefWidth="57.0" text="30">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </TextField>
-      <Text layoutX="405.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="min">
+      <Text layoutX="411.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="min">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <JFXButton fx:id="makeCancel" layoutX="318.0" layoutY="334.0" prefHeight="51.0" prefWidth="119.0" style="-fx-border-color: #4bccfd; -fx-border-width: 3;" text="Cancel" textFill="#4bccfd">
+      <JFXButton fx:id="makeCancel" layoutX="324.0" layoutY="341.0" prefHeight="51.0" prefWidth="119.0" style="-fx-border-color: #4bccfd; -fx-border-width: 3;" text="Cancel" textFill="#4bccfd">
          <font>
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="makeConfirm" layoutX="458.0" layoutY="335.0" prefHeight="48.0" prefWidth="125.0" style="-fx-background-color: #4bccfd;" text="Confirm" textFill="WHITE">
+      <JFXButton fx:id="makeConfirm" layoutX="464.0" layoutY="342.0" prefHeight="48.0" prefWidth="125.0" style="-fx-background-color: #4bccfd;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </JFXButton>
+      <Label layoutX="582.0" layoutY="14.0" onMouseClicked="#close" prefHeight="24.0" prefWidth="15.0" text="X" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,193 +12,198 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="880.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.PaymentPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="899.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.PaymentPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6f6f" height="46.0" layoutX="54.0" layoutY="86.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="166.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6f6f" height="181.0" layoutX="-5.0" layoutY="-107.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="889.0" />
-      <Text fill="#ff6f6f" layoutX="243.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+      <Pane layoutX="7.0" layoutY="5.0" prefHeight="500.0" prefWidth="884.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6f6f" height="46.0" layoutX="61.0" layoutY="91.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="166.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6f6f" height="74.0" layoutX="7.0" layoutY="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="884.0" />
+      <Text fill="#ff6f6f" layoutX="250.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="243.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+      <Text fill="#ff6f6f" layoutX="250.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="45.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment">
+      <Text fill="WHITE" layoutX="52.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="243.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
+      <Text fill="#ff6f6f" layoutX="250.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass No./ID">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="242.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check in date">
+      <Text fill="#ff6f6f" layoutX="249.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check in date">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="243.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Out date">
+      <Text fill="#ff6f6f" layoutX="250.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Out date">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="244.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nights">
+      <Text fill="#ff6f6f" layoutX="251.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nights">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="243.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra bed">
+      <Text fill="#ff6f6f" layoutX="250.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra bed">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff6f6f" layoutX="242.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status">
+      <Text fill="#ff6f6f" layoutX="249.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Status">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="firstNameLabel" layoutX="382.0" layoutY="149.0" prefHeight="27.0" prefWidth="150.0" text="ddddddddddddddd" textFill="#908d8d">
+      <Label fx:id="firstNameLabel" layoutX="389.0" layoutY="154.0" prefHeight="27.0" prefWidth="150.0" text="ddddddddddddddd" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lastNameLabel" layoutX="382.0" layoutY="182.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="lastNameLabel" layoutX="389.0" layoutY="187.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="idNumLabel" layoutX="382.0" layoutY="216.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="idNumLabel" layoutX="389.0" layoutY="221.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="checkInDateLabel" layoutX="382.0" layoutY="250.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="checkInDateLabel" layoutX="389.0" layoutY="255.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="checkOutDateLabel" layoutX="382.0" layoutY="280.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="checkOutDateLabel" layoutX="389.0" layoutY="285.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="nightNumLabel" layoutX="382.0" layoutY="312.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="nightNumLabel" layoutX="389.0" layoutY="317.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="extraBedLabel" layoutX="381.0" layoutY="342.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="extraBedLabel" layoutX="388.0" layoutY="347.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="paymenStatusLabel" layoutX="382.0" layoutY="379.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
+      <Label fx:id="paymenStatusLabel" layoutX="389.0" layoutY="384.0" prefHeight="27.0" prefWidth="150.0" text="Label" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="roomTypeLabel" layoutX="562.0" layoutY="110.0" prefHeight="27.0" prefWidth="150.0" text="Suit Room" textFill="#ff6f6f">
+      <Label fx:id="roomTypeLabel" layoutX="569.0" layoutY="115.0" prefHeight="27.0" prefWidth="150.0" text="Suit Room" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="weekDayNumLabel" layoutX="589.0" layoutY="147.0" prefHeight="27.0" prefWidth="150.0" text="weekday 1" textFill="#ff6f6f">
+      <Label fx:id="weekDayNumLabel" layoutX="596.0" layoutY="152.0" prefHeight="27.0" prefWidth="150.0" text="weekday 1" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="weekEndNumLabel" layoutX="589.0" layoutY="180.0" prefHeight="27.0" prefWidth="150.0" text="weekend 1" textFill="#ff6f6f">
+      <Label fx:id="weekEndNumLabel" layoutX="596.0" layoutY="185.0" prefHeight="27.0" prefWidth="150.0" text="weekend 1" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="562.0" layoutY="244.0" prefHeight="27.0" prefWidth="194.0" text=" Room Service(10 %)" textFill="#ff6f6f">
+      <Label layoutX="569.0" layoutY="249.0" prefHeight="27.0" prefWidth="194.0" text=" Room Service(10 %)" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="567.0" layoutY="277.0" prefHeight="27.0" prefWidth="194.0" text="Extra Bed" textFill="#ff6f6f">
+      <Label layoutX="574.0" layoutY="282.0" prefHeight="27.0" prefWidth="194.0" text="Extra Bed" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="567.0" layoutY="309.0" prefHeight="27.0" prefWidth="194.0" text="Vat(7%)" textFill="#ff6f6f">
+      <Label layoutX="574.0" layoutY="314.0" prefHeight="27.0" prefWidth="194.0" text="Vat(7%)" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="567.0" layoutY="342.0" prefHeight="27.0" prefWidth="194.0" text="Late" textFill="#ff6f6f">
+      <Label layoutX="574.0" layoutY="347.0" prefHeight="27.0" prefWidth="194.0" text="Late" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="567.0" layoutY="376.0" prefHeight="27.0" prefWidth="194.0" text="Including" textFill="#ff6f6f">
+      <Label layoutX="574.0" layoutY="381.0" prefHeight="27.0" prefWidth="194.0" text="Including" textFill="#ff6f6f">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="weekDayPrice" layoutX="744.0" layoutY="147.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="weekDayPrice" layoutX="751.0" layoutY="152.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="weekEndPrice" layoutX="744.0" layoutY="179.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="weekEndPrice" layoutX="751.0" layoutY="184.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="totalRoomPriceLabel" layoutX="744.0" layoutY="213.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="totalRoomPriceLabel" layoutX="751.0" layoutY="218.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="roomServiceLabel" layoutX="744.0" layoutY="244.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="roomServiceLabel" layoutX="751.0" layoutY="249.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="extraBedPriceLabel" layoutX="744.0" layoutY="277.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="extraBedPriceLabel" layoutX="751.0" layoutY="282.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="vatPriceLabel" layoutX="744.0" layoutY="310.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="vatPriceLabel" layoutX="751.0" layoutY="315.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="latePriceLabel" layoutX="744.0" layoutY="342.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="latePriceLabel" layoutX="751.0" layoutY="347.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="totalPriceLabel" layoutX="744.0" layoutY="377.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
+      <Label fx:id="totalPriceLabel" layoutX="751.0" layoutY="382.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="725.0" layoutY="213.0" prefHeight="27.0" prefWidth="92.0" text="=" textFill="#908d8d">
+      <Label layoutX="732.0" layoutY="218.0" prefHeight="27.0" prefWidth="92.0" text="=" textFill="#908d8d">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="WHITE" layoutX="61.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROOM">
+      <Text fill="WHITE" layoutX="68.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROOM">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Text>
-      <Text fx:id="roomIDText" fill="WHITE" layoutX="148.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S100">
+      <Text fx:id="roomIDText" fill="WHITE" layoutX="155.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S100">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Text>
-      <StackPane fx:id="myStackPane" prefHeight="500.0" prefWidth="880.0">
+      <StackPane fx:id="myStackPane" layoutX="7.0" layoutY="5.0" prefHeight="500.0" prefWidth="880.0">
          <children>
-            <Pane prefHeight="500.0" prefWidth="880.0">
+            <Pane prefHeight="500.0" prefWidth="921.0">
                <children>
                   <JFXButton fx:id="makeCancel" layoutX="614.0" layoutY="426.0" prefHeight="46.0" prefWidth="100.0" style="-fx-border-color: #ff6f6f; -fx-border-width: 3;" text="CANCEL" textFill="#ff6f6f">
                      <font>
@@ -214,6 +220,11 @@
                         <Image url="@../../img/icon/photoUser.png" />
                      </image>
                   </ImageView>
+                  <Label layoutX="859.0" layoutY="7.0" onMouseClicked="#close" prefHeight="24.0" prefWidth="15.0" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="25.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
