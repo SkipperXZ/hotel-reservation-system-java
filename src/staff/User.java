@@ -3,6 +3,7 @@ package staff;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.awt.*;
+import java.io.File;
 import java.io.Serializable;
 import javafx.scene.control.Button;
 import java.time.LocalDate;
@@ -24,9 +25,10 @@ public class User implements Serializable {
     private SimpleStringProperty passWord;
     private Button buttonE;
     private Button buttonD;
+    private String image;
 
     public User(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
-                String userType,String role,Button buttonE,Button buttonD,String passId,String passWord){
+                String userType,String role,Button buttonE,Button buttonD,String passId,String passWord,String image){
         this.employeeId=new SimpleStringProperty(employeeId);
         this.userName=new SimpleStringProperty(userName);
         this.firstName=new SimpleStringProperty(firstName);
@@ -44,6 +46,15 @@ public class User implements Serializable {
         this.buttonD.setText("Delete");
         this.passId=new SimpleStringProperty(passId);
         this.passWord = new SimpleStringProperty(passWord);
+        this.image=image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public SimpleStringProperty passIdProperty() {

@@ -4,6 +4,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
+
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -15,10 +17,20 @@ import javafx.stage.Stage;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import main.Main;
+
+import java.io.FileInputStream;
 
 public class CustomerPopupController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     int userCur = UserDatabase.userCur;
+
+    @FXML
+    private ImageView ima = new ImageView();
 
     @FXML
     private Label fullname = new Label();
@@ -92,6 +104,6 @@ public class CustomerPopupController implements Initializable {
         role.setText(userArrayList.get(userCur).getRole());
         status.setText(userArrayList.get(userCur).getUserType());
         cancel.setOnAction(this::handleButtonAction);
-//        table.setItems(list);
+        ima.setImage(new Image(userArrayList.get(userCur).getImage()));
     }
 }
