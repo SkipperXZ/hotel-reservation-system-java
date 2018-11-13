@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 import static Hotel.CustomerDatabase.customerDatabase;
 
@@ -145,7 +146,7 @@ public class EditCustomerController {
        {
            try{
                des = new File("src\\img\\customer\\user"+customer.getCustomerID()+".jpg");  //output file path
-               Files.copy(fileInput.toPath(),des.toPath());
+               Files.copy(fileInput.toPath(),des.toPath(), StandardCopyOption.REPLACE_EXISTING);
                //  System.out.println("Writing complete.");
            }catch(IOException e){
                System.out.println("Error: "+e);
