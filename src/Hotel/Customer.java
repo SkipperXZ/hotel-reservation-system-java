@@ -29,6 +29,8 @@ public class Customer implements Serializable {
     private LocalDateTime lastVisit;
 
     private String status;
+    private String imgFile;
+
 
 
 
@@ -67,6 +69,8 @@ public class Customer implements Serializable {
         numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
         //System.out.println(numcustomerID+1);
+
+        this.imgFile = "src\\img\\icon\\photoUser.png";
     }
 
 // for test customerpage
@@ -77,6 +81,7 @@ public class Customer implements Serializable {
         this.lastName = lastName;
         this.tel = tel;
         this.email =email;
+        this.imgFile = "src\\img\\icon\\photoUser.png";
     }
 
     public Customer         (String firstName,
@@ -98,6 +103,7 @@ public class Customer implements Serializable {
             numcustomerID =0;
         numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
+        this.imgFile = "src\\img\\icon\\photoUser.png";
     }
 
 
@@ -267,4 +273,6 @@ public class Customer implements Serializable {
     }
 
     public static void setNumcustomerID(int numcustomerID) {  Customer.numcustomerID = numcustomerID;   }
+    public String getImgfile() { return imgFile;  }
+    public void setImgfile(String imgfile) { this.imgFile = imgfile; }
 }
