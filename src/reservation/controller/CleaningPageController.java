@@ -1,5 +1,7 @@
 package reservation.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -30,6 +32,15 @@ public class CleaningPageController {
 
     @FXML
     public void initialize() {
+        cleaningTimeText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    cleaningTimeText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
 
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
