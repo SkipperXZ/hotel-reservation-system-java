@@ -17,12 +17,16 @@ import javafx.scene.image.ImageView;
 import main.Linker;
 import report.AllBooking;
 import report.Booking;
+import report.reportController;
+import reservation.room.*;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static Hotel.Hotel.hotel;
 
 public class DashboardController implements Initializable {
 
@@ -64,6 +68,13 @@ public class DashboardController implements Initializable {
     @FXML private TableColumn<Booking, String> roomD2;
     @FXML private TableColumn<Booking, String>roomTypeD2;
     @FXML private TableColumn<Booking, String> nightD2;
+    @FXML private TableView<Booking> inHouseTable;
+    @FXML private TableColumn<Booking, String> guestH;
+    @FXML private TableColumn<Booking, String> regNoH;
+    @FXML private TableColumn<Booking, String> phoneH;
+    @FXML private TableColumn<Booking, String>roomH;
+    @FXML private TableColumn<Booking, String> roomTypeH;
+    @FXML private TableColumn<Booking, String> nightH;
     @FXML private Label Guest;
     @FXML private Label Occupied;
     @FXML private Label Occupiedpercent;
@@ -74,20 +85,24 @@ public class DashboardController implements Initializable {
     static ObservableList<Booking>list2;
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
+    static ObservableList<Booking>list5;
     ArrayList<Booking> allBooking = AllBooking.allBooking;
     ArrayList<Booking> arrivalToday = new ArrayList<Booking>();
     ArrayList<Booking> arrivalTomorrow = new ArrayList<Booking>();
     ArrayList<Booking> departureToday = new ArrayList<Booking>();
     ArrayList<Booking> departureTomorrow = new ArrayList<Booking>();
-    private int arrivalNum=0, departureNum=0;
+    ArrayList<Booking> inHouse = new ArrayList<Booking>();
+    private int arrivalNum=0, departureNum=0, inHouseNum=0;
     private String todayDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
     private String tomorrowDate = LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
+    private int avaliableRoomNum;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
         userLabel.setText(Account.currentUser);
+        updateRoomAvailaible();
         Linker linker = new Linker();
 
         for (Booking e : allBooking) {
@@ -108,6 +123,18 @@ public class DashboardController implements Initializable {
                     departureTomorrow.add(e);
                 }
             }
+            else if(e.getOperation() == 1)
+            {
+                inHouse.add(e);
+                inHouseNum++;
+                for (Booking f : allBooking){
+                    if(f.getOperation() == 2 && e.getFullname().equals(f.getFullname())){
+                        inHouse.remove(e);
+                        inHouseNum--;
+                        break;
+                    }
+                }
+            }
         }
         list1= FXCollections.observableArrayList(
                 arrivalToday
@@ -120,6 +147,9 @@ public class DashboardController implements Initializable {
         );
         list4= FXCollections.observableArrayList(
                 departureTomorrow
+        );
+        list5= FXCollections.observableArrayList(
+                inHouse
         );
 
         guestA1.setCellValueFactory(new PropertyValueFactory<Booking, String>("fullname"));
@@ -153,6 +183,18 @@ public class DashboardController implements Initializable {
         roomTypeD2.setCellValueFactory(new PropertyValueFactory<Booking, String>("roomType"));
         nightD2.setCellValueFactory(new PropertyValueFactory<Booking, String>("nightNum"));
         departureTomorrowTable.setItems(list4);
+
+        guestH.setCellValueFactory(new PropertyValueFactory<Booking, String>("fullname"));
+        regNoH.setCellValueFactory(new PropertyValueFactory<Booking, String>("regNum"));
+        phoneH.setCellValueFactory(new PropertyValueFactory<Booking, String>("tel"));
+        roomH.setCellValueFactory(new PropertyValueFactory<Booking, String>("roomNum"));
+        roomTypeH.setCellValueFactory(new PropertyValueFactory<Booking, String>("roomType"));
+        nightH.setCellValueFactory(new PropertyValueFactory<Booking, String>("nightNum"));
+        inHouseTable.setItems(list5);
+
+        Arrivals.setText(Integer.toString(arrivalNum));
+        Departures.setText(Integer.toString(departureNum));
+        Guest.setText(Integer.toString(inHouseNum));
 
         calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -190,5 +232,23 @@ public class DashboardController implements Initializable {
             }
         });
 
+    }
+
+    public void updateRoomAvailaible(){
+
+        avaliableRoomNum = 0;
+
+        for (int i = 0; i < hotel.get(0).getFloors().length; i++) {
+            for (int j = 0; j < hotel.get(0).getFloors()[i].getRooms().length; j++) {
+                Room room =hotel.get(0).getFloors()[i].getRooms()[j];
+
+                if(room.getStatus().equals("Vacant")){
+                   avaliableRoomNum++;
+                }
+
+            }
+        }
+        Occupied.setText(Integer.toString(60-avaliableRoomNum));
+        Occupiedpercent.setText(Integer.toString(((60-avaliableRoomNum)*100)/60)+" %");
     }
 }
