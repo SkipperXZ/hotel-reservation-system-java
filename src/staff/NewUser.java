@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
+import java.io.File;
 import java.io.Serializable;
 import javafx.collections.ObservableList;
 import java.net.URL;
@@ -17,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.ChoiceBox;
@@ -25,6 +27,8 @@ public class NewUser implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     ObservableList<String> cursors = FXCollections.observableArrayList("User","Admin");
+    FileChooser fileChooser = new FileChooser();
+    File file = new File("src/img/icon/photoUser.png");;
     @FXML
     private Label userID;
 
@@ -78,6 +82,12 @@ public class NewUser implements Initializable {
     @FXML private Label chEmail = new Label();
 
     @FXML
+    private JFXButton changeIm=new JFXButton();
+
+    @FXML
+    private ImageView ima = new ImageView();
+
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         chUser.setText("");
         chEmail.setText("");
@@ -96,10 +106,10 @@ public class NewUser implements Initializable {
             if((ch1&&ch2&&ch3&&ch4&&ch5&&ch6&&ch7&&ch8)||(userArrayList.size()==0)) {
                 userArrayList.add(new User(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
-                        userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText()));
+                        userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText(),file.toURI().toString()));
                 userNoButtons.add(new UserNoButton(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
-                        userType.getValue(), role.getText(), pass.getText(), passWord.getText()));
+                        userType.getValue(), role.getText(), pass.getText(), passWord.getText(),file.toURI().toString()));
                 System.out.println("New User");
                 UserDatabase.employeeId++;
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -120,6 +130,12 @@ public class NewUser implements Initializable {
             stage.close();
         }else if(event.getSource()==btnImage){
             //image.setImage(new Image("src/staff/logo.png"));
+        }else if(event.getSource()==changeIm){
+            Stage stage = (Stage) btnCancel.getScene().getWindow();
+            file = fileChooser.showOpenDialog(stage);
+            System.out.println(file.toURI().toString());
+            String a = file.toURI().toString();
+            ima.setImage(new Image(a));
         }
 
     }
@@ -132,5 +148,6 @@ public class NewUser implements Initializable {
         userID.setText(Integer.toString(UserDatabase.employeeId));
         userType.getItems().addAll("User","Admin");
         userType.setValue("User");
+        changeIm.setOnAction(this::handleButtonAction);
     }
 }

@@ -8,18 +8,26 @@ import javafx.event.ActionEvent;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-
+import javafx.scene.image.ImageView;
 public class EditUser implements Initializable {
 
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     int userCur = UserDatabase.userCur;
+    FileChooser fileChooser = new FileChooser();
+    File file;
+
+    @FXML
+    private JFXButton changImg = new JFXButton();
 
 
     @FXML
@@ -60,8 +68,12 @@ public class EditUser implements Initializable {
     @FXML
     private ChoiceBox<String> userType = new ChoiceBox<String>();
 
+    @FXML
+    private ImageView ima = new ImageView();
+
     private Button button = new Button();
     @FXML
+
     private void handleButtonAction(ActionEvent event) {
         boolean ch1=true;
         chEmail.setText("");
@@ -83,6 +95,7 @@ public class EditUser implements Initializable {
                 userArrayList.get(userCur).setPassWord(passWord.getText());
                 userArrayList.get(userCur).setRole(role.getText());
                 userArrayList.get(userCur).setUserType(userType.getValue());
+                userArrayList.get(userCur).setImage(file.toURI().toString());
 
                 userNoButtons.get(userCur).setFirstName(firstName.getText());
                 userNoButtons.get(userCur).setEmail(email.getText());
@@ -93,6 +106,7 @@ public class EditUser implements Initializable {
                 userNoButtons.get(userCur).setPassWord(passWord.getText());
                 userNoButtons.get(userCur).setRole(role.getText());
                 userNoButtons.get(userCur).setUserType(userType.getValue());
+                userNoButtons.get(userCur).setImage(file.toURI().toString());
             }
 
             System.out.println("Save");
@@ -100,6 +114,12 @@ public class EditUser implements Initializable {
             System.out.println("Cancel");
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();
+        }else if(event.getSource()==changImg){
+            Stage stage = (Stage) btnCancel.getScene().getWindow();
+            file = fileChooser.showOpenDialog(stage);
+            System.out.println(file.toURI().toString());
+            String a = file.toURI().toString();
+            ima.setImage(new Image(a));
         }
     }
 
@@ -118,5 +138,7 @@ public class EditUser implements Initializable {
         role.setText(userArrayList.get(userCur).getRole());
         userType.getItems().addAll("User","Admin");
         userType.setValue(userArrayList.get(userCur).getUserType());
+        changImg.setOnAction(this::handleButtonAction);
+        ima.setImage(new Image(userArrayList.get(userCur).getImage()));
     }
 }
