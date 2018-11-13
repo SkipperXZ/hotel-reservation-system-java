@@ -94,6 +94,7 @@ public class CheckOutPageController {
                     customer.setLate(true);
                 }
                 if (parentController.isConfirmPaymentScene()){
+                    customer.setPaymerntPrice(customer.getPaymerntPrice()+customer.getPaymerntPrice()/10);
                     ReservationHandler.payment(room);
                     lateCheck.setSelected(false);
                     lateCheck.setDisable(true);

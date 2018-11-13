@@ -78,18 +78,39 @@
          </font>
       </Text>
       <ChoiceBox fx:id="extraBedChoice" layoutX="340.0" layoutY="448.0" prefHeight="25.0" prefWidth="48.0" />
-      <Label fx:id="dayLabel_0" layoutX="116.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label layoutX="176.0" layoutY="120.0" prefHeight="38.0" prefWidth="162.0" text="0000" textFill="WHITE">
+      <Label fx:id="dayLabel_0" alignment="CENTER" layoutX="116.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="roomIDLabel" layoutX="176.0" layoutY="120.0" prefHeight="38.0" prefWidth="162.0" text="0000" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="dayLabel_1" layoutX="203.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_2" layoutX="290.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_3" layoutX="378.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_4" layoutX="465.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_5" layoutX="552.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
-      <Label fx:id="dayLabel_6" layoutX="639.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" />
+      <Label fx:id="dayLabel_1" alignment="CENTER" layoutX="203.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="dayLabel_2" alignment="CENTER" layoutX="290.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="dayLabel_3" alignment="CENTER" layoutX="378.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="dayLabel_4" alignment="CENTER" layoutX="465.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="dayLabel_5" alignment="CENTER" layoutX="552.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="dayLabel_6" alignment="CENTER" layoutX="639.0" layoutY="576.0" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #39e184;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
       <Text fill="#ffcf21" layoutX="350.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Night">
          <font>
             <Font size="18.0" />

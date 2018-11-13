@@ -247,6 +247,10 @@ public class Customer implements Serializable {
         isLate = late;
     }
 
+    public void setPaymerntPrice(int paymerntPrice) {
+        this.paymerntPrice = paymerntPrice;
+    }
+
     public String getLastVisitToString()
     {
 
