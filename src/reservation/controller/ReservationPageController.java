@@ -1,5 +1,6 @@
 package reservation.controller;
 
+import Account.Account;
 import Hotel.Customer;
 import Hotel.OneDayHotel;
 import clock.Clock;
@@ -207,6 +208,9 @@ public class ReservationPageController {
     @FXML
     private Label nameLabel_010;
     @FXML
+    private Label userLabel;
+
+    @FXML
     private Pane pane_011;
     @FXML
     private Label roomIDLabel_011;
@@ -364,6 +368,8 @@ public class ReservationPageController {
         initPaneEffect();
         countRoom();
         updateRoomAvailaible();
+
+        userLabel.setText(Account.currentUser);
 
         vacantMenu.getItems().addAll(reserveOnvacant,cleanOnVacant,blockOnVacant,outOfServiceOnVacant,infoOnVacant);
         reservedMenu.getItems().addAll(checkInOnReserved,paymentOnReserved,guestInfoOnReserved,cancelOnReserved,roomInfoOnReserved);

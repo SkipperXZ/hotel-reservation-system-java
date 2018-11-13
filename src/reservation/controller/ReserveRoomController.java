@@ -78,6 +78,9 @@ public class ReserveRoomController {
     private Label dayLabel_6;
     @FXML
     private TextField searchBar;
+    @FXML
+    private Label roomIDLabel;
+
 
     @FXML
     private Button makeSearch;
@@ -231,6 +234,7 @@ public class ReserveRoomController {
             }
 
         }
+        roomIDLabel.setText(room.getRoomID());
     }
     private int getRoomIdex(Room room ,int currentDay,int floorNum ){
         int index=0;

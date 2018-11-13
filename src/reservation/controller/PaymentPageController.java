@@ -133,9 +133,9 @@ public class PaymentPageController {
         int servicePrice =(customer.getPaymerntPrice()-(customer.getExtraBedNum()*316* customer.getNightNum()))/10;
         int vatPrice =(((customer.getPaymerntPrice()+servicePrice)*7)/100);
         if(customer.isPayment())
-            paymenStatusLabel.setText("จ่ายแล้ว");
+            paymenStatusLabel.setText("Paid");
         else
-            paymenStatusLabel.setText("ยังไม่จ่าย");
+            paymenStatusLabel.setText("Not pay yet");
       /*  if(customer.getIdNum() != null)
             idNumLabel.setText(customer.getIdNum());*/
         firstNameLabel.setText(customer.getFirstName());
@@ -155,10 +155,10 @@ public class PaymentPageController {
         weekEndPrice.setText(String.valueOf(customer.getWeekEndNum()*room.getWeekEndRoomPrice()));
         totalRoomPriceLabel.setText(String.valueOf(customer.getWeekEndNum()*room.getWeekEndRoomPrice()+ customer.getWeekDayNum()*room.getWeekDayRoomPrice()));
         roomIDText.setText(room.getRoomID());
-        roomTypeLabel.setText(room.getClass().getName());
+        roomTypeLabel.setText(room.getRoomType());
         if(customer.isLate()){
-            latePriceLabel.setText("200");
-            totalPriceLabel.setText(String.valueOf(customer.getPaymerntPrice()+vatPrice+servicePrice+200));
+            latePriceLabel.setText(String.valueOf((customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
+            totalPriceLabel.setText(String.valueOf(customer.getPaymerntPrice()+vatPrice+servicePrice+(customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
         }
     }
 
