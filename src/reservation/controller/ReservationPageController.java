@@ -271,9 +271,15 @@ public class ReservationPageController {
 
     @FXML
     private JFXButton  reportButtton;
+    @FXML
+    private JFXButton userButtton;
 
     @FXML
-    private Button makeDisplayRoomDB;
+    private JFXButton dashboardButtton;
+
+    @FXML
+    private JFXButton calendarButtton;
+
 
     private int roomIndex;
     private int currentDay = 1;
@@ -404,6 +410,25 @@ public class ReservationPageController {
 
             }
         });*/
+
+       userButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newUserScene());
+           }
+       });
+       dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newDashboardScene());
+           }
+       });
+       calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent event) {
+               Linker.primaryStage.setScene(linker.newCalendarScene());
+           }
+       });
 
         reportButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
