@@ -9,10 +9,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import report.Booking;
 import reservation.room.Room;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ReserveRoomController {
 
@@ -243,6 +245,11 @@ public class ReserveRoomController {
             else {
                 dayLabelArr[i].setStyle("-fx-background-color: red");
             }
+            dayLabelArr[i].setAlignment(Pos.CENTER);
+            if( Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().equals(LocalDate.now()))
+                dayLabelArr[i].setText("TODAY");
+            else
+                dayLabelArr[i].setText(Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().format(DateTimeFormatter.ofPattern("dd/MM")));
 
         }
         roomIDLabel.setText(room.getRoomID());

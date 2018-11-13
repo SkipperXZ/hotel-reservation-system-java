@@ -8,6 +8,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -18,6 +19,7 @@ import reservation.room.Room;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CheckInController {
     @FXML
@@ -136,8 +138,6 @@ public class CheckInController {
             @Override
             public void handle(ActionEvent event) {
                 try {
-
-
                     idNum = idNumText.getText();
                     country = countryText.getText();
                     isConfirm = true;
@@ -209,6 +209,10 @@ public class CheckInController {
             else {
                 dayLabelArr[i].setStyle("-fx-background-color: red");
             }
+            if( Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().equals(LocalDate.now()))
+                dayLabelArr[i].setText("TODAY");
+            else
+                dayLabelArr[i].setText(Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().format(DateTimeFormatter.ofPattern("dd/MM")));
 
         }
     }
