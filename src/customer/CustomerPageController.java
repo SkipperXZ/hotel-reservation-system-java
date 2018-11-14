@@ -132,19 +132,7 @@ public class CustomerPageController {
         });
 
         setupHead();
-        // ObservableList<CustomerTable> list = FXCollections.observableArrayList();
         ArrayList<Customer> customers = new ArrayList<Customer>();
-//        {{
-//            for(int i= 0 ; i<30;i++)
-//                add(new Customer(names.get((int)(Math.random()*names.size())),names.get((int)(Math.random()*names.size())),i,
-//                        phoneNum3.format(Math.random()*1000)+"-"+phoneNum3.format(Math.random()*1000)+"-"+phoneNum4.format(Math.random()*10000),
-//                        "email","21111","thailand","smutprakarn 10270","in house","5","5","2,00","12/12/12"));
-//
-//
-//        }};
-//        for (Customer e: CustomerDatabase.customerDatabase.values() ) {
-//            customers.add(e);
-//        }
         customers.addAll(CustomerDatabase.customerDatabase.values());
         list.clear();
         for(Customer customer:customers )
@@ -300,10 +288,7 @@ public class CustomerPageController {
                     String.valueOf(customer.getTotalNightStay()),
                     String.valueOf(customer.getTotalRevenue()),
                     customer.getLastVisitToString()));
-
         list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
-
-
     }
 
     class CustomerTable extends RecursiveTreeObject<CustomerTable>{
