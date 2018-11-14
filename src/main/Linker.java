@@ -17,6 +17,7 @@ public class Linker {
     public static Scene user;
     public static Scene login;
     public static Scene report;
+    public static Scene calendar;
     private double xOffset = 0;
     private double yOffset = 0;
 

@@ -226,6 +226,12 @@ public class reportController implements Initializable {
                 Linker.primaryStage.setScene(linker.newDashboardScene());
             }
         });
+        calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(linker.newCalendarScene());
+            }
+        });
     }
 
     public void updateReport(){
