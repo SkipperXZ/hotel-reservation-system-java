@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import report.Booking;
 import reservation.room.Room;
 import java.time.LocalDate;
@@ -107,6 +108,11 @@ public class ReserveRoomController {
     private int weekDayNum=0,weekEndNum=0;
     private Label[] dayLabelArr;
     private Room room;
+
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
 
     @FXML
     public void initialize() {

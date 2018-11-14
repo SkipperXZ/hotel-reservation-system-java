@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import reservation.room.Room;
 
@@ -61,6 +62,10 @@ public class RoomInfoPageController {
     private Room room;
     private Customer customer;
     private ReservationPageController parentController;
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
 
     @FXML
     public void initialize(){

@@ -1,11 +1,14 @@
 package reservation.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import reservation.room.Room;
 
 public class CleaningPageController {
@@ -23,7 +26,21 @@ public class CleaningPageController {
     private Boolean isConfirm =false;
     private ReservationPageController reservationPageController;
     @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
+
+    @FXML
     public void initialize() {
+        cleaningTimeText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    cleaningTimeText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
 
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override

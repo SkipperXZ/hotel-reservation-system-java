@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import Hotel.Customer;
+import javafx.scene.input.MouseEvent;
 import reservation.ReservationHandler;
 import reservation.room.Room;
 
@@ -118,6 +119,11 @@ public class CheckInController {
     private Customer customer;
     private Room room;
     private Label[] dayLabelArr;
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
+
     @FXML
     public void initialize() {
 
