@@ -4,22 +4,18 @@ import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.util.Callback;
+import report.BookingDatabase;
 import main.Linker;
 import report.Booking;
 import report.BookingDatabase;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class calendarController {
 
@@ -78,7 +74,9 @@ public class calendarController {
     static ObservableList<Booking>floor3;
     static ObservableList<Booking>floor4;
     static ObservableList<Booking> list;
+
     ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> bookingDatabase = BookingDatabase.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
@@ -90,7 +88,7 @@ public class calendarController {
 
     @FXML
     public void initialize()  {
-        for (Booking number : allBooking) {
+        for (Booking number : bookingDatabase) {
 
             System.out.println("Reg Number " + number.getRegNum() +" Full name "+number.getFullname()+" room number "+number.getRoomNum()+" room type "+number.getRoomType()+" operation "+number.getOperation());
             System.out.println("reccord date "+number.getRecordDate()+"record time "+number.getRecordTime());
@@ -110,7 +108,7 @@ public class calendarController {
         Clock.clock.setDateLabel(date);
 
 
-        for (Booking e : allBooking) {
+        for (Booking e : bookingDatabase) {
             if (e.getOperation() == 4) {
                 bookingData.add(e);
             } else if (e.getOperation() == 1) {

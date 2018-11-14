@@ -382,7 +382,7 @@ public class ReservationPageController {
 
         userLabel.setText(Account.currentUser);
 
-        vacantMenu.getItems().addAll(reserveOnvacant,cleanOnVacant,blockOnVacant,outOfServiceOnVacant,infoOnVacant);
+        vacantMenu.getItems().addAll(reserveOnvacant,cleanOnVacant,infoOnVacant);
         reservedMenu.getItems().addAll(checkInOnReserved,paymentOnReserved,guestInfoOnReserved,cancelOnReserved,roomInfoOnReserved);
         inHouseMenu.getItems().addAll(checkOutOnInHouse,paymentOnInHouse,guestInfoOnInHouse,roomInfoOnInHouse);
         cleaningMenu.getItems().addAll(doneOnCleaning,roomInfoOnCleaning);
