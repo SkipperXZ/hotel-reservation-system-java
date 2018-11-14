@@ -14,11 +14,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
-import report.AllBooking;
 import javafx.util.Callback;
 import main.Linker;
 import report.Booking;
-
+import report.BookingDatabase;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,37 +33,37 @@ public class calendarController {
     @FXML private JFXButton reportButtton;
     @FXML private JFXButton userButtton;
     @FXML private TreeTableView<String> tableDay;
-    @FXML private TreeTableColumn<String, String> day1;
-    @FXML private TreeTableColumn<String, String> day2;
-    @FXML private TreeTableColumn<String, String>day3;
-    @FXML private TreeTableColumn<String, String>day4;
-    @FXML private TreeTableColumn<String, String> day5;
-    @FXML private TreeTableColumn<String, String>day6;
-    @FXML private TreeTableColumn<String, String> day7;
-    @FXML private TreeTableColumn<String, String> day8;
-    @FXML private TreeTableColumn<String, String>day9;
-    @FXML private TreeTableColumn<String, String> day10;
-    @FXML private TreeTableColumn<String, String> day11;
-    @FXML private TreeTableColumn<String, String>day12;
-    @FXML private TreeTableColumn<String, String> day13;
-    @FXML private TreeTableColumn<String, String>day14;
-    @FXML private TreeTableColumn<String, String> day15;
-    @FXML private TreeTableColumn<String, String>day16;
-    @FXML private TreeTableColumn<String, String> day17;
-    @FXML private TreeTableColumn<String, String> day18;
-    @FXML private TreeTableColumn<String, String> day19;
-    @FXML private TreeTableColumn<String, String> day20;
-    @FXML private TreeTableColumn<String, String> day21;
-    @FXML private TreeTableColumn<String, String> day22;
-    @FXML private TreeTableColumn<String, String> day23;
-    @FXML private TreeTableColumn<String, String> day24;
-    @FXML private TreeTableColumn<String, String> day25;
-    @FXML private TreeTableColumn<String, String> day26;
-    @FXML private TreeTableColumn<String, String> day27;
-    @FXML private TreeTableColumn<String, String> day28;
-    @FXML private TreeTableColumn<String, String> day29;
-    @FXML private TreeTableColumn<String, String> day30;
-    @FXML private TreeTableColumn<String, String> day31;
+    @FXML private TreeTableColumn<String, String> day01_1;
+    @FXML private TreeTableColumn<String, String> day02_1;
+    @FXML private TreeTableColumn<String, String> day03_1;
+    @FXML private TreeTableColumn<String, String> day04_1;
+    @FXML private TreeTableColumn<String, String> day05_1;
+    @FXML private TreeTableColumn<String, String> day06_1;
+    @FXML private TreeTableColumn<String, String> day07_1;
+    @FXML private TreeTableColumn<String, String> day08_1;
+    @FXML private TreeTableColumn<String, String> day09_1;
+    @FXML private TreeTableColumn<String, String> day10_1;
+    @FXML private TreeTableColumn<String, String> day11_1;
+    @FXML private TreeTableColumn<String, String> day12_1;
+    @FXML private TreeTableColumn<String, String> day13_1;
+    @FXML private TreeTableColumn<String, String> day14_1;
+    @FXML private TreeTableColumn<String, String> day15_1;
+    @FXML private TreeTableColumn<String, String> day16_1;
+    @FXML private TreeTableColumn<String, String> day17_1;
+    @FXML private TreeTableColumn<String, String> day18_1;
+    @FXML private TreeTableColumn<String, String> day19_1;
+    @FXML private TreeTableColumn<String, String> day20_1;
+    @FXML private TreeTableColumn<String, String> day21_1;
+    @FXML private TreeTableColumn<String, String> day22_1;
+    @FXML private TreeTableColumn<String, String> day23_1;
+    @FXML private TreeTableColumn<String, String> day24_1;
+    @FXML private TreeTableColumn<String, String> day25_1;
+    @FXML private TreeTableColumn<String, String> day26_1;
+    @FXML private TreeTableColumn<String, String> day27_1;
+    @FXML private TreeTableColumn<String, String> day28_1;
+    @FXML private TreeTableColumn<String, String> day29_1;
+    @FXML private TreeTableColumn<String, String> day30_1;
+    @FXML private TreeTableColumn<String, String> day31_1;
     @FXML private TreeTableView<String > tableRoom;
     @FXML private TreeTableColumn<String, String> colRoom;
 
@@ -79,7 +78,7 @@ public class calendarController {
     static ObservableList<Booking>floor3;
     static ObservableList<Booking>floor4;
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
@@ -176,19 +175,14 @@ public class calendarController {
 
 
 
-        colRoom.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
-        day1.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
-        day2.setCellValueFactory(new TreeItemPropertyValueFactory<>("name"));
+       // colRoom.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
+        //day01_1.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
+        //day02_1.setCellValueFactory(new TreeItemPropertyValueFactory<>("name"));
 
-        tableDay.setRoot(room1);
+        //tableDay.setRoot(room1);
 
 
-        calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Linker.primaryStage.setScene(linker.newCalendarScene());
-            }
-        });
+
         reservationButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -220,6 +214,12 @@ public class calendarController {
             @Override
             public void handle(ActionEvent event) {
                 Linker.primaryStage.setScene(linker.newReportScene());
+            }
+        });
+        dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(linker.newDashboardScene());
             }
         });
     }
