@@ -90,6 +90,11 @@ public class PaymentPageController {
     @FXML
     private Label totalRoomPriceLabel;
 
+    @FXML
+    private Label priceToPayLabel;
+    @FXML
+    private Label paidLabel;
+
     private Room room;
     private Customer customer;
     private boolean isPay=false;
@@ -97,6 +102,7 @@ public class PaymentPageController {
     private boolean isCorrect = false;
     private Stage comfirmPasswordStage;
     private JFXDialog jfxDialog;
+    private boolean paid;
     @FXML
     void close(MouseEvent event) {
         ((Label)event.getSource()).getScene().getWindow().hide();
@@ -110,6 +116,10 @@ public class PaymentPageController {
         makePay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(paid || customer.isLatePaid()){
+                    paidLabel.setVisible(true);
+                    return;
+                }
                 if(isPasswordCorrect()) {
                     isPay = true;
                  //   parentController.getPaymentStage().close();
@@ -161,10 +171,30 @@ public class PaymentPageController {
         totalRoomPriceLabel.setText(String.valueOf(customer.getWeekEndNum()*room.getWeekEndRoomPrice()+ customer.getWeekDayNum()*room.getWeekDayRoomPrice()));
         roomIDText.setText(room.getRoomID());
         roomTypeLabel.setText(room.getRoomType());
-        if(customer.isLate()){
-            latePriceLabel.setText(String.valueOf((customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
+
+
+        if(customer.isLatePaid()){
+            priceToPayLabel.setText("0");
+            latePriceLabel.setText(String.valueOf((customer.getPaymerntPrice()+vatPrice+servicePrice)-(customer.getPaymerntPrice()+vatPrice+servicePrice)*100/110));
+        }
+        else if(!customer.isLate() && customer.isPayment()){
+            priceToPayLabel.setText("0");
+            paid =true;
+        }
+        else if(customer.isLate() && !customer.isPayment()){
+            priceToPayLabel.setText(String.valueOf((customer.getPaymerntPrice()+vatPrice+servicePrice)+(customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
             totalPriceLabel.setText(String.valueOf(customer.getPaymerntPrice()+vatPrice+servicePrice+(customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
         }
+        else if(!customer.isLate() && !customer.isPayment()){
+            priceToPayLabel.setText(String.valueOf(customer.getPaymerntPrice()+vatPrice+servicePrice));
+        }
+        else if(customer.isLate() && customer.isPayment()){
+            latePriceLabel.setText(String.valueOf((customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
+            priceToPayLabel.setText(String.valueOf((customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
+            totalPriceLabel.setText(String.valueOf(customer.getPaymerntPrice()+vatPrice+servicePrice+(customer.getPaymerntPrice()+vatPrice+servicePrice)/10));
+            paymenStatusLabel.setText("Late");
+        }
+
     }
 
     public boolean isPasswordCorrect(){

@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="899.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.PaymentPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="899.0" style="-fx-background-color: TRANSPARENT;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.controller.PaymentPageController">
    <children>
-      <Pane layoutX="7.0" layoutY="5.0" prefHeight="500.0" prefWidth="884.0" style="-fx-background-color: white;">
+      <Pane layoutX="7.0" layoutY="5.0" prefHeight="515.0" prefWidth="884.0" style="-fx-background-color: white;">
          <effect>
             <DropShadow />
          </effect>
@@ -136,7 +136,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="574.0" layoutY="347.0" prefHeight="27.0" prefWidth="194.0" text="Late" textFill="#ff6f6f">
+      <Label layoutX="574.0" layoutY="347.0" prefHeight="27.0" prefWidth="194.0" text="Late(10%)" textFill="#ff6f6f">
          <font>
             <Font size="18.0" />
          </font>
@@ -201,16 +201,16 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Text>
-      <StackPane fx:id="myStackPane" layoutX="7.0" layoutY="5.0" prefHeight="500.0" prefWidth="880.0">
+      <StackPane fx:id="myStackPane" layoutX="7.0" layoutY="5.0" prefHeight="515.0" prefWidth="884.0">
          <children>
-            <Pane prefHeight="500.0" prefWidth="921.0">
+            <Pane prefHeight="515.0" prefWidth="886.0">
                <children>
-                  <JFXButton fx:id="makeCancel" layoutX="614.0" layoutY="426.0" prefHeight="46.0" prefWidth="100.0" style="-fx-border-color: #ff6f6f; -fx-border-width: 3;" text="CANCEL" textFill="#ff6f6f">
+                  <JFXButton fx:id="makeCancel" layoutX="620.0" layoutY="455.0" prefHeight="46.0" prefWidth="100.0" style="-fx-border-color: #ff6f6f; -fx-border-width: 3;" text="CANCEL" textFill="#ff6f6f">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="makePay" layoutX="736.0" layoutY="426.0" prefHeight="46.0" prefWidth="92.0" style="-fx-background-color: #ff6f6f;" text="PAY" textFill="WHITE">
+                  <JFXButton fx:id="makePay" layoutX="742.0" layoutY="455.0" prefHeight="46.0" prefWidth="92.0" style="-fx-background-color: #ff6f6f;" text="PAY" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -223,6 +223,21 @@
                   <Label layoutX="859.0" layoutY="7.0" onMouseClicked="#close" prefHeight="24.0" prefWidth="15.0" text="X" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="569.0" layoutY="410.0" prefHeight="27.0" prefWidth="108.0" text="Price to pay" textFill="#ff6f6f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="priceToPayLabel" layoutX="742.0" layoutY="410.0" prefHeight="27.0" prefWidth="92.0" text="0" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="paidLabel" layoutX="342.0" layoutY="465.0" text="The bill has already been paid." textFill="#f86565" visible="false">
+                     <font>
+                        <Font size="17.0" />
                      </font>
                   </Label>
                </children>

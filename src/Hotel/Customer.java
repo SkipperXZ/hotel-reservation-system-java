@@ -30,6 +30,7 @@ public class Customer implements Serializable {
 
     private String status;
     private String imgFile;
+    private boolean latePaid=false;
 
 
 
@@ -249,6 +250,14 @@ public class Customer implements Serializable {
 
     public void setPaymerntPrice(int paymerntPrice) {
         this.paymerntPrice = paymerntPrice;
+    }
+
+    public boolean isLatePaid() {
+        return latePaid;
+    }
+
+    public void setLatePaid(boolean latePaid) {
+        this.latePaid = latePaid;
     }
 
     public String getLastVisitToString()

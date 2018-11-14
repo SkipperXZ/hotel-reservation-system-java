@@ -1150,10 +1150,12 @@ public class ReservationPageController {
                 paymentStage.setScene(scene);
                 paymentStage.showAndWait();
                 isPay = paymentPageController.isPay();
+                paymentStage = null;
+                currentStage = null;
             } catch (Exception e) {
                 System.out.println(e.getCause());
             }
-            paymentStage = null;
+
         }
         return isPay;
     }
