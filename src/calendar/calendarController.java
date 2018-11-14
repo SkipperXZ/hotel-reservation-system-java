@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -19,6 +20,7 @@ import main.Linker;
 import report.Booking;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class calendarController {
 
@@ -72,20 +74,20 @@ public class calendarController {
     TreeItem<String> Type1 = new TreeItem<>("Type1");
     TreeItem<String> root = new TreeItem<>("ALL TYPE");
 
-    static ObservableList<Booking>list1;
-    static ObservableList<Booking>list2;
-    static ObservableList<Booking>list3;
-    static ObservableList<Booking>list4;
+    static ObservableList<Booking>floor1;
+    static ObservableList<Booking>floor2;
+    static ObservableList<Booking>floor3;
+    static ObservableList<Booking>floor4;
     static ObservableList<Booking> list;
     ArrayList<Booking> allBooking = AllBooking.allBooking;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
-    ArrayList<Booking> cancelData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
+    ArrayList<Booking> cancelData = new ArrayList<Booking>();
 
-    private int checkinNum=0, checkoutNum=0, cancelNum=0, bookingNum=0;
-
-
+    int bookingCount=0,cancelCount=0;
+    String fullName,roomNum,checkDate;
+    String fullNameCC,roomNumCC,checkDateCC;
 
     @FXML
     public void initialize()  {
@@ -109,16 +111,74 @@ public class calendarController {
         Clock.clock.setDateLabel(date);
 
 
+        for (Booking e : allBooking) {
+            if (e.getOperation() == 4) {
+                bookingData.add(e);
+            } else if (e.getOperation() == 1) {
+                checkinData.add(e);
+            } else if (e.getOperation() == 2) {
+                checkoutData.add(e);
+            } else if (e.getOperation() == 3) {
+                cancelData.add(e);
+            }
+
+        }
+
+        for(Booking runCancel :cancelData){
+            fullName = runCancel.getFullname();
+            roomNum = runCancel.getRoomNum();
+            checkDate = runCancel.getRecordDate().toString();
+
+            for (Booking runBooking : bookingData){
+                if (fullName.equals(runBooking.getFullname())){
+                    if(roomNum.equals(runBooking.getRoomNum())){
+                        if(checkDate.equals(runBooking.getRecordDate().toString())){
+                            break;
+                        }
+                        else{
+                            bookingCount++;
+                        }
+                    }
+                }
+            }
+            bookingData.remove(bookingCount);
+            bookingCount=0;
+        }
+
+        for(Booking runCheckIn :checkinData){
+            fullName = runCheckIn.getFullname();
+            roomNum = runCheckIn.getRoomNum();
+            checkDate = runCheckIn.getRecordDate().toString();
+
+            for (Booking runBooking : bookingData){
+                if (fullName.equals(runBooking.getFullname())){
+                    if(roomNum.equals(runBooking.getRoomNum())){
+                        if(checkDate.equals(runBooking.getRecordDate().toString())){
+                            break;
+                        }
+                        else{
+                            bookingCount++;
+                        }
+                    }
+                }
+            }
+            bookingData.remove(bookingCount);
+            bookingCount=0;
+        }
+        for (Booking runCheckin :bookingData){
+            
+        }
+
+
+
+        System.out.println(bookingData.size());
+        System.out.println(checkinData.size());
+
+
+
         colRoom.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
         day1.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
         day2.setCellValueFactory(new TreeItemPropertyValueFactory<>("name"));
-        root.setExpanded(true);
-
-
-
-
-
-
 
         tableDay.setRoot(room1);
 
