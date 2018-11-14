@@ -107,7 +107,6 @@ public class Main extends Application {
             Customer.setNumcustomerID(max);
         }
         if(user != null && user.size()>0){
-            System.out.println("Loadddd");
             UserDatabase.userNoButtons=user;
             for(int i=0;i<user.size();i++){
                 UserDatabase.userArrayList.add(new User(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),

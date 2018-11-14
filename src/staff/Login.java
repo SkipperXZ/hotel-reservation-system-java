@@ -46,7 +46,6 @@ public class Login implements Initializable {
         boolean ch1=true,ch2=true,ch3=true;
         chUser.setText("");
         chPas.setText("");
-        System.out.println("username : "+username.getText()+"\npassword : "+passWordNa.getText()+"\nsize : "+UserDatabase.userArrayList.size());
         if(chppp<=5) {
             if (username.getText().equals("")) {
                 ch3 = false;
@@ -64,7 +63,6 @@ public class Login implements Initializable {
             for(int i=0;i<UserDatabase.userArrayList.size();i++){
                 System.out.println(UserDatabase.userArrayList.get(i).getUserName());
                 if(UserDatabase.userArrayList.get(i).getUserName().equals(username.getText())){
-                    System.out.println("EEEE : "+UserDatabase.userArrayList.get(i).getUserName());
                     ch1=false;
                     if(UserDatabase.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
                         if(chppp>5){
@@ -80,7 +78,6 @@ public class Login implements Initializable {
                             }
 
                         }else {
-                            System.out.println("finish");
                             Account.currentUser = UserDatabase.userArrayList.get(i).getUserName();
                             Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
                             Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
