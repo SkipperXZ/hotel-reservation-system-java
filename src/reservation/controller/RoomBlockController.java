@@ -43,13 +43,18 @@ public class RoomBlockController {
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(startDatePicker.getValue().isAfter(finishDatePicker.getValue()))
+                {
+                    return;
+                }
                 if(memoText != null) {
                     room.setMemo(memoText.getText());
                     isConfirm = true;
+                    parentController.setStartDate(startDatePicker.getValue());
+                    parentController.setFinishDate(finishDatePicker.getValue());
                     parentController.getRoomBlockStage().close();
                 }
-                parentController.setStartDate(startDatePicker.getValue());
-                parentController.setFinishDate(finishDatePicker.getValue());
+
             }
 
 

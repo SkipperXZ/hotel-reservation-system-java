@@ -173,7 +173,12 @@ public class ReserveRoomController {
                 if(checkOutDate.isBefore(checkInDate)){
                     return;
                 }
-
+                if(checkInDate.equals(checkOutDate)) {
+                    return;
+                }
+                if(adultNum == 0 && childNum == 0 ){
+                    return;
+                }
                 if(!checkAvaliableDay(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()),parentController.getCurrentDay(),parentController.getCurrentFloorNum())){
                     return;
                 }
