@@ -186,7 +186,7 @@
                                                   <content>
                                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView fx:id="arrivalTodayTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;">
+                                                            <TableView fx:id="arrivalTodayTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
                                                               <columns>
                                                                 <TableColumn fx:id="guestA1" minWidth="256.0" prefWidth="75.0" text="GUEST" />
                                                                 <TableColumn fx:id="regNoA1" minWidth="256.0" prefWidth="75.0" text="REG NO." />
@@ -204,7 +204,7 @@
                                                   <content>
                                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView fx:id="arrivalTomorrowTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;">
+                                                            <TableView fx:id="arrivalTomorrowTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
                                                                <columns>
                                                                   <TableColumn fx:id="guestA2" minWidth="256.0" prefWidth="75.0" text="GUEST" />
                                                                   <TableColumn fx:id="regNoA2" minWidth="256.0" prefWidth="75.0" text="REG NO." />
@@ -234,7 +234,7 @@
                                                    <content>
                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView fx:id="departureTodayTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;">
+                                                            <TableView fx:id="departureTodayTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
                                                                <columns>
                                                                   <TableColumn fx:id="guestD1" minWidth="256.0" prefWidth="75.0" text="GUEST" />
                                                                   <TableColumn fx:id="regNoD1" minWidth="256.0" prefWidth="75.0" text="REG NO." />
@@ -252,7 +252,7 @@
                                                    <content>
                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView fx:id="departureTomorrowTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;">
+                                                            <TableView fx:id="departureTomorrowTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
                                                                <columns>
                                                                   <TableColumn fx:id="guestD2" minWidth="256.0" prefWidth="75.0" text="GUEST" />
                                                                   <TableColumn fx:id="regNoD2" minWidth="256.0" prefWidth="75.0" text="REG NO." />
@@ -275,7 +275,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;">
                                        <children>
-                                          <TableView fx:id="inHouseTable" layoutX="13.0" layoutY="34.0" prefHeight="445.0" prefWidth="1540.0" style="-fx-font-size: 18px;">
+                                          <TableView fx:id="inHouseTable" layoutX="13.0" layoutY="34.0" prefHeight="445.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
                                             <columns>
                                               <TableColumn fx:id="guestH" minWidth="256.0" prefWidth="75.0" text="GUEST" />
                                               <TableColumn fx:id="regNoH" minWidth="256.0" prefWidth="75.0" text="REG NO." />

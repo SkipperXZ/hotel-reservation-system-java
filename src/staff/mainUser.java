@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
+import main.Main;
 
 public class mainUser implements Initializable {
     public static int max=100;
@@ -166,8 +167,12 @@ public class mainUser implements Initializable {
             public void handle(MouseEvent event) {
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
-                stage.setScene(linker.newLoginScene());
-                stage.show();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         setButton();

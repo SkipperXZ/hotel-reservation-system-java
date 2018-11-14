@@ -82,17 +82,17 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="500.0" layoutY="139.0" text="Tel." textFill="#1473e6">
+                              <Label layoutX="546.0" layoutY="138.0" text="Tel." textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="503.0" layoutY="181.0" text="Email" textFill="#1473e6">
+                              <Label layoutX="549.0" layoutY="180.0" text="Email" textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="503.0" layoutY="216.0" text="Adderss" textFill="#1473e6">
+                              <Label layoutX="549.0" layoutY="215.0" text="Adderss" textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
@@ -117,17 +117,17 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="tel" layoutX="620.0" layoutY="139.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                              <Label fx:id="tel" layoutX="666.0" layoutY="138.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="email" layoutX="621.0" layoutY="181.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                              <Label fx:id="email" layoutX="667.0" layoutY="180.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="adderss" alignment="TOP_LEFT" layoutX="621.0" layoutY="216.0" prefHeight="188.0" prefWidth="300.0" text="144/4 M.5 Ban ThamChiang Dao Chiang Mai50170Thailand" wrapText="true">
+                              <Label fx:id="adderss" alignment="TOP_LEFT" layoutX="667.0" layoutY="215.0" prefHeight="188.0" prefWidth="300.0" text="144/4 M.5 Ban ThamChiang Dao Chiang Mai50170Thailand" wrapText="true">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
@@ -157,12 +157,12 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="500.0" layoutY="101.0" text="Role" textFill="#1473e6">
+                              <Label layoutX="546.0" layoutY="100.0" text="Role" textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="role" layoutX="620.0" layoutY="101.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                              <Label fx:id="role" layoutX="666.0" layoutY="100.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
@@ -181,7 +181,7 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <JFXTreeView fx:id="historyTable" layoutX="24.0" layoutY="29.0" prefHeight="424.0" prefWidth="944.0" />
-                              <TableView fx:id="table" layoutX="24.0" layoutY="30.0" prefHeight="425.0" prefWidth="943.0">
+                              <TableView fx:id="table" layoutX="24.0" layoutY="30.0" prefHeight="425.0" prefWidth="943.0" stylesheets="@../reservation/css/tableView.css">
                                 <columns>
                                   <TableColumn fx:id="reg" prefWidth="170.0" text="Reg No." />
                                   <TableColumn fx:id="date" prefWidth="200.0" text="Date" />
