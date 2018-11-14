@@ -25,7 +25,7 @@ public class Floor implements Serializable {
                             ,new SuperiorRoom(floorNum,11,"Vacant",null)
                             ,new SuperiorRoom(floorNum,12,"Vacant",null)};}
             else if(floorNum == 2){
-                rooms = new Room[]{new DeluxeRoom(floorNum,2,"Vacant",null)
+                rooms = new Room[]{new DeluxeRoom(floorNum,1,"Vacant",null)
                         ,new DeluxeRoom(floorNum,2,"Vacant",null)
                         ,new DeluxeRoom(floorNum,3,"Vacant",null)
                         ,new DeluxeRoom(floorNum,4,"Vacant",null)
@@ -39,7 +39,7 @@ public class Floor implements Serializable {
                         ,new SuperiorRoom(floorNum,12,"Vacant",null)};}
 
             else if(floorNum == 3){
-                rooms = new Room[]{new SuiteRoom(floorNum,3,"Vacant",null)
+                rooms = new Room[]{new SuiteRoom(floorNum,1,"Vacant",null)
                         ,new SuiteRoom(floorNum,2,"Vacant",null)
                         ,new DeluxeRoom(floorNum,3,"Vacant",null)
                         ,new DeluxeRoom(floorNum,4,"Vacant",null)
@@ -53,7 +53,7 @@ public class Floor implements Serializable {
                         ,new SuiteRoom(floorNum,12,"Vacant",null)};}
 
             else if(floorNum == 4){
-                rooms = new Room[]{new SuiteRoom(floorNum,4,"Vacant",null)
+                rooms = new Room[]{new SuiteRoom(floorNum,1,"Vacant",null)
                         ,new SuiteRoom(floorNum,2,"Vacant",null)
                         ,new DeluxeRoom(floorNum,3,"Vacant",null)
                         ,new DeluxeRoom(floorNum,4,"Vacant",null)
@@ -67,7 +67,7 @@ public class Floor implements Serializable {
                         ,new SuiteRoom(floorNum,12,"Vacant",null)};}
 
             else{
-                rooms = new Room[]{new SuiteRoom(floorNum,5,"Vacant",null)
+                rooms = new Room[]{new SuiteRoom(floorNum,1,"Vacant",null)
                         ,new SuiteRoom(floorNum,2,"Vacant",null)
                         ,new SuiteRoom(floorNum,3,"Vacant",null)
                         ,new SuiteRoom(floorNum,4,"Vacant",null)
