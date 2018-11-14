@@ -26,6 +26,8 @@ public class Booking implements Serializable {
     private String arrivalTimeFormet;
     private String departureTimeFormet;
     private String userRecord;
+    private String userRecordTime;
+    private String userRecordDate;
 
     public  Booking(String userRecord, int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, int nightNum){ /// Check-IN
         this.userRecord = userRecord;
@@ -42,6 +44,8 @@ public class Booking implements Serializable {
         this.nightNum = nightNum;
         fullname = firstname+" "+lastname;
         timeFormet = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
+        userRecordTime = recordTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        userRecordDate = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
     }
 
     public  Booking(String userRecord, int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price,LocalDateTime recordTime,LocalDate recordDate, LocalDateTime arrivalDate, LocalDateTime departureDate, int nightNum){ /// Check-IN
@@ -62,6 +66,8 @@ public class Booking implements Serializable {
         fullname = firstname+" "+lastname;
         arrivalTimeFormet = arrivalDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         departureTimeFormet = departureDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+        userRecordTime = recordTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        userRecordDate = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
     }
 
     public Booking(String summaryTopic, int total) {
@@ -225,6 +231,22 @@ public class Booking implements Serializable {
 
     public void setUserRecord(String userRecord) {
         this.userRecord = userRecord;
+    }
+
+    public String getUserRecordTime() {
+        return userRecordTime;
+    }
+
+    public void setUserRecordTime(String userRecordTime) {
+        this.userRecordTime = userRecordTime;
+    }
+
+    public String getUserRecordDate() {
+        return userRecordDate;
+    }
+
+    public void setUserRecordDate(String userRecordDate) {
+        this.userRecordDate = userRecordDate;
     }
 }
 
