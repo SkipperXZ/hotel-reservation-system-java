@@ -57,7 +57,7 @@
             </Pane>
          </top>
          <left>
-            <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+            <VBox focusTraversable="true" prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefWidth="220.0">
                      <children>
