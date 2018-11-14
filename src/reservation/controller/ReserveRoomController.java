@@ -89,6 +89,9 @@ public class ReserveRoomController {
 
     @FXML
     private Button makeSearch;
+    @FXML
+    private Label warningMessage;
+
 
     private Boolean isConfirm = false;
     private int adultNum;
@@ -116,7 +119,7 @@ public class ReserveRoomController {
 
     @FXML
     public void initialize() {
-
+        warningMessage.setVisible(false);
         telNumText.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -168,18 +171,23 @@ public class ReserveRoomController {
                     }
                     memo = memoText.getText();
                 }catch (Exception e){
+                    warningMessage.setVisible(true);
                     return;
                 }
                 if(checkOutDate.isBefore(checkInDate)){
+                    warningMessage.setVisible(true);
                     return;
                 }
                 if(checkInDate.equals(checkOutDate)) {
+                    warningMessage.setVisible(true);
                     return;
                 }
                 if(adultNum == 0 && childNum == 0 ){
+                    warningMessage.setVisible(true);
                     return;
                 }
                 if(!checkAvaliableDay(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()),parentController.getCurrentDay(),parentController.getCurrentFloorNum())){
+                    warningMessage.setVisible(true);
                     return;
                 }
                 Customer customer = new Customer(adultNum, childNum, title, firstName, lastName, tel, checkInDate, checkOutDate,extraBedNum,email,price,weekDayNum,weekEndNum,memo);

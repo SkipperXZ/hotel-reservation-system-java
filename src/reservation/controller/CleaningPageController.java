@@ -21,10 +21,14 @@ public class CleaningPageController {
     private Button makeConfirm;
     @FXML
     private Button makeCancel;
+    @FXML
+    private Label warningMessage;
+
 
     private String roomNum;
     private Boolean isConfirm =false;
     private ReservationPageController reservationPageController;
+
     @FXML
     void close(MouseEvent event) {
         ((Label)event.getSource()).getScene().getWindow().hide();
@@ -46,7 +50,13 @@ public class CleaningPageController {
             @Override
             public void handle(ActionEvent event) {
                 isConfirm = true;
-                reservationPageController.setCleaningTimeMinute(Integer.parseInt(cleaningTimeText.getText()));
+                try {
+                    reservationPageController.setCleaningTimeMinute(Integer.parseInt(cleaningTimeText.getText()));
+                }catch (Exception e){
+                    warningMessage.setVisible(true);
+                    return;
+                }
+
                 reservationPageController.getCleaningStage().close();
             }
         });

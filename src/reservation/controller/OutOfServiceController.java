@@ -26,6 +26,9 @@ public class OutOfServiceController {
     private JFXDatePicker startDatePicker;
     @FXML
     private JFXDatePicker finishDatePicker;
+    @FXML
+    private Label warningMessage;
+
 
     private Room room;
     private ReservationPageController parentController;
@@ -40,8 +43,13 @@ public class OutOfServiceController {
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(finishDatePicker.getValue()== null){
+                    warningMessage.setVisible(true);
+                    return;
+                }
                 if(startDatePicker.getValue().isAfter(finishDatePicker.getValue()))
                 {
+                    warningMessage.setVisible(true);
                     return;
                 }
                 if(memoText != null) {
