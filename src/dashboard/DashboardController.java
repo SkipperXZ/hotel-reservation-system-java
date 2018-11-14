@@ -14,7 +14,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import main.Linker;
+import main.Main;
 import report.Booking;
 import report.BookingDatabase;
 import reservation.room.*;
@@ -79,6 +82,7 @@ public class DashboardController implements Initializable {
     @FXML private Label Occupiedpercent;
     @FXML private Label Departures;
     @FXML private Label Arrivals;
+    @FXML private ImageView logOut = new ImageView();
 
     static ObservableList<Booking> list1;
     static ObservableList<Booking>list2;
@@ -228,6 +232,19 @@ public class DashboardController implements Initializable {
             public void handle(ActionEvent event) {
 
                 Linker.primaryStage.setScene(linker.newUserScene());
+            }
+        });
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.close();
+                Stage stage= new Stage();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

@@ -1,5 +1,6 @@
 package staff;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
@@ -73,12 +75,13 @@ public class userPopupController implements Initializable {
     static ObservableList<Booking> list;
     ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
-    @FXML private TableView<?> table;
-    @FXML private TableColumn<?, ?> reg;
-    @FXML private TableColumn<?, ?> date;
-    @FXML private TableColumn<?, ?> time;
-    @FXML private TableColumn<?, ?> guest;
-    @FXML private TableColumn<?, ?> activity;
+
+    @FXML private TableView<Booking> table;
+    @FXML private TableColumn<Booking, String> reg;
+    @FXML private TableColumn<Booking, String> date;
+    @FXML private TableColumn<Booking, String> time;
+    @FXML private TableColumn<Booking, String> guest;
+    @FXML private TableColumn<Booking, String> activity;
 
 
     private void handleButtonAction(ActionEvent event) {
@@ -105,5 +108,21 @@ public class userPopupController implements Initializable {
         status.setText(userArrayList.get(userCur).getUserType());
         cancel.setOnAction(this::handleButtonAction);
         ima.setImage(new Image(userArrayList.get(userCur).getImage()));
+
+        for (Booking e : allBooking) {
+
+            if(e.getUserRecord().equals(userArrayList.get(userCur).getUserName())) {
+                checkinData.add(e);
+            }
+        }
+        list = FXCollections.observableArrayList(
+                checkinData
+        );
+        reg.setCellValueFactory(new PropertyValueFactory<Booking,String>("regNum"));
+        date.setCellValueFactory(new PropertyValueFactory<Booking,String>("userRecordDate"));
+        time.setCellValueFactory(new PropertyValueFactory<Booking,String>("userRecordTime"));
+        guest.setCellValueFactory(new PropertyValueFactory<Booking,String>("fullname"));
+        activity.setCellValueFactory(new PropertyValueFactory<Booking,String>("activity"));
+        table.setItems(list);
     }
 }
