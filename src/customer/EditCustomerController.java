@@ -133,49 +133,49 @@ public class EditCustomerController {
                 emailInput = email.getText();
                 addressInput = address.getText();
 
-   if(!firstNameInput.trim().equals("") && !lastNameInput.trim().equals("") && !telInput.trim().equals("") ) {
-       customer.setFirstName(firstNameInput);
-       customer.setLastName(lastNameInput);
-       customer.setIdNum(IDInput);
-       customer.setCountry(countryInput);
-       customer.setTel(telInput);
-       customer.setEmail(emailInput);
-       customer.setAddress(addressInput);
+               if(!firstNameInput.trim().equals("") && !lastNameInput.trim().equals("") && !telInput.trim().equals("") ) {
+                   customer.setFirstName(firstNameInput);
+                   customer.setLastName(lastNameInput);
+                   customer.setIdNum(IDInput);
+                   customer.setCountry(countryInput);
+                   customer.setTel(telInput);
+                   customer.setEmail(emailInput);
+                   customer.setAddress(addressInput);
 
-       if(isAddImg)
-       {
-           try{
-               des = new File("src\\img\\customer\\user"+customer.getCustomerID()+".jpg");  //output file path
-               Files.copy(fileInput.toPath(),des.toPath(), StandardCopyOption.REPLACE_EXISTING);
-               //  System.out.println("Writing complete.");
-           }catch(IOException e){
-               System.out.println("Error: "+e);
-           }
-       }
-       if(isAddImg){
-           customer.setImgfile(des.getPath());
-           System.out.println(des.getPath());
-       }
+                   if(isAddImg)
+                   {
+                       try{
+                           des = new File("src\\img\\customer\\user"+customer.getCustomerID()+".jpg");  //output file path
+                           Files.copy(fileInput.toPath(),des.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                           //  System.out.println("Writing complete.");
+                       }catch(IOException e){
+                           System.out.println("Error: "+e);
+                       }
+                   }
+                   if(isAddImg){
+                       customer.setImgfile(des.getPath());
+                      // System.out.println(des.getPath());
+                   }
 
 
-       CustomerDatabase.customerDatabase.remove(NameHash);
-       CustomerDatabase.updateCustomer(customer);
-       CustomerPageController.selectName =firstNameInput+lastNameInput;
-       CustomerPageController update = new CustomerPageController();
-       update.update();
+                   CustomerDatabase.customerDatabase.remove(NameHash);
+                   CustomerDatabase.updateCustomer(customer);
+                   CustomerPageController.selectName =firstNameInput+lastNameInput;
+                   CustomerPageController update = new CustomerPageController();
+                   update.update();
 
-       Parent root = null;
-       try {
-           root = FXMLLoader.load(getClass().getResource("CustomerPopup.fxml"));
+                   Parent root = null;
+                   try {
+                       root = FXMLLoader.load(getClass().getResource("CustomerPopup.fxml"));
 
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
-       Stage stage = (Stage) btnCancel.getScene().getWindow();
-       stage.setScene(new Scene(root));
-       stage.setTitle(customer.getFirstName() + " " + customer.getLastName());
-       stage.show();
-   }
+                   } catch (IOException e) {
+                       e.printStackTrace();
+                   }
+                   Stage stage = (Stage) btnCancel.getScene().getWindow();
+                   stage.setScene(new Scene(root));
+                   stage.setTitle(customer.getFirstName() + " " + customer.getLastName());
+                   stage.show();
+            }
 
 
 

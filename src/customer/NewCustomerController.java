@@ -80,8 +80,8 @@ public class NewCustomerController{
         @FXML
     public void initialize() {
                 String newNumber = String.valueOf(Customer.getNumcustomerID()+1);
-            customerID.setText(newNumber);
-            ID.textProperty().addListener(new ChangeListener<String>() {
+                customerID.setText(newNumber);
+                ID.textProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> observable, String oldValue,
                                         String newValue) {
@@ -89,8 +89,8 @@ public class NewCustomerController{
                                     ID.setText(newValue.replaceAll("[^\\d]", ""));
                             }
                     }
-            });
-            tel.textProperty().addListener(new ChangeListener<String>() {
+                });
+                tel.textProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> observable, String oldValue,
                                         String newValue) {
@@ -98,9 +98,9 @@ public class NewCustomerController{
                                     tel.setText(newValue.replaceAll("[^\\d]", ""));
                             }
                     }
-            });
+                });
 
-            btnCreate.setOnAction(new EventHandler<ActionEvent>() {
+                btnCreate.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                             String firstNameInput, lastNameInput, IDInput, countryInput, telInput, emailInput,addressInput  ;
@@ -134,7 +134,7 @@ public class NewCustomerController{
                                            emailInput, IDInput, countryInput,addressInput);
                                    if(isAddImg) {
                                            customer.setImgfile(des.getPath());
-                                           System.out.println(des.getPath());
+                                         //  System.out.println(des.getPath());
                                    }
 
 
@@ -150,18 +150,18 @@ public class NewCustomerController{
                            else
                                    showJDialog("Please enter First name ,Last name and telephone");
                     }
-            });
+                });
 
 
-            btnCancel.setOnAction(new EventHandler<ActionEvent>() {
+                btnCancel.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                             Stage stage = (Stage) btnCancel.getScene().getWindow();
                             stage.close();
                     }
-            });
+                });
 
-            addImg.setOnAction(new EventHandler<ActionEvent>() {
+                addImg.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                             Stage stage = (Stage) addImg.getScene().getWindow();
@@ -181,10 +181,11 @@ public class NewCustomerController{
                                     isAddImg = true;
                             }
                     }
-            });
+                });
 
     }
-        private void showJDialog(String str) {
+
+    private void showJDialog(String str) {
 
                 JFXDialogLayout dialogContent = new JFXDialogLayout();
                 Text text =   new Text(str);

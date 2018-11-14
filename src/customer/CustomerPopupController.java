@@ -161,23 +161,6 @@ public class CustomerPopupController {
                 }
             }
         }
-//        ArrayList<Customer> customers = new ArrayList<Customer>()
-//        {{
-//            for(int i= 0 ; i<30;i++)
-//                add(new Customer(names.get((int)(Math.random()*names.size())),names.get((int)(Math.random()*names.size())),i,
-//                       "112221",
-//                        "email","21111","thailand","smutprakarn 10270","5","5","2,00","12/12/12"));
-//
-//
-//        }};
-//        for (Customer e: CustomerDatabase.customerDatabase.values() ) {
-//            customers.add(e);
-//        }
-      //  customers.addAll(CustomerDatabase.customerDatabase.values());
-//        for( int i=0;i<10;i++ )
-//            list.add(new CustomerHistory("l","","","","","",""));
-
-        //list.sort((a, b) -> a.firstName.get().compareTo(b.firstName.get()));
         final TreeItem<CustomerHistory> root = new RecursiveTreeItem<CustomerHistory>(list,RecursiveTreeObject::getChildren);
 
         historyTable.setRoot(root);
