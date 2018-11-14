@@ -170,6 +170,9 @@ public class ReserveRoomController {
                 }catch (Exception e){
                     return;
                 }
+                if(checkOutDate.isBefore(checkInDate)){
+                    return;
+                }
 
                 if(!checkAvaliableDay(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()),parentController.getCurrentDay(),parentController.getCurrentFloorNum())){
                     return;
