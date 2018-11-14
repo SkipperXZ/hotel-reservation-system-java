@@ -1105,8 +1105,6 @@ public class ReservationPageController {
         ReserveRoomController reserveRoomController;
         if(currentStage == null) {
             try {
-                if (currentStage != null)
-                    currentStage.close();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
                 // System.out.println();
                 Parent root = loader.load();
@@ -1122,7 +1120,6 @@ public class ReservationPageController {
                 reserveStage.showAndWait();
                 isConfirm = reserveRoomController.getConfirm();
                 currentStage = null;
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -1133,7 +1130,7 @@ public class ReservationPageController {
     public boolean isConfirmPaymentScene() {
         boolean isPay = false;
         PaymentPageController paymentPageController;
-        if(currentStage == null) {
+        if(paymentStage == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/PaymentPage.fxml"));
                 // System.out.println();
@@ -1152,12 +1149,11 @@ public class ReservationPageController {
                 paymentStage.setScene(scene);
                 paymentStage.showAndWait();
                 isPay = paymentPageController.isPay();
-                currentStage = null;
             } catch (Exception e) {
                 System.out.println(e.getCause());
             }
+            paymentStage = null;
         }
-
         return isPay;
     }
     public void updatePaneStatus(Pane selected ){
