@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -207,7 +208,7 @@
                                  <children>
                                     <ScrollPane layoutX="196.0" prefHeight="713.0" prefWidth="1181.0">
                                        <content>
-                                          <TreeTableView fx:id="tableDay" prefHeight="695.0">
+                                          <TreeTableView fx:id="tableDay" prefHeight="695.0" stylesheets="@style.css">
                                             <columns>
                                               <TreeTableColumn fx:id="day1" prefWidth="75.0" resizable="false" text="day1" />
                                               <TreeTableColumn fx:id="day2" prefWidth="75.0" resizable="false" text="day2" />
@@ -249,13 +250,17 @@
                                     </ScrollPane>
                                     <Pane prefHeight="713.0" prefWidth="196.0">
                                        <children>
-                                          <TreeTableView fx:id="tableRoom" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" stylesheets="@../../../../../IdeaProjects/Hotel/src/calendar/style.css">
+                                          <TreeTableView fx:id="tableRoom" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0">
                                             <columns>
-                                              <TreeTableColumn fx:id="colRoom" prefWidth="75.0" text="C1" />
+                                              <TreeTableColumn fx:id="colRoom" prefWidth="75.0" text="All Room Type" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                              </columnResizePolicy>
+                                             <stylesheets>
+                                                <URL value="@../../../../../IdeaProjects/Hotel/src/calendar/style.css" />
+                                                <URL value="@style.css" />
+                                             </stylesheets>
                                           </TreeTableView>
                                        </children>
                                     </Pane>

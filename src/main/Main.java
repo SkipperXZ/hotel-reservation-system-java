@@ -44,7 +44,8 @@ public class Main extends Application {
         Parent root4 = FXMLLoader.load(getClass().getResource("../report/ReportPage.fxml"));
         Linker.report = new Scene(root4);
         //primaryStage.setScene(Linker.customerScene);
-
+        Parent root5 = FXMLLoader.load(getClass().getResource("../calendar/calendar2Table.fxml"));
+        Linker.calendar = new Scene(root5);
 
         Linker linker = new Linker();
         Linker.primaryStage.setScene(linker.newLoginScene());
@@ -131,5 +132,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         load();
         launch(args);
+
     }
 }

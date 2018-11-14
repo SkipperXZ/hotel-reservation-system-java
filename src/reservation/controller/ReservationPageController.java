@@ -449,6 +449,7 @@ public class ReservationPageController {
             }
         });
 
+
         reserveOnvacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
