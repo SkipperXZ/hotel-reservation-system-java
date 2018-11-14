@@ -17,6 +17,13 @@
          <effect>
             <DropShadow />
          </effect>
+         <children>
+            <Label fx:id="warningMessage" layoutX="98.0" layoutY="365.0" text="Please insert correct information" textFill="#ff1616" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
       </Pane>
       <TextArea fx:id="memoText" layoutX="298.0" layoutY="171.0" prefHeight="87.0" prefWidth="296.0" />
       <Text layoutX="291.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo">

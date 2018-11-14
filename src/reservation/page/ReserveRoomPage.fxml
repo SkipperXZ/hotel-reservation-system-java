@@ -23,6 +23,13 @@
          <effect>
             <DropShadow />
          </effect>
+         <children>
+            <Label fx:id="warningMessage" layoutX="315.0" layoutY="642.0" text="Please insert correct information" textFill="#ff1616">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="52.0" layoutX="67.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="201.0" />
       <Text fill="#ffd12d" layoutX="70.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="47.99999296665192">

@@ -75,6 +75,9 @@ public class CheckOutPageController {
     @FXML
     void close(MouseEvent event) {
         ((Label)event.getSource()).getScene().getWindow().hide();
+       /* if(parentController.getPaymentStage() != null){
+            parentController.getPaymentStage().close();
+        }*/
     }
 
     @FXML
@@ -98,7 +101,9 @@ public class CheckOutPageController {
                 if(lateCheck.isSelected()){
                     customer.setLate(true);
                 }
+                System.out.println("pay");
                 if (parentController.isConfirmPaymentScene()){
+
                     customer.setPaymerntPrice(customer.getPaymerntPrice()+customer.getPaymerntPrice()/10);
                     ReservationHandler.payment(room);
                     lateCheck.setSelected(false);

@@ -1,5 +1,6 @@
 package report;
 
+import Account.Account;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -10,7 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import main.Linker;
+import main.Main;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,19 +30,20 @@ public class reportController implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> cancelData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
 
-    private int checkinNum=0, checkoutNum=0, cancelNum=0, bookingNum=0;
+    private int checkinNum=0, checkoutNum=0, cancelNum=0, bookingNum=0, totalRevenue=0;
 
     Linker linker;
     private String currentDay;
     static int click=0;
     @FXML private Label date;
     @FXML private Label time;
+    @FXML private Label userLabel;
     @FXML private JFXButton dashboardButtton;
     @FXML private JFXButton calendarButtton;
     @FXML private JFXButton reservationButtton;
@@ -84,12 +91,14 @@ public class reportController implements Initializable {
     @FXML private TableView<Booking> summaryTable;
     @FXML private TableColumn<Booking, String> summary;
     @FXML private TableColumn<Booking, String> total;
+    @FXML private ImageView logOut = new ImageView();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Linker linker = new Linker();
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
+        userLabel.setText(Account.currentUser);
         currentDay = LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
 
         for (Booking e : allBooking) {
@@ -101,6 +110,7 @@ public class reportController implements Initializable {
             else if(e.getOperation()==2) {
                 checkoutData.add(e);
                 checkoutNum++;
+                totalRevenue+=e.getPrice();
             }
             else if(e.getOperation()==3) {
                 cancelData.add(e);
@@ -232,6 +242,20 @@ public class reportController implements Initializable {
                 Linker.primaryStage.setScene(linker.newCalendarScene());
             }
         });
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.close();
+                Stage stage= new Stage();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     public void updateReport(){
@@ -245,6 +269,7 @@ public class reportController implements Initializable {
         checkinNum=0;
         cancelNum=0;
         bookingNum=0;
+        totalRevenue=0;
 
         for (Booking e : allBooking) {
 
@@ -256,6 +281,7 @@ public class reportController implements Initializable {
                 } else if (e.getOperation() == 2) {
                     checkoutData.add(e);
                     checkoutNum++;
+                    totalRevenue+=e.getPrice();
                 } else if (e.getOperation() == 3) {
                     cancelData.add(e);
                     cancelNum++;
@@ -327,8 +353,9 @@ public class reportController implements Initializable {
         Booking topic2 = new Booking("Check-Out", checkoutNum);
         Booking topic3 = new Booking("Cancellation", cancelNum);
         Booking topic4 = new Booking("Booking", bookingNum);
+        Booking topic5 = new Booking("Total Revenue", totalRevenue);
 
-        ObservableList<Booking> list = FXCollections.observableArrayList(topic1, topic2, topic3, topic4);
+        ObservableList<Booking> list = FXCollections.observableArrayList(topic1, topic2, topic3, topic4, topic5);
         return list;
     }
 

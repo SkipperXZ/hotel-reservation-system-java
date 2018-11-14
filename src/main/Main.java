@@ -12,8 +12,8 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import report.AllBooking;
 import report.Booking;
+import report.BookingDatabase;
 import reservation.IO;
 import staff.User;
 import staff.UserDatabase;
@@ -22,7 +22,6 @@ import staff.UserNoButton;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 
 public class Main extends Application {
@@ -64,7 +63,7 @@ public class Main extends Application {
         IO.saveCustomer(CustomerDatabase.customerDatabase);
         IO.saveUser(UserDatabase.userNoButtons);
 
-        IO.saveAllBooking(AllBooking.allBooking);
+        IO.saveAllBooking(BookingDatabase.bookingDatabase);
         System.out.println("Save done");
     }
     public void stopClock(){
@@ -108,7 +107,6 @@ public class Main extends Application {
             Customer.setNumcustomerID(max);
         }
         if(user != null && user.size()>0){
-            System.out.println("Loadddd");
             UserDatabase.userNoButtons=user;
             for(int i=0;i<user.size();i++){
                 UserDatabase.userArrayList.add(new User(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
@@ -120,11 +118,11 @@ public class Main extends Application {
             }
         }
         if(allbooking != null){
-            AllBooking.allBooking = allbooking;
+            BookingDatabase.bookingDatabase = allbooking;
         }
         else{
             Booking booking = new Booking(Account.currentUser, 0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
-            AllBooking.addBooking(booking);
+           BookingDatabase.addBooking(booking);
         }
     }
 

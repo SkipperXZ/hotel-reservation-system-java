@@ -6,12 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,13 +19,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
-import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
-import main.Main;
-import report.AllBooking;
 import report.Booking;
-
-import java.io.FileInputStream;
+import report.BookingDatabase;
 
 public class userPopupController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
@@ -80,7 +73,7 @@ public class userPopupController implements Initializable {
 
 
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
 
     @FXML private TableView<Booking> table;

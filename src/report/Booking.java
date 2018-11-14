@@ -267,6 +267,7 @@ public class Booking implements Serializable {
     public void setActivity(String activity) {
         this.activity = activity;
     }
+
 }
 
 

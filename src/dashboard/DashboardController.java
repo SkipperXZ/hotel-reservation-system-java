@@ -14,10 +14,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import main.Linker;
-import report.AllBooking;
+import main.Main;
 import report.Booking;
-import report.reportController;
+import report.BookingDatabase;
 import reservation.room.*;
 
 import java.net.URL;
@@ -80,13 +82,14 @@ public class DashboardController implements Initializable {
     @FXML private Label Occupiedpercent;
     @FXML private Label Departures;
     @FXML private Label Arrivals;
+    @FXML private ImageView logOut = new ImageView();
 
     static ObservableList<Booking> list1;
     static ObservableList<Booking>list2;
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking>list5;
-    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> arrivalToday = new ArrayList<Booking>();
     ArrayList<Booking> arrivalTomorrow = new ArrayList<Booking>();
     ArrayList<Booking> departureToday = new ArrayList<Booking>();
@@ -229,6 +232,19 @@ public class DashboardController implements Initializable {
             public void handle(ActionEvent event) {
 
                 Linker.primaryStage.setScene(linker.newUserScene());
+            }
+        });
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.close();
+                Stage stage= new Stage();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

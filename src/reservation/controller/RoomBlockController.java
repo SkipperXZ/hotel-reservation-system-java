@@ -27,6 +27,9 @@ public class RoomBlockController {
     private JFXDatePicker startDatePicker;
     @FXML
     private JFXDatePicker finishDatePicker;
+    @FXML
+    private Label warningMessage;
+
 
     private Room room;
     private ReservationPageController parentController;
@@ -43,13 +46,23 @@ public class RoomBlockController {
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(finishDatePicker.getValue()== null){
+                    warningMessage.setVisible(true);
+                    return;
+                }
+                if(startDatePicker.getValue().isAfter(finishDatePicker.getValue()))
+                {
+                    warningMessage.setVisible(true);
+                    return;
+                }
                 if(memoText != null) {
                     room.setMemo(memoText.getText());
                     isConfirm = true;
+                    parentController.setStartDate(startDatePicker.getValue());
+                    parentController.setFinishDate(finishDatePicker.getValue());
                     parentController.getRoomBlockStage().close();
                 }
-                parentController.setStartDate(startDatePicker.getValue());
-                parentController.setFinishDate(finishDatePicker.getValue());
+
             }
 
 
