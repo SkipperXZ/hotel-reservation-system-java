@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import Hotel.Customer;
+import javafx.scene.input.MouseEvent;
 import reservation.ReservationHandler;
 import reservation.room.Room;
 
@@ -71,6 +72,10 @@ public class CheckOutPageController {
     private Customer customer;
     private boolean isCheckOut=false;
     private ReservationPageController parentController;
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
 
     @FXML
     public void initialize(){
@@ -94,6 +99,7 @@ public class CheckOutPageController {
                     customer.setLate(true);
                 }
                 if (parentController.isConfirmPaymentScene()){
+                    customer.setPaymerntPrice(customer.getPaymerntPrice()+customer.getPaymerntPrice()/10);
                     ReservationHandler.payment(room);
                     lateCheck.setSelected(false);
                     lateCheck.setDisable(true);
@@ -113,9 +119,9 @@ public class CheckOutPageController {
     public void setInfo(){
         customer = room.getCustomer();
         if(customer.isPayment())
-            paymentStatusLabel.setText("จ่ายแล้ว");
+            paymentStatusLabel.setText("Paid");
         else
-            paymentStatusLabel.setText("ยังไม่จ่าย");
+            paymentStatusLabel.setText("Not Pay Yet");
         if(customer.getIdNum() != null)
             idNumLabel.setText(customer.getIdNum());
         firstNameLabel.setText(customer.getFirstName());

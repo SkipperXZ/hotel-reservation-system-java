@@ -178,22 +178,22 @@
                            <tabs>
                               <Tab style="-fx-font-size: 0;" text="Arrivals">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="552.0" prefWidth="1566.0">
                                        <children>
-                                          <JFXTabPane layoutX="13.0" layoutY="34.0" prefHeight="465.0" prefWidth="1540.0" stylesheets="@../reservation/css/TabPane2.css">
+                                          <JFXTabPane layoutX="13.0" layoutY="34.0" prefHeight="447.0" prefWidth="1540.0" stylesheets="@../reservation/css/TabPane2.css">
                                              <tabs>
                                                 <Tab text="Today">
                                                   <content>
                                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView prefHeight="428.0" prefWidth="1540.0">
+                                                            <TableView fx:id="arrivalTodayTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
                                                               <columns>
-                                                                <TableColumn prefWidth="75.0" text="C1" />
-                                                                <TableColumn prefWidth="75.0" text="C2" />
-                                                                  <TableColumn prefWidth="75.0" text="C1" />
-                                                                  <TableColumn prefWidth="75.0" text="C2" />
-                                                                  <TableColumn prefWidth="75.0" text="C1" />
-                                                                  <TableColumn prefWidth="75.0" text="C2" />
+                                                                <TableColumn fx:id="guestA1" minWidth="256.0" prefWidth="75.0" text="GUEST" />
+                                                                <TableColumn fx:id="regNoA1" minWidth="256.0" prefWidth="75.0" text="REG NO." />
+                                                                  <TableColumn fx:id="phoneA1" minWidth="256.0" prefWidth="75.0" text="PHONE" />
+                                                                  <TableColumn fx:id="roomA1" minWidth="256.0" prefWidth="75.0" text="ROOM" />
+                                                                  <TableColumn fx:id="roomTypeA1" minWidth="256.0" prefWidth="75.0" text="ROOM TYPE" />
+                                                                  <TableColumn fx:id="nightA1" minWidth="256.0" prefWidth="259.0" text="NIGHT" />
                                                               </columns>
                                                             </TableView>
                                                          </children>
@@ -204,11 +204,15 @@
                                                   <content>
                                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                          <children>
-                                                            <TableView prefHeight="430.0" prefWidth="1540.0">
-                                                              <columns>
-                                                                <TableColumn prefWidth="75.0" text="C1" />
-                                                                <TableColumn prefWidth="75.0" text="C2" />
-                                                              </columns>
+                                                            <TableView fx:id="arrivalTomorrowTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
+                                                               <columns>
+                                                                  <TableColumn fx:id="guestA2" minWidth="256.0" prefWidth="75.0" text="GUEST" />
+                                                                  <TableColumn fx:id="regNoA2" minWidth="256.0" prefWidth="75.0" text="REG NO." />
+                                                                  <TableColumn fx:id="phoneA2" minWidth="256.0" prefWidth="75.0" text="PHONE" />
+                                                                  <TableColumn fx:id="roomA2" minWidth="256.0" prefWidth="75.0" text="ROOM" />
+                                                                  <TableColumn fx:id="roomTypeA2" minWidth="256.0" prefWidth="75.0" text="ROOM TYPE" />
+                                                                  <TableColumn fx:id="nightA2" minWidth="256.0" prefWidth="259.0" text="NIGHT" />
+                                                               </columns>
                                                             </TableView>
                                                          </children>
                                                       </AnchorPane>
@@ -222,12 +226,66 @@
                               </Tab>
                               <Tab text="Departures">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXTabPane layoutX="13.0" layoutY="34.0" prefHeight="447.0" prefWidth="1540.0" stylesheets="@../reservation/css/TabPane2.css">
+                                             <tabs>
+                                                <Tab text="Today">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TableView fx:id="departureTodayTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
+                                                               <columns>
+                                                                  <TableColumn fx:id="guestD1" minWidth="256.0" prefWidth="75.0" text="GUEST" />
+                                                                  <TableColumn fx:id="regNoD1" minWidth="256.0" prefWidth="75.0" text="REG NO." />
+                                                                  <TableColumn fx:id="phoneD1" minWidth="256.0" prefWidth="75.0" text="PHONE" />
+                                                                  <TableColumn fx:id="roomD1" minWidth="256.0" prefWidth="75.0" text="ROOM" />
+                                                                  <TableColumn fx:id="roomTypeD1" minWidth="256.0" prefWidth="75.0" text="ROOM TYPE" />
+                                                                  <TableColumn fx:id="nightD1" minWidth="256.0" prefWidth="259.0" text="NIGHT" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                                <Tab text="Tomorrow">
+                                                   <content>
+                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TableView fx:id="departureTomorrowTable" prefHeight="408.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
+                                                               <columns>
+                                                                  <TableColumn fx:id="guestD2" minWidth="256.0" prefWidth="75.0" text="GUEST" />
+                                                                  <TableColumn fx:id="regNoD2" minWidth="256.0" prefWidth="75.0" text="REG NO." />
+                                                                  <TableColumn fx:id="phoneD2" minWidth="256.0" prefWidth="75.0" text="PHONE" />
+                                                                  <TableColumn fx:id="roomD2" minWidth="256.0" prefWidth="75.0" text="ROOM" />
+                                                                  <TableColumn fx:id="roomTypeD2" minWidth="256.0" prefWidth="75.0" text="ROOM TYPE" />
+                                                                  <TableColumn fx:id="nightD2" minWidth="256.0" prefWidth="259.0" text="NIGHT" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </Tab>
+                                             </tabs>
+                                          </JFXTabPane>
+                                       </children></AnchorPane>
                                 </content>
                               </Tab>
                               <Tab text="In-House">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                                       <children>
+                                          <TableView fx:id="inHouseTable" layoutX="13.0" layoutY="34.0" prefHeight="445.0" prefWidth="1540.0" style="-fx-font-size: 18px;" stylesheets="@../reservation/css/tableView.css">
+                                            <columns>
+                                              <TableColumn fx:id="guestH" minWidth="256.0" prefWidth="75.0" text="GUEST" />
+                                              <TableColumn fx:id="regNoH" minWidth="256.0" prefWidth="75.0" text="REG NO." />
+                                                <TableColumn fx:id="phoneH" minWidth="256.0" prefWidth="75.0" text="PHONE" />
+                                                <TableColumn fx:id="roomH" minWidth="256.0" prefWidth="75.0" text="ROOM" />
+                                                <TableColumn fx:id="roomTypeH" minWidth="256.0" prefWidth="75.0" text="ROOM TYPE" />
+                                                <TableColumn fx:id="nightH" minWidth="256.0" prefWidth="259.0" text="NIGHT" />
+                                            </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
                                 </content>
                               </Tab>
                            </tabs>
@@ -235,7 +293,7 @@
                      </children>
                   </Pane>
                   <Rectangle arcHeight="5.0" arcWidth="6.0" fill="WHITE" height="145.0" layoutX="1513.0" layoutY="67.0" stroke="#cecece" strokeType="INSIDE" width="145.0" />
-                  <Label layoutX="1522.0" layoutY="76.0" prefHeight="33.0" prefWidth="128.0" style="-fx-background-color: #1473E6; -fx-alignment: center;" text="Guest" textFill="WHITE">
+                  <Label layoutX="1522.0" layoutY="76.0" prefHeight="33.0" prefWidth="128.0" style="-fx-background-color: #1473E6; -fx-alignment: center;" text="In-House" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="24.0" />
                      </font>

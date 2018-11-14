@@ -1,9 +1,12 @@
 package staff;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
+
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -11,14 +14,27 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import main.Main;
+import report.AllBooking;
+import report.Booking;
 
-public class CustomerPopupController implements Initializable {
+import java.io.FileInputStream;
+
+public class userPopupController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     int userCur = UserDatabase.userCur;
+
+    @FXML
+    private ImageView ima = new ImageView();
 
     @FXML
     private Label fullname = new Label();
@@ -61,13 +77,19 @@ public class CustomerPopupController implements Initializable {
 
     @FXML private Text status = new Text();
 
-    public static ObservableList<User> list;
-    @FXML private TableView<?> table;
-    @FXML private TableColumn<?, ?> reg;
-    @FXML private TableColumn<?, ?> date;
-    @FXML private TableColumn<?, ?> time;
-    @FXML private TableColumn<?, ?> guest;
-    @FXML private TableColumn<?, ?> activity;
+
+
+    static ObservableList<Booking> list;
+    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> checkinData = new ArrayList<Booking>();
+
+    @FXML private TableView<Booking> table;
+    @FXML private TableColumn<Booking, String> reg;
+    @FXML private TableColumn<Booking, String> date;
+    @FXML private TableColumn<Booking, String> time;
+    @FXML private TableColumn<Booking, String> guest;
+    @FXML private TableColumn<Booking, String> activity;
+
 
     private void handleButtonAction(ActionEvent event) {
         System.out.println("Cancel 5555+");
@@ -92,6 +114,22 @@ public class CustomerPopupController implements Initializable {
         role.setText(userArrayList.get(userCur).getRole());
         status.setText(userArrayList.get(userCur).getUserType());
         cancel.setOnAction(this::handleButtonAction);
-//        table.setItems(list);
+        ima.setImage(new Image(userArrayList.get(userCur).getImage()));
+
+        for (Booking e : allBooking) {
+
+            if(e.getUserRecord().equals(userArrayList.get(userCur).getUserName())) {
+                checkinData.add(e);
+            }
+        }
+        list = FXCollections.observableArrayList(
+                checkinData
+        );
+        reg.setCellValueFactory(new PropertyValueFactory<Booking,String>("regNum"));
+        date.setCellValueFactory(new PropertyValueFactory<Booking,String>("userRecordDate"));
+        time.setCellValueFactory(new PropertyValueFactory<Booking,String>("userRecordTime"));
+        guest.setCellValueFactory(new PropertyValueFactory<Booking,String>("fullname"));
+        activity.setCellValueFactory(new PropertyValueFactory<Booking,String>("activity"));
+        table.setItems(list);
     }
 }

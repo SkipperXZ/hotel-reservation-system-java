@@ -4,13 +4,18 @@ import Hotel.CustomerDatabase;
 import Hotel.Hotel;
 import Hotel.Customer;
 import com.jfoenix.controls.JFXDatePicker;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import report.Booking;
 import reservation.room.Room;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ReserveRoomController {
 
@@ -78,6 +83,9 @@ public class ReserveRoomController {
     private Label dayLabel_6;
     @FXML
     private TextField searchBar;
+    @FXML
+    private Label roomIDLabel;
+
 
     @FXML
     private Button makeSearch;
@@ -102,8 +110,22 @@ public class ReserveRoomController {
     private Room room;
 
     @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
+
+    @FXML
     public void initialize() {
 
+        telNumText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    telNumText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
         adultNumChoice.getItems().addAll(0,1,2,3,4);
         childNumChoice.getItems().addAll(0,1,2);
         extraBedChoice.getItems().addAll(0,1,2);
@@ -146,6 +168,9 @@ public class ReserveRoomController {
                     }
                     memo = memoText.getText();
                 }catch (Exception e){
+                    return;
+                }
+                if(checkOutDate.isBefore(checkInDate)){
                     return;
                 }
 
@@ -229,8 +254,14 @@ public class ReserveRoomController {
             else {
                 dayLabelArr[i].setStyle("-fx-background-color: red");
             }
+            dayLabelArr[i].setAlignment(Pos.CENTER);
+            if( Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().equals(LocalDate.now()))
+                dayLabelArr[i].setText("TODAY");
+            else
+                dayLabelArr[i].setText(Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().format(DateTimeFormatter.ofPattern("dd/MM")));
 
         }
+        roomIDLabel.setText(room.getRoomID());
     }
     private int getRoomIdex(Room room ,int currentDay,int floorNum ){
         int index=0;

@@ -3,19 +3,24 @@ import Hotel.Hotel;
 import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import Hotel.Customer;
+import javafx.scene.input.MouseEvent;
 import reservation.ReservationHandler;
 import reservation.room.Room;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CheckInController {
     @FXML
@@ -115,19 +120,30 @@ public class CheckInController {
     private Room room;
     private Label[] dayLabelArr;
     @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
+
+    @FXML
     public void initialize() {
 
         adultNumChoice.getItems().addAll(0,1,2,3,4);
         childNumChoice.getItems().addAll(0,1,2,3,4);
         extraBedChoice.getItems().addAll(0,1,2);
         titleChoice.getItems().addAll("Mr.","Mrs.");
-
+        idNumText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    idNumText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
         makeCheckIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-
-
                     idNum = idNumText.getText();
                     country = countryText.getText();
                     isConfirm = true;
@@ -199,6 +215,10 @@ public class CheckInController {
             else {
                 dayLabelArr[i].setStyle("-fx-background-color: red");
             }
+            if( Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().equals(LocalDate.now()))
+                dayLabelArr[i].setText("TODAY");
+            else
+                dayLabelArr[i].setText(Hotel.hotel.get(parentController.getCurrentDay()+i-1).getDate().format(DateTimeFormatter.ofPattern("dd/MM")));
 
         }
     }

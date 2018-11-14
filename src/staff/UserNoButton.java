@@ -20,9 +20,10 @@ public class UserNoButton implements Serializable {
     private String passId;
     private String role;
     private String passWord;
+    private String image;
 
     public UserNoButton(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
-                String userType,String role,String passId,String passWord){
+                String userType,String role,String passId,String passWord,String image){
         this.employeeId=employeeId;
         this.userName=userName;
         this.firstName=firstName;
@@ -36,6 +37,15 @@ public class UserNoButton implements Serializable {
         this.role=role;
         this.passId=passId;
         this.passWord = passWord;
+        this.image=image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setEmployeeId(String employeeId) {

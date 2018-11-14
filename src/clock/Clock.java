@@ -1,11 +1,14 @@
 package clock;
-
+import Hotel.OneDayHotel;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
+import Hotel.Hotel;
+import main.Linker;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -24,6 +27,7 @@ public class Clock {
     private int second;
 
     public Clock(){
+             Linker linker = new Linker();
              day = LocalDateTime.now().getDayOfMonth();
              month = LocalDateTime.now().getMonthValue();
              year = LocalDateTime.now().getYear();
@@ -34,6 +38,13 @@ public class Clock {
                 if(clockLabel != null) {
                     clockLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 }
+                 while(!Hotel.hotel.get(0).getDate().equals(LocalDate.now())){
+                     Hotel.hotel.add(new OneDayHotel(Hotel.hotel.get(Hotel.hotel.size()-1).getDate().plusDays(1)));
+                     Hotel.hotel.remove(Hotel.hotel.get(0));
+                     if(Linker.primaryStage.getScene() == Linker.resScene){
+                         Linker.primaryStage.setScene(linker.newCustomerScene());
+                     }
+                 }
 
             }),
                     new KeyFrame(Duration.seconds(1))

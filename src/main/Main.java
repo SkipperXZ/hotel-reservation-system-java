@@ -1,5 +1,6 @@
 package main;
 
+import Account.Account;
 import Hotel.Hotel;
 import Hotel.Customer;
 import Hotel.CustomerDatabase;
@@ -90,6 +91,11 @@ public class Main extends Application {
             new Hotel();
          }
         else{
+            while(!hotel.get(0).getDate().equals(LocalDate.now())){
+                hotel.add(new OneDayHotel(hotel.get(hotel.size()-1).getDate().plusDays(1)));
+                hotel.remove(hotel.get(0));
+            }
+            System.out.println(hotel.size());
             Hotel.hotel =hotel;
         }
         if(customer != null){
@@ -101,13 +107,13 @@ public class Main extends Application {
             }
             Customer.setNumcustomerID(max);
         }
-        if(user != null){
+        if(user != null && user.size()>0){
             System.out.println("Loadddd");
             UserDatabase.userNoButtons=user;
             for(int i=0;i<user.size();i++){
                 UserDatabase.userArrayList.add(new User(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
                         user.get(i).getIdCardNumber(),user.get(i).getCountry(),user.get(i).getTel(),user.get(i).getEmail(),user.get(i).getAddress(),
-                        user.get(i).getUserType(),user.get(i).getRole(),new Button(),new Button(),user.get(i).getPassId(),user.get(i).getPassWord()));
+                        user.get(i).getUserType(),user.get(i).getRole(),new Button(),new Button(),user.get(i).getPassId(),user.get(i).getPassWord(),user.get(i).getImage()));
             }
             if(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size()-1).getEmployeeId()!=null) {
                 UserDatabase.employeeId = Integer.parseInt(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
@@ -115,12 +121,10 @@ public class Main extends Application {
         }
         if(allbooking != null){
             AllBooking.allBooking = allbooking;
-            System.out.println("Load Done");
         }
         else{
-            Booking booking = new Booking(0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
+            Booking booking = new Booking(Account.currentUser, 0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
             AllBooking.addBooking(booking);
-            System.out.println("Initial done");
         }
     }
 

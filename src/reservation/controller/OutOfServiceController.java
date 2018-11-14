@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import reservation.room.Room;
 
 public class OutOfServiceController {
@@ -29,6 +30,11 @@ public class OutOfServiceController {
     private Room room;
     private ReservationPageController parentController;
     private boolean isConfirm=false;
+    @FXML
+    void close(MouseEvent event) {
+        ((Label)event.getSource()).getScene().getWindow().hide();
+    }
+
     public void initialize() {
 
         makeConfirm.setOnAction(new EventHandler<ActionEvent>() {

@@ -25,8 +25,13 @@ public class Booking implements Serializable {
     private String timeFormet;
     private String arrivalTimeFormet;
     private String departureTimeFormet;
+    private String userRecord;
+    private String userRecordTime;
+    private String userRecordDate;
+    private String activity;
 
-    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, int nightNum){ /// Check-IN
+    public  Booking(String userRecord, int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price, LocalDateTime recordTime, LocalDate recordDate, int nightNum){ /// Check-IN
+        this.userRecord = userRecord;
         this.firstname = firstname;
         this.lastname = lastname;
         this.regNum = regNum;
@@ -40,9 +45,17 @@ public class Booking implements Serializable {
         this.nightNum = nightNum;
         fullname = firstname+" "+lastname;
         timeFormet = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss"));
+        userRecordTime = recordTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        userRecordDate = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+
+        if(operation == 1){ activity="Check in"; }
+        else if(operation == 2){ activity="Check out"; }
+        else if(operation == 3){ activity="Cancel"; }
+        else if(operation == 4){ activity="Booking"; }
     }
 
-    public  Booking(int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price,LocalDateTime recordTime,LocalDate recordDate, LocalDateTime arrivalDate, LocalDateTime departureDate, int nightNum){ /// Check-IN
+    public  Booking(String userRecord, int regNum, int operation, String firstname, String lastname, String tel, String roomNum, String roomType, int price,LocalDateTime recordTime,LocalDate recordDate, LocalDateTime arrivalDate, LocalDateTime departureDate, int nightNum){ /// Check-IN
+        this.userRecord = userRecord;
         this.firstname = firstname;
         this.lastname = lastname;
         this.regNum = regNum;
@@ -59,6 +72,13 @@ public class Booking implements Serializable {
         fullname = firstname+" "+lastname;
         arrivalTimeFormet = arrivalDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         departureTimeFormet = departureDate.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+        userRecordTime = recordTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        userRecordDate = recordTime.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+
+        if(operation == 1){ activity="Check in"; }
+        else if(operation == 2){ activity="Check out"; }
+        else if(operation == 3){ activity="Cancel"; }
+        else if(operation == 4){ activity="Booking"; }
     }
 
     public Booking(String summaryTopic, int total) {
@@ -214,8 +234,38 @@ public class Booking implements Serializable {
         return departureTimeFormet;
     }
 
-    public void setDepartureTimeFormet(String departureTimeFormet) {
-        this.departureTimeFormet = departureTimeFormet;
+    public void setDepartureTimeFormet(String departureTimeFormet) { this.departureTimeFormet = departureTimeFormet; }
+
+    public String getUserRecord() {
+        return userRecord;
+    }
+
+    public void setUserRecord(String userRecord) {
+        this.userRecord = userRecord;
+    }
+
+    public String getUserRecordTime() {
+        return userRecordTime;
+    }
+
+    public void setUserRecordTime(String userRecordTime) {
+        this.userRecordTime = userRecordTime;
+    }
+
+    public String getUserRecordDate() {
+        return userRecordDate;
+    }
+
+    public void setUserRecordDate(String userRecordDate) {
+        this.userRecordDate = userRecordDate;
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
     }
 }
 

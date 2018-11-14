@@ -290,7 +290,7 @@
                               <Image url="@../../img/icon/user.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="54.0" layoutY="5.0" text="username">
+                        <Label fx:id="userLabel" layoutX="54.0" layoutY="5.0" text="username">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
