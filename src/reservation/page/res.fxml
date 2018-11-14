@@ -240,44 +240,44 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="25.0" layoutX="58.0" layoutY="690.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6faff" height="25.0" layoutX="58.0" layoutY="656.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc7777" height="25.0" layoutX="58.0" layoutY="823.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="25.0" layoutX="58.0" layoutY="789.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="25.0" layoutX="58.0" layoutY="755.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#24ec88" height="25.0" layoutX="58.0" layoutY="723.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
-                  <Circle fill="#ff2b00" layoutX="69.0" layoutY="871.0" radius="12.0" stroke="#ff000000" strokeType="INSIDE" />
-                  <Text layoutX="96.0" layoutY="674.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacant">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="25.0" layoutX="58.0" layoutY="719.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6faff" height="25.0" layoutX="59.0" layoutY="676.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc7777" height="25.0" layoutX="58.0" layoutY="823.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="25.0" layoutX="58.0" layoutY="789.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4bccfd" height="25.0" layoutX="58.0" layoutY="811.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#24ec88" height="25.0" layoutX="60.0" layoutY="763.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Circle fill="#ff2b00" layoutX="69.0" layoutY="871.0" radius="12.0" stroke="#ff000000" strokeType="INSIDE" visible="false" />
+                  <Text layoutX="97.0" layoutY="694.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacant">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="97.0" layoutY="877.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Late">
+                  <Text layoutX="97.0" layoutY="877.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Late" visible="false">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="94.0" layoutY="841.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Out Of Service">
+                  <Text layoutX="94.0" layoutY="841.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Out Of Service" visible="false">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="95.0" layoutY="807.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block">
+                  <Text layoutX="95.0" layoutY="807.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block" visible="false">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="96.0" layoutY="773.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning">
+                  <Text layoutX="96.0" layoutY="829.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaning">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="96.0" layoutY="741.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In-House">
+                  <Text layoutX="98.0" layoutY="784.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In-House">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="97.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked">
+                  <Text layoutX="97.0" layoutY="737.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
