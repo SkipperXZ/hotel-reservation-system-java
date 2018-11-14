@@ -1,5 +1,6 @@
 package report;
 
+import Account.Account;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -10,7 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import main.Linker;
+import main.Main;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -37,6 +43,7 @@ public class reportController implements Initializable {
     static int click=0;
     @FXML private Label date;
     @FXML private Label time;
+    @FXML private Label userLabel;
     @FXML private JFXButton dashboardButtton;
     @FXML private JFXButton calendarButtton;
     @FXML private JFXButton reservationButtton;
@@ -84,12 +91,14 @@ public class reportController implements Initializable {
     @FXML private TableView<Booking> summaryTable;
     @FXML private TableColumn<Booking, String> summary;
     @FXML private TableColumn<Booking, String> total;
+    @FXML private ImageView logOut = new ImageView();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Linker linker = new Linker();
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
+        userLabel.setText(Account.currentUser);
         currentDay = LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
 
         for (Booking e : allBooking) {
@@ -226,6 +235,20 @@ public class reportController implements Initializable {
                 Linker.primaryStage.setScene(linker.newDashboardScene());
             }
         });
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Linker.primaryStage.close();
+                Stage stage= new Stage();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     public void updateReport(){
