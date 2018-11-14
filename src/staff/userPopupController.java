@@ -27,7 +27,7 @@ import report.Booking;
 
 import java.io.FileInputStream;
 
-public class CustomerPopupController implements Initializable {
+public class userPopupController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     int userCur = UserDatabase.userCur;
 
@@ -75,7 +75,7 @@ public class CustomerPopupController implements Initializable {
 
     @FXML private Text status = new Text();
 
-    
+
 
     static ObservableList<Booking> list;
     ArrayList<Booking> allBooking = AllBooking.allBooking;
