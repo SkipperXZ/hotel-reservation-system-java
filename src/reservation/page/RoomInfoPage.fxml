@@ -209,7 +209,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="roomStatusLabel" layoutX="501.0" layoutY="177.0" text="Label">
+      <Label fx:id="roomStatusLabel" layoutX="501.0" layoutY="177.0" text="-">
          <font>
             <Font size="22.0" />
          </font>
