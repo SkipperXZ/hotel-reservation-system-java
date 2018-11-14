@@ -24,7 +24,7 @@ public class reportController implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> cancelData = new ArrayList<Booking>();

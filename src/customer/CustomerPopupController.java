@@ -5,8 +5,6 @@ import Hotel.Customer;
 import Hotel.CustomerDatabase;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -23,23 +21,18 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import report.AllBooking;
 import report.Booking;
+import report.BookingDatabase;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static Hotel.CustomerDatabase.customerDatabase;
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -130,7 +123,7 @@ public class CustomerPopupController {
         ArrayList<String> tmproomtmp    = new ArrayList<>();
 
         list.clear();
-        for (Booking Booking: AllBooking.allBooking ) {
+        for (Booking Booking: BookingDatabase.bookingDatabase) {
             if(Booking.getOperation()==1 ||Booking.getOperation()==2) {
                 if (Booking.getFullname().equals(customer.getFirstName() + " " + customer.getLastName())) {
                     if(Booking.getOperation()==1){

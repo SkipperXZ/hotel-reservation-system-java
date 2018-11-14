@@ -15,9 +15,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import main.Linker;
-import report.AllBooking;
 import report.Booking;
-import report.reportController;
+import report.BookingDatabase;
 import reservation.room.*;
 
 import java.net.URL;
@@ -86,7 +85,7 @@ public class DashboardController implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking>list5;
-    ArrayList<Booking> allBooking = AllBooking.allBooking;
+    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
     ArrayList<Booking> arrivalToday = new ArrayList<Booking>();
     ArrayList<Booking> arrivalTomorrow = new ArrayList<Booking>();
     ArrayList<Booking> departureToday = new ArrayList<Booking>();

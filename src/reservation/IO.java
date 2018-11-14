@@ -1,16 +1,12 @@
 package reservation;
-import Hotel.Hotel;
 import Hotel.OneDayHotel;
-import Hotel.CustomerDatabase;
 import Hotel.Customer;
 import staff.UserNoButton;
-import report.AllBooking;
 import report.Booking;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 
 public class IO{
