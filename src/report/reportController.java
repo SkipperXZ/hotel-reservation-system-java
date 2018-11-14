@@ -36,7 +36,7 @@ public class reportController implements Initializable {
     ArrayList<Booking> cancelData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
 
-    private int checkinNum=0, checkoutNum=0, cancelNum=0, bookingNum=0;
+    private int checkinNum=0, checkoutNum=0, cancelNum=0, bookingNum=0, totalRevenue=0;
 
     Linker linker;
     private String currentDay;
@@ -110,6 +110,7 @@ public class reportController implements Initializable {
             else if(e.getOperation()==2) {
                 checkoutData.add(e);
                 checkoutNum++;
+                totalRevenue+=e.getPrice();
             }
             else if(e.getOperation()==3) {
                 cancelData.add(e);
@@ -262,6 +263,7 @@ public class reportController implements Initializable {
         checkinNum=0;
         cancelNum=0;
         bookingNum=0;
+        totalRevenue=0;
 
         for (Booking e : allBooking) {
 
@@ -273,6 +275,7 @@ public class reportController implements Initializable {
                 } else if (e.getOperation() == 2) {
                     checkoutData.add(e);
                     checkoutNum++;
+                    totalRevenue+=e.getPrice();
                 } else if (e.getOperation() == 3) {
                     cancelData.add(e);
                     cancelNum++;
@@ -344,8 +347,9 @@ public class reportController implements Initializable {
         Booking topic2 = new Booking("Check-Out", checkoutNum);
         Booking topic3 = new Booking("Cancellation", cancelNum);
         Booking topic4 = new Booking("Booking", bookingNum);
+        Booking topic5 = new Booking("Total Revenue", totalRevenue);
 
-        ObservableList<Booking> list = FXCollections.observableArrayList(topic1, topic2, topic3, topic4);
+        ObservableList<Booking> list = FXCollections.observableArrayList(topic1, topic2, topic3, topic4, topic5);
         return list;
     }
 

@@ -134,6 +134,9 @@ public class ReservationHandler {
                     Hotel.hotel.get(index+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex].setMemo(memo);
                 }
             }
+
+
+
             index++;
         }
 
