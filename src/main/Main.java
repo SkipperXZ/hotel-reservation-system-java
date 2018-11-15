@@ -65,6 +65,7 @@ public class Main extends Application {
 
         IO.saveAllBooking(BookingDatabase.bookingDatabase);
         System.out.println("Save done");
+        System.exit(0);
     }
     public void stopClock(){
         for (OneDayHotel e:Hotel.hotel
