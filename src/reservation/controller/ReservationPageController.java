@@ -419,18 +419,21 @@ public class ReservationPageController {
        userButtton.setOnAction(new EventHandler<ActionEvent>() {
            @Override
            public void handle(ActionEvent event) {
+               if(currentStage == null)
                Linker.primaryStage.setScene(linker.newUserScene());
            }
        });
        dashboardButtton.setOnAction(new EventHandler<ActionEvent>() {
            @Override
            public void handle(ActionEvent event) {
+               if(currentStage == null)
                Linker.primaryStage.setScene(linker.newDashboardScene());
            }
        });
        calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
            @Override
            public void handle(ActionEvent event) {
+               if(currentStage == null)
                Linker.primaryStage.setScene(linker.newCalendarScene());
            }
        });
@@ -438,6 +441,7 @@ public class ReservationPageController {
         reportButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(currentStage == null)
                 Linker.primaryStage.setScene(linker.newReportScene());
             }
         });
@@ -445,6 +449,7 @@ public class ReservationPageController {
         customerButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if(currentStage == null)
                 Linker.primaryStage.setScene(linker.newCustomerScene());
             }
         });
@@ -699,7 +704,7 @@ public class ReservationPageController {
         makeF2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(currentFloorNum != 2){
+                if(currentFloorNum != 2 && currentStage == null){
                     floorButtonArr[currentFloorNum-1].setStyle(nonSelectFloorStyle);
                     currentFloorNum = 2;
                     floorButtonArr[currentFloorNum-1].setStyle(selectedFloorStyle);
@@ -710,7 +715,7 @@ public class ReservationPageController {
         makeF3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(currentFloorNum != 3) {
+                if(currentFloorNum != 3 && currentStage == null) {
                     floorButtonArr[currentFloorNum-1].setStyle(nonSelectFloorStyle);
                     currentFloorNum = 3;
 
@@ -722,7 +727,7 @@ public class ReservationPageController {
         makeF4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(currentFloorNum != 4) {
+                if(currentFloorNum != 4 && currentStage == null) {
                     floorButtonArr[currentFloorNum-1].setStyle(nonSelectFloorStyle);
                     currentFloorNum = 4;
                     floorButtonArr[currentFloorNum-1].setStyle(selectedFloorStyle);
@@ -734,7 +739,7 @@ public class ReservationPageController {
         makeF5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(currentFloorNum != 5) {
+                if(currentFloorNum != 5 && currentStage == null) {
                     floorButtonArr[currentFloorNum-1].setStyle(nonSelectFloorStyle);
                     currentFloorNum = 5;
                     floorButtonArr[currentFloorNum-1].setStyle(selectedFloorStyle);
@@ -748,7 +753,7 @@ public class ReservationPageController {
             @Override
             public void handle(ActionEvent event) {
 
-                if(currentDay < 30){
+                if(currentDay < 30 && currentStage == null){
                     currentDay++;
                     updateAll();
                 }
@@ -774,7 +779,7 @@ public class ReservationPageController {
             @Override
             public void handle(ActionEvent event) {
 
-                if(currentDay > 1){
+                if(currentDay > 1 && currentStage == null){
                     currentDay--;
                     updateAll();
                 }
