@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -408,7 +407,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)walkInOnVacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmWalkInScene()) {
-                    ReservationHandler.walkInCheckIn(customer,room);
+                    HotelSystem.walkInCheckIn(customer,room);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -462,7 +461,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)reserveOnvacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmReservationScene()) {
-                    ReservationHandler.booking(customer,roomIndex,currentFloorNum,currentDay);
+                    HotelSystem.booking(customer,roomIndex,currentFloorNum,currentDay);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -476,7 +475,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)cleanOnVacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmCleaningScene()){
-                    ReservationHandler.cleaning(room,cleaningTimeMinute);
+                    HotelSystem.cleaning(room,cleaningTimeMinute);
                     updatePaneStatus(selectedPane);
 
                 }
@@ -489,7 +488,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)blockOnVacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isRoomBlockScene()) {
-                    ReservationHandler.roomBlock(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
+                    HotelSystem.roomBlock(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -501,7 +500,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)cleanOnVacant.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isOutOfServiceScene()){
-                    ReservationHandler.outOfService(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
+                    HotelSystem.outOfService(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -522,7 +521,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkInOnReserved.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmCheckInScene()) {
-                    ReservationHandler.checkIn(customer,roomIndex,currentFloorNum,currentDay);
+                    HotelSystem.checkIn(customer,roomIndex,currentFloorNum,currentDay);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -535,7 +534,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)paymentOnReserved.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmPaymentScene()){
-                    ReservationHandler.payment(room);
+                    HotelSystem.payment(room);
                 }
             }
         });
@@ -555,7 +554,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane= (Pane)cancelOnReserved.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancelBooking(roomIndex,currentFloorNum,currentDay);
+                HotelSystem.cancelBooking(roomIndex,currentFloorNum,currentDay);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
@@ -575,9 +574,9 @@ public class ReservationPageController {
                 selectedPane = (Pane)checkOutOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if(isCheckOutScene()){
-                    ReservationHandler.checkOut(roomIndex,currentFloorNum,currentDay);
+                    HotelSystem.checkOut(roomIndex,currentFloorNum,currentDay);
                     if (isConfirmCleaningScene()) {
-                        ReservationHandler.cleaning(room, cleaningTimeMinute);
+                        HotelSystem.cleaning(room, cleaningTimeMinute);
                     }
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
@@ -593,7 +592,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)paymentOnInHouse.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmPaymentScene()){
-                    ReservationHandler.payment(room);
+                    HotelSystem.payment(room);
                 }
             }
         });
@@ -629,7 +628,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)doneOnCleaning.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 // System.out.println(selectedPane+"cureent");
-                ReservationHandler.doneCleaning(room);
+                HotelSystem.doneCleaning(room);
                 updatePaneStatus(selectedPane);
             }
         });
@@ -644,7 +643,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane = (Pane)cancelOnOutofService.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancel(room);
+                HotelSystem.cancel(room);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
@@ -670,7 +669,7 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 selectedPane = (Pane)cancelOnRoomBlock.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
-                ReservationHandler.cancel(room);
+                HotelSystem.cancel(room);
                 updatePaneStatus(selectedPane);
                 updateRoomAvailaible();
             }
@@ -681,7 +680,7 @@ public class ReservationPageController {
                 selectedPane = (Pane)reserveOnRoomBlock.getParentPopup().getOwnerNode();
                 Room room = searchRoomFromPane(selectedPane);
                 if (isConfirmReservationScene()) {
-                    ReservationHandler.booking(customer,roomIndex,currentFloorNum,currentDay);
+                    HotelSystem.booking(customer,roomIndex,currentFloorNum,currentDay);
                     updatePaneStatus(selectedPane);
                     updateRoomAvailaible();
                 }
@@ -1118,7 +1117,7 @@ public class ReservationPageController {
                 reserveRoomController.setParentController(this);
                 reserveStage = new Stage();
                 reserveStage.initStyle(StageStyle.TRANSPARENT);
-                reserveStage.setTitle("ReservationHandler");
+                reserveStage.setTitle("HotelSystem");
                 Scene scene = new Scene(root);
                 scene.setFill(Color.TRANSPARENT);
                 reserveStage.setScene(scene);

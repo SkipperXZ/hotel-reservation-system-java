@@ -8,14 +8,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import Hotel.Customer;
 import javafx.scene.input.MouseEvent;
-import reservation.ReservationHandler;
+import reservation.HotelSystem;
 import reservation.room.Room;
 
 import java.time.LocalDate;
@@ -193,7 +192,7 @@ public class CheckInController {
             @Override
             public void handle(ActionEvent event) {
                 if (parentController.isConfirmPaymentScene()){
-                    ReservationHandler.payment(room);
+                    HotelSystem.payment(room);
                 }
             }
 

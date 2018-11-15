@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import Hotel.Customer;
 import javafx.scene.input.MouseEvent;
-import reservation.ReservationHandler;
+import reservation.HotelSystem;
 import reservation.room.Room;
 
 import java.time.LocalDateTime;
@@ -113,7 +113,7 @@ public class CheckOutPageController {
                 if (parentController.isConfirmPaymentScene()){
                     customer.setLatePaid(true);
                     customer.setPaymerntPrice(customer.getPaymerntPrice()+customer.getPaymerntPrice()/10);
-                    ReservationHandler.payment(room);
+                    HotelSystem.payment(room);
                     lateCheck.setSelected(false);
                     lateCheck.setDisable(true);
                 }

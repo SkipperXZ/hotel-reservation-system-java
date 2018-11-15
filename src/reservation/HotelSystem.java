@@ -12,7 +12,7 @@ import report.Booking;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class ReservationHandler {
+public class HotelSystem {
     public static void booking(Customer customer, int roomIndex, int currentFloorNum, int currentDay) {
         Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         for (int i = 0; i < customer.getNightNum()+1; i++) {
