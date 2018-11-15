@@ -103,7 +103,7 @@ public class mainUser implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/newUserPage.fxml"));
                 Parent root = (Parent)fxmlLoader.load();
                 Stage stage = new Stage();
-                stage.setTitle("Edit");
+                stage.setTitle("New User");
                 stage.setScene(new Scene(root,1080,720));
                 stage.show();
             }catch (Exception e){
