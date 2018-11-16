@@ -23,7 +23,7 @@ public class popUpDelete implements Initializable {
         if(event.getSource()==btnDelete){
             userArrayList.remove(UserDatabase.userCur);
             userNoButtons.remove(UserDatabase.userCur);
-            mainUser user = new mainUser();
+            UserPageController user = new UserPageController();
             user.update();
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();

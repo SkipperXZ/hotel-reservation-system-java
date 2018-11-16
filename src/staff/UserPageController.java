@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
 import main.Main;
 
-public class mainUser implements Initializable {
+public class UserPageController implements Initializable {
     public static int max=100;
 //    int []a = new int[max];
     public static ObservableList<User>list;
@@ -56,7 +56,6 @@ public class mainUser implements Initializable {
     @FXML private Label date;
 
     @FXML private Label time;
-    @FXML private ImageView userPic;
     @FXML private Label userLabel;
 
     public static Button [] buttonE=new Button[max];

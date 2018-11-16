@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
-public class EditUser implements Initializable {
+public class EditUserController implements Initializable {
 
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
