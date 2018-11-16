@@ -47,6 +47,7 @@ public class reportController implements Initializable {
     @FXML private JFXButton dashboardButtton;
     @FXML private JFXButton calendarButtton;
     @FXML private JFXButton reservationButtton;
+    @FXML private JFXButton  reportButtton;
     @FXML private JFXButton customerButtton;
     @FXML private JFXButton userButtton;
     @FXML private Label currentDayLabel;
@@ -234,6 +235,12 @@ public class reportController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Linker.primaryStage.setScene(linker.newDashboardScene());
+            }
+        });
+        reportButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Linker.primaryStage.setScene(linker.newReportScene());
             }
         });
         calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
