@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class popUpDelete implements Initializable {
+public class UserDeleteController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     @FXML
@@ -23,7 +23,7 @@ public class popUpDelete implements Initializable {
         if(event.getSource()==btnDelete){
             userArrayList.remove(UserDatabase.userCur);
             userNoButtons.remove(UserDatabase.userCur);
-            mainUser user = new mainUser();
+            UserPageController user = new UserPageController();
             user.update();
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();

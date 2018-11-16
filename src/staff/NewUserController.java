@@ -6,8 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import java.io.File;
-import java.io.Serializable;
-import javafx.collections.ObservableList;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -23,7 +21,7 @@ import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.ChoiceBox;
 
-public class NewUser implements Initializable {
+public class NewUserController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
     ObservableList<String> cursors = FXCollections.observableArrayList("User","Admin");
@@ -114,7 +112,7 @@ public class NewUser implements Initializable {
                 UserDatabase.employeeId++;
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
                 stage.close();
-                mainUser mu = new mainUser();
+                UserPageController mu = new UserPageController();
                 mu.update();
             }
             if(ch3==false||ch4==false||ch5==false||ch6==false||ch7==false||ch8==false){
