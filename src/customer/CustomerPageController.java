@@ -4,6 +4,7 @@ package customer;
 import Account.Account;
 import Hotel.Customer;
 import Hotel.CustomerDatabase;
+import Hotel.Hotel;
 import clock.Clock;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -31,6 +32,9 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.Linker;
 import main.Main;
+import report.BookingDatabase;
+import reservation.IO;
+import staff.UserDatabase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,7 +73,7 @@ public class CustomerPageController {
     @FXML private ImageView logOut = new ImageView();
 
 
-
+    Stage stage;
     private double xOffset = 0;
     private double yOffset = 0;
     public static String selectName;
@@ -108,6 +112,13 @@ public class CustomerPageController {
             public void handle(ActionEvent event) {
 
                 Linker.primaryStage.setScene(linker.newResScene());
+            }
+        });
+        customerButtton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Linker.primaryStage.setScene(linker.newCustomerScene());
             }
         });
         reportButtton.setOnAction(new EventHandler<ActionEvent>() {
@@ -197,7 +208,7 @@ public class CustomerPageController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Stage stage= new Stage();
+                stage = new Stage();
                 stage.setResizable(false);
                  stage.initStyle(StageStyle.UTILITY);
 
@@ -256,6 +267,12 @@ public class CustomerPageController {
         logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                stage.close();
+                IO.saveHotel(Hotel.hotel);
+                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveUser(UserDatabase.userNoButtons);
+                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
                 Main main = new Main();
