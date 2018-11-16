@@ -21,7 +21,7 @@
             <top>
                 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="HOTELLO" textAlignment="RIGHT" textFill="WHITE">
+                        <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Bold" size="24.0" />
                             </font>
@@ -70,11 +70,11 @@
                 </Pane>
             </top>
             <left>
-                <VBox cacheShape="false" prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                     <children>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="dashboardButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                                <JFXButton fx:id="dashboardButtton" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -88,7 +88,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="calendarButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                                <JFXButton fx:id="calendarButtton" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -102,7 +102,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="reservationButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                                <JFXButton fx:id="reservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -130,7 +130,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="reportButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                                <JFXButton fx:id="reportButtton" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
@@ -144,7 +144,7 @@
                         </Pane>
                         <Pane prefWidth="220.0">
                             <children>
-                                <JFXButton fx:id="userButtton" focusTraversable="false" layoutY="1.0" prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
+                                <JFXButton fx:id="userButtton" layoutY="1.0" prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
                                     <font>
                                         <Font name="Segoe UI Bold" size="24.0" />
                                     </font>
