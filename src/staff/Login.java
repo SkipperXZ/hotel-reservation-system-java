@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 
 import java.net.URL;
@@ -17,7 +16,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import main.Linker;
 
 public class Login implements Initializable {
@@ -59,17 +57,17 @@ public class Login implements Initializable {
             chUser.setText("**Pls login Acc Admin");
             chPas.setText("**Pls login Acc Admin");
         }
-        if(UserDatabase.userArrayList.size()>0 && ch3 && ch2){
-            for(int i=0;i<UserDatabase.userArrayList.size();i++){
-                System.out.println(UserDatabase.userArrayList.get(i).getUserName());
-                if(UserDatabase.userArrayList.get(i).getUserName().equals(username.getText())){
+        if(StaffDatabase.userArrayList.size()>0 && ch3 && ch2){
+            for(int i = 0; i< StaffDatabase.userArrayList.size(); i++){
+                System.out.println(StaffDatabase.userArrayList.get(i).getUserName());
+                if(StaffDatabase.userArrayList.get(i).getUserName().equals(username.getText())){
                     ch1=false;
-                    if(UserDatabase.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
+                    if(StaffDatabase.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
                         if(chppp>5){
-                            if(UserDatabase.userArrayList.get(i).getUserType().equals("Admin")){
-                                Account.currentUser = UserDatabase.userArrayList.get(i).getUserName();
-                                Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
-                                Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
+                            if(StaffDatabase.userArrayList.get(i).getUserType().equals("Admin")){
+                                Account.currentUser = StaffDatabase.userArrayList.get(i).getUserName();
+                                Account.currentPassword = StaffDatabase.userArrayList.get(i).getPassWord();
+                                Account.currentUserType = StaffDatabase.userArrayList.get(i).getUserType();
                                 Linker.primaryStage.setScene(linker.newDashboardScene());
                                 Linker.primaryStage.setX(0);
                                 Linker.primaryStage.setY(0);
@@ -78,9 +76,9 @@ public class Login implements Initializable {
                             }
 
                         }else {
-                            Account.currentUser = UserDatabase.userArrayList.get(i).getUserName();
-                            Account.currentPassword = UserDatabase.userArrayList.get(i).getPassWord();
-                            Account.currentUserType = UserDatabase.userArrayList.get(i).getUserType();
+                            Account.currentUser = StaffDatabase.userArrayList.get(i).getUserName();
+                            Account.currentPassword = StaffDatabase.userArrayList.get(i).getPassWord();
+                            Account.currentUserType = StaffDatabase.userArrayList.get(i).getUserType();
                             Linker.primaryStage.setScene(linker.newDashboardScene());
                             Linker.primaryStage.setX(0);
                             Linker.primaryStage.setY(0);

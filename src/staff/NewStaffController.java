@@ -21,9 +21,9 @@ import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.ChoiceBox;
 
-public class NewUserController implements Initializable {
-    ArrayList<User> userArrayList = UserDatabase.userArrayList;
-    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
+public class NewStaffController implements Initializable {
+    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons= StaffDatabase.userNoButtons;
     ObservableList<String> cursors = FXCollections.observableArrayList("User","Admin");
     FileChooser fileChooser = new FileChooser();
     File file = new File("src/img/icon/photoUser.png");;
@@ -102,17 +102,17 @@ public class NewUserController implements Initializable {
             if(lastName.getText().equals(""))ch6=false;
             if(passWord.getText().equals(""))ch8=false;
             if((ch1&&ch2&&ch3&&ch4&&ch5&&ch6&&ch7&&ch8)||(userArrayList.size()==0)) {
-                userArrayList.add(new User(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
+                userArrayList.add(new Staff(Integer.toString(StaffDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
                         userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText(),file.toURI().toString()));
-                userNoButtons.add(new UserNoButton(Integer.toString(UserDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
+                userNoButtons.add(new UserNoButton(Integer.toString(StaffDatabase.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
                         userType.getValue(), role.getText(), pass.getText(), passWord.getText(),file.toURI().toString()));
                 System.out.println("New User");
-                UserDatabase.employeeId++;
+                StaffDatabase.employeeId++;
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
                 stage.close();
-                UserPageController mu = new UserPageController();
+                StaffPageController mu = new StaffPageController();
                 mu.update();
             }
             if(ch3==false||ch4==false||ch5==false||ch6==false||ch7==false||ch8==false){
@@ -143,7 +143,7 @@ public class NewUserController implements Initializable {
         btnSave.setOnAction(this::handleButtonAction);
         btnCancel.setOnAction(this::handleButtonAction);
         btnImage.setOnAction(this::handleButtonAction);
-        userID.setText(Integer.toString(UserDatabase.employeeId));
+        userID.setText(Integer.toString(StaffDatabase.employeeId));
         userType.getItems().addAll("User","Admin");
         userType.setValue("User");
         changeIm.setOnAction(this::handleButtonAction);

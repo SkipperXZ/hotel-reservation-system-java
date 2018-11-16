@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -15,14 +14,13 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
-public class EditUserController implements Initializable {
+public class EditStaffController implements Initializable {
 
-    ArrayList<User> userArrayList = UserDatabase.userArrayList;
-    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
-    int userCur = UserDatabase.userCur;
+    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons= StaffDatabase.userNoButtons;
+    int userCur = StaffDatabase.userCur;
     FileChooser fileChooser = new FileChooser();
     File file;
 

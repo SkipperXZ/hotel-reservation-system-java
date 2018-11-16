@@ -9,9 +9,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class UserDeleteController implements Initializable {
-    ArrayList<User> userArrayList = UserDatabase.userArrayList;
-    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
+public class StaffDeleteController implements Initializable {
+    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons= StaffDatabase.userNoButtons;
     @FXML
     private JFXButton btnCancel = new JFXButton();
 
@@ -21,9 +21,9 @@ public class UserDeleteController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         if(event.getSource()==btnDelete){
-            userArrayList.remove(UserDatabase.userCur);
-            userNoButtons.remove(UserDatabase.userCur);
-            UserPageController user = new UserPageController();
+            userArrayList.remove(StaffDatabase.userCur);
+            userNoButtons.remove(StaffDatabase.userCur);
+            StaffPageController user = new StaffPageController();
             user.update();
             Stage stage = (Stage) btnCancel.getScene().getWindow();
             stage.close();
