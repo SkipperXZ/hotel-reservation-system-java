@@ -368,7 +368,6 @@ public class ReservationPageController {
     Linker linker;
     private int currentFloorNum = 1;
     private Stage currentStage;
-
     @FXML
     public void initialize() {
         Linker linker = new Linker();

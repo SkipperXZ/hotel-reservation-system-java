@@ -22,7 +22,7 @@ import javafx.scene.image.Image;
 import report.Booking;
 import report.BookingDatabase;
 
-public class UserProfileController implements Initializable {
+public class userPopupController implements Initializable {
     ArrayList<User> userArrayList = UserDatabase.userArrayList;
     int userCur = UserDatabase.userCur;
 
