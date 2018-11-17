@@ -14,14 +14,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.mainUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.StaffPageController">
 
    <children>
       <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
          <top>
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="HOTELLO" textAlignment="RIGHT" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="24.0" />
                      </font>
@@ -74,7 +74,7 @@
                <children>
                   <Pane prefWidth="220.0">
                      <children>
-                        <JFXButton fx:id="dashboardButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                        <JFXButton fx:id="dashboardButtton" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
@@ -88,7 +88,7 @@
                   </Pane>
                   <Pane prefWidth="220.0">
                      <children>
-                        <JFXButton fx:id="calendarButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                        <JFXButton fx:id="calendarButtton" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
@@ -102,7 +102,7 @@
                   </Pane>
                   <Pane prefWidth="220.0">
                      <children>
-                        <JFXButton fx:id="reservationButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                        <JFXButton fx:id="reservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
@@ -116,7 +116,7 @@
                   </Pane>
                   <Pane prefWidth="220.0">
                      <children>
-                        <JFXButton fx:id="customerButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                        <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
@@ -130,7 +130,7 @@
                   </Pane>
                   <Pane prefWidth="220.0">
                      <children>
-                        <JFXButton fx:id="reportButtton" focusTraversable="false" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                        <JFXButton fx:id="reportButtton" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>

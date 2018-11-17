@@ -22,9 +22,9 @@ import javafx.scene.image.Image;
 import report.Booking;
 import report.BookingDatabase;
 
-public class userPopupController implements Initializable {
-    ArrayList<User> userArrayList = UserDatabase.userArrayList;
-    int userCur = UserDatabase.userCur;
+public class StaffProfileController implements Initializable {
+    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
+    int userCur = StaffDatabase.userCur;
 
     @FXML
     private ImageView ima = new ImageView();

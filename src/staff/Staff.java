@@ -8,7 +8,7 @@ import java.io.Serializable;
 import javafx.scene.control.Button;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-public class User implements Serializable {
+public class Staff implements Serializable {
     //SimpleStringProperty
     private SimpleStringProperty employeeId;
     private SimpleStringProperty userName;
@@ -27,7 +27,7 @@ public class User implements Serializable {
     private Button buttonD;
     private String image;
 
-    public User(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
+    public Staff(String employeeId,String userName,String firstName,String lastName,String idCardNumber,String country,String tel,String email,String address,
                 String userType,String role,Button buttonE,Button buttonD,String passId,String passWord,String image){
         this.employeeId=new SimpleStringProperty(employeeId);
         this.userName=new SimpleStringProperty(userName);
