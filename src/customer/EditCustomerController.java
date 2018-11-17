@@ -157,9 +157,9 @@ public class EditCustomerController {
                       // System.out.println(des.getPath());
                    }
 
-
-                   CustomerDatabase.customerDatabase.remove(NameHash);
-                   CustomerDatabase.updateCustomer(customer);
+                   CustomerSystem customerSystem = new CustomerSystem();
+                   customerSystem.deleteCustomer(NameHash);
+                   customerSystem.addCustomer(customer);
                    CustomerPageController.selectName =firstNameInput+lastNameInput;
                    CustomerPageController update = new CustomerPageController();
                    update.update();

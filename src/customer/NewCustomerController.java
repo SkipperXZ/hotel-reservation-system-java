@@ -112,10 +112,11 @@ public class NewCustomerController{
                             telInput = tel.getText();
                             emailInput = email.getText();
                             addressInput = address.getText();
+                            CustomerSystem customerSystem = new CustomerSystem();
 
                            if(!firstNameInput.trim().equals("") && !lastNameInput.trim().equals("") && !telInput.trim().equals("")  ) {
 
-                                   if(CustomerDatabase.customerDatabase.get(firstNameInput+lastNameInput)!=null)
+                                   if(customerSystem.getCustomer(firstNameInput+lastNameInput)!=null)
                                    {
                                            showJDialog(firstNameInput+" "+lastNameInput+" already exists");
                                            return;
@@ -139,7 +140,7 @@ public class NewCustomerController{
 
 
 
-                                   CustomerDatabase.updateCustomer(customer);
+                                  customerSystem.addCustomer(customer);
 
                                    CustomerPageController update = new CustomerPageController();
                                    update.update();

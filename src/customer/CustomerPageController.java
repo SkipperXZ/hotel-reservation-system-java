@@ -124,10 +124,10 @@ public class CustomerPageController {
                 Linker.primaryStage.setScene(linker.newUserScene());
             }
         });
-
+        CustomerSystem customerSystem=new CustomerSystem();
         setupHead();
         ArrayList<Customer> customers = new ArrayList<Customer>();
-        customers.addAll(CustomerDatabase.customerDatabase.values());
+        customers.addAll(customerSystem.getCustomerList());
         list.clear();
         for(Customer customer:customers )
         list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
@@ -232,7 +232,9 @@ public class CustomerPageController {
                 {
                     list.clear();
                     String fullName;
-                    for(Customer customer:customers ) {
+                    customers.clear();
+                    customers.addAll(customerSystem.getCustomerList());
+                    for(Customer customer: customers) {
                         fullName = customer.getFirstName()+" "+customer.getLastName();
                         if (fullName.contains(searchBar.getText()))
                             list.add(new CustomerTable(customer.getFirstName(), customer.getLastName(), customer.getCustomerID(), customer.getTel(),

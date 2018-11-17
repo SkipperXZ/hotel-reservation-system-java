@@ -2,7 +2,6 @@ package customer;
 
 
 import Hotel.Customer;
-import Hotel.CustomerDatabase;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
@@ -27,14 +26,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import report.Booking;
-import report.BookingDatabase;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import static Hotel.CustomerDatabase.customerDatabase;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class CustomerPopupController {
@@ -62,14 +59,14 @@ public class CustomerPopupController {
 
     private String NameHash;
     private Customer customer;
-
+    private CustomerSystem customerSystem=new CustomerSystem();
 
     static ObservableList<CustomerHistory> list = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         NameHash = CustomerPageController.selectName;
-        customer =  customerDatabase.get(NameHash);
+        customer =  customerSystem.getCustomer(NameHash);
         fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
         customerID.setText(String.valueOf(customer.getCustomerID()));
         firstName.setText(customer.getFirstName());
@@ -123,10 +120,9 @@ public class CustomerPopupController {
         ArrayList<String> tmproomtmp    = new ArrayList<>();
 
         list.clear();
-        for (Booking Booking: BookingDatabase.bookingDatabase) {
-            if(Booking.getOperation()==1 ||Booking.getOperation()==2) {
-                if (Booking.getFullname().equals(customer.getFirstName() + " " + customer.getLastName())) {
-                    if(Booking.getOperation()==1){
+        for (Booking Booking: customerSystem.getBookingCustomer(customer.getFirstName() + " " + customer.getLastName())) {
+
+                   if(Booking.getOperation()==1){
                         tmpRegCheckIn.add(Booking.getRegNum());
                         tmpCheckIn.add(Booking.getRecordDate());
                         tmproomtmp.add(Booking.getRoomNum());
@@ -151,8 +147,6 @@ public class CustomerPopupController {
                     }
 
 
-                }
-            }
         }
         final TreeItem<CustomerHistory> root = new RecursiveTreeItem<CustomerHistory>(list,RecursiveTreeObject::getChildren);
 
@@ -189,7 +183,7 @@ public class CustomerPopupController {
             public void handle(ActionEvent event) {
                 if (customer.getCustomerID()==Customer.getNumcustomerID())
                      Customer.setNumcustomerID(Customer.getNumcustomerID()-1);
-                CustomerDatabase.customerDatabase.remove(NameHash);
+                customerSystem.deleteCustomer(NameHash);
                 CustomerPageController update = new CustomerPageController();
                 update.update();
                 Stage stage = (Stage) btnDelete.getScene().getWindow();
