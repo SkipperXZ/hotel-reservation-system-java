@@ -99,7 +99,7 @@ public class HotelSystem {
 
         int total = customer.getPaymerntPrice()+vatPrice+servicePrice;
         if(customer.isLate())
-            total+=200;
+            total*=1.1;
         Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+total);
 
