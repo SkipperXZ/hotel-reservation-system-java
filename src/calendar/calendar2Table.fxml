@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -207,39 +208,22 @@
                                  <children>
                                     <ScrollPane layoutX="196.0" prefHeight="713.0" prefWidth="1181.0">
                                        <content>
-                                          <TreeTableView fx:id="tableDay" prefHeight="695.0" stylesheets="@style.css">
+                                          <TreeTableView fx:id="tableDay" prefHeight="695.0" sortMode="ONLY_FIRST_LEVEL" style="-fx-font-size: 20px;" stylesheets="@style.css">
                                             <columns>
-                                              <TreeTableColumn fx:id="day1_1" prefWidth="75.0" resizable="false" text="day1" />
-                                              <TreeTableColumn fx:id="day2_1" prefWidth="75.0" resizable="false" text="day2" />
-                                                <TreeTableColumn fx:id="day3_1" prefWidth="75.0" resizable="false" text="day3" />
-                                                <TreeTableColumn fx:id="day4_1" prefWidth="75.0" resizable="false" text="day4" />
-                                                <TreeTableColumn fx:id="day5_1" prefWidth="75.0" resizable="false" text="day5" />
-                                                <TreeTableColumn fx:id="day6_1" prefWidth="75.0" resizable="false" text="day6" />
-                                                <TreeTableColumn fx:id="day7_1" prefWidth="75.0" resizable="false" text="day7" />
-                                                <TreeTableColumn fx:id="day8_1" prefWidth="75.0" resizable="false" text="day8" />
-                                                <TreeTableColumn fx:id="day9_1" prefWidth="75.0" resizable="false" text="day9" />
-                                                <TreeTableColumn fx:id="day10_1" prefWidth="75.0" resizable="false" text="day10" />
-                                                <TreeTableColumn fx:id="day11_1" prefWidth="75.0" resizable="false" text="day11" />
-                                                <TreeTableColumn fx:id="day12_1" prefWidth="75.0" resizable="false" text="day12" />
-                                                <TreeTableColumn fx:id="day13_1" prefWidth="75.0" resizable="false" text="day13" />
-                                                <TreeTableColumn fx:id="day14_1" prefWidth="75.0" resizable="false" text="day14" />
-                                                <TreeTableColumn fx:id="day15_1" prefWidth="75.0" resizable="false" text="day15" />
-                                                <TreeTableColumn fx:id="day16_1" prefWidth="75.0" resizable="false" text="day16" />
-                                                <TreeTableColumn fx:id="day17_1" prefWidth="75.0" resizable="false" text="day17" />
-                                                <TreeTableColumn fx:id="day18_1" prefWidth="75.0" resizable="false" text="day18" />
-                                                <TreeTableColumn fx:id="day19_1" prefWidth="75.0" resizable="false" text="day19" />
-                                                <TreeTableColumn fx:id="day20_1" prefWidth="75.0" resizable="false" text="day20" />
-                                                <TreeTableColumn fx:id="day21_1" prefWidth="75.0" resizable="false" text="day21" />
-                                                <TreeTableColumn fx:id="day22_1" prefWidth="75.0" resizable="false" text="day22" />
-                                                <TreeTableColumn fx:id="day23_1" prefWidth="75.0" resizable="false" text="day23" />
-                                                <TreeTableColumn fx:id="day24_1" prefWidth="75.0" resizable="false" text="day24" />
-                                                <TreeTableColumn fx:id="day25_1" prefWidth="75.0" resizable="false" text="day25" />
-                                                <TreeTableColumn fx:id="day26_1" prefWidth="75.0" resizable="false" text="day26" />
-                                                <TreeTableColumn fx:id="day27_1" prefWidth="75.0" resizable="false" text="day27" />
-                                                <TreeTableColumn fx:id="day28_1" prefWidth="75.0" resizable="false" text="day28" />
-                                                <TreeTableColumn fx:id="day29_1" prefWidth="75.0" resizable="false" text="day29" />
-                                                <TreeTableColumn fx:id="day30_1" prefWidth="75.0" resizable="false" text="day30" />
-                                                <TreeTableColumn fx:id="day31_1" prefWidth="75.0" resizable="false" text="day31" />
+                                              <TreeTableColumn fx:id="day01_1" prefWidth="100.0" resizable="false" text="day1" />
+                                              <TreeTableColumn fx:id="day02_1" prefWidth="100.0" resizable="false" text="day2" />
+                                                <TreeTableColumn fx:id="day03_1" prefWidth="100.0" resizable="false" text="day3" />
+                                                <TreeTableColumn fx:id="day04_1" prefWidth="100.0" resizable="false" text="day4" />
+                                                <TreeTableColumn fx:id="day05_1" prefWidth="100.0" resizable="false" text="day5" />
+                                                <TreeTableColumn fx:id="day06_1" prefWidth="100.0" resizable="false" text="day6" />
+                                                <TreeTableColumn fx:id="day07_1" prefWidth="100.0" resizable="false" text="day7" />
+                                                <TreeTableColumn fx:id="day08_1" prefWidth="100.0" resizable="false" text="day8" />
+                                                <TreeTableColumn fx:id="day09_1" prefWidth="100.0" resizable="false" text="day9" />
+                                                <TreeTableColumn fx:id="day10_1" prefWidth="100.0" resizable="false" text="day10" />
+                                                <TreeTableColumn fx:id="day11_1" prefWidth="100.0" resizable="false" text="day11" />
+                                                <TreeTableColumn fx:id="day12_1" prefWidth="100.0" resizable="false" text="day12" />
+                                                <TreeTableColumn fx:id="day13_1" prefWidth="100.0" resizable="false" text="day13" />
+                                                <TreeTableColumn fx:id="day14_1" prefWidth="100.0" resizable="false" text="day14" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -249,13 +233,16 @@
                                     </ScrollPane>
                                     <Pane prefHeight="713.0" prefWidth="196.0">
                                        <children>
-                                          <TreeTableView fx:id="tableRoom" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" stylesheets="@style.css">
+                                          <TreeTableView fx:id="tableRoom" editable="true" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" style="-fx-font-size: 20;" stylesheets="@style.css">
                                             <columns>
                                               <TreeTableColumn fx:id="colRoom" prefWidth="75.0" text="All Room Type" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                              </columnResizePolicy>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
                                           </TreeTableView>
                                        </children>
                                     </Pane>

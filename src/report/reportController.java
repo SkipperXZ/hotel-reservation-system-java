@@ -143,6 +143,7 @@ public class reportController implements Initializable {
         checkinTime1.setCellValueFactory(new PropertyValueFactory<Booking, String>("timeFormet"));
         checkinTable.setItems(list1);
 
+
         guest2.setCellValueFactory(new PropertyValueFactory<Booking, String>("fullname"));
         regNo2.setCellValueFactory(new PropertyValueFactory<Booking, String>("regNum"));
         phone2.setCellValueFactory(new PropertyValueFactory<Booking, String>("tel"));

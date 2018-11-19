@@ -18,3 +18,6 @@
     -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-focus-color;
     -fx-background-insets: 0, 1, 2;
 }
+.table-column {
+  -fx-alignment: CENTER;
+}

@@ -55,7 +55,7 @@ public class Main extends Application {
         //primaryStage.setScene(Linker.resScene);
         primaryStage.setOnCloseRequest(event -> closeFuncion());
         primaryStage.show();
-//show
+
     }
     public void closeFuncion(){
         stopClock();
