@@ -19,6 +19,13 @@
          <effect>
             <DropShadow />
          </effect>
+         <children>
+            <Label fx:id="warningLabel" layoutX="221.0" layoutY="668.0" textFill="#ff8282">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7d7d" height="75.0" layoutX="15.0" layoutY="7.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="664.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8282" height="53.0" layoutX="45.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="165.0" />

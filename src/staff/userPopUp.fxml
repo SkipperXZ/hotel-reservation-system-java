@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.userPopupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.StaffProfileController">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1080.0">
          <top>
@@ -82,17 +82,17 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="546.0" layoutY="138.0" text="Tel." textFill="#1473e6">
+                              <Label layoutX="563.0" layoutY="139.0" text="Tel." textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="549.0" layoutY="180.0" text="Email" textFill="#1473e6">
+                              <Label layoutX="566.0" layoutY="181.0" text="Email" textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="549.0" layoutY="215.0" text="Adderss" textFill="#1473e6">
+                              <Label layoutX="566.0" layoutY="216.0" text="Adderss" textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
@@ -117,17 +117,17 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="tel" layoutX="666.0" layoutY="138.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                              <Label fx:id="tel" layoutX="670.0" layoutY="139.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="email" layoutX="667.0" layoutY="180.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                              <Label fx:id="email" layoutX="670.0" layoutY="181.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="adderss" alignment="TOP_LEFT" layoutX="667.0" layoutY="215.0" prefHeight="188.0" prefWidth="300.0" text="144/4 M.5 Ban ThamChiang Dao Chiang Mai50170Thailand" wrapText="true">
+                              <Label fx:id="adderss" alignment="TOP_LEFT" layoutX="670.0" layoutY="214.0" prefHeight="188.0" prefWidth="300.0" text="144/4 M.5 Ban ThamChiang Dao Chiang Mai50170Thailand" wrapText="true">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
@@ -157,12 +157,12 @@
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="546.0" layoutY="100.0" text="Role" textFill="#1473e6">
+                              <Label layoutX="563.0" layoutY="101.0" text="Role" textFill="#1473e6">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="role" layoutX="666.0" layoutY="100.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
+                              <Label fx:id="role" layoutX="670.0" layoutY="102.0" prefHeight="23.0" prefWidth="300.0" text="Mr.Wuttinun">
                                  <font>
                                     <Font name="Segoe UI" size="18.0" />
                                  </font>

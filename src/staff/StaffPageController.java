@@ -23,27 +23,26 @@ import main.Linker;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
 import main.Main;
 
-public class mainUser implements Initializable {
+public class StaffPageController implements Initializable {
     public static int max=100;
 //    int []a = new int[max];
-    public static ObservableList<User>list;
-    ArrayList<User> userArrayList = UserDatabase.userArrayList;
-    ArrayList<UserNoButton>userNoButtons=UserDatabase.userNoButtons;
+    public static ObservableList<Staff>list;
+    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
+    ArrayList<UserNoButton>userNoButtons= StaffDatabase.userNoButtons;
     Linker linker = new Linker();
 
-    @FXML private TableView<User>table;
-    @FXML private TableColumn<User,String> user;
-    @FXML private TableColumn<User,String> email;
-    @FXML private TableColumn<User,String> role;
-    @FXML private TableColumn<User,String> phone;
-    @FXML private TableColumn<User,String> userType;
-    @FXML private TableColumn<User, String> btE;
-    @FXML private TableColumn<User, String> btD;
+    @FXML private TableView<Staff>table;
+    @FXML private TableColumn<Staff,String> user;
+    @FXML private TableColumn<Staff,String> email;
+    @FXML private TableColumn<Staff,String> role;
+    @FXML private TableColumn<Staff,String> phone;
+    @FXML private TableColumn<Staff,String> userType;
+    @FXML private TableColumn<Staff, String> btE;
+    @FXML private TableColumn<Staff, String> btD;
 
     @FXML private JFXButton btnNew = new JFXButton();
     @FXML private JFXButton dashboardButtton = new JFXButton();
@@ -67,8 +66,8 @@ public class mainUser implements Initializable {
             for (int i = 0; i < userArrayList.size(); i++) {
                 if (event.getSource() == buttonE[i]) {
                     System.out.println("E " + i);
-                    UserDatabase.userCur = i;
-                    System.out.println("curr " + UserDatabase.userCur);
+                    StaffDatabase.userCur = i;
+                    System.out.println("curr " + StaffDatabase.userCur);
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
                         Parent root = (Parent) fxmlLoader.load();
@@ -82,7 +81,7 @@ public class mainUser implements Initializable {
 //                setButton();
 //                setToTableView();
                 } else if (event.getSource() == buttonD[i]) {
-                    UserDatabase.userCur = i;
+                    StaffDatabase.userCur = i;
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/popUpDelete.fxml"));
                         Parent root = (Parent) fxmlLoader.load();
@@ -103,7 +102,7 @@ public class mainUser implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/newUserPage.fxml"));
                 Parent root = (Parent)fxmlLoader.load();
                 Stage stage = new Stage();
-                stage.setTitle("Edit");
+                stage.setTitle("New User");
                 stage.setScene(new Scene(root,1080,720));
                 stage.show();
             }catch (Exception e){
@@ -134,7 +133,7 @@ public class mainUser implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if(event.getClickCount() == 2){
-                    UserDatabase.userCur=table.getSelectionModel().getFocusedIndex();
+                    StaffDatabase.userCur=table.getSelectionModel().getFocusedIndex();
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/userPopUp.fxml"));
                         Parent root = (Parent)fxmlLoader.load();
@@ -181,14 +180,14 @@ public class mainUser implements Initializable {
                 userArrayList
         );
         btnNew.setVisible(false);
-        user.setCellValueFactory(new PropertyValueFactory<User,String>("userName"));
-        email.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
-        role.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
-        phone.setCellValueFactory(new PropertyValueFactory<User,String>("tel"));
-        userType.setCellValueFactory(new PropertyValueFactory<User,String>("userType"));
+        user.setCellValueFactory(new PropertyValueFactory<Staff,String>("userName"));
+        email.setCellValueFactory(new PropertyValueFactory<Staff,String>("email"));
+        role.setCellValueFactory(new PropertyValueFactory<Staff,String>("role"));
+        phone.setCellValueFactory(new PropertyValueFactory<Staff,String>("tel"));
+        userType.setCellValueFactory(new PropertyValueFactory<Staff,String>("userType"));
         if(Account.currentUserType.equals("Admin")||Account.currentUserType.equals("prime minister")){
-            btE.setCellValueFactory(new PropertyValueFactory<User, String>("buttonE"));
-            btD.setCellValueFactory(new PropertyValueFactory<User, String>("buttonD"));
+            btE.setCellValueFactory(new PropertyValueFactory<Staff, String>("buttonE"));
+            btD.setCellValueFactory(new PropertyValueFactory<Staff, String>("buttonD"));
             btnNew.setOnAction(this::handleButtonAction);
             btnNew.setVisible(true);
         }

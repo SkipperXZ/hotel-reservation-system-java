@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import Hotel.Customer;
 import javafx.scene.input.MouseEvent;
-import reservation.ReservationHandler;
+import reservation.HotelSystem;
 import reservation.room.Room;
 
 import java.time.LocalDateTime;
@@ -68,6 +68,10 @@ public class CheckOutPageController {
     @FXML
     private JFXCheckBox lateCheck;
 
+    @FXML
+    private Label warningLabel;
+
+
     private Room room;
     private Customer customer;
     private boolean isCheckOut=false;
@@ -87,6 +91,11 @@ public class CheckOutPageController {
             @Override
             public void handle(ActionEvent event) {
 
+                if(lateCheck.isSelected()){
+                    warningLabel.setText("Please make a payment");
+                }else if(!returnCardCheck.isSelected()){
+                    warningLabel.setText("Please return your keycard");
+                }
                 if(customer.isPayment() && returnCardCheck.isSelected() && !lateCheck.isSelected()){
                     isCheckOut = true;
                     parentController.getCheckOutStage().close();
@@ -101,11 +110,10 @@ public class CheckOutPageController {
                 if(lateCheck.isSelected()){
                     customer.setLate(true);
                 }
-                System.out.println("pay");
                 if (parentController.isConfirmPaymentScene()){
-
+                    customer.setLatePaid(true);
                     customer.setPaymerntPrice(customer.getPaymerntPrice()+customer.getPaymerntPrice()/10);
-                    ReservationHandler.payment(room);
+                    HotelSystem.payment(room);
                     lateCheck.setSelected(false);
                     lateCheck.setDisable(true);
                 }
@@ -141,7 +149,11 @@ public class CheckOutPageController {
         checkOutTImeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy     HH:mm")));
         statusLabel.setText(room.getStatus());
         roomIDLabel.setText(room.getRoomID());
+        if (customer.isLatePaid()){
+            lateCheck.setDisable(true);
+        }
     }
+
 
     public void setParentController(ReservationPageController parentController) {
         this.parentController = parentController;

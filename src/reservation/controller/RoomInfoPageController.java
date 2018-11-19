@@ -90,7 +90,7 @@ public class RoomInfoPageController {
             if (customer.getCountry() != null)
                 countryLabel.setText(customer.getCountry());
 
-            roomStatusLabel.setText(room.getStatus());
+            statusLabel.setText(room.getStatus());
             firstNameLabel.setText(customer.getFirstName());
             lastNameLabel.setText(customer.getLastName());
             telNumLabel.setText(customer.getTel());
@@ -103,7 +103,7 @@ public class RoomInfoPageController {
             extraBedNumLabel.setText(String.valueOf(customer.getExtraBedNum()));
         }
         paneColor();
-        statusLabel.setText(room.getStatus());
+        roomStatusLabel.setText(room.getStatus());
 
     }
 

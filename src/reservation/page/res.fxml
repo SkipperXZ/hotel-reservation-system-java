@@ -57,7 +57,7 @@
             </Pane>
          </top>
          <left>
-            <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+            <VBox focusTraversable="true" prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefWidth="220.0">
                      <children>
@@ -89,6 +89,7 @@
                   </Pane>
                   <Pane prefWidth="220.0">
                      <children>
+                        <Pane layoutX="-1.0" opacity="0.19" prefHeight="110.0" prefWidth="223.0" style="-fx-background-color: #6aafff;" />
                         <JFXButton fx:id="reservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />

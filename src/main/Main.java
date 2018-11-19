@@ -15,8 +15,8 @@ import javafx.stage.Stage;
 import report.Booking;
 import report.BookingDatabase;
 import reservation.IO;
-import staff.User;
-import staff.UserDatabase;
+import staff.Staff;
+import staff.StaffDatabase;
 import staff.UserNoButton;
 
 import java.time.LocalDate;
@@ -61,10 +61,11 @@ public class Main extends Application {
         stopClock();
         IO.saveHotel(Hotel.hotel);
         IO.saveCustomer(CustomerDatabase.customerDatabase);
-        IO.saveUser(UserDatabase.userNoButtons);
+        IO.saveUser(StaffDatabase.userNoButtons);
 
         IO.saveAllBooking(BookingDatabase.bookingDatabase);
         System.out.println("Save done");
+        System.exit(0);
     }
     public void stopClock(){
         for (OneDayHotel e:Hotel.hotel
@@ -107,14 +108,14 @@ public class Main extends Application {
             Customer.setNumcustomerID(max);
         }
         if(user != null && user.size()>0){
-            UserDatabase.userNoButtons=user;
+            StaffDatabase.userNoButtons=user;
             for(int i=0;i<user.size();i++){
-                UserDatabase.userArrayList.add(new User(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
+                StaffDatabase.userArrayList.add(new Staff(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
                         user.get(i).getIdCardNumber(),user.get(i).getCountry(),user.get(i).getTel(),user.get(i).getEmail(),user.get(i).getAddress(),
                         user.get(i).getUserType(),user.get(i).getRole(),new Button(),new Button(),user.get(i).getPassId(),user.get(i).getPassWord(),user.get(i).getImage()));
             }
-            if(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size()-1).getEmployeeId()!=null) {
-                UserDatabase.employeeId = Integer.parseInt(UserDatabase.userNoButtons.get(UserDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
+            if(StaffDatabase.userNoButtons.get(StaffDatabase.userNoButtons.size()-1).getEmployeeId()!=null) {
+                StaffDatabase.employeeId = Integer.parseInt(StaffDatabase.userNoButtons.get(StaffDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
             }
         }
         if(allbooking != null){

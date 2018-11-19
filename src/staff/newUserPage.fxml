@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.NewUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.NewStaffController">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1080.0">
          <top>
@@ -129,27 +129,17 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="234.0" layoutY="291.0" text="ID Card" textFill="#1473e6">
+                  <Label layoutX="231.0" layoutY="345.0" text="User Type" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="idCard" layoutX="353.0" layoutY="291.0" prefHeight="25.0" prefWidth="277.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="229.0" layoutY="398.0" text="User Type" textFill="#1473e6">
+                  <Label layoutX="233.0" layoutY="291.0" text="Role" textFill="#1473e6">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="233.0" layoutY="340.0" text="Role" textFill="#1473e6">
-                     <font>
-                        <Font name="Segoe UI" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="role" layoutX="352.0" layoutY="340.0" prefHeight="25.0" prefWidth="277.0">
+                  <TextField fx:id="role" layoutX="352.0" layoutY="291.0" prefHeight="25.0" prefWidth="277.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -176,7 +166,7 @@
                   </TextField>
                   <Label fx:id="chUser" layoutX="399.0" layoutY="39.0" textFill="#f51d1d" />
                   <Label fx:id="chEmail" layoutX="780.0" layoutY="39.0" textFill="#f81a1a" />
-                  <ChoiceBox fx:id="userType" layoutX="352.0" layoutY="397.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="userType" layoutX="354.0" layoutY="344.0" prefWidth="150.0" />
                </children>
             </Pane>
          </center>
