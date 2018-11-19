@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.calendarController">
+
+   <children>
+      <BorderPane layoutX="1.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: white;">
+         <top>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="257.0" layoutY="12.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #F0F7FF;" text="Dashboard" textAlignment="RIGHT" textFill="#1473e6">
+                     <font>
+                        <Font name="Segoe UI Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icon/entrance.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="date" alignment="CENTER" layoutX="1369.0" layoutY="6.0" prefHeight="47.0" prefWidth="220.0" text="13 SEPTEMBER 2018" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="time" alignment="CENTER" layoutX="1619.0" layoutY="3.0" prefHeight="47.0" prefWidth="157.0" text="13:10" textFill="#545557">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roomIDLabel_001" alignment="CENTER" layoutX="268.0" layoutY="16.0" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #f0f7ff;" text="CALENDAR" textFill="#3d8ceb">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <VBox prefWidth="220.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="dashboardButtton" prefHeight="110.0" prefWidth="220.0" text="    Dashboard" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/contact-book.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="calendarButtton" prefHeight="110.0" prefWidth="220.0" text="    Calendar" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="reservationButtton" prefHeight="110.0" prefWidth="220.0" text="     Reservation" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/new.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="customerButtton" prefHeight="110.0" prefWidth="220.0" text="   Customer" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/person.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="reportButtton" prefHeight="110.0" prefWidth="220.0" text="  Report" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/layout-right.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane prefWidth="220.0">
+                     <children>
+                        <JFXButton fx:id="userButtton" prefHeight="110.0" prefWidth="220.0" text="User" textFill="#1473e6">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="20.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+               <effect>
+                  <DropShadow color="#00000032" />
+               </effect>
+            </VBox>
+         </left>
+         <right>
+            <Pane prefHeight="1016.0" prefWidth="256.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="19.0" layoutY="907.0" prefHeight="108.0" prefWidth="237.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0f7ff" height="123.0" layoutY="-12.0" stroke="#ffffff57" strokeType="INSIDE" width="239.0" />
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="9.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/user.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="54.0" layoutY="5.0" text="username">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </right>
+         <center>
+            <Pane prefHeight="1016.0" prefWidth="1615.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f6d03a" height="25.0" layoutX="117.0" layoutY="942.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc7777" height="25.0" layoutX="627.0" layoutY="942.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f754dc" height="25.0" layoutX="441.0" layoutY="942.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#24ec88" height="25.0" layoutX="272.0" layoutY="941.0" stroke="TRANSPARENT" strokeType="INSIDE" width="24.0" />
+                  <Text layoutX="663.0" layoutY="960.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Out Of Service">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="478.0" layoutY="960.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Block">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="310.0" layoutY="959.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In-House">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="156.0" layoutY="960.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <JFXTabPane layoutX="63.0" layoutY="151.0" prefHeight="747.0" prefWidth="1377.0" stylesheets="@../reservation/css/TabPane.css">
+                     <tabs>
+                        <Tab text="Floor 1">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="196.0" prefHeight="713.0" prefWidth="1181.0">
+                                       <content>
+                                          <TreeTableView fx:id="tableDay" prefHeight="695.0" sortMode="ONLY_FIRST_LEVEL" style="-fx-font-size: 20px;" stylesheets="@Style.css">
+                                            <columns>
+                                              <TreeTableColumn fx:id="day01_1" prefWidth="100.0" resizable="false" text="day1" />
+                                              <TreeTableColumn fx:id="day02_1" prefWidth="100.0" resizable="false" text="day2" />
+                                                <TreeTableColumn fx:id="day03_1" prefWidth="100.0" resizable="false" text="day3" />
+                                                <TreeTableColumn fx:id="day04_1" prefWidth="100.0" resizable="false" text="day4" />
+                                                <TreeTableColumn fx:id="day05_1" prefWidth="100.0" resizable="false" text="day5" />
+                                                <TreeTableColumn fx:id="day06_1" prefWidth="100.0" resizable="false" text="day6" />
+                                                <TreeTableColumn fx:id="day07_1" prefWidth="100.0" resizable="false" text="day7" />
+                                                <TreeTableColumn fx:id="day08_1" prefWidth="100.0" resizable="false" text="day8" />
+                                                <TreeTableColumn fx:id="day09_1" prefWidth="100.0" resizable="false" text="day9" />
+                                                <TreeTableColumn fx:id="day10_1" prefWidth="100.0" resizable="false" text="day10" />
+                                                <TreeTableColumn fx:id="day11_1" prefWidth="100.0" resizable="false" text="day11" />
+                                                <TreeTableColumn fx:id="day12_1" prefWidth="100.0" resizable="false" text="day12" />
+                                                <TreeTableColumn fx:id="day13_1" prefWidth="100.0" resizable="false" text="day13" />
+                                                <TreeTableColumn fx:id="day14_1" prefWidth="100.0" resizable="false" text="day14" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Pane prefHeight="713.0" prefWidth="196.0">
+                                       <children>
+                                          <TreeTableView fx:id="tableRoom" editable="true" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" style="-fx-font-size: 20;" stylesheets="@Style.css">
+                                            <columns>
+                                              <TreeTableColumn fx:id="colRoom" prefWidth="75.0" text="All Room Type" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TreeTableView>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Floor 2">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="195.0" prefHeight="713.0" prefWidth="1182.0">
+                                       <content>
+                                          <TreeTableView fx:id="tableDay1" prefHeight="695.0">
+                                             <columns>
+                                                <TreeTableColumn fx:id="day01_2" prefWidth="75.0" resizable="false" text="day1" />
+                                                <TreeTableColumn fx:id="day02_2" prefWidth="75.0" resizable="false" text="day2" />
+                                                <TreeTableColumn fx:id="day03_2" prefWidth="75.0" resizable="false" text="day3" />
+                                                <TreeTableColumn fx:id="day04_2" prefWidth="75.0" resizable="false" text="day4" />
+                                                <TreeTableColumn fx:id="day05_2" prefWidth="75.0" resizable="false" text="day5" />
+                                                <TreeTableColumn fx:id="day06_2" prefWidth="75.0" resizable="false" text="day6" />
+                                                <TreeTableColumn fx:id="day07_2" prefWidth="75.0" resizable="false" text="day7" />
+                                                <TreeTableColumn fx:id="day08_2" prefWidth="75.0" resizable="false" text="day8" />
+                                                <TreeTableColumn fx:id="day09_2" prefWidth="75.0" resizable="false" text="day9" />
+                                                <TreeTableColumn fx:id="day10_2" prefWidth="75.0" resizable="false" text="day10" />
+                                                <TreeTableColumn fx:id="day11_2" prefWidth="75.0" resizable="false" text="day11" />
+                                                <TreeTableColumn fx:id="day12_2" prefWidth="75.0" resizable="false" text="day12" />
+                                                <TreeTableColumn fx:id="day13_2" prefWidth="75.0" resizable="false" text="day13" />
+                                                <TreeTableColumn fx:id="day14_2" prefWidth="75.0" resizable="false" text="day14" />
+                                                <TreeTableColumn fx:id="day15_2" prefWidth="75.0" resizable="false" text="day15" />
+                                                <TreeTableColumn fx:id="day16_2" prefWidth="75.0" resizable="false" text="day16" />
+                                                <TreeTableColumn fx:id="day17_2" prefWidth="75.0" resizable="false" text="day17" />
+                                                <TreeTableColumn fx:id="day18_2" prefWidth="75.0" resizable="false" text="day18" />
+                                                <TreeTableColumn fx:id="day19_2" prefWidth="75.0" resizable="false" text="day19" />
+                                                <TreeTableColumn fx:id="day20_2" prefWidth="75.0" resizable="false" text="day20" />
+                                                <TreeTableColumn fx:id="day21_2" prefWidth="75.0" resizable="false" text="day21" />
+                                                <TreeTableColumn fx:id="day22_2" prefWidth="75.0" resizable="false" text="day22" />
+                                                <TreeTableColumn fx:id="day23_2" prefWidth="75.0" resizable="false" text="day23" />
+                                                <TreeTableColumn fx:id="day24_2" prefWidth="75.0" resizable="false" text="day24" />
+                                                <TreeTableColumn fx:id="day25_2" prefWidth="75.0" resizable="false" text="day25" />
+                                                <TreeTableColumn fx:id="day26_2" prefWidth="75.0" resizable="false" text="day26" />
+                                                <TreeTableColumn fx:id="day27_2" prefWidth="75.0" resizable="false" text="day27" />
+                                                <TreeTableColumn fx:id="day28_2" prefWidth="75.0" resizable="false" text="day28" />
+                                                <TreeTableColumn fx:id="day29_2" prefWidth="75.0" resizable="false" text="day29" />
+                                                <TreeTableColumn fx:id="day30_2" prefWidth="75.0" resizable="false" text="day30" />
+                                                <TreeTableColumn fx:id="day31_2" prefWidth="75.0" resizable="false" text="day31" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Pane prefHeight="713.0" prefWidth="196.0">
+                                       <children>
+                                          <TreeTableView fx:id="tableRoom1" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" stylesheets="@Style.css">
+                                             <columns>
+                                                <TreeTableColumn fx:id="colRoom1" prefWidth="75.0" text="C1" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </children>
+                                    </Pane>
+                                 </children></AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Floor 3">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="195.0" prefHeight="713.0" prefWidth="1182.0">
+                                       <content>
+                                          <TreeTableView fx:id="tableDay11" prefHeight="695.0">
+                                             <columns>
+                                                <TreeTableColumn fx:id="day01_3" prefWidth="75.0" resizable="false" text="day1" />
+                                                <TreeTableColumn fx:id="day02_3" prefWidth="75.0" resizable="false" text="day2" />
+                                                <TreeTableColumn fx:id="day03_3" prefWidth="75.0" resizable="false" text="day3" />
+                                                <TreeTableColumn fx:id="day04_3" prefWidth="75.0" resizable="false" text="day4" />
+                                                <TreeTableColumn fx:id="day05_3" prefWidth="75.0" resizable="false" text="day5" />
+                                                <TreeTableColumn fx:id="day06_3" prefWidth="75.0" resizable="false" text="day6" />
+                                                <TreeTableColumn fx:id="day07_3" prefWidth="75.0" resizable="false" text="day7" />
+                                                <TreeTableColumn fx:id="day08_3" prefWidth="75.0" resizable="false" text="day8" />
+                                                <TreeTableColumn fx:id="day09_3" prefWidth="75.0" resizable="false" text="day9" />
+                                                <TreeTableColumn fx:id="day10_3" prefWidth="75.0" resizable="false" text="day10" />
+                                                <TreeTableColumn fx:id="day11_3" prefWidth="75.0" resizable="false" text="day11" />
+                                                <TreeTableColumn fx:id="day12_3" prefWidth="75.0" resizable="false" text="day12" />
+                                                <TreeTableColumn fx:id="day13_3" prefWidth="75.0" resizable="false" text="day13" />
+                                                <TreeTableColumn fx:id="day14_3" prefWidth="75.0" resizable="false" text="day14" />
+                                                <TreeTableColumn fx:id="day15_3" prefWidth="75.0" resizable="false" text="day15" />
+                                                <TreeTableColumn fx:id="day16_3" prefWidth="75.0" resizable="false" text="day16" />
+                                                <TreeTableColumn fx:id="day17_3" prefWidth="75.0" resizable="false" text="day17" />
+                                                <TreeTableColumn fx:id="day18_3" prefWidth="75.0" resizable="false" text="day18" />
+                                                <TreeTableColumn fx:id="day19_3" prefWidth="75.0" resizable="false" text="day19" />
+                                                <TreeTableColumn fx:id="day20_3" prefWidth="75.0" resizable="false" text="day20" />
+                                                <TreeTableColumn fx:id="day21_3" prefWidth="75.0" resizable="false" text="day21" />
+                                                <TreeTableColumn fx:id="day22_3" prefWidth="75.0" resizable="false" text="day22" />
+                                                <TreeTableColumn fx:id="day23_3" prefWidth="75.0" resizable="false" text="day23" />
+                                                <TreeTableColumn fx:id="day24_3" prefWidth="75.0" resizable="false" text="day24" />
+                                                <TreeTableColumn fx:id="day25_3" prefWidth="75.0" resizable="false" text="day25" />
+                                                <TreeTableColumn fx:id="day26_3" prefWidth="75.0" resizable="false" text="day26" />
+                                                <TreeTableColumn fx:id="day27_3" prefWidth="75.0" resizable="false" text="day27" />
+                                                <TreeTableColumn fx:id="day28_3" prefWidth="75.0" resizable="false" text="day28" />
+                                                <TreeTableColumn fx:id="day29_3" prefWidth="75.0" resizable="false" text="day29" />
+                                                <TreeTableColumn fx:id="day30_3" prefWidth="75.0" resizable="false" text="day30" />
+                                                <TreeTableColumn fx:id="day31_3" prefWidth="75.0" resizable="false" text="day31" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Pane prefHeight="713.0" prefWidth="196.0">
+                                       <children>
+                                          <TreeTableView fx:id="tableRoom11" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" stylesheets="@Style.css">
+                                             <columns>
+                                                <TreeTableColumn fx:id="colRoom11" prefWidth="75.0" text="C1" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Floor 4">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="195.0" prefHeight="713.0" prefWidth="1182.0">
+                                       <content>
+                                          <TreeTableView fx:id="tableDay12" prefHeight="695.0">
+                                             <columns>
+                                                <TreeTableColumn fx:id="day01_4" prefWidth="75.0" resizable="false" text="day1" />
+                                                <TreeTableColumn fx:id="day02_4" prefWidth="75.0" resizable="false" text="day2" />
+                                                <TreeTableColumn fx:id="day03_4" prefWidth="75.0" resizable="false" text="day3" />
+                                                <TreeTableColumn fx:id="day04_4" prefWidth="75.0" resizable="false" text="day4" />
+                                                <TreeTableColumn fx:id="day05_4" prefWidth="75.0" resizable="false" text="day5" />
+                                                <TreeTableColumn fx:id="day06_4" prefWidth="75.0" resizable="false" text="day6" />
+                                                <TreeTableColumn fx:id="day07_4" prefWidth="75.0" resizable="false" text="day7" />
+                                                <TreeTableColumn fx:id="day08_4" prefWidth="75.0" resizable="false" text="day8" />
+                                                <TreeTableColumn fx:id="day09_4" prefWidth="75.0" resizable="false" text="day9" />
+                                                <TreeTableColumn fx:id="day10_4" prefWidth="75.0" resizable="false" text="day10" />
+                                                <TreeTableColumn fx:id="day11_4" prefWidth="75.0" resizable="false" text="day11" />
+                                                <TreeTableColumn fx:id="day12_4" prefWidth="75.0" resizable="false" text="day12" />
+                                                <TreeTableColumn fx:id="day13_4" prefWidth="75.0" resizable="false" text="day13" />
+                                                <TreeTableColumn fx:id="day14_4" prefWidth="75.0" resizable="false" text="day14" />
+                                                <TreeTableColumn fx:id="day15_4" prefWidth="75.0" resizable="false" text="day15" />
+                                                <TreeTableColumn fx:id="day16_4" prefWidth="75.0" resizable="false" text="day16" />
+                                                <TreeTableColumn fx:id="day17_4" prefWidth="75.0" resizable="false" text="day17" />
+                                                <TreeTableColumn fx:id="day18_4" prefWidth="75.0" resizable="false" text="day18" />
+                                                <TreeTableColumn fx:id="day19_4" prefWidth="75.0" resizable="false" text="day19" />
+                                                <TreeTableColumn fx:id="day20_4" prefWidth="75.0" resizable="false" text="day20" />
+                                                <TreeTableColumn fx:id="day21_4" prefWidth="75.0" resizable="false" text="day21" />
+                                                <TreeTableColumn fx:id="day22_4" prefWidth="75.0" resizable="false" text="day22" />
+                                                <TreeTableColumn fx:id="day23_4" prefWidth="75.0" resizable="false" text="day23" />
+                                                <TreeTableColumn fx:id="day24_4" prefWidth="75.0" resizable="false" text="day24" />
+                                                <TreeTableColumn fx:id="day25_4" prefWidth="75.0" resizable="false" text="day25" />
+                                                <TreeTableColumn fx:id="day26_4" prefWidth="75.0" resizable="false" text="day26" />
+                                                <TreeTableColumn fx:id="day27_4" prefWidth="75.0" resizable="false" text="day27" />
+                                                <TreeTableColumn fx:id="day28_4" prefWidth="75.0" resizable="false" text="day28" />
+                                                <TreeTableColumn fx:id="day29_4" prefWidth="75.0" resizable="false" text="day29" />
+                                                <TreeTableColumn fx:id="day30_4" prefWidth="75.0" resizable="false" text="day30" />
+                                                <TreeTableColumn fx:id="day31_4" prefWidth="75.0" resizable="false" text="day31" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Pane prefHeight="713.0" prefWidth="196.0">
+                                       <children>
+                                          <TreeTableView fx:id="tableRoom12" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" stylesheets="@Style.css">
+                                             <columns>
+                                                <TreeTableColumn fx:id="colRoom12" prefWidth="75.0" text="C1" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Floor 5">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane layoutX="195.0" prefHeight="713.0" prefWidth="1182.0">
+                                       <content>
+                                          <TreeTableView fx:id="tableDay13" prefHeight="695.0">
+                                             <columns>
+                                                <TreeTableColumn fx:id="day01_5" prefWidth="75.0" resizable="false" text="day1" />
+                                                <TreeTableColumn fx:id="day02_5" prefWidth="75.0" resizable="false" text="day2" />
+                                                <TreeTableColumn fx:id="day03_5" prefWidth="75.0" resizable="false" text="day3" />
+                                                <TreeTableColumn fx:id="day04_5" prefWidth="75.0" resizable="false" text="day4" />
+                                                <TreeTableColumn fx:id="day05_5" prefWidth="75.0" resizable="false" text="day5" />
+                                                <TreeTableColumn fx:id="day06_5" prefWidth="75.0" resizable="false" text="day6" />
+                                                <TreeTableColumn fx:id="day07_5" prefWidth="75.0" resizable="false" text="day7" />
+                                                <TreeTableColumn fx:id="day08_5" prefWidth="75.0" resizable="false" text="day8" />
+                                                <TreeTableColumn fx:id="day09_5" prefWidth="75.0" resizable="false" text="day9" />
+                                                <TreeTableColumn fx:id="day10_5" prefWidth="75.0" resizable="false" text="day10" />
+                                                <TreeTableColumn fx:id="day11_5" prefWidth="75.0" resizable="false" text="day11" />
+                                                <TreeTableColumn fx:id="day12_5" prefWidth="75.0" resizable="false" text="day12" />
+                                                <TreeTableColumn fx:id="day13_5" prefWidth="75.0" resizable="false" text="day13" />
+                                                <TreeTableColumn fx:id="day14_5" prefWidth="75.0" resizable="false" text="day14" />
+                                                <TreeTableColumn fx:id="day15_5" prefWidth="75.0" resizable="false" text="day15" />
+                                                <TreeTableColumn fx:id="day16_5" prefWidth="75.0" resizable="false" text="day16" />
+                                                <TreeTableColumn fx:id="day17_5" prefWidth="75.0" resizable="false" text="day17" />
+                                                <TreeTableColumn fx:id="day18_5" prefWidth="75.0" resizable="false" text="day18" />
+                                                <TreeTableColumn fx:id="day19_5" prefWidth="75.0" resizable="false" text="day19" />
+                                                <TreeTableColumn fx:id="day20_5" prefWidth="75.0" resizable="false" text="day20" />
+                                                <TreeTableColumn fx:id="day21_5" prefWidth="75.0" resizable="false" text="day21" />
+                                                <TreeTableColumn fx:id="day22_5" prefWidth="75.0" resizable="false" text="day22" />
+                                                <TreeTableColumn fx:id="day23_5" prefWidth="75.0" resizable="false" text="day23" />
+                                                <TreeTableColumn fx:id="day24_5" prefWidth="75.0" resizable="false" text="day24" />
+                                                <TreeTableColumn fx:id="day25_5" prefWidth="75.0" resizable="false" text="day25" />
+                                                <TreeTableColumn fx:id="day26_5" prefWidth="75.0" resizable="false" text="day26" />
+                                                <TreeTableColumn fx:id="day27_5" prefWidth="75.0" resizable="false" text="day27" />
+                                                <TreeTableColumn fx:id="day28_5" prefWidth="75.0" resizable="false" text="day28" />
+                                                <TreeTableColumn fx:id="day29_5" prefWidth="75.0" resizable="false" text="day29" />
+                                                <TreeTableColumn fx:id="day30_5" prefWidth="75.0" resizable="false" text="day30" />
+                                                <TreeTableColumn fx:id="day31_5" prefWidth="75.0" resizable="false" text="day31" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </content>
+                                    </ScrollPane>
+                                    <Pane prefHeight="713.0" prefWidth="196.0">
+                                       <children>
+                                          <TreeTableView fx:id="tableRoom13" layoutX="-1.0" layoutY="1.0" prefHeight="712.0" prefWidth="198.0" stylesheets="@Style.css">
+                                             <columns>
+                                                <TreeTableColumn fx:id="colRoom13" prefWidth="75.0" text="C1" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TreeTableView>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                     </tabs>
+                  </JFXTabPane>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+
+</AnchorPane>
