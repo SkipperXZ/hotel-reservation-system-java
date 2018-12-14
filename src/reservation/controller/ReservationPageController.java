@@ -2,6 +2,7 @@ package reservation.controller;
 
 import Account.Account;
 import Hotel.Customer;
+import Hotel.Hotel;
 import Hotel.OneDayHotel;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
@@ -9,10 +10,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Point2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -20,8 +23,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.Linker;
+import main.Main;
+import report.BookingDatabase;
 import reservation.*;
 import reservation.room.*;
+import staff.StaffDatabase;
+import Hotel.CustomerDatabase;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -282,6 +289,9 @@ public class ReservationPageController {
 
     @FXML
     private JFXButton calendarButtton;
+    @FXML private ImageView logOut = new ImageView();
+    @FXML private ImageView exit = new ImageView();
+    @FXML private Label nameHotel;
 
 
     private int roomIndex;
@@ -380,6 +390,8 @@ public class ReservationPageController {
         updateRoomAvailaible();
 
         userLabel.setText(Account.currentUser);
+        nameHotel.setText("HOTELLO");
+
 
         vacantMenu.getItems().addAll(reserveOnvacant,cleanOnVacant,infoOnVacant);
         reservedMenu.getItems().addAll(checkInOnReserved,paymentOnReserved,guestInfoOnReserved,cancelOnReserved,roomInfoOnReserved);
@@ -450,6 +462,71 @@ public class ReservationPageController {
             public void handle(ActionEvent event) {
                 if(currentStage == null)
                 Linker.primaryStage.setScene(linker.newCustomerScene());
+            }
+        });
+        final Tooltip tooltip = new Tooltip("Logout");
+        tooltip.setStyle("-fx-background-color: #1473e6; -fx-text-fill: white; -fx-font-size: 15; -fx-font-weight: bold; ");
+        logOut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                Point2D p = logOut.localToScreen(logOut.getLayoutBounds().getMaxX()-50, logOut.getLayoutBounds().getMaxY()+5);
+                tooltip.show(logOut, p.getX(), p.getY());
+            }
+        });
+        logOut.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                tooltip.hide();
+            }
+        });
+        // Tooltip.install(logOut, new Tooltip("Logout"));
+        logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                IO.saveHotel(Hotel.hotel);
+                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                System.out.println("Save done");
+                Linker.primaryStage.close();
+                Stage stage= new Stage();
+                Main main = new Main();
+                try {
+                    main.start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                IO.saveHotel(Hotel.hotel);
+                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                System.out.println("Save done");
+                System.exit(0);
+            }
+        });
+        final Tooltip tooltipExit = new Tooltip("Exit");
+        tooltipExit.setStyle("-fx-background-color: #1473e6; -fx-text-fill: white; -fx-font-size: 15; -fx-font-weight: bold; ");
+        exit.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                Point2D p = exit.localToScreen(exit.getLayoutBounds().getMaxX()-45, exit.getLayoutBounds().getMaxY()+5);
+                tooltipExit.show(exit, p.getX(), p.getY());
+            }
+        });
+        exit.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                tooltipExit.hide();
             }
         });
 

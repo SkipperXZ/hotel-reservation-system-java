@@ -23,7 +23,7 @@
          <top>
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
+                  <Label fx:id="nameHotel" alignment="CENTER" layoutX="-9.0" maxHeight="-Infinity" prefHeight="64.0" prefWidth="229.0" style="-fx-background-color: #1473E6;" text="nameHotel" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="24.0" />
                      </font>
@@ -33,7 +33,7 @@
                         <Font name="Segoe UI Bold" size="24.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="1867.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logOut" fitHeight="35.0" fitWidth="35.0" layoutX="1821.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/icon/entrance.png" />
                      </image>
@@ -53,6 +53,11 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="exit" fitHeight="37.0" fitWidth="39.0" layoutX="1869.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: 000;">
+                     <image>
+                        <Image url="@../../img/icon/xBlue.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </top>

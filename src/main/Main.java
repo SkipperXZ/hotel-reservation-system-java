@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import report.Booking;
 import report.BookingDatabase;
 import reservation.IO;
@@ -47,6 +48,7 @@ public class Main extends Application {
         Parent root5 = FXMLLoader.load(getClass().getResource("../calendar/calendar2Table.fxml"));
         Linker.calendar = new Scene(root5);
 
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         Linker linker = new Linker();
         Linker.primaryStage.setScene(linker.newLoginScene());
 

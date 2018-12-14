@@ -1,6 +1,7 @@
 package report;
 
 import Account.Account;
+import Hotel.Hotel;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
@@ -8,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point2D;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.event.ActionEvent;
@@ -16,6 +18,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import main.Linker;
 import main.Main;
+import reservation.IO;
+import staff.StaffDatabase;
+import Hotel.CustomerDatabase;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -92,12 +97,16 @@ public class reportController implements Initializable {
     @FXML private TableColumn<Booking, String> summary;
     @FXML private TableColumn<Booking, String> total;
     @FXML private ImageView logOut = new ImageView();
+    @FXML private ImageView exit = new ImageView();
+    @FXML private Label nameHotel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Linker linker = new Linker();
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
+        nameHotel.setText("HOTELLO");
+
         userLabel.setText(Account.currentUser);
         currentDay = LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
 
@@ -243,9 +252,32 @@ public class reportController implements Initializable {
                 Linker.primaryStage.setScene(linker.newCalendarScene());
             }
         });
+        final Tooltip tooltip = new Tooltip("Logout");
+        tooltip.setStyle("-fx-background-color: #1473e6; -fx-text-fill: white; -fx-font-size: 15; -fx-font-weight: bold; ");
+        logOut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                Point2D p = logOut.localToScreen(logOut.getLayoutBounds().getMaxX()-50, logOut.getLayoutBounds().getMaxY()+5);
+                tooltip.show(logOut, p.getX(), p.getY());
+            }
+        });
+        logOut.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                tooltip.hide();
+            }
+        });
+        // Tooltip.install(logOut, new Tooltip("Logout"));
         logOut.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                IO.saveHotel(Hotel.hotel);
+                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
                 Main main = new Main();
@@ -254,6 +286,35 @@ public class reportController implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                IO.saveHotel(Hotel.hotel);
+                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                System.out.println("Save done");
+                System.exit(0);
+            }
+        });
+        final Tooltip tooltipExit = new Tooltip("Exit");
+        tooltipExit.setStyle("-fx-background-color: #1473e6; -fx-text-fill: white; -fx-font-size: 15; -fx-font-weight: bold; ");
+        exit.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                Point2D p = exit.localToScreen(exit.getLayoutBounds().getMaxX()-45, exit.getLayoutBounds().getMaxY()+5);
+                tooltipExit.show(exit, p.getX(), p.getY());
+            }
+        });
+        exit.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                tooltipExit.hide();
             }
         });
 
