@@ -1,3 +1,23 @@
-.table-column {
-  -fx-alignment: CENTER;
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color:  #f0f7ff;
+
+     -fx-alignment: CENTER;
+}
+.table-view .column-header .label{
+   -fx-text-fill: #3d8ceb;
+   -fx-font-weight: bold;
+}
+.table-view .cell:even{
+  -fx-background-color: #fff;
+}
+.table-view .cell:odd{
+  -fx-background-color: #f7faff;
+}
+.table-row-cell:selected {
+   -fx-background-color: #f0f7ff;
+}
+.table-row-cell:selected .text {
+       -fx-fill: #1473e6 ;
 }

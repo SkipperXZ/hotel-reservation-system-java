@@ -67,7 +67,8 @@ public class Customer implements Serializable {
 
         if(customerDatabase.size()==0)
             numcustomerID =0;
-        numcustomerID+=1;
+        if(customerDatabase.get(firstName+lastName)==null)
+            numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
         //System.out.println(numcustomerID+1);
 
@@ -103,6 +104,7 @@ public class Customer implements Serializable {
         if(customerDatabase.size()==0)
             numcustomerID =0;
         numcustomerID+=1;
+        if(customerDatabase.get(firstName+lastName)==null)
         this.customerID = numcustomerID;  // add new ID
         this.imgFile = "src\\img\\icon\\photoUser.png";
     }
