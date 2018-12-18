@@ -559,30 +559,6 @@ public class ReservationPageController {
             }
         });
 
-        blockOnVacant.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                selectedPane = (Pane)blockOnVacant.getParentPopup().getOwnerNode();
-                Room room = searchRoomFromPane(selectedPane);
-                if(isRoomBlockScene()) {
-                    HotelSystem.roomBlock(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
-                    updatePaneStatus(selectedPane);
-                    updateRoomAvailaible();
-                }
-            }
-        });
-        outOfServiceOnVacant.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                selectedPane = (Pane)cleanOnVacant.getParentPopup().getOwnerNode();
-                Room room = searchRoomFromPane(selectedPane);
-                if(isOutOfServiceScene()){
-                    HotelSystem.outOfService(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
-                    updatePaneStatus(selectedPane);
-                    updateRoomAvailaible();
-                }
-            }
-        });
 
         infoOnVacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -967,63 +943,7 @@ public class ReservationPageController {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
     }
-    private boolean isRoomBlockScene(){
-        boolean isConfirm = false;
-        RoomBlockController roomBlockController;
 
-        if(currentStage == null){
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomBlockPage.fxml"));
-            Parent root = loader.load();
-            roomBlockController = loader.getController();
-            roomBlockController.setParentController(this);
-            roomBlockController.setRoom(searchRoomFromPane(selectedPane));
-            roomBlockController.setInfo();
-            roomBlockStage = new Stage();
-            roomBlockStage.initStyle(StageStyle.TRANSPARENT);
-            roomBlockStage.setTitle("Room Block");
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            roomBlockStage.setScene(scene);
-            currentStage = roomBlockStage;
-            roomBlockStage.showAndWait();
-            currentStage = null;
-            isConfirm = roomBlockController.isConfirm();
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        }
-        return isConfirm;
-    }
-    private boolean isOutOfServiceScene(){
-        boolean isConfirm = false;
-        OutOfServiceController outOfServiceController;
-        if(currentStage == null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
-                Parent root = loader.load();
-                outOfServiceController = loader.getController();
-                outOfServiceController.setParentController(this);
-                outOfServiceController.setRoom(searchRoomFromPane(selectedPane));
-                outOfServiceController.setInfo();
-                outOfServiceStage = new Stage();
-                outOfServiceStage.initStyle(StageStyle.TRANSPARENT);
-                outOfServiceStage.setTitle("Cleaning");
-                Scene scene = new Scene(root);
-                scene.setFill(Color.TRANSPARENT);
-                outOfServiceStage.setScene(scene);
-                currentStage = outOfServiceStage;
-                outOfServiceStage.showAndWait();
-                isConfirm = outOfServiceController.isConfirm();
-                currentStage = null;
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return isConfirm;
-    }
     private void guestFolioScene(){
         CustomerInfoPageController customerInfoPageController;
         if(currentStage == null) {
