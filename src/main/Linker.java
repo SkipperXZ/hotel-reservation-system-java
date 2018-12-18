@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class Linker {
     public static Stage primaryStage;
-    public static Scene DashboardScene ;
     public static Scene resScene ;
     public static Scene customerScene;
     public static Scene user;
