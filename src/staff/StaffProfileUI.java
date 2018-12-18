@@ -22,9 +22,9 @@ import javafx.scene.image.Image;
 import report.Booking;
 import report.BookingDatabase;
 
-public class StaffProfileController implements Initializable {
-    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
-    int userCur = StaffDatabase.userCur;
+public class StaffProfileUI implements Initializable {
+    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    int userCur = StaffList.userCur;
 
     @FXML
     private ImageView ima = new ImageView();

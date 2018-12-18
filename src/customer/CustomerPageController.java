@@ -36,7 +36,7 @@ import main.Linker;
 import main.Main;
 import report.BookingDatabase;
 import reservation.IO;
-import staff.StaffDatabase;
+import staff.StaffList;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -288,7 +288,7 @@ public class CustomerPageController {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
@@ -307,7 +307,7 @@ public class CustomerPageController {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);

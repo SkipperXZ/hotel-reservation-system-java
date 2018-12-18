@@ -3,44 +3,31 @@ package calendar;
 import Hotel.Hotel;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import jdk.nashorn.api.tree.PropertyTree;
 import main.Main;
 import report.BookingDatabase;
 import main.Linker;
 import report.Booking;
-import report.BookingDatabase;
 
-import java.awt.print.Book;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import calendar.calendar;
+
 import javafx.css.PseudoClass;
 import reservation.IO;
-import staff.StaffDatabase;
+import staff.StaffList;
 import Hotel.CustomerDatabase;
 
-import javax.swing.text.html.CSS;
 
 public class calendarController {
 
@@ -128,8 +115,6 @@ public class calendarController {
     String fullName,roomNum,checkDate;
     String fullNameCC,roomNumCC;
 
-    private PseudoClass childOfSelected = PseudoClass.getPseudoClass("child-of-selected");
-    private PseudoClass parentOfSelected = PseudoClass.getPseudoClass("parent-of-selected");
 
     @FXML
     public void initialize()  {
@@ -266,24 +251,100 @@ public class calendarController {
 
         colRoom.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue()));
 
-        day01_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col1"));
-        day02_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col2"));
-        day03_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col3"));
-        day04_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col4"));
-        day05_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col5"));
-        day06_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col6"));
-        day07_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col7"));
-        day08_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col8"));
-        day09_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col9"));
-        day10_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col10"));
-        day11_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col11"));
-        day12_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col12"));
-        day13_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col13"));
-        day14_1.setCellValueFactory(new TreeItemPropertyValueFactory<calendar,String>("col14"));
+        day01_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol1());
+        day02_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol2());
+        day03_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol3());
+        day04_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol4());
+        day05_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol5());
+        day06_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol6());
+        day07_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol7());
+        day08_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol8());
+        day09_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol9());
+        day10_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol10());
+        day11_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol11());
+        day12_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol12());
+        day13_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol13());
+        day14_1.setCellValueFactory(cellData -> cellData.getValue().getValue().getCol14());
+
+        for (TreeTableColumn<calendar,String> e : Day){
+            check(e);
+        }
 
 
 
+        makeF1.setStyle("-fx-background-color: #1473e6;-fx-text-fill: #ffffff");
 
+        makeF1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                makeF1.setStyle("-fx-background-color: #1473e6;-fx-text-fill: #ffffff");
+                makeF2.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF3.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF4.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF5.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                changeTag(1);
+                algo();
+
+
+            }
+        });
+
+        makeF2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                makeF2.setStyle("-fx-background-color: #1473e6;-fx-text-fill: #ffffff");
+                makeF1.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF3.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF4.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF5.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                changeTag(2);
+                algo();
+
+            }
+        });
+        makeF3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                makeF3.setStyle("-fx-background-color: #1473e6;-fx-text-fill: #ffffff");
+                makeF2.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF1.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF4.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF5.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                changeTag(3);
+                algo();
+
+
+            }
+        });
+        makeF4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                makeF4.setStyle("-fx-background-color: #1473e6;-fx-text-fill: #ffffff");
+                makeF2.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF3.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF1.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF5.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                changeTag(4);
+                algo();
+
+
+            }
+        });
+        makeF5.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                makeF5.setStyle("-fx-background-color: #1473e6;-fx-text-fill: #ffffff");
+                makeF2.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF3.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF4.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                makeF1.setStyle("-fx-background-color: #f0f5f2;-fx-text-fill: #9f9f9f");
+                changeTag(5);
+                algo();
+
+
+
+            }
+        });
 
 
 
@@ -350,7 +411,7 @@ public class calendarController {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
@@ -369,7 +430,7 @@ public class calendarController {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
@@ -471,12 +532,11 @@ public class calendarController {
             for (Booking c : bookingData) {
                 if (c.getRoomNum().equals(Room.get(i).getValue())) {
                     if (c.getRecordTime().plusDays(c.getNightNum()).isAfter(LocalDateTime.now())) {
-                        day = Math.abs(Duration.between(c.getRecordTime().plusDays(c.getNightNum()),LocalDateTime.now()).toDays());
+                        day = Math.abs(Duration.between(c.getRecordTime().plusDays(c.getNightNum()), LocalDateTime.now()).toDays());
                         for (int k = 0; k <= day; k++) {
-                            if (k == 14){
+                            if (k == 14) {
                                 break;
-                            }
-                            else {
+                            } else {
                                 arrayString[k] = "=";
                             }
                         }
@@ -485,7 +545,6 @@ public class calendarController {
 
                 }
             }
-
 
             arrayRoom.set(i, new calendar(arrayString[0], arrayString[1],
                     arrayString[2], arrayString[3],
@@ -505,16 +564,209 @@ public class calendarController {
                     room9_2,room10_2,room11_2,room12_2);
             tableDay.setRoot(root2);
             tableDay.setShowRoot(false);
+
             count++;
         }
     }
-    public void color (String col){
-        if (col.equals("*")){
+
+    public void check (TreeTableColumn< calendar,String> c){
+        c.setCellFactory(column ->{
+            return new TreeTableCell<calendar, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null || empty){
+                        setText(null);
+                        setStyle("");
+                    }
+                    else if (item.equals("=")){
+                        setText(" ");
+                        setStyle("-fx-background-color: yellow");
+                    }
+                    else if (item.equals("*")){
+                        setText(" ");
+                        setStyle("-fx-background-color:  rgb(124,252,0)");
+                    }
+                }
+            };
+        });
+    }
+    public void algo (){
+        for(Booking runCheckIn :checkinData) {
+            fullName = runCheckIn.getFullname();
+            roomNum = runCheckIn.getRoomNum();
+            checkDate = runCheckIn.getRecordDate().toString();
+            for (Booking runBooking : bookingData) {
+                if (fullName.equals(runBooking.getFullname())) {
+                    if (roomNum.equals(runBooking.getRoomNum())) {
+                        if (checkDate.equals(runBooking.getRecordDate().toString())) {
+                            runCheckIn.setNightNum(runBooking.getNightNum());
+                            break;
+                        } else {
+                            bookingCount++;
+                        }
+                    } else {
+                        bookingCount++;
+                    }
+                } else {
+                    bookingCount++;
+                }
+            }
+
+
+
+            if(bookingCount == bookingData.size()){
+                System.out.println(bookingCount+" "+bookingData.get(0).getRoomNum());
+                bookingCount = 0;
+                //   System.out.println("remove fail");
+            }
+            else {
+                bookingData.remove(bookingCount);
+                bookingCount=0;
+                //  System.out.println("removed");
+            }
 
         }
-        else if (col.equals("=")){
+        for (Booking runOut : checkoutData) {
+            fullNameCC = runOut.getFullname();
+            roomNumCC = runOut.getRoomNum();
+
+            for (Booking runCheck : checkinData) {
+                if (fullNameCC.equals(runCheck.getFullname())) {
+                    if (roomNumCC.equals(runCheck.getRoomNum())) {
+                        break;
+                    } else {
+                        cancelCount++;
+                    }
+                } else {
+                    cancelCount++;
+                }
+            }
+
+            if(cancelCount == checkinData.size()){
+                cancelCount = 0;
+            }
+            else {
+                checkinData.remove(cancelCount);
+                cancelCount=0;
+
+            }
+        }
+        for(Booking runCancel :cancelData){
+            fullName = runCancel.getFullname();
+            roomNum = runCancel.getRoomNum();
+            checkDate = runCancel.getRecordDate().toString();
+
+            for (Booking runBooking : bookingData) {
+                if (fullName.equals(runBooking.getFullname())) {
+                    if (roomNum.equals(runBooking.getRoomNum())) {
+                        if (checkDate.equals(runBooking.getRecordDate().toString())) {
+                            break;
+                        } else {
+                            bookingCount++;
+                        }
+                    } else {
+                        bookingCount++;
+                    }
+                } else {
+                    bookingCount++;
+                }
+            }
+
+            if(bookingCount == bookingData.size()){
+                bookingCount = 0;
+            }
+            else{
+                bookingData.remove(bookingCount);
+                bookingCount=0;
+
+            }
+
+        }
+
+        comPare();
+        calendarSet();
+        for (TreeTableColumn<calendar,String> e : Day){
+            check(e);
+        }
+
+
+    }
+    public void changeTag (int num){
+        if(num == 1){
+            room1.setValue("A101");
+            room2.setValue("A102");
+            room3.setValue("A103");
+            room4.setValue("A104");
+            room5.setValue("A105");
+            room6.setValue("A106");
+            room7.setValue("B107");
+            room8.setValue("B108");
+            room9.setValue("B109");
+            room10.setValue("B110");
+            room11.setValue("B111");
+            room12.setValue("B112");
+        }
+
+        else if (num == 2) {
+            room1.setValue("D201");
+            room2.setValue("D202");
+            room3.setValue("D203");
+            room4.setValue("D204");
+            room5.setValue("A205");
+            room6.setValue("A206");
+            room7.setValue("A207");
+            room8.setValue("A208");
+            room9.setValue("B209");
+            room10.setValue("B210");
+            room11.setValue("B211");
+            room12.setValue("B212");
+        }
+        else if (num ==3) {
+            room1.setValue("S301");
+            room2.setValue("S302");
+            room3.setValue("D303");
+            room4.setValue("D304");
+            room5.setValue("B305");
+            room6.setValue("B306");
+            room7.setValue("B307");
+            room8.setValue("B308");
+            room9.setValue("D309");
+            room10.setValue("D310");
+            room11.setValue("S311");
+            room12.setValue("S312");
+        }
+        else if (num ==4) {
+            room1.setValue("S401");
+            room2.setValue("S402");
+            room3.setValue("D403");
+            room4.setValue("D404");
+            room5.setValue("F405");
+            room6.setValue("B406");
+            room7.setValue("B407");
+            room8.setValue("D408");
+            room9.setValue("D409");
+            room10.setValue("D410");
+            room11.setValue("S411");
+            room12.setValue("S412");
+        }
+        else if (num ==5) {
+
+            room1.setValue("S501");
+            room2.setValue("S502");
+            room3.setValue("S503");
+            room4.setValue("S504");
+            room5.setValue("D505");
+            room6.setValue("D506");
+            room7.setValue("D507");
+            room8.setValue("D508");
+            room9.setValue("S509");
+            room10.setValue("S510");
+            room11.setValue("S511");
+            room12.setValue("S512");
 
         }
     }
+
 
 }

@@ -27,7 +27,7 @@ import main.Main;
 import report.BookingDatabase;
 import reservation.*;
 import reservation.room.*;
-import staff.StaffDatabase;
+import staff.StaffList;
 import Hotel.CustomerDatabase;
 
 import java.time.LocalDate;
@@ -487,7 +487,7 @@ public class ReservationPageController {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
@@ -506,7 +506,7 @@ public class ReservationPageController {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);

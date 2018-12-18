@@ -16,11 +16,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
-public class EditStaffController implements Initializable {
+public class EditStaffUI implements Initializable {
 
-    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
-    ArrayList<UserNoButton>userNoButtons= StaffDatabase.userNoButtons;
-    int userCur = StaffDatabase.userCur;
+    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    ArrayList<UserNoButton>userNoButtons= StaffList.userNoButtons;
+    int userCur = StaffList.userCur;
     FileChooser fileChooser = new FileChooser();
     File file;
 
