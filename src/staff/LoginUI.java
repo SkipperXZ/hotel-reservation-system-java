@@ -18,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import main.Linker;
 
-public class Login implements Initializable {
+public class LoginUI implements Initializable {
     @FXML
     private JFXTextField username = new JFXTextField ();
 
@@ -57,17 +57,17 @@ public class Login implements Initializable {
             chUser.setText("**Pls login Acc Admin");
             chPas.setText("**Pls login Acc Admin");
         }
-        if(StaffDatabase.userArrayList.size()>0 && ch3 && ch2){
-            for(int i = 0; i< StaffDatabase.userArrayList.size(); i++){
-                System.out.println(StaffDatabase.userArrayList.get(i).getUserName());
-                if(StaffDatabase.userArrayList.get(i).getUserName().equals(username.getText())){
+        if(StaffList.userArrayList.size()>0 && ch3 && ch2){
+            for(int i = 0; i< StaffList.userArrayList.size(); i++){
+                System.out.println(StaffList.userArrayList.get(i).getUserName());
+                if(StaffList.userArrayList.get(i).getUserName().equals(username.getText())){
                     ch1=false;
-                    if(StaffDatabase.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
+                    if(StaffList.userArrayList.get(i).getPassWord().equals(passWordNa.getText())){
                         if(chppp>5){
-                            if(StaffDatabase.userArrayList.get(i).getUserType().equals("Admin")){
-                                Account.currentUser = StaffDatabase.userArrayList.get(i).getUserName();
-                                Account.currentPassword = StaffDatabase.userArrayList.get(i).getPassWord();
-                                Account.currentUserType = StaffDatabase.userArrayList.get(i).getUserType();
+                            if(StaffList.userArrayList.get(i).getUserType().equals("Admin")){
+                                Account.currentUser = StaffList.userArrayList.get(i).getUserName();
+                                Account.currentPassword = StaffList.userArrayList.get(i).getPassWord();
+                                Account.currentUserType = StaffList.userArrayList.get(i).getUserType();
                                 Linker.primaryStage.setScene(linker.newDashboardScene());
                                 Linker.primaryStage.setX(0);
                                 Linker.primaryStage.setY(0);
@@ -76,9 +76,9 @@ public class Login implements Initializable {
                             }
 
                         }else {
-                            Account.currentUser = StaffDatabase.userArrayList.get(i).getUserName();
-                            Account.currentPassword = StaffDatabase.userArrayList.get(i).getPassWord();
-                            Account.currentUserType = StaffDatabase.userArrayList.get(i).getUserType();
+                            Account.currentUser = StaffList.userArrayList.get(i).getUserName();
+                            Account.currentPassword = StaffList.userArrayList.get(i).getPassWord();
+                            Account.currentUserType = StaffList.userArrayList.get(i).getUserType();
                             Linker.primaryStage.setScene(linker.newDashboardScene());
                             Linker.primaryStage.setX(0);
                             Linker.primaryStage.setY(0);

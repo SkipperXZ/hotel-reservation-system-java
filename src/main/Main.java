@@ -17,7 +17,7 @@ import report.Booking;
 import report.BookingDatabase;
 import reservation.IO;
 import staff.Staff;
-import staff.StaffDatabase;
+import staff.StaffList;
 import staff.UserNoButton;
 
 import java.time.LocalDate;
@@ -63,7 +63,7 @@ public class Main extends Application {
         stopClock();
         IO.saveHotel(Hotel.hotel);
         IO.saveCustomer(CustomerDatabase.customerDatabase);
-        IO.saveUser(StaffDatabase.userNoButtons);
+        IO.saveUser(StaffList.userNoButtons);
 
         IO.saveAllBooking(BookingDatabase.bookingDatabase);
         System.out.println("Save done");
@@ -110,14 +110,14 @@ public class Main extends Application {
             Customer.setNumcustomerID(max);
         }
         if(user != null && user.size()>0){
-            StaffDatabase.userNoButtons=user;
+            StaffList.userNoButtons=user;
             for(int i=0;i<user.size();i++){
-                StaffDatabase.userArrayList.add(new Staff(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
+                StaffList.userArrayList.add(new Staff(user.get(i).getEmployeeId(),user.get(i).getUserName(),user.get(i).getFirstName(),user.get(i).getLastName(),
                         user.get(i).getIdCardNumber(),user.get(i).getCountry(),user.get(i).getTel(),user.get(i).getEmail(),user.get(i).getAddress(),
                         user.get(i).getUserType(),user.get(i).getRole(),new Button(),new Button(),user.get(i).getPassId(),user.get(i).getPassWord(),user.get(i).getImage()));
             }
-            if(StaffDatabase.userNoButtons.get(StaffDatabase.userNoButtons.size()-1).getEmployeeId()!=null) {
-                StaffDatabase.employeeId = Integer.parseInt(StaffDatabase.userNoButtons.get(StaffDatabase.userNoButtons.size() - 1).getEmployeeId()) + 1;
+            if(StaffList.userNoButtons.get(StaffList.userNoButtons.size()-1).getEmployeeId()!=null) {
+                StaffList.employeeId = Integer.parseInt(StaffList.userNoButtons.get(StaffList.userNoButtons.size() - 1).getEmployeeId()) + 1;
             }
         }
         if(allbooking != null){

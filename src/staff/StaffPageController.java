@@ -36,8 +36,8 @@ public class StaffPageController implements Initializable {
     public static int max=100;
 //    int []a = new int[max];
     public static ObservableList<Staff>list;
-    ArrayList<Staff> userArrayList = StaffDatabase.userArrayList;
-    ArrayList<UserNoButton>userNoButtons= StaffDatabase.userNoButtons;
+    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    ArrayList<UserNoButton>userNoButtons= StaffList.userNoButtons;
     Linker linker = new Linker();
 
     @FXML private TableView<Staff>table;
@@ -73,8 +73,8 @@ public class StaffPageController implements Initializable {
             for (int i = 0; i < userArrayList.size(); i++) {
                 if (event.getSource() == buttonE[i]) {
                     System.out.println("E " + i);
-                    StaffDatabase.userCur = i;
-                    System.out.println("curr " + StaffDatabase.userCur);
+                    StaffList.userCur = i;
+                    System.out.println("curr " + StaffList.userCur);
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/editPageNew.fxml"));
                         Parent root = (Parent) fxmlLoader.load();
@@ -88,7 +88,7 @@ public class StaffPageController implements Initializable {
 //                setButton();
 //                setToTableView();
                 } else if (event.getSource() == buttonD[i]) {
-                    StaffDatabase.userCur = i;
+                    StaffList.userCur = i;
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/popUpDelete.fxml"));
                         Parent root = (Parent) fxmlLoader.load();
@@ -142,7 +142,7 @@ public class StaffPageController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 if(event.getClickCount() == 2){
-                    StaffDatabase.userCur=table.getSelectionModel().getFocusedIndex();
+                    StaffList.userCur=table.getSelectionModel().getFocusedIndex();
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//staff/userPopUp.fxml"));
                         Parent root = (Parent)fxmlLoader.load();
@@ -193,7 +193,7 @@ public class StaffPageController implements Initializable {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
@@ -212,7 +212,7 @@ public class StaffPageController implements Initializable {
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerDatabase.customerDatabase);
-                IO.saveUser(StaffDatabase.userNoButtons);
+                IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
