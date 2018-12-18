@@ -22,7 +22,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.ChoiceBox;
 
 public class NewStaffUI implements Initializable {
-    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    StaffSystem staffSystem= new StaffSystem();
+    ArrayList<Staff> userArrayList = staffSystem.getStaff();
     ArrayList<UserNoButton>userNoButtons= StaffList.userNoButtons;
     ObservableList<String> cursors = FXCollections.observableArrayList("User","Admin");
     FileChooser fileChooser = new FileChooser();
@@ -102,17 +103,25 @@ public class NewStaffUI implements Initializable {
             if(lastName.getText().equals(""))ch6=false;
             if(passWord.getText().equals(""))ch8=false;
             if((ch1&&ch2&&ch3&&ch4&&ch5&&ch6&&ch7&&ch8)||(userArrayList.size()==0)) {
-                userArrayList.add(new Staff(Integer.toString(StaffList.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
+                Staff a = new Staff(Integer.toString(StaffList.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
-                        userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText(),file.toURI().toString()));
-                userNoButtons.add(new UserNoButton(Integer.toString(StaffList.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
+                        userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText(),file.toURI().toString());
+                UserNoButton b = new UserNoButton(Integer.toString(StaffList.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
                         idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
-                        userType.getValue(), role.getText(), pass.getText(), passWord.getText(),file.toURI().toString()));
+                        userType.getValue(), role.getText(), pass.getText(), passWord.getText(),file.toURI().toString());
+                StaffSystem staffSystem = new StaffSystem();
+                staffSystem.newStaff(a,b);
+//                userArrayList.add(new Staff(Integer.toString(StaffList.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
+//                        idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
+//                        userType.getValue(), role.getText(), new Button(), new Button(), pass.getText(), passWord.getText(),file.toURI().toString()));
+//                userNoButtons.add(new UserNoButton(Integer.toString(StaffList.employeeId), userName.getText(), firstName.getText(), lastName.getText(),
+//                        idCard.getText(), country.getText(), tel.getText(), email.getText(), address.getText(),
+//                        userType.getValue(), role.getText(), pass.getText(), passWord.getText(),file.toURI().toString()));
                 System.out.println("New User");
                 StaffList.employeeId++;
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
                 stage.close();
-                StaffPageController mu = new StaffPageController();
+                StaffPageUI mu = new StaffPageUI();
                 mu.update();
             }
             if(ch3==false||ch4==false||ch5==false||ch6==false||ch7==false||ch8==false){

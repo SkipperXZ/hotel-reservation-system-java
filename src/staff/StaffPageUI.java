@@ -32,11 +32,12 @@ import report.BookingDatabase;
 import reservation.IO;
 import Hotel.CustomerDatabase;
 
-public class StaffPageController implements Initializable {
+public class StaffPageUI implements Initializable {
     public static int max=100;
 //    int []a = new int[max];
     public static ObservableList<Staff>list;
-    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    StaffSystem staffSystem= new StaffSystem();
+    ArrayList<Staff> userArrayList = staffSystem.getStaff();
     ArrayList<UserNoButton>userNoButtons= StaffList.userNoButtons;
     Linker linker = new Linker();
 
