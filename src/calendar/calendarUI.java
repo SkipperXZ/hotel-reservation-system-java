@@ -27,7 +27,7 @@ import staff.StaffList;
 import Hotel.CustomerList;
 
 
-public class calendarController {
+public class calendarUI {
 
     @FXML private Label date;
     @FXML private Label time;
