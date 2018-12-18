@@ -1,5 +1,5 @@
 package reservation;
-import Hotel.OneDayHotel;
+import Hotel.RoomList;
 import Hotel.Customer;
 import staff.UserNoButton;
 import report.Booking;
@@ -43,7 +43,7 @@ public class IO{
         return user;
     }
 
-    public static void saveHotel(ArrayList<OneDayHotel> hotel) {
+    public static void saveHotel(ArrayList<RoomList> hotel) {
 
         File file = new File("hotel.dat");
         try {
@@ -53,8 +53,8 @@ public class IO{
         }catch (Exception e){}
 
     }
-    public static ArrayList<OneDayHotel> loadHotel(){
-        ArrayList<OneDayHotel> hotel;
+    public static ArrayList<RoomList> loadHotel(){
+        ArrayList<RoomList> hotel;
         try
         {
             FileInputStream fis = new FileInputStream("hotel.dat");

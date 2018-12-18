@@ -1,7 +1,6 @@
 package customer;
 
 import Hotel.Customer;
-import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -24,9 +23,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-import static Hotel.CustomerDatabase.customerDatabase;
+import static Hotel.CustomerList.customerDatabase;
 
-public class EditCustomerController {
+public class EditCustomerUI {
 
     @FXML
     private Label customerID;
@@ -69,7 +68,7 @@ public class EditCustomerController {
 
     @FXML
     public void initialize() {
-        String NameHash = CustomerPageController.selectName;
+        String NameHash = CustomerPageUI.selectName;
         Customer customer = customerDatabase.get(NameHash);
 
         ID.textProperty().addListener(new ChangeListener<String>() {
@@ -160,8 +159,8 @@ public class EditCustomerController {
                    CustomerSystem customerSystem = new CustomerSystem();
                    customerSystem.deleteCustomer(NameHash);
                    customerSystem.addCustomer(customer);
-                   CustomerPageController.selectName =firstNameInput+lastNameInput;
-                   CustomerPageController update = new CustomerPageController();
+                   CustomerPageUI.selectName =firstNameInput+lastNameInput;
+                   CustomerPageUI update = new CustomerPageUI();
                    update.update();
 
                    Parent root = null;

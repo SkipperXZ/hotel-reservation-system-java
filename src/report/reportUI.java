@@ -20,7 +20,7 @@ import main.Linker;
 import main.Main;
 import reservation.IO;
 import staff.StaffList;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -28,14 +28,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class reportController implements Initializable {
+public class reportUI implements Initializable {
 
     static ObservableList<Booking>list1;
     static ObservableList<Booking>list2;
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> cancelData = new ArrayList<Booking>();
@@ -112,22 +112,22 @@ public class reportController implements Initializable {
 
         for (Booking e : allBooking) {
 
-            if(e.getOperation()==1) {
-                checkinData.add(e);
-                checkinNum++;
-            }
-            else if(e.getOperation()==2) {
-                checkoutData.add(e);
-                checkoutNum++;
-                totalRevenue+=e.getPrice();
-            }
-            else if(e.getOperation()==3) {
-                cancelData.add(e);
-                cancelNum++;
-            }
-            else if(e.getOperation()==4) {
-                bookingData.add(e);
-                bookingNum++;
+            if(e.getRecordDate().format(DateTimeFormatter.ofPattern("dd MMM yyyy")).equals(LocalDate.now().minusDays(click).format(DateTimeFormatter.ofPattern("dd MMM yyyy")))) {
+
+                if (e.getOperation() == 1) {
+                    checkinData.add(e);
+                    checkinNum++;
+                } else if (e.getOperation() == 2) {
+                    checkoutData.add(e);
+                    checkoutNum++;
+                    totalRevenue+=e.getPrice();
+                } else if (e.getOperation() == 3) {
+                    cancelData.add(e);
+                    cancelNum++;
+                } else if (e.getOperation() == 4) {
+                    bookingData.add(e);
+                    bookingNum++;
+                }
             }
         }
         list1= FXCollections.observableArrayList(
@@ -274,9 +274,9 @@ public class reportController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -293,9 +293,9 @@ public class reportController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

@@ -22,11 +22,11 @@ import javafx.stage.Stage;
 import main.Linker;
 import main.Main;
 import report.Booking;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
 import reservation.room.*;
 import staff.StaffList;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -36,7 +36,7 @@ import java.util.ResourceBundle;
 
 import static Hotel.Hotel.hotel;
 
-public class DashboardController implements Initializable {
+public class DashboardUI implements Initializable {
 
     @FXML private Label date;
     @FXML private Label time;
@@ -97,7 +97,7 @@ public class DashboardController implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking>list5;
-    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
     ArrayList<Booking> arrivalToday = new ArrayList<Booking>();
     ArrayList<Booking> arrivalTomorrow = new ArrayList<Booking>();
     ArrayList<Booking> departureToday = new ArrayList<Booking>();
@@ -272,9 +272,9 @@ public class DashboardController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -291,9 +291,9 @@ public class DashboardController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

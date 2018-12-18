@@ -1,6 +1,6 @@
 package reservation.controller;
 
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 import Hotel.Hotel;
 import Hotel.Customer;
 import com.jfoenix.controls.JFXDatePicker;
@@ -12,12 +12,11 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import report.Booking;
 import reservation.room.Room;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class ReserveRoomController {
+public class ReserveRoomUI {
 
     @FXML
     private TextField firstNameText;
@@ -103,7 +102,7 @@ public class ReserveRoomController {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private String memo;
-    private ReservationPageController parentController;
+    private ReservationPageUI parentController;
     private int extraBedNum;
     private int nightNum;
     private String email;
@@ -140,8 +139,8 @@ public class ReserveRoomController {
             @Override
             public void handle(ActionEvent event) {
                 String name = searchBar.getText().replaceAll("\\s+","");
-                if (CustomerDatabase.customerDatabase.get(name) != null){
-                    Customer customer = CustomerDatabase.customerDatabase.get(name);
+                if (CustomerList.customerDatabase.get(name) != null){
+                    Customer customer = CustomerList.customerDatabase.get(name);
                     firstNameText.setText(customer.getFirstName());
                     lastNameText.setText(customer.getLastName());
                     telNumText.setText(customer.getTel());
@@ -192,7 +191,7 @@ public class ReserveRoomController {
                 }
                 Customer customer = new Customer(adultNum, childNum, title, firstName, lastName, tel, checkInDate, checkOutDate,extraBedNum,email,price,weekDayNum,weekEndNum,memo);
                 customer.setPayment(false);
-                CustomerDatabase.updateCustomer(customer);
+                CustomerList.updateCustomer(customer);
                 parentController.setRoomIndex(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()));
                 parentController.setCustomer(customer);
                 parentController.getReserveStage().close();
@@ -308,7 +307,7 @@ public class ReserveRoomController {
         return tel;
     }
 
-    public void setParentController(ReservationPageController parentController) {
+    public void setParentController(ReservationPageUI parentController) {
         this.parentController = parentController;
         initDayLabel();
     }

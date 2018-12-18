@@ -3,8 +3,8 @@ package main;
 import Account.Account;
 import Hotel.Hotel;
 import Hotel.Customer;
-import Hotel.CustomerDatabase;
-import Hotel.OneDayHotel;
+import Hotel.CustomerList;
+import Hotel.RoomList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import report.Booking;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
 import staff.Staff;
 import staff.StaffList;
@@ -62,15 +62,15 @@ public class Main extends Application {
     public void closeFuncion(){
         stopClock();
         IO.saveHotel(Hotel.hotel);
-        IO.saveCustomer(CustomerDatabase.customerDatabase);
+        IO.saveCustomer(CustomerList.customerDatabase);
         IO.saveUser(StaffList.userNoButtons);
 
-        IO.saveAllBooking(BookingDatabase.bookingDatabase);
+        IO.saveAllBooking(BookingList.bookingDatabase);
         System.out.println("Save done");
         System.exit(0);
     }
     public void stopClock(){
-        for (OneDayHotel e:Hotel.hotel
+        for (RoomList e:Hotel.hotel
         ) {
             for (int i = 0; i <e.getFloors().length ; i++) {
                 for (int j = 0; j <e.getFloors()[i].getRooms().length ; j++) {
@@ -83,7 +83,7 @@ public class Main extends Application {
         }
     }
     public static void load(){
-        ArrayList<OneDayHotel> hotel = IO.loadHotel();
+        ArrayList<RoomList> hotel = IO.loadHotel();
         HashMap<String, Customer> customer = IO.loadCustomer();
         ArrayList<UserNoButton>user = IO.loadUser();
 
@@ -94,14 +94,14 @@ public class Main extends Application {
          }
         else{
             while(!hotel.get(0).getDate().equals(LocalDate.now())){
-                hotel.add(new OneDayHotel(hotel.get(hotel.size()-1).getDate().plusDays(1)));
+                hotel.add(new RoomList(hotel.get(hotel.size()-1).getDate().plusDays(1)));
                 hotel.remove(hotel.get(0));
             }
             System.out.println(hotel.size());
             Hotel.hotel =hotel;
         }
         if(customer != null){
-            CustomerDatabase.customerDatabase = customer;
+            CustomerList.customerDatabase = customer;
             int max = 0 ;
             for(Customer cus :customer.values()){
                 if (max<cus.getCustomerID())
@@ -121,11 +121,11 @@ public class Main extends Application {
             }
         }
         if(allbooking != null){
-            BookingDatabase.bookingDatabase = allbooking;
+            BookingList.bookingDatabase = allbooking;
         }
         else{
             Booking booking = new Booking(Account.currentUser, 0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);
-           BookingDatabase.addBooking(booking);
+           BookingList.addBooking(booking);
         }
     }
 

@@ -3,9 +3,9 @@ package reservation;
 import Account.Account;
 import Hotel.Customer;
 import Hotel.Hotel;
-import Hotel.CustomerDatabase;
-import Hotel.OneDayHotel;
-import report.BookingDatabase;
+import Hotel.CustomerList;
+import Hotel.RoomList;
+import report.BookingList;
 import reservation.room.Room;
 import report.Booking;
 
@@ -14,17 +14,17 @@ import java.time.LocalDateTime;
 
 public class HotelSystem {
     public static void booking(Customer customer, int roomIndex, int currentFloorNum, int currentDay) {
-        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        Customer databaseCustomer =  CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         for (int i = 0; i < customer.getNightNum()+1; i++) {
             Room room = Hotel.hotel.get(currentDay-1+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex];
             room.setCustomer(customer);
             room.setStatus("Reserved");
 
             if(i==0) {
-                Booking booking = new Booking(Account.currentUser, (BookingDatabase.bookingDatabase.get(BookingDatabase.bookingDatabase.size() - 1).getRegNum() + 1), 4, customer.getFirstName(),
+                Booking booking = new Booking(Account.currentUser, (BookingList.bookingDatabase.get(BookingList.bookingDatabase.size() - 1).getRegNum() + 1), 4, customer.getFirstName(),
                         customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(),
                         LocalDate.now(),LocalDateTime.now().plusDays(currentDay-1+i), LocalDateTime.now().plusDays(currentDay-1+i+customer.getNightNum()), customer.getNightNum());
-                BookingDatabase.addBooking(booking);
+                BookingList.addBooking(booking);
             }
         }
         databaseCustomer.setTotalNightStay(databaseCustomer.getTotalNightStay()+customer.getNightNum());
@@ -39,7 +39,7 @@ public class HotelSystem {
     public static void cancelBooking(int roomIndex, int currentFloorNum, int currentDay) {
         Customer customer = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum-1].getRooms()[roomIndex].getCustomer();
         int index =0;
-        for (OneDayHotel e:Hotel.hotel) {
+        for (RoomList e:Hotel.hotel) {
 
             if(e.getDate().equals(customer.getCheckInDate())){
                 for (int i = 0; i < customer.getNightNum()+1; i++) {
@@ -48,10 +48,10 @@ public class HotelSystem {
                     room.setStatus("Vacant");
 
                     if(i==0){
-                        Booking booking = new Booking(Account.currentUser, (BookingDatabase.bookingDatabase.get(BookingDatabase.bookingDatabase.size() - 1).getRegNum() + 1),3, customer.getFirstName(),
+                        Booking booking = new Booking(Account.currentUser, (BookingList.bookingDatabase.get(BookingList.bookingDatabase.size() - 1).getRegNum() + 1),3, customer.getFirstName(),
                                 customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(),
                                 LocalDate.now(), LocalDateTime.now().plusDays(currentDay-1+i), LocalDateTime.now().plusDays(currentDay-1+i+customer.getNightNum()), customer.getNightNum());
-                        BookingDatabase.addBooking(booking);
+                        BookingList.addBooking(booking);
                     }
                 }
                 break;
@@ -74,9 +74,9 @@ public class HotelSystem {
     }
     public static void checkOut(int roomIndex, int currentFloorNum, int currentDay){
         Customer customer = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum-1].getRooms()[roomIndex].getCustomer();
-        CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName()).setLastVisit(LocalDateTime.now());
+        CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName()).setLastVisit(LocalDateTime.now());
         int index =0;
-        for (OneDayHotel e:Hotel.hotel) {
+        for (RoomList e:Hotel.hotel) {
             if(e.getDate().equals(LocalDate.now())){
                 for (int i = 0; i < customer.getCheckOutDate().getDayOfYear()-LocalDateTime.now().getDayOfYear()+1; i++) {
                     Room room = Hotel.hotel.get(index + i).getFloors()[currentFloorNum - 1].getRooms()[roomIndex];
@@ -93,14 +93,14 @@ public class HotelSystem {
         int servicePrice =(customer.getPaymerntPrice()-(customer.getExtraBedNum()*316* customer.getNightNum()))/10;
         int vatPrice =(((customer.getPaymerntPrice()+servicePrice)*7)/100);
 
-        Booking booking = new Booking(Account.currentUser, (BookingDatabase.bookingDatabase.get(BookingDatabase.bookingDatabase.size() - 1).getRegNum() + 1),2, customer.getFirstName(),
+        Booking booking = new Booking(Account.currentUser, (BookingList.bookingDatabase.get(BookingList.bookingDatabase.size() - 1).getRegNum() + 1),2, customer.getFirstName(),
                 customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice()+vatPrice+servicePrice, LocalDateTime.now(), LocalDate.now(),0);
-        BookingDatabase.addBooking(booking);
+        BookingList.addBooking(booking);
 
         int total = customer.getPaymerntPrice()+vatPrice+servicePrice;
         if(customer.isLate())
             total*=1.1;
-        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        Customer databaseCustomer =  CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+total);
 
 
@@ -108,7 +108,7 @@ public class HotelSystem {
     }
     public static void outOfService(int roomIndex, int currentFloorNum, int currentDay,LocalDate startDate,LocalDate finishDate){
         int index=0;
-        for (OneDayHotel e:Hotel.hotel
+        for (RoomList e:Hotel.hotel
         ) {
             if (e.getDate().equals(startDate)){
                 String memo = e.getFloors()[currentFloorNum-1].getRooms()[roomIndex].getMemo();
@@ -125,7 +125,7 @@ public class HotelSystem {
     }
     public static void roomBlock(int roomIndex, int currentFloorNum, int currentDay,LocalDate startDate,LocalDate finishDate){
         int index=0;
-        for (OneDayHotel e:Hotel.hotel
+        for (RoomList e:Hotel.hotel
              ) {
             if (e.getDate().equals(startDate)){
                 String memo = e.getFloors()[currentFloorNum-1].getRooms()[roomIndex].getMemo();
@@ -153,9 +153,9 @@ public class HotelSystem {
             if(Hotel.hotel.get(currentDay-1+i).getDate().equals(customer.getCheckOutDate()))
                 break;
             if(i==0){
-                Booking booking = new Booking(Account.currentUser, (BookingDatabase.bookingDatabase.get(BookingDatabase.bookingDatabase.size() - 1).getRegNum() + 1),1, customer.getFirstName(),
+                Booking booking = new Booking(Account.currentUser, (BookingList.bookingDatabase.get(BookingList.bookingDatabase.size() - 1).getRegNum() + 1),1, customer.getFirstName(),
                         customer.getLastName(), customer.getTel(), room.getRoomID(), room.getRoomType(), customer.getPaymerntPrice(), LocalDateTime.now(), LocalDate.now(), 0);
-                BookingDatabase.addBooking(booking);
+                BookingList.addBooking(booking);
             }
         }
 

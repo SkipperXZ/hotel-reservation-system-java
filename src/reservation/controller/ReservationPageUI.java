@@ -3,7 +3,7 @@ package reservation.controller;
 import Account.Account;
 import Hotel.Customer;
 import Hotel.Hotel;
-import Hotel.OneDayHotel;
+import Hotel.RoomList;
 import clock.Clock;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -24,18 +24,18 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.Linker;
 import main.Main;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.*;
 import reservation.room.*;
 import staff.StaffList;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static Hotel.Hotel.hotel;
 
-public class ReservationPageController {
+public class ReservationPageUI {
     @FXML
     private Label time;
     @FXML
@@ -486,9 +486,9 @@ public class ReservationPageController {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -505,9 +505,9 @@ public class ReservationPageController {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }
@@ -559,30 +559,6 @@ public class ReservationPageController {
             }
         });
 
-        blockOnVacant.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                selectedPane = (Pane)blockOnVacant.getParentPopup().getOwnerNode();
-                Room room = searchRoomFromPane(selectedPane);
-                if(isRoomBlockScene()) {
-                    HotelSystem.roomBlock(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
-                    updatePaneStatus(selectedPane);
-                    updateRoomAvailaible();
-                }
-            }
-        });
-        outOfServiceOnVacant.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                selectedPane = (Pane)cleanOnVacant.getParentPopup().getOwnerNode();
-                Room room = searchRoomFromPane(selectedPane);
-                if(isOutOfServiceScene()){
-                    HotelSystem.outOfService(roomIndex,currentFloorNum,currentDay,startDate,finishDate);
-                    updatePaneStatus(selectedPane);
-                    updateRoomAvailaible();
-                }
-            }
-        });
 
         infoOnVacant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -967,65 +943,9 @@ public class ReservationPageController {
         Clock.clock.setClockLabel(time);
         Clock.clock.setDateLabel(date);
     }
-    private boolean isRoomBlockScene(){
-        boolean isConfirm = false;
-        RoomBlockController roomBlockController;
 
-        if(currentStage == null){
-        try {
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("../page/RoomBlockPage.fxml"));
-            Parent root = loader.load();
-            roomBlockController = loader.getController();
-            roomBlockController.setParentController(this);
-            roomBlockController.setRoom(searchRoomFromPane(selectedPane));
-            roomBlockController.setInfo();
-            roomBlockStage = new Stage();
-            roomBlockStage.initStyle(StageStyle.TRANSPARENT);
-            roomBlockStage.setTitle("Room Block");
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            roomBlockStage.setScene(scene);
-            currentStage = roomBlockStage;
-            roomBlockStage.showAndWait();
-            currentStage = null;
-            isConfirm = roomBlockController.isConfirm();
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        }
-        return isConfirm;
-    }
-    private boolean isOutOfServiceScene(){
-        boolean isConfirm = false;
-        OutOfServiceController outOfServiceController;
-        if(currentStage == null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/OutOFServicePage.fxml"));
-                Parent root = loader.load();
-                outOfServiceController = loader.getController();
-                outOfServiceController.setParentController(this);
-                outOfServiceController.setRoom(searchRoomFromPane(selectedPane));
-                outOfServiceController.setInfo();
-                outOfServiceStage = new Stage();
-                outOfServiceStage.initStyle(StageStyle.TRANSPARENT);
-                outOfServiceStage.setTitle("Cleaning");
-                Scene scene = new Scene(root);
-                scene.setFill(Color.TRANSPARENT);
-                outOfServiceStage.setScene(scene);
-                currentStage = outOfServiceStage;
-                outOfServiceStage.showAndWait();
-                isConfirm = outOfServiceController.isConfirm();
-                currentStage = null;
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return isConfirm;
-    }
     private void guestFolioScene(){
-        CustomerInfoPageController customerInfoPageController;
+        CustomerInfoPageUI customerInfoPageController;
         if(currentStage == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CustomerFolioPage.fxml"));
@@ -1050,7 +970,7 @@ public class ReservationPageController {
         }
     }
     private void roomInfoScene(){
-        RoomInfoPageController roomInfoPageController;
+        RoomInfoPageUI roomInfoPageController;
         if(currentStage == null) {
             try {
 
@@ -1078,7 +998,7 @@ public class ReservationPageController {
 
     private boolean isCheckOutScene(){
         boolean isCheckOut = false;
-        CheckOutPageController checkOutPageController;
+        CheckOutPageUI checkOutPageController;
         if(currentStage == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CheckOutPage.fxml"));
@@ -1108,7 +1028,7 @@ public class ReservationPageController {
 
     private boolean isConfirmCleaningScene(){
         boolean isConfirm = false;
-        CleaningPageController cleaningPageController;
+        CleaningPageUI cleaningPageController;
         if(currentStage == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/CleaningPage.fxml"));
@@ -1136,7 +1056,7 @@ public class ReservationPageController {
     }
     private boolean isConfirmCheckInScene(){
         boolean isConfirm = false;
-        CheckInController checkInController;
+        CheckInUI checkInController;
         if(currentStage == null) {
             try {
                 if (currentStage != null)
@@ -1184,7 +1104,7 @@ public class ReservationPageController {
      }*/
     private boolean isConfirmReservationScene() {
         boolean isConfirm = false;
-        ReserveRoomController reserveRoomController;
+        ReserveRoomUI reserveRoomController;
         if(currentStage == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/ReserveRoomPage.fxml"));
@@ -1211,7 +1131,7 @@ public class ReservationPageController {
     }
     public boolean isConfirmPaymentScene() {
         boolean isPay = false;
-        PaymentPageController paymentPageController;
+        PaymentPageUI paymentPageController;
         if(paymentStage == null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../page/PaymentPage.fxml"));
@@ -1295,7 +1215,7 @@ public class ReservationPageController {
         }
     }
     public void updateAll(){
-        for (OneDayHotel e:hotel) {
+        for (RoomList e:hotel) {
             for (int i = 0; i < e.getFloors().length; i++) {
                 for (int j = 0; j < e.getFloors()[i].getRooms().length; j++) {
                     if( e.getFloors()[i].getRooms()[j].getCountDownClock()!=null)

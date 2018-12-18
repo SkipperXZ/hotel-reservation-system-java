@@ -20,10 +20,11 @@ import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import report.Booking;
-import report.BookingDatabase;
+import report.BookingList;
 
 public class StaffProfileUI implements Initializable {
-    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    StaffSystem staffSystem= new StaffSystem();
+    ArrayList<Staff> userArrayList = staffSystem.getStaff();
     int userCur = StaffList.userCur;
 
     @FXML
@@ -73,7 +74,7 @@ public class StaffProfileUI implements Initializable {
 
 
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
 
     @FXML private TableView<Booking> table;

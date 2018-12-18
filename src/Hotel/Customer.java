@@ -1,12 +1,11 @@
 package Hotel;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static Hotel.CustomerDatabase.customerDatabase;
+import static Hotel.CustomerList.customerDatabase;
 
 public class Customer implements Serializable {
     private int adultNum;

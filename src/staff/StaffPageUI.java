@@ -28,15 +28,16 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
 import main.Main;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
-public class StaffPageController implements Initializable {
+public class StaffPageUI implements Initializable {
     public static int max=100;
 //    int []a = new int[max];
     public static ObservableList<Staff>list;
-    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    StaffSystem staffSystem= new StaffSystem();
+    ArrayList<Staff> userArrayList = staffSystem.getStaff();
     ArrayList<UserNoButton>userNoButtons= StaffList.userNoButtons;
     Linker linker = new Linker();
 
@@ -192,9 +193,9 @@ public class StaffPageController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -211,9 +212,9 @@ public class StaffPageController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

@@ -3,7 +3,7 @@ package customer;
 
 import Account.Account;
 import Hotel.Customer;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 import Hotel.Hotel;
 import clock.Clock;
 import com.jfoenix.controls.*;
@@ -34,7 +34,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.Linker;
 import main.Main;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
 import staff.StaffList;
 
@@ -42,7 +42,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class CustomerPageController {
+public class CustomerPageUI {
     @FXML
     private Label time;
     @FXML
@@ -287,9 +287,9 @@ public class CustomerPageController {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -306,9 +306,9 @@ public class CustomerPageController {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }
@@ -338,7 +338,7 @@ public class CustomerPageController {
 
         list.clear();
         ArrayList<Customer> customers = new ArrayList<Customer>();
-        customers.addAll(CustomerDatabase.customerDatabase.values());
+        customers.addAll(CustomerList.customerDatabase.values());
 
         for(Customer customer:customers )
             list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),
