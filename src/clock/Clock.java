@@ -1,5 +1,5 @@
 package clock;
-import Hotel.OneDayHotel;
+import Hotel.RoomList;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,7 +11,6 @@ import main.Linker;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 public class Clock {
 
@@ -39,7 +38,7 @@ public class Clock {
                     clockLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 }
                  while(!Hotel.hotel.get(0).getDate().equals(LocalDate.now())){
-                     Hotel.hotel.add(new OneDayHotel(Hotel.hotel.get(Hotel.hotel.size()-1).getDate().plusDays(1)));
+                     Hotel.hotel.add(new RoomList(Hotel.hotel.get(Hotel.hotel.size()-1).getDate().plusDays(1)));
                      Hotel.hotel.remove(Hotel.hotel.get(0));
                      if(Linker.primaryStage.getScene() == Linker.resScene){
                          Linker.primaryStage.setScene(linker.newCustomerScene());

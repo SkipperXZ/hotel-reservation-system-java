@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import main.Linker;
 import main.Main;
 import report.Booking;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
 import reservation.room.*;
 import staff.StaffList;
@@ -97,7 +97,7 @@ public class DashboardUI implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking>list5;
-    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
     ArrayList<Booking> arrivalToday = new ArrayList<Booking>();
     ArrayList<Booking> arrivalTomorrow = new ArrayList<Booking>();
     ArrayList<Booking> departureToday = new ArrayList<Booking>();
@@ -274,7 +274,7 @@ public class DashboardUI implements Initializable {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -293,7 +293,7 @@ public class DashboardUI implements Initializable {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

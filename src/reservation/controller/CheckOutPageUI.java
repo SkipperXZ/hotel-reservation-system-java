@@ -14,7 +14,7 @@ import reservation.room.Room;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class CheckOutPageController {
+public class CheckOutPageUI {
     @FXML
     private Label adultNumLabel;
 
@@ -75,7 +75,7 @@ public class CheckOutPageController {
     private Room room;
     private Customer customer;
     private boolean isCheckOut=false;
-    private ReservationPageController parentController;
+    private ReservationPageUI parentController;
     @FXML
     void close(MouseEvent event) {
         ((Label)event.getSource()).getScene().getWindow().hide();
@@ -155,7 +155,7 @@ public class CheckOutPageController {
     }
 
 
-    public void setParentController(ReservationPageController parentController) {
+    public void setParentController(ReservationPageUI parentController) {
         this.parentController = parentController;
     }
 }

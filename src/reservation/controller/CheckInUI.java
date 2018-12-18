@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class CheckInController {
+public class CheckInUI {
     @FXML
     private Label roomIDLabel;
 
@@ -107,7 +107,7 @@ public class CheckInController {
     private String tel;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
-    private ReservationPageController parentController;
+    private ReservationPageUI parentController;
     private int extraBedNum;
     private int nightNum;
     private String email;
@@ -317,7 +317,7 @@ public class CheckInController {
         return tel;
     }
 
-    public void setParentController(ReservationPageController parentController) {
+    public void setParentController(ReservationPageUI parentController) {
         this.parentController = parentController;
         initDayLabel();
     }

@@ -34,7 +34,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.Linker;
 import main.Main;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
 import staff.StaffList;
 
@@ -289,7 +289,7 @@ public class CustomerPageUI {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -308,7 +308,7 @@ public class CustomerPageUI {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

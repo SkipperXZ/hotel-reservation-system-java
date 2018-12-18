@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import main.Main;
-import report.BookingDatabase;
+import report.BookingList;
 import main.Linker;
 import report.Booking;
 
@@ -94,7 +94,7 @@ public class calendarController {
     TreeItem<calendar> room12_2 = new TreeItem<>();
 
 
-    ArrayList<Booking> bookingDatabase = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> bookingDatabase = BookingList.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
@@ -410,7 +410,7 @@ public class calendarController {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -429,7 +429,7 @@ public class calendarController {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

@@ -28,14 +28,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class reportController implements Initializable {
+public class reportUI implements Initializable {
 
     static ObservableList<Booking>list1;
     static ObservableList<Booking>list2;
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = BookingDatabase.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> cancelData = new ArrayList<Booking>();
@@ -276,7 +276,7 @@ public class reportController implements Initializable {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -295,7 +295,7 @@ public class reportController implements Initializable {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

@@ -1,13 +1,12 @@
 package reservation;
 
-import Hotel.OneDayHotel;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
-import reservation.controller.ReservationPageController;
+import reservation.controller.ReservationPageUI;
 import reservation.room.Room;
 
 import java.io.Serializable;
@@ -19,7 +18,7 @@ public class CountDownClock implements Serializable {
     @FXML
     private Label countDownLabel ;
     private int countDownTimeMin =0;
-    private ReservationPageController reservationPageController;
+    private ReservationPageUI reservationPageController;
     private int sec = 0;
     private int min = 0;
     private String minText ="";
@@ -41,7 +40,7 @@ public class CountDownClock implements Serializable {
     public void skipCleaning() {
         if (room.getFloorNum() == reservationPageController.getCurrentFloorNum()) {
             for (int i = 0; i < hotel.get(reservationPageController.getCurrentDay()-1).getFloors()[room.getFloorNum() - 1].getRooms().length; i++) {
-                  // System.out.println(Hotel.OneDayHotel.oneDayHotel.getFloors()[room.getCurrentFloorNum()-1].getRooms()[i]+"   "+room);
+                  // System.out.println(Hotel.RoomList.oneDayHotel.getFloors()[room.getCurrentFloorNum()-1].getRooms()[i]+"   "+room);
                 if (hotel.get(reservationPageController.getCurrentDay()-1).getFloors()[room.getFloorNum() - 1].getRooms()[i] == room)
                     reservationPageController.updatePaneStatus(reservationPageController.getPaneArr()[i]);
             }
@@ -99,7 +98,7 @@ public class CountDownClock implements Serializable {
         this.countDownLabel = countDownLabel;
     }
 
-    public void setReservationPageController(ReservationPageController reservationPageController) {
+    public void setReservationPageController(ReservationPageUI reservationPageController) {
         this.reservationPageController = reservationPageController;
     }
 }

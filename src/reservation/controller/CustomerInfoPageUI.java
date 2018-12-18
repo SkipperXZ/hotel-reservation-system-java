@@ -10,7 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import reservation.room.Room;
 
-public class CustomerInfoPageController {
+public class CustomerInfoPageUI {
     @FXML
     private Label firstNameLabel;
     @FXML
@@ -34,7 +34,7 @@ public class CustomerInfoPageController {
 
     private Room room;
     private Customer customer;
-    private ReservationPageController parentController;
+    private ReservationPageUI parentController;
     @FXML
     void close(MouseEvent event) {
         ((Label)event.getSource()).getScene().getWindow().hide();
@@ -74,7 +74,7 @@ public class CustomerInfoPageController {
         this.room = room;
     }
 
-    public void setParentController(ReservationPageController parentController) {
+    public void setParentController(ReservationPageUI parentController) {
         this.parentController = parentController;
     }
 }

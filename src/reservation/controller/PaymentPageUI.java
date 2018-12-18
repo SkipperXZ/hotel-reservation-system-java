@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import Hotel.Customer;
 import reservation.room.Room;
 
-public class PaymentPageController {
+public class PaymentPageUI {
 
 
     @FXML
@@ -98,7 +98,7 @@ public class PaymentPageController {
     private Room room;
     private Customer customer;
     private boolean isPay=false;
-    private ReservationPageController parentController;
+    private ReservationPageUI parentController;
     private boolean isCorrect = false;
     private Stage comfirmPasswordStage;
     private JFXDialog jfxDialog;
@@ -258,7 +258,7 @@ public class PaymentPageController {
         jfxDialogLayout.setActions(jfxButton);
         jfxDialog.show();
     }
-    public void setParentController(ReservationPageController parentController) {
+    public void setParentController(ReservationPageUI parentController) {
         this.parentController = parentController;
     }
 }

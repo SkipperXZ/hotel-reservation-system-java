@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.image.ImageView;
 import main.Main;
-import report.BookingDatabase;
+import report.BookingList;
 import reservation.IO;
 import Hotel.CustomerList;
 
@@ -195,7 +195,7 @@ public class StaffPageUI implements Initializable {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -214,7 +214,7 @@ public class StaffPageUI implements Initializable {
                 IO.saveHotel(Hotel.hotel);
                 IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingDatabase.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingDatabase);
                 System.out.println("Save done");
                 System.exit(0);
             }

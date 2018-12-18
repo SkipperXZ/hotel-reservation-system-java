@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import reservation.room.Room;
 
-public class CleaningPageController {
+public class CleaningPageUI {
     @FXML
     private Label roomNumLabel;
     @FXML
@@ -27,7 +27,7 @@ public class CleaningPageController {
 
     private String roomNum;
     private Boolean isConfirm =false;
-    private ReservationPageController reservationPageController;
+    private ReservationPageUI reservationPageController;
 
     @FXML
     void close(MouseEvent event) {
@@ -75,11 +75,11 @@ public class CleaningPageController {
         roomNumLabel.setText(room.getRoomID());
     }
 
-    public void setReservationPageController(ReservationPageController reservationPageController) {
+    public void setReservationPageController(ReservationPageUI reservationPageController) {
         this.reservationPageController = reservationPageController;
     }
 
-    public ReservationPageController getReservationPageController() {
+    public ReservationPageUI getReservationPageController() {
         return reservationPageController;
     }
 

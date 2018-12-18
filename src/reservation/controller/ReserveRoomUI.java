@@ -16,7 +16,7 @@ import reservation.room.Room;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class ReserveRoomController {
+public class ReserveRoomUI {
 
     @FXML
     private TextField firstNameText;
@@ -102,7 +102,7 @@ public class ReserveRoomController {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private String memo;
-    private ReservationPageController parentController;
+    private ReservationPageUI parentController;
     private int extraBedNum;
     private int nightNum;
     private String email;
@@ -307,7 +307,7 @@ public class ReserveRoomController {
         return tel;
     }
 
-    public void setParentController(ReservationPageController parentController) {
+    public void setParentController(ReservationPageUI parentController) {
         this.parentController = parentController;
         initDayLabel();
     }
