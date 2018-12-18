@@ -26,50 +26,34 @@ public class EditStaffUI implements Initializable {
 
     @FXML
     private JFXButton changImg = new JFXButton();
-
-
     @FXML
     private Label customerID = new Label();
-
     @FXML
     private JFXButton btnCancel=new JFXButton();
-
     @FXML
     private JFXButton btnSave = new JFXButton();
-
     @FXML
     private TextField firstName;//
-
     @FXML
     private TextField lastName;
-
     @FXML
     private TextField country;//
-
     @FXML
     private TextField tel;//
-
     @FXML
     private TextField email;//
-
     @FXML
     private TextArea address;//
-
     @FXML
     private TextField passWord;
-
-    @FXML private Label chEmail = new Label();
-
+    @FXML
+    private Label chEmail = new Label();
     @FXML
     private TextField role = new TextField();
-
     @FXML
     private ChoiceBox<String> userType = new ChoiceBox<String>();
-
     @FXML
     private ImageView ima = new ImageView();
-
-    private Button button = new Button();
     @FXML
 
     private void handleButtonAction(ActionEvent event) {

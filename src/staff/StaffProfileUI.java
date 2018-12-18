@@ -23,7 +23,8 @@ import report.Booking;
 import report.BookingDatabase;
 
 public class StaffProfileUI implements Initializable {
-    ArrayList<Staff> userArrayList = StaffList.userArrayList;
+    StaffSystem staffSystem= new StaffSystem();
+    ArrayList<Staff> userArrayList = staffSystem.getStaff();
     int userCur = StaffList.userCur;
 
     @FXML
