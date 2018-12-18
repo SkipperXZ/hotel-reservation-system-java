@@ -201,14 +201,14 @@ public class calendarController {
             }
 
             if(bookingCount == bookingData.size()){
-                System.out.println(bookingCount+" "+bookingData.get(0).getRoomNum());
+               // System.out.println(bookingCount+" "+bookingData.get(0).getRoomNum());
                 bookingCount = 0;
-                System.out.println("remove fail");
+               // System.out.println("remove fail");
             }
             else {
                 bookingData.remove(bookingCount);
                 bookingCount=0;
-                System.out.println("removed");
+               // System.out.println("removed");
             }
 
         }
@@ -513,13 +513,16 @@ public class calendarController {
             for (int array = 0; array < 14; array++) {
                 arrayString[array] = " ";
             }
+
             for (Booking c : checkinData) {
                 if (c.getRoomNum().equals(Room.get(i).getValue())) {
                     if (c.getRecordTime().plusDays(c.getNightNum()).isAfter(LocalDateTime.now())) {
-                        day = Math.abs(Duration.between(c.getRecordTime().plusDays(c.getNightNum()),LocalDateTime.now()).toDays());
-                        for (int k = 0; k <= day; k++) {
-                            if (k == 14){
+                        day = Math.abs(Duration.between(c.getRecordTime().plusDays(c.getNightNum()), LocalDateTime.now()).toDays());
+                        for (int k = 0; k <= 14; k++) {
+                            if(c.getRecordTime().plusDays(c.getNightNum()).isBefore(LocalDateTime.now().plusDays(k))){
                                 break;
+                            }
+                            if (c.getRecordTime().isAfter(LocalDateTime.now().plusDays(k))){
                             }
                             else {
                                 arrayString[k] = "*";
@@ -530,13 +533,17 @@ public class calendarController {
                 }
             }
             for (Booking c : bookingData) {
+                System.out.println(c.getArrivalDate());
                 if (c.getRoomNum().equals(Room.get(i).getValue())) {
-                    if (c.getRecordTime().plusDays(c.getNightNum()).isAfter(LocalDateTime.now())) {
+                    if (c.getArrivalDate().plusDays(c.getNightNum()).isAfter(LocalDateTime.now())) {
                         day = Math.abs(Duration.between(c.getRecordTime().plusDays(c.getNightNum()), LocalDateTime.now()).toDays());
-                        for (int k = 0; k <= day; k++) {
-                            if (k == 14) {
+                        for (int k = 0; k <= 14; k++) {
+                            if(c.getArrivalDate().plusDays(c.getNightNum()).isBefore(LocalDateTime.now().plusDays(k))){
                                 break;
-                            } else {
+                            }
+                            if (c.getArrivalDate().isAfter(LocalDateTime.now().plusDays(k))){
+                            }
+                            else {
                                 arrayString[k] = "=";
                             }
                         }
@@ -545,7 +552,6 @@ public class calendarController {
 
                 }
             }
-
             arrayRoom.set(i, new calendar(arrayString[0], arrayString[1],
                     arrayString[2], arrayString[3],
                     arrayString[4], arrayString[5],
