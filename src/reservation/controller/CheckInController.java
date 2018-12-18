@@ -1,6 +1,6 @@
 package reservation.controller;
 import Hotel.Hotel;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.beans.value.ChangeListener;
@@ -158,7 +158,7 @@ public class CheckInController {
                 customer.setIdNum(idNum);
                 customer.setAddress(addressText.getText());
                 customer.setCheckInTime(LocalDateTime.now());
-                CustomerDatabase.updateCustomer(customer);
+                CustomerList.updateCustomer(customer);
                 parentController.setCustomer(customer);
                 parentController.setRoomIndex(getRoomIdex(room,parentController.getCurrentDay(),parentController.getCurrentFloorNum()));
                 parentController.getCheckInStage().close();
@@ -251,8 +251,8 @@ public class CheckInController {
         checkOutDatePicker.setDisable(true);
         memoText.setDisable(true);
         roomIDLabel.setText(room.getRoomID());
-        if (CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName()) != null){
-            Customer dbCustomer = CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        if (CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName()) != null){
+            Customer dbCustomer = CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName());
             if( dbCustomer.getIdNum() != null && dbCustomer.getCountry()!=null && dbCustomer.getAddress() != null){
                 idNumText.setText(dbCustomer.getIdNum());
                 countryText.setText(dbCustomer.getCountry());

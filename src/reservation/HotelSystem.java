@@ -3,7 +3,7 @@ package reservation;
 import Account.Account;
 import Hotel.Customer;
 import Hotel.Hotel;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 import Hotel.OneDayHotel;
 import report.BookingDatabase;
 import reservation.room.Room;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 public class HotelSystem {
     public static void booking(Customer customer, int roomIndex, int currentFloorNum, int currentDay) {
-        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        Customer databaseCustomer =  CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         for (int i = 0; i < customer.getNightNum()+1; i++) {
             Room room = Hotel.hotel.get(currentDay-1+i).getFloors()[currentFloorNum-1].getRooms()[roomIndex];
             room.setCustomer(customer);
@@ -74,7 +74,7 @@ public class HotelSystem {
     }
     public static void checkOut(int roomIndex, int currentFloorNum, int currentDay){
         Customer customer = Hotel.hotel.get(currentDay-1).getFloors()[currentFloorNum-1].getRooms()[roomIndex].getCustomer();
-        CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName()).setLastVisit(LocalDateTime.now());
+        CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName()).setLastVisit(LocalDateTime.now());
         int index =0;
         for (OneDayHotel e:Hotel.hotel) {
             if(e.getDate().equals(LocalDate.now())){
@@ -100,7 +100,7 @@ public class HotelSystem {
         int total = customer.getPaymerntPrice()+vatPrice+servicePrice;
         if(customer.isLate())
             total*=1.1;
-        Customer databaseCustomer =  CustomerDatabase.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        Customer databaseCustomer =  CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName());
         databaseCustomer.setTotalRevenue(databaseCustomer.getTotalRevenue()+total);
 
 

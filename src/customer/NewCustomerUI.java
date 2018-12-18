@@ -1,12 +1,10 @@
 package customer;
 
 import Hotel.Customer;
-import Hotel.CustomerDatabase;
 import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -23,15 +21,12 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
-import java.awt.image.RenderedImage;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 
 
-public class NewCustomerController{
+public class NewCustomerUI {
 
         @FXML
         private StackPane stack;
@@ -142,7 +137,7 @@ public class NewCustomerController{
 
                                   customerSystem.addCustomer(customer);
 
-                                   CustomerPageController update = new CustomerPageController();
+                                   CustomerPageUI update = new CustomerPageUI();
                                    update.update();
                                    Stage stage = (Stage) btnCreate.getScene().getWindow();
                                    stage.close();

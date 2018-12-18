@@ -20,7 +20,7 @@ import main.Linker;
 import main.Main;
 import reservation.IO;
 import staff.StaffList;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -274,7 +274,7 @@ public class reportController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
@@ -293,7 +293,7 @@ public class reportController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");

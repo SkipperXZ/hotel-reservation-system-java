@@ -3,7 +3,7 @@ package main;
 import Account.Account;
 import Hotel.Hotel;
 import Hotel.Customer;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 import Hotel.OneDayHotel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -62,7 +62,7 @@ public class Main extends Application {
     public void closeFuncion(){
         stopClock();
         IO.saveHotel(Hotel.hotel);
-        IO.saveCustomer(CustomerDatabase.customerDatabase);
+        IO.saveCustomer(CustomerList.customerDatabase);
         IO.saveUser(StaffList.userNoButtons);
 
         IO.saveAllBooking(BookingDatabase.bookingDatabase);
@@ -101,7 +101,7 @@ public class Main extends Application {
             Hotel.hotel =hotel;
         }
         if(customer != null){
-            CustomerDatabase.customerDatabase = customer;
+            CustomerList.customerDatabase = customer;
             int max = 0 ;
             for(Customer cus :customer.values()){
                 if (max<cus.getCustomerID())

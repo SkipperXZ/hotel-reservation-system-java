@@ -26,7 +26,7 @@ import report.BookingDatabase;
 import reservation.IO;
 import reservation.room.*;
 import staff.StaffList;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -36,7 +36,7 @@ import java.util.ResourceBundle;
 
 import static Hotel.Hotel.hotel;
 
-public class DashboardController implements Initializable {
+public class DashboardUI implements Initializable {
 
     @FXML private Label date;
     @FXML private Label time;
@@ -272,7 +272,7 @@ public class DashboardController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
@@ -291,7 +291,7 @@ public class DashboardController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");

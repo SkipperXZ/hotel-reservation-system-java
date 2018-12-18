@@ -30,7 +30,7 @@ import javafx.scene.image.ImageView;
 import main.Main;
 import report.BookingDatabase;
 import reservation.IO;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 public class StaffPageUI implements Initializable {
     public static int max=100;
@@ -193,7 +193,7 @@ public class StaffPageUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
@@ -212,7 +212,7 @@ public class StaffPageUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");

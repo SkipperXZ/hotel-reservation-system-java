@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -23,10 +22,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import javafx.css.PseudoClass;
 import reservation.IO;
 import staff.StaffList;
-import Hotel.CustomerDatabase;
+import Hotel.CustomerList;
 
 
 public class calendarController {
@@ -410,7 +408,7 @@ public class calendarController {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");
@@ -429,7 +427,7 @@ public class calendarController {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerDatabase.customerDatabase);
+                IO.saveCustomer(CustomerList.customerDatabase);
                 IO.saveUser(StaffList.userNoButtons);
                 IO.saveAllBooking(BookingDatabase.bookingDatabase);
                 System.out.println("Save done");

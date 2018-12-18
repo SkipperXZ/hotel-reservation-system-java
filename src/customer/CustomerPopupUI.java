@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class CustomerPopupController {
+public class CustomerPopupUI {
 
     @FXML private Label fullname;
     @FXML private Label customerID;
@@ -65,7 +65,7 @@ public class CustomerPopupController {
 
     @FXML
     public void initialize() {
-        NameHash = CustomerPageController.selectName;
+        NameHash = CustomerPageUI.selectName;
         customer =  customerSystem.getCustomer(NameHash);
         fullname.setText(customer.getFirstName()+"  "+customer.getLastName());
         customerID.setText(String.valueOf(customer.getCustomerID()));
@@ -184,7 +184,7 @@ public class CustomerPopupController {
                 if (customer.getCustomerID()==Customer.getNumcustomerID())
                      Customer.setNumcustomerID(Customer.getNumcustomerID()-1);
                 customerSystem.deleteCustomer(NameHash);
-                CustomerPageController update = new CustomerPageController();
+                CustomerPageUI update = new CustomerPageUI();
                 update.update();
                 Stage stage = (Stage) btnDelete.getScene().getWindow();
                 stage.close();

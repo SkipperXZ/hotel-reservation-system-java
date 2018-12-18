@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CustomerDatabase {
+public class CustomerList {
      public static HashMap<String,Customer> customerDatabase = new HashMap<String, Customer>();
 
 
