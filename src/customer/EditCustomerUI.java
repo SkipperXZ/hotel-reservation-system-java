@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-import static Hotel.CustomerList.customerDatabase;
+import static Hotel.CustomerList.customerList;
 
 public class EditCustomerUI {
 
@@ -69,26 +69,8 @@ public class EditCustomerUI {
     @FXML
     public void initialize() {
         String NameHash = CustomerPageUI.selectName;
-        Customer customer = customerDatabase.get(NameHash);
+        Customer customer = customerList.get(NameHash);
 
-        ID.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    ID.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
-        tel.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    tel.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
 
         customerID.setText(String.valueOf(customer.getCustomerID()));
         firstName.setText(customer.getFirstName());
@@ -111,7 +93,7 @@ public class EditCustomerUI {
                     root = FXMLLoader.load(getClass().getResource("CustomerPopup.fxml"));
 
                 } catch (IOException e) {
-                    e.printStackTrace();
+                   e.printStackTrace();
                 }
                 Stage stage = (Stage) btnCancel.getScene().getWindow();
                 stage.setScene(new Scene(root));

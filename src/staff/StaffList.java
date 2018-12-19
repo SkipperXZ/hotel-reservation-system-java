@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StaffList implements Serializable {
-    public static HashMap<String,Staff> userDatabase = new HashMap<String, Staff>();
     public static ArrayList<Staff> userArrayList = new ArrayList<Staff>();
     public static ArrayList<UserNoButton>userNoButtons =new ArrayList<UserNoButton>();
 

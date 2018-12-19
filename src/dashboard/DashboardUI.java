@@ -97,7 +97,7 @@ public class DashboardUI implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking>list5;
-    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingList;
     ArrayList<Booking> arrivalToday = new ArrayList<Booking>();
     ArrayList<Booking> arrivalTomorrow = new ArrayList<Booking>();
     ArrayList<Booking> departureToday = new ArrayList<Booking>();
@@ -272,9 +272,9 @@ public class DashboardUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -291,9 +291,9 @@ public class DashboardUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 System.exit(0);
             }

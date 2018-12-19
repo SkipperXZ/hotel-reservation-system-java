@@ -94,7 +94,7 @@ public class calendarUI {
     TreeItem<calendar> room12_2 = new TreeItem<>();
 
 
-    ArrayList<Booking> bookingDatabase = BookingList.bookingDatabase;
+    ArrayList<Booking> bookingDatabase = BookingList.bookingList;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> bookingData = new ArrayList<Booking>();
@@ -408,9 +408,9 @@ public class calendarUI {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -427,9 +427,9 @@ public class calendarUI {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 System.exit(0);
             }

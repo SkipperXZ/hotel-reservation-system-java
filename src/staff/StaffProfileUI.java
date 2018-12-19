@@ -74,7 +74,7 @@ public class StaffProfileUI implements Initializable {
 
 
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingList;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
 
     @FXML private TableView<Booking> table;

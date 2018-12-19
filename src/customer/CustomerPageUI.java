@@ -94,10 +94,6 @@ public class CustomerPageUI {
         Linker linker = new Linker();
 
 
-
-       //Customer customertest =  new Customer( "Mr", "apirut", "chaokrua","0840995919", "heartmannet");
-
-
         calendarButtton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -287,9 +283,9 @@ public class CustomerPageUI {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -306,9 +302,9 @@ public class CustomerPageUI {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 System.exit(0);
             }
@@ -338,7 +334,7 @@ public class CustomerPageUI {
 
         list.clear();
         ArrayList<Customer> customers = new ArrayList<Customer>();
-        customers.addAll(CustomerList.customerDatabase.values());
+        customers.addAll(CustomerList.customerList.values());
 
         for(Customer customer:customers )
             list.add(new CustomerTable(customer.getFirstName(),customer.getLastName(),customer.getCustomerID(),customer.getTel(),

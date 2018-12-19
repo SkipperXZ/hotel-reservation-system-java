@@ -62,10 +62,10 @@ public class Main extends Application {
     public void closeFuncion(){
         stopClock();
         IO.saveHotel(Hotel.hotel);
-        IO.saveCustomer(CustomerList.customerDatabase);
+        IO.saveCustomer(CustomerList.customerList);
         IO.saveUser(StaffList.userNoButtons);
 
-        IO.saveAllBooking(BookingList.bookingDatabase);
+        IO.saveAllBooking(BookingList.bookingList);
         System.out.println("Save done");
         System.exit(0);
     }
@@ -101,7 +101,7 @@ public class Main extends Application {
             Hotel.hotel =hotel;
         }
         if(customer != null){
-            CustomerList.customerDatabase = customer;
+            CustomerList.customerList = customer;
             int max = 0 ;
             for(Customer cus :customer.values()){
                 if (max<cus.getCustomerID())
@@ -121,7 +121,7 @@ public class Main extends Application {
             }
         }
         if(allbooking != null){
-            BookingList.bookingDatabase = allbooking;
+            BookingList.bookingList = allbooking;
         }
         else{
             Booking booking = new Booking(Account.currentUser, 0,-1, null, null, null, null, null, -1, LocalDateTime.now(),LocalDate.now(), 0);

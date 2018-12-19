@@ -139,8 +139,8 @@ public class ReserveRoomUI {
             @Override
             public void handle(ActionEvent event) {
                 String name = searchBar.getText().replaceAll("\\s+","");
-                if (CustomerList.customerDatabase.get(name) != null){
-                    Customer customer = CustomerList.customerDatabase.get(name);
+                if (CustomerList.customerList.get(name) != null){
+                    Customer customer = CustomerList.customerList.get(name);
                     firstNameText.setText(customer.getFirstName());
                     lastNameText.setText(customer.getLastName());
                     telNumText.setText(customer.getTel());

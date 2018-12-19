@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static Hotel.CustomerList.customerDatabase;
+import static Hotel.CustomerList.customerList;
 
 public class Customer implements Serializable {
     private int adultNum;
@@ -64,9 +64,9 @@ public class Customer implements Serializable {
         this.weekDayNum =weekDayNum;
         this.weekEndNum = weekEndNum;
 
-        if(customerDatabase.size()==0)
+        if(customerList.size()==0)
             numcustomerID =0;
-        if(customerDatabase.get(firstName+lastName)==null)
+        if(customerList.get(firstName+lastName)==null)
             numcustomerID+=1;
         this.customerID = numcustomerID;  // add new ID
         //System.out.println(numcustomerID+1);
@@ -100,10 +100,10 @@ public class Customer implements Serializable {
             this.idNum=idNum;
             this.country= country;
             this.address = address;
-        if(customerDatabase.size()==0)
+        if(customerList.size()==0)
             numcustomerID =0;
         numcustomerID+=1;
-        if(customerDatabase.get(firstName+lastName)==null)
+        if(customerList.get(firstName+lastName)==null)
         this.customerID = numcustomerID;  // add new ID
         this.imgFile = "src\\img\\icon\\photoUser.png";
     }

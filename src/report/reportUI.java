@@ -35,7 +35,7 @@ public class reportUI implements Initializable {
     static ObservableList<Booking>list3;
     static ObservableList<Booking>list4;
     static ObservableList<Booking> list;
-    ArrayList<Booking> allBooking = BookingList.bookingDatabase;
+    ArrayList<Booking> allBooking = BookingList.bookingList;
     ArrayList<Booking> checkinData = new ArrayList<Booking>();
     ArrayList<Booking> checkoutData = new ArrayList<Booking>();
     ArrayList<Booking> cancelData = new ArrayList<Booking>();
@@ -274,9 +274,9 @@ public class reportUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -293,9 +293,9 @@ public class reportUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 System.exit(0);
             }

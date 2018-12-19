@@ -8,26 +8,26 @@ import report.BookingList;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static Hotel.CustomerList.customerDatabase;
+import static Hotel.CustomerList.customerList;
 
 public class CustomerSystem
 {
     public  Collection<Customer> getCustomerList() {
-    return CustomerList.customerDatabase.values();
+    return CustomerList.customerList.values();
     }
     public Customer getCustomer(String NameHash){
-     return customerDatabase.get(NameHash);
+     return customerList.get(NameHash);
     }
     public  void addCustomer(Customer customer){
         CustomerList.updateCustomer(customer);
     }
 
     public void deleteCustomer(String NameHash){
-       CustomerList.customerDatabase.remove(NameHash);
+       CustomerList.customerList.remove(NameHash);
     }
     public ArrayList<Booking> getBookingCustomer(String name){
         ArrayList<Booking> arrayList = new ArrayList<>();
-        for (Booking booking: BookingList.bookingDatabase) {
+        for (Booking booking: BookingList.bookingList) {
             if (booking.getOperation() == 1 || booking.getOperation() == 2) {
                 if (booking.getFullname().equals(name)){
                     arrayList.add(booking);

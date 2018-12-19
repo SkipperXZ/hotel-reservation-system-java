@@ -251,8 +251,8 @@ public class CheckInUI {
         checkOutDatePicker.setDisable(true);
         memoText.setDisable(true);
         roomIDLabel.setText(room.getRoomID());
-        if (CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName()) != null){
-            Customer dbCustomer = CustomerList.customerDatabase.get(customer.getFirstName()+customer.getLastName());
+        if (CustomerList.customerList.get(customer.getFirstName()+customer.getLastName()) != null){
+            Customer dbCustomer = CustomerList.customerList.get(customer.getFirstName()+customer.getLastName());
             if( dbCustomer.getIdNum() != null && dbCustomer.getCountry()!=null && dbCustomer.getAddress() != null){
                 idNumText.setText(dbCustomer.getIdNum());
                 countryText.setText(dbCustomer.getCountry());

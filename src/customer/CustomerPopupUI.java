@@ -96,7 +96,7 @@ public class CustomerPopupUI {
                     root = FXMLLoader.load(getClass().getResource("EditCustomer.fxml"));
 
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
                 Stage stage = (Stage) btnEdit.getScene().getWindow();
                 stage.setScene(new Scene(root));

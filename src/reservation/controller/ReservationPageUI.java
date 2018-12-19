@@ -486,9 +486,9 @@ public class ReservationPageUI {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 Linker.primaryStage.close();
                 Stage stage= new Stage();
@@ -505,9 +505,9 @@ public class ReservationPageUI {
             @Override
             public void handle(MouseEvent event) {
                 IO.saveHotel(Hotel.hotel);
-                IO.saveCustomer(CustomerList.customerDatabase);
+                IO.saveCustomer(CustomerList.customerList);
                 IO.saveUser(StaffList.userNoButtons);
-                IO.saveAllBooking(BookingList.bookingDatabase);
+                IO.saveAllBooking(BookingList.bookingList);
                 System.out.println("Save done");
                 System.exit(0);
             }
