@@ -15,7 +15,7 @@
   <h3>Reservation</h3> 
 <image src="https://i.imgur.com/YyrIRTw.jpg">
 
-<image src="https://i.imgur.com/pJIRbXY.jpg">
+<image src="https://i.imgur.com/pJIRbXY.jpg?1">
 
 <image src="https://i.imgur.com/uTL10qW.jpg">
 
