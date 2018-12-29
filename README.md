@@ -1,6 +1,6 @@
 # hotel reservation system java
 
-  <h3>Login</h3> 
+  <h2>Login</h2> 
 
 <image src="https://i.imgur.com/n3Ac0pC.jpg">
 
@@ -9,14 +9,14 @@
 
 <image src="https://i.imgur.com/SEj12un.jpg">
 
-  <h3>Calendar</h3> 
+  <h2>Calendar</h2> 
   <br><br><br>
   
   
 
 <image src="https://i.imgur.com/TVB55x1.jpg?1>">
 
-  <h3>Reservation</h3> 
+  <h2>Reservation</h2> 
   <br><br><br>
   
   
@@ -33,7 +33,7 @@
 
 <image src="https://i.imgur.com/0Uwpnh6.jpg?1">
 
-  <h3>Customer</h3> 
+  <h2>Customer</h2> 
   <br><br><br>
   
   
@@ -41,13 +41,13 @@
 
 <image src="https://i.imgur.com/7pTYVC7.jpg">
 
-  <h3>Report</h3> 
+  <h2>Report</h2> 
   <br><br><br>
   
   
 <image src="https://i.imgur.com/xZr7nmI.jpg?1">
 
-  <h3>User</h3> 
+  <h2>User</h2> 
   <br><br><br>
   
  <image src="https://i.imgur.com/yHBqDSj.jpg">
