@@ -19,11 +19,11 @@
 
 <image src="https://i.imgur.com/uTL10qW.jpg">
 
-<image src="https://i.imgur.com/bjDcbbj.jpg">
+<image src="https://i.imgur.com/bjDcbbj.jpg?1">
 
 <image src="https://i.imgur.com/dvxxAXY.jpg">
 
-<image src="https://i.imgur.com/0Uwpnh6.jpg">
+<image src="https://i.imgur.com/0Uwpnh6.jpg?1">
 
   <h3>Customer</h3> 
 <image src="https://i.imgur.com/HiPwSzo.jpg">
@@ -31,7 +31,7 @@
 <image src="https://i.imgur.com/7pTYVC7.jpg">
 
   <h3>Report</h3> 
-<image src="https://i.imgur.com/xZr7nmI.jpg">
+<image src="https://i.imgur.com/xZr7nmI.jpg?1">
 
   <h3>User</h3> 
  <image src="https://i.imgur.com/yHBqDSj.jpg">
