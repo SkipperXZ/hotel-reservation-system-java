@@ -10,7 +10,7 @@
 
   <h3>Calendar</h3> 
 
-<image src="https://i.imgur.com/TVB55x1.jpg">
+<image src="https://i.imgur.com/TVB55x1.jpg?1>">
 
   <h3>Reservation</h3> 
 <image src="https://i.imgur.com/YyrIRTw.jpg">
